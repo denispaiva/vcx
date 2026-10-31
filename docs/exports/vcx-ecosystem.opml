@@ -1,0 +1,500 @@
+<?xml version='1.0' encoding='utf-8'?>
+<opml version="2.0">
+  <head>
+    <title>VCX · VibeCoding X Projects</title>
+  </head>
+  <body>
+    <outline text="VCX · VibeCoding X Projects" _note="Vista derivada de la documentación de VCX al 2026-10-30. No es una segunda fuente normativa. Regenerar al actualizar las fuentes; las propuestas conservan su estado. Fuente de entrada: README.md.">
+      <outline text="Propósito">
+        <outline text="Misión">
+          <outline text="Ayudar a personas, equipos y agentes a convertir ideas en resultados verificables mediante herramientas reutilizables, un proceso de trabajo explícito y contextos propios que preserven el propósito y la memoria de cada iniciativa." />
+        </outline>
+        <outline text="Visión">
+          <outline text="Que un equipo pueda comenzar un portfolio con agilidad, aprovechar capacidades y aprendizajes existentes, y evolucionar cada proyecto con autonomía y continuidad alrededor de su misión y visión." />
+        </outline>
+        <outline text="Para quién">
+          <outline text="Para propietarios de portfolios, equipos que inician o mantienen proyectos y personas que trabajan con agentes de inteligencia artificial. Cada equipo adopta herramientas y configuración propias sin necesitar el portfolio que dio origen al ecosistema." />
+        </outline>
+        <outline text="Objetivos">
+          <outline text="Ofrecer una base portable formada por Blends, Brix y Cellar." />
+          <outline text="Reducir el esfuerzo de preparar nuevos equipos e iniciativas mediante contextos y convenciones reutilizables." />
+          <outline text="Mantener una fuente editable por dato, identidad estable y relaciones explícitas entre iniciativas." />
+          <outline text="Permitir la evolución y adopción independiente de productos, herramientas y portfolios." />
+          <outline text="Conservar decisiones y evidencia para continuar el trabajo sin depender de la memoria informal de una conversación." />
+        </outline>
+        <outline text="Mensaje ejecutivo" _note="Fuente: docs/executive-pitch.md" />
+      </outline>
+      <outline text="A · Base reutilizable" _note="Productos portables para comenzar nuevos proyectos con nuevos equipos. La estructura actual es documental; las capacidades ejecutables requieren implementación posterior.">
+        <outline text="Blends · Experiencia y conducción" _note="Fuente: blends/README.md; instrucciones locales: blends/AGENTS.md">
+          <outline text="Misión">
+            <outline text="Conducir el trabajo de personas, equipos y agentes para convertir ideas en resultados verificables mediante una experiencia integrada de planificación, coordinación y gobierno." />
+          </outline>
+          <outline text="Visión">
+            <outline text="Que distintos equipos puedan adoptar un proceso explícito y configurable para sus portfolios, con decisiones trazables y continuidad entre sesiones, sin depender de los nombres o la disposición del portfolio original." />
+          </outline>
+          <outline text="Destinatarios y alcance">
+            <outline text="Se dirige a responsables de portfolios, equipos de proyecto y agentes autorizados. Coordina exploración, planificación, autoridad, sesiones, FinOps de gobierno, entrega y presentación del portfolio." />
+            <outline text="Entradas previstas: configuración de un Cellar, políticas y versiones adoptadas, estado de las iniciativas, solicitudes de trabajo y permisos de sus participantes." />
+            <outline text="Resultados previstos: operaciones coordinadas, seguimiento y vistas del portfolio, comprobaciones de proceso y solicitudes de decisiones con evidencia." />
+            <outline text="Blends consume las interfaces públicas de Cellar para estado y de Brix para capacidades. No almacena otra copia editable del portfolio dentro de su implementación ni decide por sí mismo presupuestos o excepciones reservadas a una autoridad humana." />
+          </outline>
+          <outline text="Estado y contexto">
+            <outline text="Aquí se documenta el producto objetivo; no se trasladó su implementación. El núcleo de gobierno del sistema existente mantiene su identidad Blends Kernel y su seguimiento canónico actual. No hay un roadmap nuevo o paralelo en esta carpeta." />
+            <outline text="Para trabajar: leer este documento y AGENTS.md. Consultar después la matriz, interoperabilidad o decisiones, según la tarea. La procedencia histórica es referencia, no un requisito de instalación." />
+          </outline>
+        </outline>
+        <outline text="Brix · Capacidades e instrumentos" _note="Fuente: brix/README.md; instrucciones locales: brix/AGENTS.md">
+          <outline text="Misión">
+            <outline text="Proveer capacidades e instrumentos técnicos reutilizables que ejecuten operaciones con entradas, permisos y resultados verificables." />
+          </outline>
+          <outline text="Visión">
+            <outline text="Que proyectos y equipos puedan adoptar capacidades de ingeniería de forma independiente, con beneficio demostrable, interfaces estables y configuración explícita, tanto dentro como fuera de Blends." />
+          </outline>
+          <outline text="Destinatarios y alcance">
+            <outline text="Se dirige a desarrolladores, agentes, proyectos y orquestadores. El alcance conceptual incluye scoring y evaluación de herramientas, medición, generación de especificaciones y scaffolding, motores de FinOps, validación y siembra de escenarios. La disponibilidad real de cada capacidad debe verificarse en su implementación; esta lista no declara todas como implementadas." />
+            <outline text="Entradas previstas: solicitudes, datos, configuración y permisos explícitos, junto con drivers cuando una capacidad los requiera." />
+            <outline text="Resultados previstos: resultados estructurados, diagnósticos, errores y evidencia reproducible con límites claros." />
+            <outline text="Brix no prescribe el proceso de gobierno de un equipo ni adopta decisiones en su nombre. No presupone un Cellar, busca rutas históricas de Blends o accede a implementaciones privadas ajenas. Los drivers que conocen un backend particular pertenecen al producto consumidor." />
+          </outline>
+          <outline text="Estado y contexto">
+            <outline text="Aquí se documenta el producto objetivo. El Brix existente tiene independencia parcial y todavía contiene dependencias de rutas de blends, descritas en los antecedentes. La prueba de uso externo es una meta pendiente; no se afirma haberla superado. No se copia código ni se crea otro roadmap." />
+            <outline text="Para trabajar: leer este documento y AGENTS.md. Consultar interoperabilidad, matriz y decisiones según la tarea. Los antecedentes identifican la implementación original." />
+          </outline>
+        </outline>
+        <outline text="Cellar · Organización y custodia" _note="Fuente: cellar/README.md; instrucciones locales: cellar/AGENTS.md">
+          <outline text="Misión">
+            <outline text="Ofrecer una estructura y mecanismos portables para organizar y custodiar ideas, proyectos, configuración, decisiones, estado y evidencia de un portfolio." />
+          </outline>
+          <outline text="Visión">
+            <outline text="Que cada equipo pueda crear y conservar un portfolio propio, legible y recuperable con independencia del orquestador, preservando la identidad y el contexto de sus iniciativas." />
+          </outline>
+          <outline text="Destinatarios y alcance">
+            <outline text="Se dirige a propietarios y custodios de portfolios, equipos y consumidores autorizados de sus datos. El producto define organización, referencias, configuración y mecanismos de acceso y recuperación; cada instancia conserva los datos concretos del portfolio." />
+            <outline text="Entradas previstas: identidad, configuración, perfiles adoptados, iniciativas, decisiones y declaraciones de almacenamiento." />
+            <outline text="Resultados previstos: un portfolio organizado y accesible por interfaces explícitas, con estado y evidencia recuperables desde sus fuentes declaradas." />
+            <outline text="Cellar no ejecuta el gobierno de Blends ni concentra las interfaces internas de Brix. Una instancia no exige copiar todo el código, bases operativas o credenciales dentro de una carpeta. El alcance ejecutable del producto y sus interfaces deben detallarse antes de implementarlos." />
+          </outline>
+          <outline text="Estado y contexto">
+            <outline text="Esta carpeta contiene la definición del producto y las plantillas; cellars/ es el punto de entrada de sus futuras instancias. Aún no se creó una instancia ni se eligió su nombre." />
+            <outline text="Para trabajar: leer este documento y AGENTS.md. Consultar interoperabilidad, matriz y decisiones según la tarea." />
+          </outline>
+          <outline text="Plantillas documentales">
+            <outline text="Cellar · Identidad, propietario, configuración y recuperación" _note="Fuente: cellar/templates/cellar/README.md" />
+            <outline text="Iniciativa · Misión, visión, alcance, estado y fuentes" _note="Fuente: cellar/templates/initiative/README.md" />
+            <outline text="Instrucciones locales · Contexto progresivo" _note="Fuente: cellar/templates/initiative/AGENTS.md" />
+          </outline>
+        </outline>
+      </outline>
+      <outline text="B · Ideas y proyectos en instancias de Cellar" _note="Pertenencia lógica acordada; no decide todavía dónde vive físicamente el código. No existe una instancia real creada en este workspace.">
+        <outline text="Cada Cellar concreto">
+          <outline text="Propósito, propietario y equipo" />
+          <outline text="Configuración y versiones adoptadas" />
+          <outline text="Prioridades y relaciones del portfolio" />
+          <outline text="Decisiones y evidencia transversal" />
+          <outline text="Almacenamientos, acceso, respaldo y recuperación" />
+          <outline text="Ideas">
+            <outline text="Captura y contexto original" />
+            <outline text="Misión, visión e hipótesis" />
+            <outline text="Exploración, evaluaciones y evidencia" />
+            <outline text="Decisión de continuidad y relación con un proyecto" />
+          </outline>
+          <outline text="Proyectos">
+            <outline text="Identidad, misión y visión propias" />
+            <outline text="Alcance, destinatarios y objetivos" />
+            <outline text="Ubicación canónica del código y dependencias" />
+            <outline text="Referencias a roadmap y backlog" />
+            <outline text="Decisiones, evidencia y continuidad entre sesiones" />
+          </outline>
+        </outline>
+        <outline text="Cada iniciativa evoluciona con contexto propio" />
+        <outline text="La gestión de los productos de A puede residir en un Cellar sin duplicar su código o seguimiento" _note="Propuesta de diseño; ese Cellar no está creado." />
+      </outline>
+      <outline text="Interoperabilidad · Reparto propuesto" _note="Fuente editable: docs/architecture/interoperability.md. Nombre y distribución de convenciones compartidas pendientes; no se crea un cuarto producto.">
+        <outline text="Identidad, estructura y operaciones de portfolio">
+          <outline text="Dueño propuesto: Cellar · producto" />
+          <outline text="Consumidores: Blends y consumidores autorizados" />
+          <outline text="Frontera: No define la implementación interna de capacidades" />
+        </outline>
+        <outline text="Invocación de capacidades, resultados, errores y permisos">
+          <outline text="Dueño propuesto: Brix" />
+          <outline text="Consumidores: Blends, proyectos y consumidores independientes" />
+          <outline text="Frontera: No exige Blends ni un Cellar implícito" />
+        </outline>
+        <outline text="Operaciones de orquestación y gobierno">
+          <outline text="Dueño propuesto: Blends" />
+          <outline text="Consumidores: Interfaces, agentes e integraciones" />
+          <outline text="Frontera: Consume las interfaces públicas de las otras piezas" />
+        </outline>
+        <outline text="Convenciones comunes de referencias e intercambio">
+          <outline text="Dueño propuesto: Fuente compartida, con responsable designado por contrato" />
+          <outline text="Consumidores: Las piezas que adopten la convención" />
+          <outline text="Frontera: No copia esquemas de dominio ni importa implementaciones internas" />
+        </outline>
+        <outline text="Declaraciones de compatibilidad">
+          <outline text="Dueño propuesto: Cada producto mantiene sus restricciones; una matriz conjunta se deriva de ellas" />
+          <outline text="Consumidores: Consumidores y verificadores" />
+          <outline text="Frontera: No obliga a compartir versión o calendario de lanzamiento" />
+        </outline>
+        <outline text="Trasiego · Candidato pendiente" _note="Ya identifica una iniciativa existente; no se reserva ni reasigna por esta exportación." />
+      </outline>
+      <outline text="Matriz fundacional · Propuesta" _note="Fuente editable: docs/architecture/responsibility-matrix.md. Las responsabilidades técnicas no otorgan autoridad humana.">
+        <outline text="Responsabilidades técnicas">
+          <outline text="Misión, visión y contexto de cada iniciativa">
+            <outline text="Blends: Facilita su elaboración y consulta" />
+            <outline text="Brix: Aporta instrumentos cuando se requieren" />
+            <outline text="Cellar · producto: Define cómo organizarlos y referenciarlos" />
+            <outline text="Cellar · instancia: Conserva la fuente propia de cada iniciativa" />
+          </outline>
+          <outline text="Proceso de exploración, planificación y entrega">
+            <outline text="Blends: Define el proceso y coordina su aplicación" />
+            <outline text="Brix: Ejecuta capacidades solicitadas" />
+            <outline text="Cellar · producto: Expone estructuras e interfaces para el estado" />
+            <outline text="Cellar · instancia: Conserva el perfil adoptado, parámetros y decisiones" />
+          </outline>
+          <outline text="Autoridad, roles y compuertas">
+            <outline text="Blends: Define y verifica las reglas del proceso adoptado" />
+            <outline text="Brix: Declara y exige los permisos de cada capacidad" />
+            <outline text="Cellar · producto: Representa los datos y límites de acceso de su ámbito" />
+            <outline text="Cellar · instancia: Conserva asignaciones y aprobaciones verificables" />
+          </outline>
+          <outline text="Capacidades e instrumentos reutilizables">
+            <outline text="Blends: Selecciona e invoca según el proceso" />
+            <outline text="Brix: Dueño de implementación, catálogo e interfaz pública" />
+            <outline text="Cellar · producto: Ofrece acceso explícito a los datos que corresponda" />
+            <outline text="Cellar · instancia: Conserva configuración de uso, resultados y evidencia pertinente" />
+          </outline>
+          <outline text="Estructura y acceso al portfolio">
+            <outline text="Blends: Consume interfaces públicas" />
+            <outline text="Brix: Consume datos explícitos cuando la capacidad lo requiere" />
+            <outline text="Cellar · producto: Dueño del formato y de sus interfaces públicas" />
+            <outline text="Cellar · instancia: Conserva identidad, localizaciones y estado del portfolio" />
+          </outline>
+          <outline text="Roadmap, backlog y dependencias">
+            <outline text="Blends: Coordina operaciones y seguimiento" />
+            <outline text="Brix: Calcula o valida cuando se solicita" />
+            <outline text="Cellar · producto: Define representación, referencias y acceso" />
+            <outline text="Cellar · instancia: Conserva una fuente canónica por dato, incluso en almacenamientos declarados" />
+          </outline>
+          <outline text="Decisiones, sesiones y evidencia">
+            <outline text="Blends: Coordina su producción y comprueba requisitos" />
+            <outline text="Brix: Produce resultados verificables" />
+            <outline text="Cellar · producto: Ofrece mecanismos de custodia, integridad y recuperación" />
+            <outline text="Cellar · instancia: Conserva los registros y referencias de cada iniciativa o del portfolio" />
+          </outline>
+          <outline text="FinOps">
+            <outline text="Blends: Gobierna presupuestos, revisión y escalamiento" />
+            <outline text="Brix: Calcula, proyecta y valida" />
+            <outline text="Cellar · producto: Organiza y expone los registros" />
+            <outline text="Cellar · instancia: Conserva fuentes, importes, asignaciones y decisiones sin doble conteo" />
+          </outline>
+          <outline text="Presentación del portfolio">
+            <outline text="Blends: Dueño de la interfaz y de la lógica de presentación" />
+            <outline text="Brix: Aporta cálculos solicitados" />
+            <outline text="Cellar · producto: Expone información mediante su contrato" />
+            <outline text="Cellar · instancia: Conserva preferencias; las vistas derivadas no sustituyen las fuentes" />
+          </outline>
+          <outline text="Código, configuración operativa y dependencias de una iniciativa">
+            <outline text="Blends: Coordina su ciclo de trabajo" />
+            <outline text="Brix: Aporta capacidades que la iniciativa adopta" />
+            <outline text="Cellar · producto: Permite declarar ubicaciones y referencias" />
+            <outline text="Cellar · instancia: Registra el dueño y la ubicación canónica; el proyecto conserva su contexto" />
+          </outline>
+          <outline text="Exportación, respaldo y recuperación del portfolio">
+            <outline text="Blends: Coordina el procedimiento cuando se usa Blends" />
+            <outline text="Brix: Aporta instrumentos reutilizables que se invoquen" />
+            <outline text="Cellar · producto: Define formato y mecanismos para preservar y restaurar estado" />
+            <outline text="Cellar · instancia: Declara almacenamientos, políticas y referencias; conserva evidencia de recuperación" />
+          </outline>
+          <outline text="Versiones y compatibilidad">
+            <outline text="Blends: Mantiene su versión y compatibilidades declaradas" />
+            <outline text="Brix: Mantiene su versión y compatibilidades declaradas" />
+            <outline text="Cellar · producto: Mantiene versiones de producto y formato explícitas" />
+            <outline text="Cellar · instancia: Fija las versiones adoptadas y registra sus actualizaciones" />
+          </outline>
+        </outline>
+        <outline text="RACI humana">
+          <outline text="Misión, visión y prioridades de una iniciativa">
+            <outline text="R: Equipo de la iniciativa" />
+            <outline text="A: PO de la iniciativa" />
+            <outline text="C: Usuarios y especialistas pertinentes" />
+            <outline text="I: Responsables del portfolio" />
+          </outline>
+          <outline text="Roadmap, aceptación y continuidad de una iniciativa">
+            <outline text="R: Equipo de la iniciativa" />
+            <outline text="A: PO de la iniciativa" />
+            <outline text="C: Revisores y responsables de dependencias afectadas" />
+            <outline text="I: Responsables del portfolio" />
+          </outline>
+          <outline text="Cambiar la implementación de un producto de A">
+            <outline text="R: Equipo mantenedor del producto" />
+            <outline text="A: Responsable del producto, según gobierno adoptado" />
+            <outline text="C: Revisión independiente cuando corresponda" />
+            <outline text="I: Consumidores afectados" />
+          </outline>
+          <outline text="Cambiar un contrato público o su compatibilidad">
+            <outline text="R: Mantenedor del contrato" />
+            <outline text="A: Responsable designado para ese contrato" />
+            <outline text="C: Mantenedores y consumidores afectados" />
+            <outline text="I: Equipos que lo adopten" />
+          </outline>
+          <outline text="Adoptar o actualizar herramientas y perfiles en un Cellar">
+            <outline text="R: Equipo del Cellar" />
+            <outline text="A: Responsable del Cellar" />
+            <outline text="C: Mantenedores y responsables de iniciativas afectadas" />
+            <outline text="I: Usuarios del Cellar" />
+          </outline>
+          <outline text="Presupuestos, sobrecostos y excepciones de autoridad">
+            <outline text="R: Equipo que prepara evidencia y propuesta" />
+            <outline text="A: PO o autoridad humana competente" />
+            <outline text="C: Especialistas y responsables afectados" />
+            <outline text="I: Equipos alcanzados" />
+          </outline>
+          <outline text="Configurar y verificar respaldo y recuperación">
+            <outline text="R: Operador designado" />
+            <outline text="A: Responsable de custodia del Cellar" />
+            <outline text="C: Responsables de almacenamientos e iniciativas" />
+            <outline text="I: Propietario del portfolio" />
+          </outline>
+          <outline text="Cambiar controles compartidos del repositorio o de ejecución">
+            <outline text="R: Mantenedor de esos controles" />
+            <outline text="A: Autoridad humana competente sobre ese ámbito" />
+            <outline text="C: Responsables de las piezas afectadas" />
+            <outline text="I: Equipos alcanzados" />
+          </outline>
+        </outline>
+        <outline text="R = ejecuta; A = responde y decide; C = es consultado; I = es informado" />
+      </outline>
+      <outline text="Principios de diseño" _note="Fuentes: docs/architecture/overview.md y docs/architecture/responsibility-matrix.md.">
+        <outline text="Cada iniciativa puede entenderse y trabajarse desde su propio contexto; las dependencias y reglas compartidas se consultan de forma explícita." />
+        <outline text="Blends coordina; Brix ejecuta capacidades; Cellar organiza y custodia. Ninguna pieza absorbe silenciosamente las otras responsabilidades." />
+        <outline text="Brix funciona sin Blends; Cellar conserva información legible y recuperable sin ejecutar Blends o Brix." />
+        <outline text="Un Cellar adopta versiones compatibles de A; actualizar A no actualiza silenciosamente todos los portfolios." />
+        <outline text="Blends, Brix y Cellar tienen contextos propios de desarrollo. Su seguimiento puede residir en un Cellar sin duplicar el código ni el estado de gestión." />
+        <outline text="Una iniciativa tiene un Cellar propietario de su registro canónico; otras instancias pueden referenciarla. Esta regla sigue propuesta; consultar el registro de decisiones." />
+        <outline text="Las políticas particulares solo modifican parámetros autorizados por el perfil adoptado; no elevan permisos ni anulan autoridad de ámbitos superiores." />
+        <outline text="Un monorepo no impone una versión, despliegue o contexto único. Los límites de dependencias deben ser comprobables." />
+        <outline text="La confidencialidad entre propietarios exige aislamiento efectivo del almacenamiento y acceso; una carpeta no es suficiente." />
+        <outline text="La exportación contempla los almacenamientos declarados fuera del árbol principal. Los secretos se reconectan desde sus almacenes seguros y los locks activos no se restauran como procesos vivos." />
+        <outline text="Monorepo modular · Aceptable y recomendado; detalles abiertos">
+          <outline text="Contextos, interfaces, versiones y entregas independientes" />
+          <outline text="Revisar separación por confidencialidad, cambio de propietario o bloqueos persistentes" />
+          <outline text="Dos sprints con bloqueos recurrentes: disparador de evaluación propuesto, no separación automática" />
+          <outline text="El nombre Blends Kernel se conserva; Brix es un núcleo de capacidades" />
+        </outline>
+      </outline>
+      <outline text="Decisiones y pendientes" _note="Fuente editable: docs/decisions/README.md; snapshot de sus estados.">
+        <outline text="VCX-D001 · A: base reutilizable; B: iniciativas con evolución propia · Acordado">
+          <outline text="Fundamento y fuente: El usuario definió ambos objetivos en esta conversación" />
+          <outline text="Consecuencia: Blends, Brix y Cellar deben servir a nuevos proyectos y equipos" />
+        </outline>
+        <outline text="VCX-D002 · Contexto propio por iniciativa, centrado en misión y visión · Acordado">
+          <outline text="Fundamento y fuente: Objetivo explícito del usuario" />
+          <outline text="Consecuencia: El contexto se carga progresivamente; compartir Git no implica cargar todo el portfolio" />
+        </outline>
+        <outline text="VCX-D003 · B vive en instancias de Cellar · Acordado">
+          <outline text="Fundamento y fuente: Confirmación «Perfecto» tras distinguir producto e instancias" />
+          <outline text="Consecuencia: cellar/ documenta A; cellars/ es la entrada de B" />
+        </outline>
+        <outline text="VCX-D004 · Monorepo modular inicial · Propuesto; aceptabilidad expresada">
+          <outline text="Fundamento y fuente: El usuario no tiene objeción al monorepo y pidió entender su desacople y crecimiento" />
+          <outline text="Consecuencia: Se puede diseñar en ese sentido; no se inicializa Git ni se presupone una aprobación de todos sus detalles" />
+        </outline>
+        <outline text="VCX-D005 · Fundación documental en VibeCoding/VCX · Autorizado para esta etapa">
+          <outline text="Fundamento y fuente: Pedido de carpetas y documentos dentro de VibeCoding y «comienza con tu propuesta» tras el plan" />
+          <outline text="Consecuencia: Se crean documentos, contextos y plantillas; no fija el destino de migración de blends" />
+        </outline>
+        <outline text="VCX-D006 · Reparto técnico, RACI e interfaces públicas · Propuesto">
+          <outline text="Fundamento y fuente: Matriz solicitada por el usuario y explicaciones de esta conversación" />
+          <outline text="Consecuencia: Se documenta como base; no se otorgan nuevos permisos ni se sustituyen autoridades vigentes" />
+        </outline>
+        <outline text="VCX-D007 · Glosario como banco de candidatos sin curar · Acordado">
+          <outline text="Fundamento y fuente: El usuario confirmó «exacto, es eso un banco de candidatos»" />
+          <outline text="Consecuencia: Seleccionar por función y comprobar disponibilidad; no asignar nombres automáticamente" />
+        </outline>
+        <outline text="VCX-D008 · Nombre y distribución de convenciones compartidas · Pendiente">
+          <outline text="Fundamento y fuente: El usuario propuso Trasiego; existe una iniciativa con esa identidad" />
+          <outline text="Consecuencia: No crear otro producto, reservar el nombre o renombrar la iniciativa por inferencia" />
+        </outline>
+        <outline text="VCX-D009 · Primer Cellar: identidad, propietario y ubicación · Pendiente">
+          <outline text="Fundamento y fuente: No hay nombre o instancia confirmados" />
+          <outline text="Consecuencia: Mantener solo plantillas y punto de entrada" />
+        </outline>
+        <outline text="VCX-D010 · Ubicación física del código de cada iniciativa · Pendiente">
+          <outline text="Fundamento y fuente: La pertenencia a Cellar es lógica; no se eligió una política física" />
+          <outline text="Consecuencia: Registrar ubicaciones canónicas cuando se defina; no duplicar implementaciones" />
+        </outline>
+        <outline text="VCX-D011 · Conciliación con el kernel aprobado · Pendiente">
+          <outline text="Fundamento y fuente: Decisiones previas de blends identificadas en las fuentes" />
+          <outline text="Consecuencia: No reemplazar silenciosamente destinos, controles, inventarios o disparadores vigentes" />
+        </outline>
+        <outline text="VCX-D012 · Propietario canónico por iniciativa y referencias entre Cellars · Propuesto">
+          <outline text="Fundamento y fuente: Regla de fuente única desarrollada en la matriz" />
+          <outline text="Consecuencia: Precisar el modelo de propiedad antes de habilitar múltiples escritores" />
+        </outline>
+        <outline text="VCX-D013 · Criterios para separar repositorios · Propuesto">
+          <outline text="Fundamento y fuente: Recomendación de esta conversación: aislamiento, propiedad y bloqueo operativo persistente" />
+          <outline text="Consecuencia: Revisar por necesidad real; la cantidad de proyectos no es un umbral automático" />
+        </outline>
+      </outline>
+      <outline text="Nombres y banco de candidatos" _note="Fuente: docs/naming.md. Material sin curar; incluir un término no lo reserva, asigna ni valida.">
+        <outline text="Elegir según misión o función; verificar significado y coincidencias antes de aprobar" />
+        <outline text="Inglés para elementos técnicos; español para documentación, interfaz y comunicación; nombres propios conservan su forma oficial" />
+        <outline text="Glosario · 100 términos sin curar" _note="Fuente preservada: docs/references/enology-glossary-source.md. Definiciones copiadas como material aportado; exactitud enológica no verificada.">
+          <outline text="A">
+            <outline text="Abocado" _note="Vino con un ligero sabor dulce residual debido a azúcares no fermentados." />
+            <outline text="Acerbo" _note="Vino áspero y marcadamente verde por exceso de ácidos y taninos rústicos." />
+            <outline text="Aciclamiento" _note="Operación de limpieza y acondicionamiento mecánico de los canales o hileras del viñedo." />
+            <outline text="Acodo" _note="Método de propagación enterrando un sarmiento para que enraíce sin separarlo de la madre." />
+            <outline text="Aclareo" _note="Eliminación de racimos o brotes verdes para regular el rendimiento y mejorar la calidad." />
+            <outline text="Acorchado" _note="Defecto del vino con olor a humedad provocado por la contaminación con TCA en el corcho." />
+            <outline text="Aeración" _note="Introducción controlada de oxígeno en el mosto o vino para favorecer procesos biológicos." />
+            <outline text="Afrutado" _note="Vino que posee intensos aromas o sabores que recuerdan a frutas frescas o maduras." />
+            <outline text="Agostamiento" _note="Lignificación del sarmiento verde que acumula reservas y se hace madera ante el invierno." />
+            <outline text="Aguja" _note="Vino que conserva una pequeña cantidad de gas carbónico natural de la fermentación." />
+            <outline text="Aislar" _note="Separar lotes específicos de uva o vino para evitar contaminaciones cruzadas en bodega." />
+            <outline text="Albaiza" _note="Suelo calizo, blanco y esponjoso del Marco de Jerez que retiene óptimamente el agua." />
+            <outline text="Alcohol" _note="Compuesto orgánico (principalmente etanol) obtenido por la fermentación de los azúcares." />
+            <outline text="Almizcle" _note="Aroma de carácter animal que aparece en ciertos vinos tintos viejos u oxidados." />
+            <outline text="Aluvión" _note="Tipo de suelo formado por sedimentos fluviales, ideal para el drenaje en viticultura." />
+            <outline text="Amable" _note="Vino equilibrado, de paso suave y fácil de beber en el paladar." />
+            <outline text="Amontillado" _note="Vino generoso que pasa por una crianza mixta: primero biológica y luego oxidativa." />
+            <outline text="Ampelografía" _note="Ciencia dedicada al estudio, descripción e identificación de las variedades de vid." />
+            <outline text="Análisis" _note="Examen químico, microbiológico u organoléptico de la uva, mosto o vino." />
+            <outline text="Antesis" _note="Momento exacto de la apertura de las flores de la vid para su polinización." />
+            <outline text="Antocianos" _note="Pigmentos polifenólicos en el hollejo responsables del color de los vinos tintos." />
+            <outline text="Añada" _note="Año específico en el que se cosecharon las uvas para la elaboración de un vino." />
+            <outline text="Apical" _note="Dominancia fisiológica de las yemas superiores que frena el brote de las inferiores." />
+            <outline text="Aporcado" _note="Acumulación de tierra en la base de la cepa para protegerla de heladas o malas hierbas." />
+            <outline text="Arrope" _note="Mosto concentrado por ebullición usado para endulzar o dar color a ciertos vinos." />
+            <outline text="Asamblaje" _note="Mezcla técnica de diferentes variedades de uva o lotes para lograr un vino armónico." />
+            <outline text="Astringencia" _note="Sensación táctil de secado bucal provocada por la reacción de los taninos con las proteínas." />
+            <outline text="Aterciopelado" _note="Vino tinto de tacto muy suave y sedoso gracias a taninos maduros y pulidos." />
+            <outline text="Avellanado" _note="Nota aromática a frutos secos propia de vinos con una larga crianza oxidativa." />
+          </outline>
+          <outline text="B">
+            <outline text="Balthazar" _note="Botella de formato gigante con una capacidad equivalente a 12 litros de vino." />
+            <outline text="Barrica" _note="Tonel de madera de roble empleado para la crianza y oxigenación lenta del vino." />
+            <outline text="Battonage" _note="Operación de suspender las lías del fondo para aportar estructura y untuosidad." />
+            <outline text="Baya" _note="Grano o fruto de la vid, compuesto botánicamente por hollejo, pulpa y pepitas." />
+            <outline text="Biomasa" _note="Cantidad total de materia viva vegetal presente en la vid durante el ciclo." />
+            <outline text="Blend" _note="Término anglosajón equivalente a mezcla, corte o asamblaje de vinos." />
+            <outline text="Bodega" _note="Establecimiento acondicionado para la vinificación, crianza y guarda de vinos." />
+            <outline text="Botritis" _note="Hongo que puede causar podredumbre gris (defecto) o noble (vinos dulces especiales)." />
+            <outline text="Bouquet" _note="Conjunto de aromas terciarios complejos desarrollados durante la guarda en botella." />
+            <outline text="Brazo" _note="Ramificación de madera vieja de la cepa que sostiene los elementos de poda anual." />
+            <outline text="Brut" _note="Clasificación de vinos espumosos con un contenido muy bajo de azúcar residual." />
+          </outline>
+          <outline text="C">
+            <outline text="Cabeceo" _note="Práctica de mezclar diferentes tipos de vinos para homogeneizar las partidas." />
+            <outline text="Calicata" _note="Pozo de inspección en el viñedo para examinar las capas del suelo y las raíces." />
+            <outline text="Caliza" _note="Roca sedimentaria que aporta calcio al suelo e influye notablemente en la acidez de la uva." />
+            <outline text="Cambium" _note="Capa celular activa bajo la corteza esencial para la soldadura de los injertos." />
+            <outline text="Capa" _note="Intensidad y profundidad del color observable en un vino tinto." />
+            <outline text="Cargador" _note="Sarmiento largo con varias yemas fértiles dejado en la poda para la producción." />
+            <outline text="Carnoso" _note="Vino con excelente volumen y extracto seco que da sensación de densidad al masticar." />
+            <outline text="Cata" _note="Examen sensorial metódico del vino para evaluar sus propiedades y virtudes." />
+            <outline text="Cega" _note="Yema basal latente del sarmiento que raramente brota de forma fructífera." />
+            <outline text="Ceniza" _note="Residuo mineral del vino tras su calcinación o sinónimo del hongo oídio." />
+            <outline text="Cepa" _note="Planta completa de la vid que incluye raíces, tronco, brazos y sarmientos." />
+            <outline text="Chaptalización" _note="Adición de azúcar al mosto para incrementar el grado alcohólico final del vino." />
+            <outline text="Clon" _note="Conjunto de vides idénticas multiplicadas vegetativamente desde una planta madre." />
+            <outline text="Clorosis" _note="Amarillamiento de las hojas de la vid por deficiencia de clorofila o falta de hierro." />
+            <outline text="Complejidad" _note="Riqueza aromática y sápida de un vino que exhibe múltiples matices armoniosos." />
+            <outline text="Conducción" _note="Arquitectura física mediante postes y alambres dada a la planta en el viñedo." />
+            <outline text="Corcho" _note="Tapón natural obtenido de la corteza del alcornoque para sellar botellas." />
+            <outline text="Corte" _note="Sinónimo de ensamble o mezcla de distintas variedades de vino." />
+            <outline text="Crianza" _note="Proceso de maduración del vino en condiciones controladas de madera o botella." />
+            <outline text="Cru" _note="Término que designa un pago o viñedo singular de calidad excepcional reconocida." />
+            <outline text="Cuajado" _note="Transición biológica de la flor de la vid a una pequeña baya verde." />
+            <outline text="Cuerpo" _note="Sensación de peso y consistencia del vino en la cavidad bucal." />
+          </outline>
+          <outline text="D">
+            <outline text="Decantación" _note="Traspaso del vino a otro recipiente para separar sedimentos o permitir su aireación." />
+            <outline text="Delestage" _note="Vaciado total del mosto durante la fermentación y su posterior bombeo sobre el sombrero." />
+            <outline text="Desbrotado" _note="Eliminación en verde de brotes estériles o chupones que restan energía a la planta." />
+            <outline text="Deshojado" _note="Retirada selectiva de hojas alrededor de los racimos para mejorar sol y aireación." />
+            <outline text="Despalillado" _note="Separación mecánica de las bayas de uva de la estructura leñosa del racimo." />
+            <outline text="Despunte" _note="Corte de los extremos de los sarmientos verdes para frenar el crecimiento longitudinal." />
+            <outline text="Dosaje" _note="Adición del licor de expedición para determinar el dulzor final de un espumoso." />
+          </outline>
+          <outline text="E">
+            <outline text="Enología" _note="Ciencia y conjunto de técnicas destinadas a la elaboración y conservación del vino." />
+            <outline text="Enólogo" _note="Especialista técnico responsable de dirigir la vinificación y crianza en bodega." />
+            <outline text="Envero" _note="Fase del ciclo donde la baya detiene su crecimiento y cambia de color." />
+            <outline text="Equilibrio" _note="Armonía perfecta entre acidez, alcohol, taninos y dulzor en el vino." />
+            <outline text="Espaldera" _note="Estructura de postes y alambres para guiar verticalmente el crecimiento de la vid." />
+            <outline text="Estabilización" _note="Tratamiento enológico para evitar la posterior aparición de sedimentos o cristales." />
+            <outline text="Estaca" _note="Trozo de sarmiento leñoso cortado en invierno para injertar o reproducir la vid." />
+            <outline text="Estructura" _note="Sostén del vino en boca aportado por la acidez, los taninos y el alcohol." />
+            <outline text="Evolución" _note="Cambios químicos y organolépticos que experimenta el vino a través del tiempo." />
+            <outline text="Extracto" _note="Sustancias sólidas que quedan en el vino tras evaporar los componentes volátiles." />
+          </outline>
+          <outline text="F">
+            <outline text="Fecundación" _note="Unión del polen con el óvulo floral que da inicio al desarrollo de la baya." />
+            <outline text="Filoxera" _note="Insecto parásito devastador de las raíces de las variedades viníferas europeas." />
+            <outline text="Filtración" _note="Operación mecánica para clarificar el vino pasándolo a través de capas permeables." />
+            <outline text="Fino" _note="Vino generoso andaluz de color pálido, muy seco, criado bajo velo de flor." />
+            <outline text="Floración" _note="Periodo en el cual la vid abre sus flores para iniciar el cuajado del fruto." />
+            <outline text="Fotoperiodo" _note="Influencia de las horas diarias de luz en las fases biológicas de la planta." />
+            <outline text="Franco" _note="Vino limpio de aromas y sabores que expresa con honestidad sus propiedades." />
+          </outline>
+          <outline text="G">
+            <outline text="Generoso" _note="Vino fortificado con alcohol vínico que cuenta con una graduación elevada." />
+            <outline text="Glicerina" _note="Alcohol secundario viscoso que aporta suavidad, cuerpo y lágrimas a la copa." />
+            <outline text="Guyot" _note="Sistema de poda mixta que combina una vara larga productiva y un pulgar corto." />
+          </outline>
+          <outline text="H">
+            <outline text="Hollejo" _note="Piel exterior de la uva que concentra los compuestos de color y aroma." />
+            <outline text="Homogeneización" _note="Proceso de mezclar lotes para asegurar uniformidad física y organoléptica." />
+            <outline text="Híbrido" _note="Planta resultante del cruce de dos especies de vid botánicamente distintas." />
+          </outline>
+          <outline text="I">
+            <outline text="Intensidad" _note="Concentración o potencia del color o de los aromas percibidos en un vino." />
+          </outline>
+          <outline text="J">
+            <outline text="Jerez" _note="Región vitivinícola e histórica española célebre por sus vinos de crianza biológica." />
+            <outline text="Joven" _note="Vino embotellado rápidamente para preservar su frescura y notas frutales primarias." />
+          </outline>
+          <outline text="L">
+            <outline text="Lágrimas" _note="Gotas que descienden por las paredes de la copa debido al efecto Marangoni." />
+            <outline text="Largo" _note="Vino cuya persistencia de sabores se prolonga significativamente en el paladar." />
+            <outline text="Levaduras" _note="Hongos unicelulares que transforman el azúcar del mosto en alcohol y CO2." />
+            <outline text="Lías" _note="Sedimentos formados principalmente por levaduras muertas tras la fermentación." />
+            <outline text="Lloro" _note="Exudación líquida de las heridas de poda que marca el fin del reposo invernal." />
+          </outline>
+        </outline>
+      </outline>
+      <outline text="Estado y documentación disponible">
+        <outline text="Fundación documental establecida · 2026-10-30" />
+        <outline text="Sin implementación nueva, Git, instancia real o migración de blends" />
+        <outline text="La migración requiere un pedido posterior explícito" />
+        <outline text="Archivos del workspace" _note="Inventario documental al exportar; el mapa es una vista derivada, no una fuente editable de configuración.">
+          <outline text="AGENTS.md" />
+          <outline text="README.md" />
+          <outline text="blends/AGENTS.md" />
+          <outline text="blends/README.md" />
+          <outline text="brix/AGENTS.md" />
+          <outline text="brix/README.md" />
+          <outline text="cellar/AGENTS.md" />
+          <outline text="cellar/README.md" />
+          <outline text="cellar/templates/cellar/README.md" />
+          <outline text="cellar/templates/initiative/AGENTS.md" />
+          <outline text="cellar/templates/initiative/README.md" />
+          <outline text="cellars/README.md" />
+          <outline text="docs/architecture/interoperability.md" />
+          <outline text="docs/architecture/overview.md" />
+          <outline text="docs/architecture/responsibility-matrix.md" />
+          <outline text="docs/decisions/README.md" />
+          <outline text="docs/executive-pitch.md" />
+          <outline text="docs/naming.md" />
+          <outline text="docs/references/enology-glossary-source.md" />
+          <outline text="docs/sources.md" />
+          <outline text="docs/superpowers/plans/2026-10-30-vcx-foundation.md" />
+          <outline text="docs/superpowers/reports/2026-10-30-vcx-foundation.md" />
+          <outline text="docs/vision.md" />
+          <outline text="docs/exports/vcx-ecosystem.opml · Esta vista derivada" />
+        </outline>
+      </outline>
+    </outline>
+  </body>
+</opml>

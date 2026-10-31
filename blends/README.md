@@ -1,0 +1,55 @@
+# Blends
+
+Proyecto de primer nivel de VCX, par de Cellar. Primera curación documental: 2026-10-30, bajo el acuerdo VCX-D020 del [registro](../docs/decisions/README.md).
+
+## Misión
+
+Conducir el trabajo de personas, equipos y agentes para convertir ideas en resultados verificables mediante una experiencia integrada de planificación, coordinación y gobierno.
+
+## Visión
+
+Que distintos equipos puedan adoptar un proceso explícito y configurable para sus portfolios, con decisiones trazables y continuidad entre sesiones, sin depender de los nombres o la disposición del portfolio original.
+
+## Destinatarios y alcance
+
+Se dirige a responsables de portfolios, equipos de proyecto y agentes autorizados. Coordina exploración, planificación, autoridad, sesiones, FinOps de gobierno, entrega y presentación del portfolio.
+
+**Entradas previstas:** configuración de un Cellar, políticas y versiones adoptadas, estado de las iniciativas, solicitudes de trabajo y permisos de sus participantes.
+
+**Resultados previstos:** operaciones coordinadas, seguimiento y vistas del portfolio, comprobaciones de proceso y solicitudes de decisiones con evidencia.
+
+Blends consume las interfaces públicas de Cellar para estado y de Brix para capacidades. No almacena otra copia editable del portfolio dentro de su implementación ni decide por sí mismo presupuestos o excepciones reservadas a una autoridad humana.
+
+## Estado y contexto
+
+El [recorrido de idea a proyecto](docs/idea-to-project.md) precisa el proceso del [primer corte conjunto con Cellar](../docs/superpowers/specs/2026-10-30-cellar-blends-first-journey-design.md). Se documenta como propuesta, sin convertirlo en un flujo implementado.
+
+La [entrada de propuestas](docs/idea-intake.md) incorpora la preparación en Brix, preguntas asesinas, revisión humana, consejo por archivo y reporte. Solo la confirmación humana posterior al reporte habilita registrar la idea.
+
+Después del ingreso, la [etapa de arquitectura de referencia y FinOps](docs/architecture-and-finops.md) prepara el modelo y los escenarios para decidir el presupuesto de exploración, sin autorizar por ello construcción u operación.
+
+Aquí se documenta el producto objetivo; no se trasladó su implementación. El núcleo de gobierno del sistema existente mantiene su identidad Blends Kernel y su seguimiento canónico actual. No hay un roadmap nuevo o paralelo en esta carpeta.
+
+Para trabajar: leer este documento y [AGENTS.md](AGENTS.md). Consultar después la [matriz](../docs/architecture/responsibility-matrix.md), [interoperabilidad](../docs/architecture/interoperability.md) o [decisiones](../docs/decisions/README.md), según la tarea. La [procedencia histórica](../docs/sources.md) es referencia, no un requisito de instalación.
+
+## Fuentes de trabajo y dependencias
+
+| Tema | Fuente canónica y situación |
+|---|---|
+| Preparación y admisión | [Ingreso de ideas](docs/idea-intake.md): documento, OK de envío, consejo, reporte y confirmación de ingreso; diseño sin comandos nuevos implementados |
+| Exploración y graduación | [Recorrido mínimo](docs/idea-to-project.md), propuesto; conserva decisiones humanas y preparación reanudable |
+| Arquitectura y presupuesto | [Etapa FinOps](docs/architecture-and-finops.md), diseño requerido; estimar no autoriza gasto |
+| Información que consume | [Cellar](../cellar/README.md) y su modelo; contratos todavía propuestos |
+| Instrumentos que invoca | [Brix](../brix/README.md); interfaces objetivo y compatibilidad pendientes de implementación |
+| Autoridad e interfaces compartidas | [Decisiones](../docs/decisions/README.md), [interoperabilidad](../docs/architecture/interoperability.md) y [matriz](../docs/architecture/responsibility-matrix.md) |
+| Trabajo documental de esta etapa | [Plan de curación](../docs/superpowers/plans/2026-10-30-blends-cellar-curation.md) y [reporte de ejecución](../docs/superpowers/reports/2026-10-30-blends-cellar-curation.md) |
+
+El seguimiento operativo existente permanece en el repositorio de Blends: `vc/framework/.roadmap.json` registra Blends Kernel y la rama `queue` conserva el backlog. Estas son localizaciones de origen, no nuevas dependencias de instalación de VCX. La [correspondencia fechada](../docs/architecture/current-system-mapping.md) identifica sus fuentes y límites; no es un monitor actualizado ni autoriza su traslado. La [procedencia](../docs/sources.md) conserva las rutas históricas.
+
+Cellar custodia la información; Brix aporta instrumentos; Blends define y coordina el proceso. Las decisiones de ingreso, presupuesto, excepciones y graduación corresponden a la autoridad humana competente. La curación no asigna roles nuevos ni convierte el Kernel existente en un producto distinto.
+
+## Próximo entregable propuesto
+
+Precisar una operación documental de ingreso y registro sobre el modelo de Cellar: entradas, salidas, revisión evaluada, permisos, confirmaciones humanas y recuperación ante interrupciones. Se considerará aceptable si el caso sintético distingue el OK para enviar al consejo de la confirmación posterior para ingresar, conserva las fuentes y revisiones y explica cómo reanudar sin registrar dos iniciativas.
+
+Ese entregable requiere un alcance posterior y no implementa `/idea`, `/council` o una API. Antes de una adaptación ejecutable habrá que resolver la compatibilidad de Brix y la conciliación con el Kernel aprobado, manteniendo sus decisiones en el registro compartido. La pertenencia del seguimiento de este producto a un Cellar real continúa pendiente.
