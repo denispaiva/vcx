@@ -75,6 +75,10 @@ Independientes entre sí y de la Fase C.
 - Brix: extracción de `vcx/blends/vc/brix/` con historia; la elección entre subtree y filtrado de historia sigue pendiente y no bloquea. Sus decisiones ya están en la ruta que viaja.
 - Iniciativas e `ideas/`: a `cellars/<instancia>` cuando VCX-D009 y VCX-D010 se resuelvan; cada extracción deja un puntero en el repositorio de origen.
 
+## Deuda heredada
+
+[U] El usuario pidió aprovechar la migración para ordenar la deuda técnica heredada: desacoples, conflictos de nombres de carpetas, orden de Git y jerarquías de carpetas. [P] El [inventario de deuda heredada](2026-11-01-inherited-debt-design.md), propuesta VCX-D031, mide 23 ítems y asigna a cada uno un repositorio destino y uno de cuatro tratamientos: se resuelve al reubicar (Fase B), se resuelve en el repositorio destino bajo su gobierno (después de la Fase B), se resuelve por extracción (Fase D) o se declara sin tocar. Ninguna fase nueva; ninguna corrección implícita durante el clon.
+
 ## Alternativas evaluadas
 
 | Opción | Costo | Evaluación |

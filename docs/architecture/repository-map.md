@@ -114,6 +114,10 @@ Estado: propuesta VCX-D030 del 2026-11-01, pendiente de ratificación; fuente en
 
 La propuesta separa dos planos: el de autoría y decisiones, que se corta al colocar un clon de autoría en `vcx/blends/` tras los pasos 4 a 7 y 9; y el operativo, que se corta en los pasos 8 y 11 cuando el inventario de escritores lo permita. Hasta ese corte, `../blends` es el único operador de `queue`, trenes y hooks, y el clon no los ejecuta ni crea `.git-queue/` ni `.git-trains/`. El patrón es el de VCX-D027: escribir ramas en un checkout aparte, hacer push y encolar a través del operador vigente.
 
+La deuda heredada del precursor se ordena dentro de esta misma secuencia, según el [inventario de VCX-D031](../superpowers/specs/2026-11-01-inherited-debt-design.md): lo que depende del checkout se resuelve al crear el clon (paso 5), la limpieza de Git y las reorganizaciones aprobadas se ejecutan en el clon bajo el gobierno de Blends, y los acoplamientos entre kernel, Brix e iniciativas se resuelven en cada extracción. Nada se corrige de paso ni en el precursor.
+
+La [organización en GitHub](github-topology.md) registra, con evidencia del 2026-11-01, los ocho repositorios actuales de la cuenta, cómo fluye hoy la información y el repositorio objetivo de cada pieza, con los invariantes que la transición no rompe.
+
 ## Secuencia acordada para preservar y versionar
 
 1. **Autorizar la ejecución concreta.** VCX-D026 aprueba estas decisiones y su documentación, pero no operaciones Git o de filesystem. Antes de ejecutar, fijar los repositorios, ubicaciones temporales, rama de incorporación, archivos y acciones permitidas. El precursor conserva la protección de solo lectura; el permiso futuro de escritura queda limitado al clon nuevo y su alcance. Conservar el gobierno de Blends y tramitar cualquier cambio a ese gobierno por separado.
