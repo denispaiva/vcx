@@ -37,6 +37,7 @@ Los significados agregados se redactaron en esta sesión; su verificación en fu
 - Los nombres propios aprobados conservan su forma oficial. Un término del glosario no se convierte automáticamente en nombre propio por aparecer en él.
 - Los términos enológicos pueden inspirar nombres de productos o iniciativas. Para actividades genéricas, se conserva una denominación técnica clara y puede añadirse una etiqueta visible en español.
 - La forma visible de un nombre y su identificador técnico se definen explícitamente al aprobarlo. No se generan identificadores nuevos traduciendo o eliminando tildes de manera automática.
+- Una skill o herramienta propia de un producto lleva como prefijo el nombre de ese producto, en minúsculas y sin el tipo como sufijo: `brix-llm-council`, no `brix-llm-council-skill`. El prefijo indica el origen y la distingue de candidatas externas. Si el producto se distribuye como plugin con espacio de nombres propio, revisar esta regla para no repetir el prefijo.
 - El glosario puede ampliarse: su selección de palabras no obliga a renombrar Blends, Brix, Cellar u otras identidades establecidas.
 
 ## Selección propuesta

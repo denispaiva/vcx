@@ -52,6 +52,19 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .s-Candidato{color:var(--cand);background:var(--cand-bg)} .b-Candidato{border-left-color:var(--cand)} .d-Candidato{background:var(--cand)}
 .s-Brecha{color:var(--gap);background:var(--gap-bg)} .b-Brecha{border-left-color:var(--gap)} .d-Brecha{background:var(--gap)}
 .s-Sin{color:var(--none);background:var(--none-bg)} .b-Sin{border-left-color:var(--none)} .d-Sin{background:var(--none)}
+.s-Rechazado{color:var(--gap);background:transparent;border:1px solid var(--gap)} .b-Rechazado{border-left-color:var(--gap);border-left-style:dashed} .d-Rechazado{background:transparent;border:2px solid var(--gap)}
+button.tile.rejected .name{text-decoration:line-through;text-decoration-thickness:1.5px;color:var(--muted)}
+.swap{font-size:12.5px;font-weight:600}
+.swap.out{color:var(--gap)} .swap.in{color:var(--obs)}
+.pairs{display:grid;gap:12px}
+.pair{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:10px}
+.pair .flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:stretch}
+.pair .arrow{align-self:center;font-size:22px;color:var(--accent);line-height:1}
+.pair button.tile{min-width:0}
+.pair .why{font-size:13px;color:var(--muted)}
+.pair .why b{color:var(--ink);font-weight:600}
+.r-rechazada{color:var(--gap);background:transparent;border:1px solid var(--gap)}
+@media (max-width:560px){.pair .flow{grid-template-columns:minmax(0,1fr)} .pair .arrow{transform:rotate(90deg);justify-self:center}}
 .loose{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:4px 14px}
 .loose .u{border-top:1px solid var(--line);padding:10px 0}
 .loose .u:first-child{border-top:0}
@@ -97,6 +110,7 @@ mark{background:var(--mark);color:var(--mark-ink);border-radius:3px;padding:0 1p
   <div class="bar" id="prodbar"><span class="lbl">Consumido por</span></div>
   <div class="bar" id="statebar"><span class="lbl">Estado</span></div>
   <div class="bar" id="revbar"><span class="lbl">Revisión</span></div>
+  <div id="swaps"></div>
   <div id="homes"></div>
   <div class="legend">
     <div><span class="dot d-Observado"></span><b>Observado</b><br>Uso medido en esa necesidad.</div>
@@ -104,6 +118,7 @@ mark{background:var(--mark);color:var(--mark-ink);border-radius:3px;padding:0 1p
     <div><span class="dot d-Candidato"></span><b>Candidato</b><br>No activa o sin decisión de admisión.</div>
     <div><span class="dot d-Brecha"></span><b>Brecha</b><br>Necesidad sin herramienta o sin capacidad.</div>
     <div><span class="dot d-Sin"></span><b>Sin herramienta</b><br>La capacidad o la persona no necesitan skill ni MCP.</div>
+    <div><span class="dot d-Rechazado"></span><b>Rechazado</b><br>Decisión humana de no usarla; se muestra junto a su reemplazo.</div>
   </div>
 </main>
 <dialog id="dlg" aria-labelledby="dlg-title">
@@ -112,7 +127,7 @@ mark{background:var(--mark);color:var(--mark-ink);border-radius:3px;padding:0 1p
 </dialog>
 <script>
 const DATA = /*DATA*/null;
-const STATES = ["Observado","Asignado","Candidato","Brecha","Sin herramienta"];
+const STATES = ["Observado","Asignado","Candidato","Brecha","Sin herramienta","Rechazado"];
 const PRODUCTS = ["Blends","Brix","Cellar"];
 const HOMES = ["Brix","Blends","Cellar"];
 const cls = s => s.split(" ")[0];
@@ -123,12 +138,14 @@ let prod = null, state = null, review = null, tokens = [];
 const DECISION = {approved: "Aprobada", approved_with_exception: "Aprobada con excepción", deferred: "Diferida",
   rejected: "Rechazada", decision_pending: "Decisión pendiente"};
 const LEVEL = {low: "Bajo", medium: "Medio", high: "Alto", critical: "Crítico"};
-const REVIEWS = [["vencida", "Vencida"], ["pronto", "Vence en 30 días"], ["vigente", "Vigente"],
+const REVIEWS = [["rechazada", "Rechazada"], ["vencida", "Vencida"], ["pronto", "Vence en 30 días"], ["vigente", "Vigente"],
   ["pendiente", "Decisión pendiente"], ["sin", "Sin evaluación"]];
 const today = new Date(); today.setHours(0, 0, 0, 0);
 const fmt = d => d ? d.split("-").reverse().join("-") : "—";
 function reviewOf(it){
   if (it.kind.startsWith("Capacidad") || it.eval === undefined) return null;
+  if (it.uses.every(u => u.state === "Rechazado"))
+    return {key: "rechazada", label: it.eval ? `Rechazada · puntaje ${it.eval.score}` : "Rechazada"};
   if (it.eval === null) return {key: "sin", label: "Sin evaluación"};
   if (it.eval.status === "decision_pending") return {key: "pendiente", label: "Decisión pendiente"};
   if (!it.eval.expiresAt) return {key: "sin", label: "Sin fecha de revisión"};
@@ -211,6 +228,8 @@ function open(it){
   document.getElementById("dlg-title").innerHTML = it.code ? `<code>${esc(it.id)}</code>` : esc(it.id);
   document.getElementById("dlg-sub").innerHTML =
     `${esc(it.kind)} · vive en <b>${esc(it.home)}</b> · fuente: ${md(it.source)}` + (it.note ? `<br>${md(it.note)}` : "") +
+    (it.replacedBy ? `<br><span class="swap out">Reemplazada por ${esc(it.replacedBy)}</span>` : "") +
+    (it.replaces ? `<br><span class="swap in">Reemplaza a ${esc(it.replaces)}</span>` : "") +
     (it.review ? `<div class="evalbox">${it.eval ? [
       ["Revisión", `<span class="rev r-${it.review.key}">${esc(it.review.label)}</span>`],
       ["Decisión", esc(DECISION[it.eval.status] || it.eval.status || "—")], ["Decidida", fmt(it.eval.decidedAt)],
@@ -228,12 +247,14 @@ document.getElementById("dlg").addEventListener("click", e => { if (e.target.id 
 function tile(it){
   const b = document.createElement("button");
   const best = it.uses.map(u => u.state).sort((a, c) => rank(a) - rank(c))[0];
-  b.className = `tile b-${cls(best)}`;
+  b.className = `tile b-${cls(best)}${best === "Rechazado" ? " rejected" : ""}`;
   b.setAttribute("aria-haspopup", "dialog");
   const counts = {}; it.uses.forEach(u => counts[u.state] = (counts[u.state] || 0) + 1);
   b.innerHTML = `<span class="kind">${esc(it.kind)}</span>
     <span class="name${it.code ? "" : " plain"}">${esc(it.id)}</span>
     ${it.review ? `<span class="rev r-${it.review.key}">${esc(it.review.label)}</span>` : ""}
+    ${it.replacedBy ? `<span class="swap out">Reemplazada por ${esc(it.replacedBy)}</span>` : ""}
+    ${it.replaces ? `<span class="swap in">Reemplaza a ${esc(it.replaces)}</span>` : ""}
     <span class="by">Consumido por <b>${consumers(it).map(esc).join(", ")}</b> · ${it.uses.length} ${it.uses.length === 1 ? "uso" : "usos"}</span>
     <span class="pills">${STATES.filter(s => counts[s]).map(s => `<span class="pill s-${cls(s)}">${counts[s]} ${s.toLowerCase()}</span>`).join("")}</span>`;
   const matched = tokens.length ? it.uses.filter(u => touches(u.idx)) : [];
@@ -243,8 +264,31 @@ function tile(it){
   b.onclick = () => open(it);
   return b;
 }
+const byId = id => DATA.items.find(it => it.id === id && !it.kind.startsWith("Capacidad"));
+function swaps(){
+  const host = document.getElementById("swaps"); host.innerHTML = "";
+  const list = DATA.replacements.filter(r => [byId(r.old), byId(r.new)].some(it => it && visible(it)));
+  if (!DATA.replacements.length) return;
+  const sec = document.createElement("section"); sec.className = "home";
+  sec.innerHTML = `<div class="hhead"><h2>Reemplazos</h2><p>Herramientas rechazadas por su evaluación y lo que cubre su capacidad</p></div>`;
+  const wrap = document.createElement("div"); wrap.className = "pairs";
+  list.forEach(r => {
+    const pair = document.createElement("div"); pair.className = "pair";
+    const flow = document.createElement("div"); flow.className = "flow";
+    flow.append(tile(byId(r.old)));
+    flow.insertAdjacentHTML("beforeend", `<span class="arrow" aria-label="reemplazada por">→</span>`);
+    flow.append(tile(byId(r.new)));
+    pair.append(flow);
+    pair.insertAdjacentHTML("beforeend", `<div class="why"><b>Capacidad <code>${esc(r.cap)}</code></b> · ${esc(r.date)}<br>Motivo: ${md(r.reason)}<br>Estado del reemplazo: ${md(r.status)}</div>`);
+    highlight(pair.querySelector(".why"));
+    wrap.append(pair);
+  });
+  sec.append(list.length ? wrap : Object.assign(document.createElement("p"), {className: "empty", textContent: "Ningún reemplazo con ese filtro."}));
+  host.append(sec);
+}
 function render(){
   bars();
+  swaps();
   const host = document.getElementById("homes"); host.innerHTML = "";
   const groups = {};
   DATA.items.forEach(it => {

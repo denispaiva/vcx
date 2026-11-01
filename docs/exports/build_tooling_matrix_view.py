@@ -87,6 +87,15 @@ for c in table("Matriz"):
     if not touched:
         loose.append(dict(use, state=states[0]))
 
+replacements = []
+for c in table("Reemplazos"):
+    old, new = (ticks(c[1]) or [c[1]])[0], (ticks(c[2]) or [c[2]])[0]
+    if "t:" + old not in items or "t:" + new not in items:
+        sys.exit(f"Reemplazo sin uso en la matriz: {old} → {new}")
+    items["t:" + old]["replacedBy"] = new
+    items["t:" + new]["replaces"] = old
+    replacements.append(dict(cap=(ticks(c[0]) or [c[0]])[0], old=old, new=new, reason=c[3], date=c[4], status=c[5]))
+
 if missing:
     sys.exit("Sin ubicación en «Dónde vive cada elemento»: " + ", ".join(sorted(set(missing))))
 
@@ -108,7 +117,7 @@ if evals_dir.is_dir():
                           expiresAt=(e.get("expiresAt") or "")[:10], score=round(e.get("overallScore") or 0, 1),
                           risk=e.get("riskLevel"), confidence=e.get("confidence"))
 
-data = json.dumps(dict(items=list(items.values()), loose=loose, rev=rev, evalsRev=evals_rev), ensure_ascii=False)
+data = json.dumps(dict(items=list(items.values()), loose=loose, replacements=replacements, rev=rev, evalsRev=evals_rev), ensure_ascii=False)
 tpl = (Path(__file__).parent / "tooling-matrix.template.html").read_text()
 out.write_text(tpl.replace("/*DATA*/null", data))
 print(f"{len(items)} elementos, {len(loose)} necesidades sin elemento → {out} (fuente {rev}; "

@@ -39,6 +39,8 @@ La matriz se lee desde dos lados. Esta tabla fija **dónde vive** cada capacidad
 |---|---|---|---|---|
 | Toda skill o MCP de terceros sin fila propia aquí | Skill o MCP | Brix · catálogo | Inventario `tooling` de `../blends/vc/framework/.roadmap.json` | La [matriz de responsabilidades](responsibility-matrix.md) asigna a Brix el catálogo de instrumentos reutilizables y a cada instancia de Cellar su configuración de uso. Lectura propuesta; trasladar el inventario requiere alcance explícito |
 | `killer-questions` | Skill | Brix · catálogo | `brix/.claude/skills/` | Ya ubicada en Brix, sin admisión en el inventario |
+| `brix-llm-council` | Skill | Brix · catálogo | Por crear en Brix | Skill propia; el prefijo indica el producto de origen |
+| `llm-council-skill` | Skill | Fuera del catálogo · rechazadas | Evaluación del precursor | Rechazada; se conserva para mostrar el reemplazo |
 | `idea-to-spec`, `graduation`, `finops-ledger`, `ci-scaffolding` | Capacidad | Brix · capacidades | Registro de capacidades del precursor, campo `owner` | |
 | `tooling-audit` | Capacidad | Brix · capacidades | Registro de capacidades del precursor | El motor es de Brix; el comando `/tool` figura con dueño Blends |
 | `llm-council`, `spec-quality-checklist`, `spec-consistency-analysis`, `backlog-and-sprint-planning`, `scarcity-monitoring`, `scarcity-cycle-closure` | Capacidad | Blends · capacidades | Registro de capacidades del precursor, campo `owner` | Según la prueba de pertenencia de VCX-D029, un instrumento es capacidad y correspondería a Brix; conciliar al migrar |
@@ -59,6 +61,7 @@ El estado describe la relación de la herramienta con la fase, no la admisión d
 Una herramienta con decisión humana diferida o rechazada no es candidata, aunque el inventario la marque `planned`: prevalece la decisión registrada en su evaluación.
 | Brecha | Necesidad sin herramienta o sin capacidad identificada | Explicar si conviene una herramienta o basta el proceso |
 | Sin herramienta | La capacidad o el trabajo humano no necesitan skill ni MCP | Fundamento en la fila |
+| Rechazado | Decisión humana de no usar la herramienta en la fase; la fila se conserva para mostrar qué la reemplaza | Decisión con fecha y fuente; su registro canónico puede estar pendiente |
 
 Al corte, el uso medido cubre 23 ramas entre el 2026-09-26 y el 2026-10-01 y solo registra el comando `tool` (capacidad `tooling-audit`), `superpowers:writing-plans`, `superpowers:subagent-driven-development` y `escasez` (alias deprecado de `scarcity-monitoring`). Por eso casi todas las filas son asignaciones o candidatos, no uso comprobado.
 
@@ -79,7 +82,8 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 | Blends · ingreso, entrada | `idea-to-spec` | Leer ideas en PDF, DOCX u otros formatos | `markitdown` | Skill | Asignado | Alcance `task` en el inventario |
 | Blends · ingreso, encuadre | `idea-to-spec` | Extraer de la idea su problema esencial (prensado) | `brainstorming` | Skill | Asignado | |
 | Blends · ingreso, encuadre | No registrada (preguntas asesinas) | Instrumento de preguntas asesinas | `killer-questions` (adaptación de `phuryn/pm-skills` · `identify-assumptions-new`) | Skill | Candidato | Incorporada el 2026-11-01 en [`brix/.claude/skills/`](../../brix/.claude/skills/killer-questions/PROVENANCE.md), sin admisión en el inventario ni uso medido. Demostrado solo un caso ficticio ([reporte](../superpowers/reports/2026-11-01-killer-questions-instrument.md)). La capacidad sigue sin registrarse y el diseño de maduración sigue siendo propuesta: la brecha de capacidad permanece abierta |
-| Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `llm-council-skill` | Skill | Candidato | La capacidad está en uso; la evaluación de la skill figura `decision_pending` |
+| Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `llm-council-skill` | Skill | Rechazado | Puntaje 39,6 con recomendación `do_not_advance` del proceso de evaluación; el usuario la rechazó el 2026-11-01. Su evaluación en el precursor sigue `decision_pending` hasta registrar el rechazo |
+| Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `brix-llm-council` | Skill | Candidato | Skill propia de Brix que la reemplaza, adaptada del comando `/council` del precursor; diseño propuesto en `docs/superpowers/specs/2026-11-01-council-skill-design.md`, sin crear ni evaluar |
 | Blends · arquitectura y FinOps | `finops-ledger` | Planilla y escenarios de costo | `xlsx`, `sheets-api` | Skill, MCP | Asignado | `sheets-api` escribe en la planilla operativa: exige alcance explícito |
 | Blends · arquitectura y FinOps | `finops-ledger` | Respaldar importes con comprobantes reales | `gmail` | MCP | Asignado | Aprobado con excepción; puede enviar y borrar: limitar a lectura |
 | Blends · exploración | Uso directo | Documentación vigente de bibliotecas y SDK | `context7-mcp` | MCP | Candidato | `planned` en el inventario |
@@ -111,12 +115,21 @@ Capacidades registradas sin fila al corte: `seeding`, `backend-inventory`, `unat
 
 Retiros: `orca-cli` se quitó el 2026-11-01 a pedido del usuario. Su evaluación figura `deferred` por decisión humana del 2026-08-10, con riesgo crítico y sin caso de uso, porque el harness gestiona worktrees de forma nativa; el inventario del precursor todavía la marca `planned`. `skill-codex` se quitó el mismo día, a pedido del usuario, por la misma inconsistencia: evaluación `deferred` por decisión humana del 2026-08-10 e inventario en `planned`.
 
+## Reemplazos
+
+Cuando una herramienta se rechaza por su evaluación y otra cubre la misma capacidad, la relación se registra aquí. La vista la muestra como un par: lo rechazado y lo que lo reemplaza.
+
+| Capacidad | Reemplazada | Reemplazo | Motivo | Fecha | Estado del reemplazo |
+|---|---|---|---|---|---|
+| `llm-council` | `llm-council-skill` | `brix-llm-council` | Puntaje 39,6 con `do_not_advance`: un solo commit, sin versión fijable ni licencia declarada y lecturas amplias del workspace | 2026-11-01 | En diseño; falta crearla, evaluarla con `/tool` y obtener la decisión humana |
+
 ## Cómo evoluciona
 
 - **Cuándo se edita:** al cambiar el inventario o el registro de capacidades, al aparecer uso medido que confirme o contradiga una fila, o al diseñar una fase nueva. No se revisa por calendario.
 - **Cómo se agrega una fila:** con una necesidad concreta de la fase, ligada a una capacidad o declarada como uso directo. Una herramienta sin necesidad no entra; una necesidad sin herramienta o sin capacidad queda como brecha.
 - **Promociones:** candidato → asignado exige admisión en el inventario; asignado → observado exige registro de uso o evidencia fechada; cualquier fila puede pasar a sin herramienta con fundamento. Una capacidad no registrada pasa a `capability` cuando su dueño la incorpora al registro.
 - **Retiros:** una herramienta o capacidad retirada se marca con fecha y motivo antes de borrar la fila.
+- **Reemplazos:** la fila reemplazada queda en estado Rechazado mientras su reemplazo no esté admitido. Cuando el reemplazo se admite, la rechazada se retira con fecha y el par sale de la tabla de reemplazos.
 
 ## Destino previsto
 
