@@ -40,6 +40,8 @@ El estado describe la relación de la herramienta con la fase, no la admisión d
 | Observado | Uso medido en esa necesidad | Registro de uso o evidencia fechada |
 | Asignado | Herramienta activa en el inventario; su uso en la fase se propone aquí | Inventario |
 | Candidato | No está activa en el inventario o su evaluación no tiene decisión | Requiere la admisión vigente antes de usarse |
+
+Una herramienta con decisión humana diferida o rechazada no es candidata, aunque el inventario la marque `planned`: prevalece la decisión registrada en su evaluación.
 | Brecha | Necesidad sin herramienta o sin capacidad identificada | Explicar si conviene una herramienta o basta el proceso |
 | Sin herramienta | La capacidad o el trabajo humano no necesitan skill ni MCP | Fundamento en la fila |
 
@@ -61,7 +63,7 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 |---|---|---|---|---|---|---|
 | Blends · ingreso, entrada | `idea-to-spec` | Leer ideas en PDF, DOCX u otros formatos | `markitdown` | Skill | Asignado | Alcance `task` en el inventario |
 | Blends · ingreso, encuadre | `idea-to-spec` | Extraer de la idea su problema esencial (prensado) | `brainstorming` | Skill | Asignado | |
-| Blends · ingreso, encuadre | No registrada | Instrumento de preguntas asesinas | — | — | Brecha | Falta capacidad y herramienta; el diseño de maduración define el formato. Decidir si es plantilla o capacidad antes de buscar una skill |
+| Blends · ingreso, encuadre | No registrada | Instrumento de preguntas asesinas | `killer-questions` (adaptación de `phuryn/pm-skills` · `identify-assumptions-new`) | Skill | Candidato | Incorporada el 2026-11-01 en [`brix/.claude/skills/`](../../brix/.claude/skills/killer-questions/PROVENANCE.md), sin admisión en el inventario ni uso medido. Demostrado solo un caso ficticio ([reporte](../superpowers/reports/2026-11-01-killer-questions-instrument.md)). La capacidad sigue sin registrarse y el diseño de maduración sigue siendo propuesta: la brecha de capacidad permanece abierta |
 | Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `llm-council-skill` | Skill | Candidato | La capacidad está en uso; la evaluación de la skill figura `decision_pending` |
 | Blends · arquitectura y FinOps | `finops-ledger` | Planilla y escenarios de costo | `xlsx`, `sheets-api` | Skill, MCP | Asignado | `sheets-api` escribe en la planilla operativa: exige alcance explícito |
 | Blends · arquitectura y FinOps | `finops-ledger` | Respaldar importes con comprobantes reales | `gmail` | MCP | Asignado | Aprobado con excepción; puede enviar y borrar: limitar a lectura |
@@ -74,7 +76,6 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 | Cellar · conducción, planificación | Uso directo | Plan del proyecto graduado | `writing-plans` | Skill | Observado | 21 invocaciones medidas, sin distinguir fase; figuraba en Blends · preparación antes de VCX-D029 |
 | Cellar · conducción, implementación | Uso directo | Ejecutar tareas con subagentes | `superpowers:subagent-driven-development` | Skill | Observado | Medido, pero no figura en el inventario del framework: conciliar |
 | Cellar · conducción, implementación | Uso directo | Código nuevo con pruebas | `test-driven-development` | Skill | Asignado | Según riesgo; VCX-P5 no impone TDD indiscriminado |
-| Cellar · conducción, implementación | Uso directo | Worktrees y terminales en paralelo | `orca-cli` | Skill | Candidato | `planned` en el inventario |
 | Cellar · conducción, revisión | Uso directo | Revisión independiente | `requesting-code-review`, `skill-codex` | Skill | Asignado; candidato | `skill-codex` está `planned` |
 | Cellar · conducción, revisión | Uso directo | Seguridad de cambios sensibles | `security-review` | Skill | Asignado | Alcance `task` |
 | Cellar · conducción, integración | No registrada | Limitar qué rutas toca cada rama y verificar antes de entregar | — | — | Sin herramienta | Implementada en el precursor sin registro: `branch-scopes.json`, `.githooks/` y `npm run verify`, scripts propios sobre `git`. Dueño entre Brix, Blends y Cellar sin decidir |
@@ -92,6 +93,8 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 | Cellar · instrucciones | Uso directo | Redactar AGENTS, skills y plantillas | `mattpocock-writing-for-agents` | Skill | Asignado | |
 
 Capacidades registradas sin fila al corte: `seeding`, `backend-inventory`, `unattended-session-run` y los instrumentos de eficiencia (`actions-minutes-per-branch`, `context-window-per-branch`, `po-attention-per-branch`, `kpi-history`). Se agregan cuando una fase las use con alguna herramienta o se decida que no necesitan ninguna.
+
+Retiros: `orca-cli` se quitó el 2026-11-01 a pedido del usuario. Su evaluación figura `deferred` por decisión humana del 2026-08-10, con riesgo crítico y sin caso de uso, porque el harness gestiona worktrees de forma nativa; el inventario del precursor todavía la marca `planned`.
 
 ## Cómo evoluciona
 
