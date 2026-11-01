@@ -76,7 +76,7 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 | Cellar · conducción, planificación | Uso directo | Plan del proyecto graduado | `writing-plans` | Skill | Observado | 21 invocaciones medidas, sin distinguir fase; figuraba en Blends · preparación antes de VCX-D029 |
 | Cellar · conducción, implementación | Uso directo | Ejecutar tareas con subagentes | `superpowers:subagent-driven-development` | Skill | Observado | Medido, pero no figura en el inventario del framework: conciliar |
 | Cellar · conducción, implementación | Uso directo | Código nuevo con pruebas | `test-driven-development` | Skill | Asignado | Según riesgo; VCX-P5 no impone TDD indiscriminado |
-| Cellar · conducción, revisión | Uso directo | Revisión independiente | `requesting-code-review`, `skill-codex` | Skill | Asignado; candidato | `skill-codex` está `planned` |
+| Cellar · conducción, revisión | Uso directo | Revisión independiente | `requesting-code-review` | Skill | Asignado | |
 | Cellar · conducción, revisión | Uso directo | Seguridad de cambios sensibles | `security-review` | Skill | Asignado | Alcance `task` |
 | Cellar · conducción, integración | No registrada | Limitar qué rutas toca cada rama y verificar antes de entregar | — | — | Sin herramienta | Implementada en el precursor sin registro: `branch-scopes.json`, `.githooks/` y `npm run verify`, scripts propios sobre `git`. Dueño entre Brix, Blends y Cellar sin decidir |
 | Cellar · conducción, integración | Uso directo | Convenciones de ramas, commits y versionado | `agent-skills` | Skill | Asignado | Subconjunto `git-workflow-and-versioning` |
@@ -94,7 +94,7 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 
 Capacidades registradas sin fila al corte: `seeding`, `backend-inventory`, `unattended-session-run` y los instrumentos de eficiencia (`actions-minutes-per-branch`, `context-window-per-branch`, `po-attention-per-branch`, `kpi-history`). Se agregan cuando una fase las use con alguna herramienta o se decida que no necesitan ninguna.
 
-Retiros: `orca-cli` se quitó el 2026-11-01 a pedido del usuario. Su evaluación figura `deferred` por decisión humana del 2026-08-10, con riesgo crítico y sin caso de uso, porque el harness gestiona worktrees de forma nativa; el inventario del precursor todavía la marca `planned`.
+Retiros: `orca-cli` se quitó el 2026-11-01 a pedido del usuario. Su evaluación figura `deferred` por decisión humana del 2026-08-10, con riesgo crítico y sin caso de uso, porque el harness gestiona worktrees de forma nativa; el inventario del precursor todavía la marca `planned`. `skill-codex` se quitó el mismo día, a pedido del usuario, por la misma inconsistencia: evaluación `deferred` por decisión humana del 2026-08-10 e inventario en `planned`.
 
 ## Cómo evoluciona
 
