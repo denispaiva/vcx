@@ -24,6 +24,12 @@ Convertir una explicación en texto o archivo en un documento de idea comprensib
 
 Las preguntas no son respuestas; la capacidad no inventa entrevistas, validación de mercado, cifras o autoridad. Los fallos de extracción y las secciones pendientes aparecen en el resultado.
 
+## Instrumento de preguntas asesinas: herramienta candidata
+
+Desde el 2026-11-01 existe una herramienta candidata, [`brix-killer-questions`](../.claude/skills/brix-killer-questions/PROVENANCE.md): adaptación local de una skill MIT de terceros, con procedencia fijada. Aplica el contrato de esta capacidad: lee el contexto antes de preguntar, separa hechos, afirmaciones sin fuente e inferencias, y por cada supuesto decisivo expresa pregunta refutable, decisión afectada y consecuencia, evidencia disponible y faltante con prueba proporcionada, y criterio observable. No asigna semáforo ni clasificación bloqueante (propuestas del [diseño de maduración](../../docs/superpowers/specs/2026-10-31-idea-maturation-design.md), sin aprobar) ni exige MVP.
+
+Estado: candidata sin admisión; probada solo con un caso ficticio ([reporte](../../docs/superpowers/reports/2026-11-01-killer-questions-instrument.md)). No hay comando `brix idea` implementado ni capacidad registrada; la integración con la plantilla de ideas y el flujo queda pendiente.
+
 ## Salidas y efectos
 
 - Archivo Markdown basado en la plantilla, con ubicación accesible al consumidor.

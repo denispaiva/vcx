@@ -38,8 +38,8 @@ La matriz se lee desde dos lados. Esta tabla fija **dónde vive** cada capacidad
 | Elemento | Tipo | Vive en | Fuente actual | Nota |
 |---|---|---|---|---|
 | Toda skill o MCP de terceros sin fila propia aquí | Skill o MCP | Brix · catálogo | Inventario `tooling` de `../blends/vc/framework/.roadmap.json` | La [matriz de responsabilidades](responsibility-matrix.md) asigna a Brix el catálogo de instrumentos reutilizables y a cada instancia de Cellar su configuración de uso. Lectura propuesta; trasladar el inventario requiere alcance explícito |
-| `killer-questions` | Skill | Brix · catálogo | `brix/.claude/skills/` | Ya ubicada en Brix, sin admisión en el inventario |
-| `brix-llm-council` | Skill | Brix · catálogo | Por crear en Brix | Skill propia; el prefijo indica el producto de origen |
+| `brix-killer-questions` | Skill | Brix · catálogo | `brix/.claude/skills/` | Ya ubicada en Brix, sin admisión en el inventario; renombrada el 2026-11-01 desde `killer-questions` según la convención de nombres |
+| `brix-llm-council` | Skill | Brix · catálogo | `brix/.claude/skills/` | Creada el 2026-11-01, sin evaluar; skill propia, el prefijo indica el producto de origen |
 | `llm-council-skill` | Skill | Fuera del catálogo · rechazadas | Evaluación del precursor | Rechazada; se conserva para mostrar el reemplazo |
 | `idea-to-spec`, `graduation`, `finops-ledger`, `ci-scaffolding` | Capacidad | Brix · capacidades | Registro de capacidades del precursor, campo `owner` | |
 | `tooling-audit` | Capacidad | Brix · capacidades | Registro de capacidades del precursor | El motor es de Brix; el comando `/tool` figura con dueño Blends |
@@ -81,9 +81,9 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 |---|---|---|---|---|---|---|
 | Blends · ingreso, entrada | `idea-to-spec` | Leer ideas en PDF, DOCX u otros formatos | `markitdown` | Skill | Asignado | Alcance `task` en el inventario |
 | Blends · ingreso, encuadre | `idea-to-spec` | Extraer de la idea su problema esencial (prensado) | `brainstorming` | Skill | Asignado | |
-| Blends · ingreso, encuadre | No registrada (preguntas asesinas) | Instrumento de preguntas asesinas | `killer-questions` (adaptación de `phuryn/pm-skills` · `identify-assumptions-new`) | Skill | Candidato | Incorporada el 2026-11-01 en [`brix/.claude/skills/`](../../brix/.claude/skills/killer-questions/PROVENANCE.md), sin admisión en el inventario ni uso medido. Demostrado solo un caso ficticio ([reporte](../superpowers/reports/2026-11-01-killer-questions-instrument.md)). La capacidad sigue sin registrarse y el diseño de maduración sigue siendo propuesta: la brecha de capacidad permanece abierta |
+| Blends · ingreso, encuadre | No registrada (preguntas asesinas) | Instrumento de preguntas asesinas | `brix-killer-questions` (adaptación de `phuryn/pm-skills` · `identify-assumptions-new`) | Skill | Candidato | Incorporada el 2026-11-01 en [`brix/.claude/skills/`](../../brix/.claude/skills/brix-killer-questions/PROVENANCE.md), sin admisión en el inventario ni uso medido. Demostrado solo un caso ficticio ([reporte](../superpowers/reports/2026-11-01-killer-questions-instrument.md)). La capacidad sigue sin registrarse y el diseño de maduración sigue siendo propuesta: la brecha de capacidad permanece abierta |
 | Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `llm-council-skill` | Skill | Rechazado | Puntaje 39,6 con recomendación `do_not_advance` del proceso de evaluación; el usuario la rechazó el 2026-11-01. Su evaluación en el precursor sigue `decision_pending` hasta registrar el rechazo |
-| Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `brix-llm-council` | Skill | Candidato | Skill propia de Brix que la reemplaza, adaptada del comando `/council` del precursor; diseño propuesto en `docs/superpowers/specs/2026-11-01-council-skill-design.md`, sin crear ni evaluar |
+| Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `brix-llm-council` | Skill | Candidato | Skill propia de Brix que la reemplaza, adaptada del comando `/council` del precursor; creada el 2026-11-01 en [`brix/.claude/skills/`](../../brix/.claude/skills/brix-llm-council/PROVENANCE.md) según el [diseño](../superpowers/specs/2026-11-01-council-skill-design.md), sin evaluar ni ejecutar |
 | Blends · arquitectura y FinOps | `finops-ledger` | Planilla y escenarios de costo | `xlsx`, `sheets-api` | Skill, MCP | Asignado | `sheets-api` escribe en la planilla operativa: exige alcance explícito |
 | Blends · arquitectura y FinOps | `finops-ledger` | Respaldar importes con comprobantes reales | `gmail` | MCP | Asignado | Aprobado con excepción; puede enviar y borrar: limitar a lectura |
 | Blends · exploración | Uso directo | Documentación vigente de bibliotecas y SDK | `context7-mcp` | MCP | Candidato | `planned` en el inventario |
@@ -121,7 +121,7 @@ Cuando una herramienta se rechaza por su evaluación y otra cubre la misma capac
 
 | Capacidad | Reemplazada | Reemplazo | Motivo | Fecha | Estado del reemplazo |
 |---|---|---|---|---|---|
-| `llm-council` | `llm-council-skill` | `brix-llm-council` | Puntaje 39,6 con `do_not_advance`: un solo commit, sin versión fijable ni licencia declarada y lecturas amplias del workspace | 2026-11-01 | En diseño; falta crearla, evaluarla con `/tool` y obtener la decisión humana |
+| `llm-council` | `llm-council-skill` | `brix-llm-council` | Puntaje 39,6 con `do_not_advance`: un solo commit, sin versión fijable ni licencia declarada y lecturas amplias del workspace | 2026-11-01 | Creada, sin evaluar ni ejecutar; falta evaluarla con `/tool` y obtener la decisión humana |
 
 ## Cómo evoluciona
 
