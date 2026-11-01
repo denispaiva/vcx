@@ -16,6 +16,20 @@ SHA-256 de la copia y del original al incorporarlo: `6bc0973f5116026450f151f0a1b
 
 La copia se conserva como antecedente histórico; cualquier curación posterior se documentará por separado, con fuente y fundamento, sin alterar el original ni crear otra lista editable que se confunda con este antecedente.
 
+### Ampliación del 2026-11-01
+
+Al elegir la etiqueta de una actividad de la [matriz de tooling](architecture/tooling-matrix.md), el usuario indicó sobre estos candidatos: «Agrega las opciones presentadas al glosario de nombres si no estuvieran, todas están bien». El glosario de origen no se modifica, para conservar su huella; esta tabla es la fuente editable de la ampliación. «Todas están bien» las acepta como candidatos, no como nombres asignados.
+
+| Término | En el glosario de origen | Significado de trabajo | Función que sugiere | Coincidencias conocidas |
+|---|---|---|---|---|
+| Despalillado | Sí | Separar las bayas del raspón antes de procesarlas | Quitar lo accesorio antes de trabajar una idea | Ninguna |
+| Prensado | No; se agrega | Extraer por presión el mosto o el vino de la uva o del orujo | Extraer lo esencial de una idea; etiqueta de la necesidad de encuadre de Blends en la matriz | `mosto` figura libre en los nombres en clave del precursor, para datos crudos e ingesta |
+| Decantación | Sí | Traspasar el vino para separar sedimentos o airearlo | Separar lo esencial de lo residual | `decantar` identifica una idea del portfolio precursor |
+| Clarificación | No; se agrega | Eliminar partículas en suspensión con agentes clarificantes | Volver legible una propuesta | `clarificacion` identifica una idea del portfolio precursor |
+| Fermentación | No; se agrega | Transformación de los azúcares del mosto en alcohol y CO2 por levaduras | Maduración de una idea con evidencia a lo largo del tiempo | `fermento` figura libre en los nombres en clave del precursor, para procesos batch largos |
+
+Los significados agregados se redactaron en esta sesión; su verificación en fuentes enológicas sigue pendiente, conforme al paso 3 de la selección. Las coincidencias no autorizan reutilizar, renombrar ni fusionar identidades existentes.
+
 ## Convención
 
 - Los nombres técnicos, identificadores, archivos, carpetas, comandos, claves y estados internos se escriben en inglés.

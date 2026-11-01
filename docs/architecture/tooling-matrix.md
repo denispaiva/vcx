@@ -60,7 +60,7 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 | Producto · fase | Capacidad | Necesidad | Herramienta (`id`) | Tipo | Estado | Nota |
 |---|---|---|---|---|---|---|
 | Blends · ingreso, entrada | `idea-to-spec` | Leer ideas en PDF, DOCX u otros formatos | `markitdown` | Skill | Asignado | Alcance `task` en el inventario |
-| Blends · ingreso, encuadre | `idea-to-spec` | Destilar la idea hasta su problema | `brainstorming` | Skill | Asignado | |
+| Blends · ingreso, encuadre | `idea-to-spec` | Extraer de la idea su problema esencial (prensado) | `brainstorming` | Skill | Asignado | |
 | Blends · ingreso, encuadre | No registrada | Instrumento de preguntas asesinas | — | — | Brecha | Falta capacidad y herramienta; el diseño de maduración define el formato. Decidir si es plantilla o capacidad antes de buscar una skill |
 | Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `llm-council-skill` | Skill | Candidato | La capacidad está en uso; la evaluación de la skill figura `decision_pending` |
 | Blends · arquitectura y FinOps | `finops-ledger` | Planilla y escenarios de costo | `xlsx`, `sheets-api` | Skill, MCP | Asignado | `sheets-api` escribe en la planilla operativa: exige alcance explícito |
