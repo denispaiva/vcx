@@ -85,6 +85,8 @@ Hay dos clases de roadmap con el mismo formato. El de **cada producto** (Blends,
 | **Precursor** | El sistema existente en `../blends/`, fuente de consulta y de solo lectura salvo excepción registrada | La carpeta `blends/` de VCX, que contiene documentos objetivo |
 | **Blends Kernel** | Núcleo de gobierno del precursor | Brix. Por eso «kernel» no se usa para Brix: se dice «núcleo de capacidades» |
 | **Tren** | Mecanismo del precursor que integra ramas en `main` | Una regla de VCX |
+| **Clon de autoría** | Checkout del repositorio de Blends que se colocaría en `vcx/blends/` para escribir ramas y decisiones; propuesto en VCX-D030, sin ratificar | El operador: no ejecuta `queue`, trenes ni hooks hasta el corte operativo |
+| **Operador** | El checkout que ejecuta `queue`, trenes y hooks; hoy `../blends` | Un lugar donde escribir decisiones nuevas |
 
 ## Caso de referencia: `board`
 
