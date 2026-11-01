@@ -7,6 +7,7 @@ Estado: reparto de interfaces propuesto. Este documento es la fuente editable de
 | Contrato | Dueño propuesto | Consumidores | Frontera |
 |---|---|---|---|
 | Identidad, estructura y operaciones de portfolio | Cellar · producto | Blends y consumidores autorizados | No define la implementación interna de capacidades |
+| Operaciones de conducción de proyecto | Cellar · producto | PO, equipos de proyecto e integraciones autorizadas | Aplica el método publicado por Blends sin redefinirlo; fila derivada de VCX-D029, contenido pendiente de diseño |
 | Invocación de capacidades, resultados, errores y permisos | Brix | Blends, proyectos y consumidores independientes | No exige Blends ni un Cellar implícito |
 | Operaciones de orquestación y gobierno | Blends | Interfaces, agentes e integraciones | Consume las interfaces públicas de las otras piezas |
 | Convenciones comunes de referencias e intercambio | Fuente compartida, con responsable designado por contrato | Las piezas que adopten la convención | No copia esquemas de dominio ni importa implementaciones internas |
@@ -26,13 +27,13 @@ La ubicación y distribución de la fuente compartida siguen pendientes. **Trasi
 - Procedencia de la evidencia y límites de lo que el resultado permite concluir.
 - Compatibilidad, deprecación y actualización de consumidores.
 
-La interfaz declara permisos; la implementación debe verificarlos al ejecutar. Una recomendación de Brix no equivale a una decisión del PO; conservar una aprobación en Cellar no crea esa aprobación.
+La interfaz declara permisos; la implementación debe verificarlos al ejecutar. Una recomendación de Brix no equivale a una decisión de la autoridad humana competente, responsable del portfolio o PO según el tramo; conservar una aprobación en Cellar no crea esa aprobación.
 
 ## Ejemplo conceptual: graduación de una idea
 
 El [diseño del primer recorrido](../superpowers/specs/2026-10-30-cellar-blends-first-journey-design.md) detalla este caso, con un modelo de datos de Cellar y un proceso de Blends propuestos, sin una API ejecutable nueva.
 
-Blends coordina el proceso definido por el perfil adoptado. Brix ejecuta las evaluaciones necesarias. La autoridad competente toma la decisión conforme a las reglas vigentes. Cellar conserva la decisión, las referencias y la evidencia, manteniendo identidad e historia de la iniciativa.
+Blends coordina el tramo de idea según el método adoptado. Brix ejecuta las evaluaciones necesarias. El responsable del portfolio toma la decisión conforme a las reglas vigentes y asigna el PO del proyecto. Cellar conserva la decisión, las referencias y la evidencia, manteniendo identidad e historia de la iniciativa, y desde la graduación conduce el proyecto con su PO; el traspaso concreto sigue pendiente de diseño, según la [frontera](responsibility-matrix.md#1-método-y-conducción).
 
 La transición debe dejar una única fuente activa de seguimiento; las referencias históricas continúan siendo resolubles. Este ejemplo explica responsabilidades, no autoriza una operación sobre el portfolio actual.
 

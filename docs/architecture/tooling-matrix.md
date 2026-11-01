@@ -51,9 +51,9 @@ Se toman de las fuentes de cada producto, sin crear fases nuevas:
 
 - **Blends:** [ingreso](../../blends/docs/idea-intake.md#secuencia-de-ingreso) y [recorrido de idea a proyecto](../../blends/docs/idea-to-project.md#secuencia) — exploración, definición, gate (graduar, diferir o archivar) y preparación. La [maduración con preguntas asesinas](../superpowers/specs/2026-10-31-idea-maturation-design.md) sigue en revisión.
 - **Brix:** capacidades invocables de [comandos](../../brix/docs/commands.md), incluida la admisión de tooling.
-- **Cellar:** organización del portfolio y backlog, custodia de decisiones y evidencia, respaldo, según su [README](../../cellar/README.md) y el [modelo de iniciativa](../../cellar/docs/initiative-model.md).
+- **Cellar:** organización del portfolio y backlog, custodia de decisiones y evidencia, respaldo, según su [README](../../cellar/README.md) y el [modelo de iniciativa](../../cellar/docs/initiative-model.md); y, desde VCX-D029, conducción de los proyectos graduados, con planificación, implementación, revisión, cierre e interfaz, según la [matriz](responsibility-matrix.md#1-método-y-conducción).
 
-La entrega de un proyecto graduado se incluye como fase transversal porque el inventario actual concentra allí sus herramientas.
+La entrega de un proyecto graduado pertenece a la conducción en Cellar según VCX-D029; el inventario actual concentra allí sus herramientas, medidas cuando Blends Kernel conducía los proyectos en el precursor.
 
 ## Matriz
 
@@ -71,14 +71,14 @@ La entrega de un proyecto graduado se incluye como fase transversal porque el in
 | Blends · definición | `spec-consistency-analysis` | Consistencia entre diseño y plan | `spec-kit-analyze` | Skill | Asignado | |
 | Blends · gate | Uso directo | Graduar, diferir o archivar | — | — | Sin herramienta | Decide la autoridad humana; el consejo asesora y no reemplaza evidencia |
 | Blends · preparación | `graduation` | Aplicar una graduación autorizada | — | — | Sin herramienta | La capacidad de Brix no requiere skill ni MCP |
-| Blends · preparación | Uso directo | Plan del proyecto graduado | `writing-plans` | Skill | Observado | 21 invocaciones medidas, sin distinguir fase |
-| Entrega · implementación | Uso directo | Ejecutar tareas con subagentes | `superpowers:subagent-driven-development` | Skill | Observado | Medido, pero no figura en el inventario del framework: conciliar |
-| Entrega · implementación | Uso directo | Código nuevo con pruebas | `test-driven-development` | Skill | Asignado | Según riesgo; VCX-P5 no impone TDD indiscriminado |
-| Entrega · revisión | Uso directo | Revisión independiente | `requesting-code-review`, `skill-codex` | Skill | Asignado; candidato | `skill-codex` está `planned` |
-| Entrega · revisión | Uso directo | Seguridad de cambios sensibles | `security-review` | Skill | Asignado | Alcance `task` |
-| Entrega · cierre | Uso directo | Evidencia antes de declarar éxito | `verification-before-completion` | Skill | Asignado | Transversal a todas las fases |
-| Entrega · interfaz | Uso directo | Diseño y anti-patrones de UI | `impeccable`, `emilkowalski-skills` | Skill | Asignado | Solo proyectos con interfaz |
-| Entrega · interfaz | Uso directo | Verificar lo renderizado | `browser` | MCP | Asignado | |
+| Cellar · conducción, planificación | Uso directo | Plan del proyecto graduado | `writing-plans` | Skill | Observado | 21 invocaciones medidas, sin distinguir fase; figuraba en Blends · preparación antes de VCX-D029 |
+| Cellar · conducción, implementación | Uso directo | Ejecutar tareas con subagentes | `superpowers:subagent-driven-development` | Skill | Observado | Medido, pero no figura en el inventario del framework: conciliar |
+| Cellar · conducción, implementación | Uso directo | Código nuevo con pruebas | `test-driven-development` | Skill | Asignado | Según riesgo; VCX-P5 no impone TDD indiscriminado |
+| Cellar · conducción, revisión | Uso directo | Revisión independiente | `requesting-code-review`, `skill-codex` | Skill | Asignado; candidato | `skill-codex` está `planned` |
+| Cellar · conducción, revisión | Uso directo | Seguridad de cambios sensibles | `security-review` | Skill | Asignado | Alcance `task` |
+| Cellar · conducción, cierre | Uso directo | Evidencia antes de declarar éxito | `verification-before-completion` | Skill | Asignado | Transversal a todas las fases |
+| Cellar · conducción, interfaz | Uso directo | Diseño y anti-patrones de UI | `impeccable`, `emilkowalski-skills` | Skill | Asignado | Solo proyectos con interfaz |
+| Cellar · conducción, interfaz | Uso directo | Verificar lo renderizado | `browser` | MCP | Asignado | |
 | Brix · admisión de tooling | `tooling-audit` | Evaluar y registrar una herramienta | — | — | Sin herramienta | La capacidad es el proceso propio; 42 invocaciones medidas de `/tool` |
 | Brix · admisión de tooling | `tooling-audit` | Descubrir candidatas | `find-skills` | Skill | Asignado | |
 | Cellar · portfolio y backlog | `backlog-and-sprint-planning` | Organizar ideas, proyectos y backlog | — | — | Sin herramienta | Capacidad de Blends sobre archivos versionados; un MCP de gestión externo crearía una segunda fuente sin necesidad demostrada |
@@ -96,4 +96,4 @@ Capacidades registradas sin fila al corte: `ci-scaffolding`, `seeding`, `backend
 
 ## Destino previsto
 
-Esta tabla es transitoria, según VCX-D028. Al preparar los repositorios independientes, la relación con la fase pasa al inventario como dato de cada herramienta, por ejemplo un campo `phases`, junto con las capacidades que la usan, y esta matriz se convierte en una vista generada. El dueño de la vista corresponde a la [matriz de responsabilidades](responsibility-matrix.md): Brix mantiene el catálogo, Blends define las fases y Cellar conserva la configuración de cada instancia. Ese cambio requiere escribir en el precursor o en los nuevos repositorios y un alcance explícito; no lo autoriza este documento.
+Esta tabla es transitoria, según VCX-D028. Al preparar los repositorios independientes, la relación con la fase pasa al inventario como dato de cada herramienta, por ejemplo un campo `phases`, junto con las capacidades que la usan, y esta matriz se convierte en una vista generada. El dueño de la vista corresponde a la [matriz de responsabilidades](responsibility-matrix.md): Brix mantiene el catálogo, Blends define las fases del tramo de idea y del método, Cellar define las de conducción y conserva la configuración de cada instancia. Ese cambio requiere escribir en el precursor o en los nuevos repositorios y un alcance explícito; no lo autoriza este documento.

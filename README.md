@@ -1,6 +1,6 @@
-# VCX · VibeCoding X Projects
+# VCX · VibeOS, Vibe Coding for X projects
 
-VCX puede identificar la marca o propuesta comercial de un conjunto de productos desacoplados que ayudan a convertir ideas en resultados verificables. En el workspace, `vcx/` es su carpeta raíz de organización. VCX no se desarrollará como producto.
+VCX, con VibeOS como nombre de marca según VCX-D029, puede identificar la propuesta comercial de un conjunto de productos desacoplados que ayudan a convertir ideas en resultados verificables. En el workspace, `vcx/` es su carpeta raíz de organización. VCX no se desarrollará como producto.
 
 **Estado:** fundación documental establecida el 2026-10-30. Esta carpeta reúne definiciones y plantillas; las capacidades ejecutables se implementarán en trabajos posteriores. El sistema existente no fue migrado.
 
@@ -11,7 +11,7 @@ VCX puede identificar la marca o propuesta comercial de un conjunto de productos
 | A · Base reutilizable | Ayudar a nuevos equipos a comenzar y evolucionar proyectos | [Blends](blends/README.md), [Brix](brix/README.md) y [Cellar](cellar/README.md) |
 | B · Ideas y proyectos | Evolucionar con misión, visión, decisiones y contexto propios | [Instancias de Cellar](cellars/README.md) |
 
-Blends conduce el trabajo; Brix aporta capacidades e instrumentos; Cellar organiza y custodia los desarrollos y su memoria. VCX es la raíz organizativa: no es una aplicación, un servicio central ni una dependencia de ejecución de esos productos. Cada producto debe poder distribuirse y evolucionar con independencia de esta carpeta.
+Blends define el método y coordina cada idea hasta graduarla; Brix aporta capacidades e instrumentos; Cellar custodia los desarrollos y su memoria y conduce los proyectos graduados con sus Product Owners, según el reparto de VCX-D029 fijado en la [matriz](docs/architecture/responsibility-matrix.md#1-método-y-conducción). VCX es la raíz organizativa: no es una aplicación, un servicio central ni una dependencia de ejecución de esos productos. Cada producto debe poder distribuirse y evolucionar con independencia de esta carpeta.
 
 El repositorio hermano `../blends/` es el precursor, según la aclaración del usuario del 2026-10-30. `blends/` dentro de VCX contiene hoy documentos objetivo; VCX-D026 acuerda continuar el repositorio del precursor mediante un clon local y un cambio futuro de copia canónica, sin modificar la carpeta original por inferencia. El [registro de decisiones](docs/decisions/README.md) conserva el alcance de esta separación; la migración todavía no se ejecutó.
 
@@ -31,6 +31,7 @@ Blends y Cellar son proyectos pares de primer nivel. Se prioriza su curación do
 
 - Para entender el propósito: [misión y visión](docs/vision.md) y [speech ejecutivo](docs/executive-pitch.md).
 - Para diseñar conexiones: [arquitectura](docs/architecture/overview.md), [responsabilidades](docs/architecture/responsibility-matrix.md) e [interoperabilidad](docs/architecture/interoperability.md).
+- Para entender el reparto entre método, conducción y capacidades: [modelo de productos](docs/superpowers/specs/2026-10-31-product-model-design.md), acordado en VCX-D029, con su [plan de aplicación](docs/superpowers/plans/2026-11-01-product-model-application.md) y el [reporte de ejecución](docs/superpowers/reports/2026-11-01-product-model-application.md).
 - Para saber qué skills y MCP usa o propone cada fase: [matriz de tooling](docs/architecture/tooling-matrix.md), fuente transitoria según VCX-D028 que referencia el inventario del precursor sin copiarlo.
 - Para continuar la curación gradual: [primer recorrido Cellar–Blends](docs/superpowers/specs/2026-10-30-cellar-blends-first-journey-design.md), diseño propuesto con ejemplo ficticio y correspondencia con el sistema actual.
 - Para preparar el ingreso de una idea: [flujo de documento, consejo y confirmación humana](blends/docs/idea-intake.md), con capacidad de Brix y plantilla de ideas; todavía sin comandos nuevos implementados.

@@ -4,13 +4,13 @@ Fecha: 2026-10-30. Estado: propuesta de diseño del primer recorrido Cellar–Bl
 
 ## Propósito y fuente
 
-Conservar el contexto desde la preparación de una propuesta hasta su ingreso como idea y eventual preparación como proyecto, con procedencia explícita, identidad estable desde el registro y una fuente canónica por dato. Este documento define la información; [el recorrido de Blends](../../blends/docs/idea-to-project.md) define el proceso y sus condiciones.
+Conservar el contexto desde la preparación de una propuesta hasta su ingreso como idea y eventual preparación como proyecto, con procedencia explícita, identidad estable desde el registro y una fuente canónica por dato. Este documento define la información; [el recorrido de Blends](../../blends/docs/idea-to-project.md) define el proceso del tramo de idea y la [matriz](../../docs/architecture/responsibility-matrix.md#1-método-y-conducción) el reparto entre método y conducción.
 
 ## Antes de ser una idea registrada
 
 El [ingreso previo](../../blends/docs/idea-intake.md) prepara una propuesta con `/idea`, preguntas asesinas, un documento Markdown revisado por el humano y un reporte del consejo. Solo la confirmación humana posterior al reporte habilita su registro como idea. Es un requisito expresado por el usuario, no un cambio aplicado al sistema existente.
 
-El ámbito de preparación conserva `submissionId`, fuentes, revisiones del documento, OK de envío, reporte y decisión de ingreso. No es una entrada activa del portfolio y no tiene todavía estado `registered`, `archived` o `deferred` del ciclo de iniciativas. Puede estar asociado a un destino propuesto, sin exigir que ya exista una instancia configurada para preparar el documento.
+El ámbito de preparación conserva `submissionId`, fuentes, revisiones del documento, OK de envío, reporte y decisión de ingreso. No es una entrada activa del portfolio y no tiene todavía estado `registered`, `archived` o `deferred` del ciclo de iniciativas. Puede estar asociado a un destino propuesto, sin exigir que ya exista una instancia configurada para preparar el documento. Custodiar esa preparación no la admite.
 
 Al admitir la propuesta se asigna o confirma `initiativeId` en el Cellar elegido y se conserva su relación con `submissionId`. A partir del registro, esa identidad de iniciativa permanece en todo el ciclo. El documento preparado se transfiere o reclasifica como fuente activa con su historia, sin mantener otro borrador editable paralelo. El formato del ámbito de entrada y su retención siguen siendo decisiones de implementación pendientes.
 
@@ -20,7 +20,7 @@ Al admitir la propuesta se asigna o confirma `initiativeId` en el Cellar elegido
 |---|---|---|
 | Cellar | Identidad del portfolio, propietario, participantes, configuración y versiones adoptadas, prioridades y decisiones transversales | Iniciativas, perfiles de gobierno, almacenamientos y recuperación |
 | Iniciativa | Identidad, propósito, situación, exploración, decisiones y evidencia específicas | Su planificación, autoridad, código cuando exista y dependencias declaradas |
-| Producto reutilizable | Reglas de proceso en Blends, instrumentos en Brix y formato de portfolio en Cellar | Interfaces públicas y versiones compatibles |
+| Producto reutilizable | Método en Blends, instrumentos en Brix, formato de portfolio y conducción de proyectos en Cellar | Interfaces públicas y versiones compatibles |
 
 El índice del Cellar guarda identidades y ubicaciones; no replica el estado completo de cada iniciativa. El aislamiento entre instancias debe validarse antes de escrituras reales.
 
@@ -32,7 +32,8 @@ El índice del Cellar guarda identidades y ubicaciones; no replica el estado com
 | `initiativeId` | Identidad estable en ese portfolio; requerido desde el registro | Registro de iniciativa |
 | `displayName` | Nombre visible; cambiarlo no cambia la identidad | Registro de iniciativa |
 | `kind` | `idea` o `project`; cambia solo al completar la graduación | Registro de iniciativa |
-| `ownerRef` | Autoridad responsable del propósito y decisiones | Asignación explícita, referenciada desde la iniciativa |
+| `ownerRef` | Autoridad responsable del propósito y decisiones: el responsable del portfolio mientras es idea; no se sobrescribe al graduar | Asignación explícita, referenciada desde la iniciativa |
+| `productOwnerRef` | PO del proyecto, asignado en la decisión de graduar; requerido para publicar `kind=project`. Coexiste con `ownerRef` y ambas asignaciones se conservan como historia; qué decisiones corresponden a cada autoridad se precisa con el traspaso, pendiente | Decisión de graduación referenciada desde la iniciativa |
 | `captureRef` | Palabras originales, problema y primera validación; requerido al registrar | Captura preservada; los refinamientos posteriores no la reescriben |
 | `submissionRef` | Procedencia del proceso de preparación, requerido al ingresar por `/idea` | Registro de preparación con fuentes y revisiones |
 | `ideaDocumentRef` | Documento Markdown revisado y enviado al consejo | Contexto de idea según la plantilla adoptada; una fuente activa |
@@ -45,7 +46,7 @@ El índice del Cellar guarda identidades y ubicaciones; no replica el estado com
 | `lifecycleState` | Etapa del ciclo de idea; independiente del estado de trabajo | Registro de ciclo de vida de la iniciativa |
 | `workStatusRef` | Referencia al estado de trabajo cuando existe planificación | Planificación canónica, no otro estado copiado al índice |
 | `explorationRef` | Preguntas decisivas, presupuesto autorizado y resultados; requerido al iniciar exploración | Registro de exploración |
-| `definitionRef` | Propuesta de valor, MVP y alternativas; requerido para solicitar el gate ordinario | Definición acotada de la idea |
+| `definitionRef` | Propuesta de valor, vía de validación propuesta y alternativas; MVP recomendado, no obligatorio; requerido para solicitar el gate ordinario | Definición acotada de la idea |
 | `decisionRefs` | Decisiones con autoridad y evidencia, incluida graduación | Registros de decisión de la iniciativa |
 | `evidenceRefs` | Fuentes y resultados que sustentan afirmaciones | Evidencia de la iniciativa o referencia a su ubicación declarada |
 | `governanceRef` | Perfil y autoridad efectivos; parámetros adoptados sin copiar la política general | Perfil versionado y asignaciones particulares |
@@ -65,7 +66,7 @@ Después del registro se construye FinOps desde una arquitectura de referencia p
 
 `lifecycleState` no reemplaza el estado de un roadmap: un proyecto puede conservar el antecedente `graduated` y tener trabajo `planned` o `active` según su seguimiento. Una idea lista para gate no se convierte por ello en proyecto.
 
-La propuesta usa una sola identidad de iniciativa durante el recorrido. Al graduar, el contexto de proyecto referencia su captura y su decisión; la exploración se conserva como historia y no como una segunda iniciativa activa. Este es un criterio del diseño pendiente de aprobación, no una migración de IDs existentes.
+La propuesta usa una sola identidad de iniciativa durante el recorrido. Al graduar, el contexto de proyecto referencia su captura, su decisión y la asignación del PO; la exploración se conserva como historia y no como una segunda iniciativa activa. Desde entonces Cellar conduce el proyecto bajo el método de Blends; el traspaso concreto está pendiente de diseño. Este es un criterio del diseño pendiente de aprobación, no una migración de IDs existentes.
 
 ## Decisión y evidencia
 
@@ -75,7 +76,7 @@ Cada evidencia registra identidad, origen, fecha, autor o productor, ubicación,
 
 ## Lectura, actualización y custodia
 
-Cellar expone lectura por identidad y revisión, actualización autorizada y referencias verificables. Debe comprobar pertenencia al ámbito, permisos, integridad referencial y conflictos de revisión. Blends aplica el proceso y sus compuertas a través de esa interfaz; el acceso directo a almacenamiento no debe convertirse en un canal alternativo que eluda la autoridad adoptada.
+Cellar expone lectura por identidad y revisión, actualización autorizada y referencias verificables. Debe comprobar pertenencia al ámbito, permisos, integridad referencial y conflictos de revisión. Blends aplica el proceso y sus compuertas del tramo de idea a través de esa interfaz, y Cellar conduce el tramo de proyecto por la misma interfaz; el acceso directo a almacenamiento no debe convertirse en un canal alternativo que eluda la autoridad adoptada.
 
 La preparación de proyecto debe poder completarse o recuperarse sin publicar dos seguimientos activos: [el recorrido](../../blends/docs/idea-to-project.md) fija el resultado y el tratamiento de interrupciones. Este corte no selecciona backend, protocolo, librería o formato persistente.
 

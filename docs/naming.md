@@ -38,6 +38,10 @@ La copia se conserva como antecedente histórico; cualquier curación posterior 
 
 **Trasiego** fue propuesto por el usuario para la interoperabilidad y ya identifica una idea del portfolio existente. Continúa siendo un candidato para el nuevo uso, pendiente de resolver la coincidencia. El glosario no autoriza renombrar, fusionar o reutilizar esa identidad.
 
+## Nombre de marca registrado
+
+**VibeOS**, «Vibe Coding for X projects», es el nombre de marca del conjunto de productos, registrado en VCX-D029 del [registro de decisiones](decisions/README.md) conforme a VCX-D024. Es marca, no identidad de producto ni dependencia ejecutable; no renombra Blends, Brix ni Cellar.
+
 ## Relación con la fundación documental
 
 El [plan de fundación](superpowers/plans/2026-10-30-vcx-foundation.md) incorpora esta fuente y este criterio. Su ejecución documental se registra en el [reporte](superpowers/reports/2026-10-30-vcx-foundation.md). El banco no constituye un catálogo operativo, una instancia de Cellar ni un conjunto de actividades con nombres asignados.

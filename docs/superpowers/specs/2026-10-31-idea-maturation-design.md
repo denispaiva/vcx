@@ -12,6 +12,8 @@ La propuesta concreta de categorías, colores y reglas de decisión de este docu
 
 Este corte define un modelo conceptual y los cambios documentales necesarios. No define almacenamiento, API, nuevos comandos o migración; tampoco autoriza consejo, gastos, código o instancias reales.
 
+Lectura según VCX-D029, 2026-11-01: la autoridad humana del gate mencionada en este documento es el responsable del portfolio, que al graduar asigna el PO del proyecto; desde la graduación Cellar conduce el proyecto bajo el método de Blends. Esa lectura no aprueba el cambio del criterio del gate propuesto más abajo, que sigue pendiente de aprobación y conciliación.
+
 ## Alternativas consideradas
 
 | Alternativa | Ventaja | Límite |

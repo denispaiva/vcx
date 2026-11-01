@@ -29,9 +29,9 @@ El diagrama expresa organización documental y pertenencia lógica; sus flechas 
 
 ## Fronteras y contexto
 
-Blends ofrece experiencia, coordinación y gobierno; incluye lógica de proceso además de interfaz. Brix ofrece motores e instrumentos reutilizables. Cellar ofrece estructura, configuración, custodia y portabilidad del portfolio.
+Blends es dueño del método y coordina el tramo de idea; incluye lógica de proceso además de interfaz. Brix ofrece motores e instrumentos reutilizables. Cellar ofrece estructura, configuración, custodia y portabilidad del portfolio, y conduce los proyectos graduados bajo ese método. La [matriz](responsibility-matrix.md#1-método-y-conducción) es la fuente de esa frontera, derivada de VCX-D029; el reparto no rige en el sistema existente hasta conciliar por VCX-D011.
 
-Brix puede describirse como núcleo de capacidades. La denominación histórica **Blends Kernel** pertenece al núcleo de gobierno del sistema existente; esta documentación no la reasigna.
+Brix es el núcleo de capacidades técnicas. La denominación histórica **Blends Kernel** pertenece al núcleo de gobierno del sistema existente; esta documentación no la reasigna.
 
 La entrada de cada contexto es su README y sus instrucciones locales. El contexto adicional se carga según la tarea y sus dependencias, no por compartir repositorio. La [matriz](responsibility-matrix.md) detalla responsabilidades y la [interoperabilidad](interoperability.md) delimita las interfaces.
 
@@ -39,7 +39,7 @@ Blends, Brix y Cellar también tienen contexto propio como proyectos de desarrol
 
 ## Código, estado y localización
 
-La pertenencia de una iniciativa a un Cellar no fija todavía la ubicación física de su código. El diseño admite declarar ubicaciones canónicas, incluidas ubicaciones externas. Un índice de localizaciones no replica el contenido de los roadmaps.
+El código de cada producto y de cada proyecto vive en su propio repositorio, según VCX-D029; el Cellar registra su ubicación canónica, incluidas ubicaciones externas, sin alojarlo. Un índice de localizaciones no replica el contenido de los roadmaps.
 
 El backlog actual de blends vive en la rama `queue`, y sus decisiones y evidencia incluyen historia fuera del checkout principal. Una migración futura deberá declarar esos almacenamientos, preservar identidades y probar recuperación. Esta etapa no crea una copia de ese estado.
 
@@ -66,6 +66,7 @@ Separar carpetas o repositorios no demuestra independencia. Cada producto debe s
 - Blends administra un Cellar distinto, sin nombres de iniciativas o rutas históricas incrustadas.
 - Un proyecto consume Brix fuera de VCX y sin instalar Blends, con entradas, configuración y permisos explícitos.
 - Un Cellar permite recuperar estado, decisiones y evidencia desde sus almacenamientos declarados, sin ejecutar Blends o Brix.
+- Un Cellar conduce un proyecto sin ejecutar Blends, con el método adoptado disponible como recurso versionado.
 - Las instancias mantienen aislamiento efectivo y una actualización compatible de un producto no fuerza la actualización de todos los consumidores.
 - Los consumidores usan interfaces públicas; no dependen de archivos internos de otra pieza.
 

@@ -4,7 +4,7 @@ Proyecto de primer nivel de VCX, par de Cellar. Primera curación documental: 20
 
 ## Misión
 
-Conducir el trabajo de personas, equipos y agentes para convertir ideas en resultados verificables mediante una experiencia integrada de planificación, coordinación y gobierno.
+Definir el método con el que personas, equipos y agentes convierten ideas en resultados verificables, y coordinar las actividades e hitos de cada idea hasta su graduación, mediante una experiencia integrada de planificación, coordinación y gobierno.
 
 ## Visión
 
@@ -12,7 +12,7 @@ Que distintos equipos puedan adoptar un proceso explícito y configurable para s
 
 ## Destinatarios y alcance
 
-Se dirige a responsables de portfolios, equipos de proyecto y agentes autorizados. Coordina exploración, planificación, autoridad, sesiones, FinOps de gobierno, entrega y presentación del portfolio.
+Se dirige a responsables de portfolios, equipos de proyecto y agentes autorizados. Es dueño del método: etapas, compuertas, criterios de evidencia, roles y plantillas de proceso. Coordina ingreso, exploración, definición, gate y preparación del contexto de proyecto, y la presentación del portfolio. No conduce proyectos: Cellar los conduce bajo ese método, según la [frontera](../docs/architecture/responsibility-matrix.md#1-método-y-conducción) derivada de VCX-D029.
 
 **Entradas previstas:** configuración de un Cellar, políticas y versiones adoptadas, estado de las iniciativas, solicitudes de trabajo y permisos de sus participantes.
 
@@ -28,7 +28,7 @@ La [entrada de propuestas](docs/idea-intake.md) incorpora la preparación en Bri
 
 Después del ingreso, la [etapa de arquitectura de referencia y FinOps](docs/architecture-and-finops.md) prepara el modelo y los escenarios para decidir el presupuesto de exploración, sin autorizar por ello construcción u operación.
 
-Aquí se documenta el producto objetivo; no se trasladó su implementación. El núcleo de gobierno del sistema existente mantiene su identidad Blends Kernel y su seguimiento canónico actual. No hay un roadmap nuevo o paralelo en esta carpeta.
+Aquí se documenta el producto objetivo; no se trasladó su implementación. El núcleo de gobierno del sistema existente mantiene su identidad Blends Kernel y su seguimiento canónico actual, y allí sigue conduciendo proyectos hasta conciliar por VCX-D011. No hay un roadmap nuevo o paralelo en esta carpeta.
 
 Para trabajar: leer este documento y [AGENTS.md](AGENTS.md). Consultar después la [matriz](../docs/architecture/responsibility-matrix.md), [interoperabilidad](../docs/architecture/interoperability.md) o [decisiones](../docs/decisions/README.md), según la tarea. La [procedencia histórica](../docs/sources.md) es referencia, no un requisito de instalación.
 
@@ -46,7 +46,7 @@ Para trabajar: leer este documento y [AGENTS.md](AGENTS.md). Consultar después 
 
 El seguimiento operativo existente permanece en el repositorio de Blends: `vc/framework/.roadmap.json` registra Blends Kernel y la rama `queue` conserva el backlog. Estas son localizaciones de origen, no nuevas dependencias de instalación de VCX. La [correspondencia fechada](../docs/architecture/current-system-mapping.md) identifica sus fuentes y límites; no es un monitor actualizado ni autoriza su traslado. La [procedencia](../docs/sources.md) conserva las rutas históricas.
 
-Cellar custodia la información; Brix aporta instrumentos; Blends define y coordina el proceso. Las decisiones de ingreso, presupuesto, excepciones y graduación corresponden a la autoridad humana competente. La curación no asigna roles nuevos ni convierte el Kernel existente en un producto distinto.
+Cellar custodia la información y conduce los proyectos graduados; Brix aporta instrumentos; Blends define el método y coordina el tramo de idea. Las decisiones de ingreso, presupuesto, excepciones y graduación corresponden al responsable del portfolio; las del proyecto, a su PO. La curación no asigna roles nuevos ni convierte el Kernel existente en un producto distinto.
 
 ## Próximo entregable propuesto
 

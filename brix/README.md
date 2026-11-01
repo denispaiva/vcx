@@ -10,13 +10,15 @@ Que proyectos y equipos puedan adoptar capacidades de ingeniería de forma indep
 
 ## Destinatarios y alcance
 
-Se dirige a desarrolladores, agentes, proyectos y orquestadores. El alcance conceptual incluye scoring y evaluación de herramientas, medición, generación de especificaciones y scaffolding, motores de FinOps, validación y siembra de escenarios. La disponibilidad real de cada capacidad debe verificarse en su implementación; esta lista no declara todas como implementadas.
+Se dirige a desarrolladores, agentes, proyectos y orquestadores. El alcance conceptual incluye scoring y evaluación de herramientas, medición, generación de especificaciones y scaffolding, motores de FinOps, validación y siembra de escenarios, diseño y operaciones Git. La disponibilidad real de cada capacidad debe verificarse en su implementación; esta lista no declara todas como implementadas.
 
 **Entradas previstas:** solicitudes, datos, configuración y permisos explícitos, junto con drivers cuando una capacidad los requiera.
 
 **Resultados previstos:** resultados estructurados, diagnósticos, errores y evidencia reproducible con límites claros.
 
 Brix no prescribe el proceso de gobierno de un equipo ni adopta decisiones en su nombre. No presupone un Cellar, busca rutas históricas de Blends o accede a implementaciones privadas ajenas. Los drivers que conocen un backend particular pertenecen al producto consumidor.
+
+Brix es el núcleo de capacidades técnicas de VCX, según VCX-D029. La denominación «kernel» queda reservada al núcleo de gobierno del sistema existente, conforme a la [arquitectura](../docs/architecture/overview.md#fronteras-y-contexto). El código específico de cada producto y de cada proyecto vive en su propio repositorio; Brix provee capacidades y no aloja ese código.
 
 ## Estado y contexto
 

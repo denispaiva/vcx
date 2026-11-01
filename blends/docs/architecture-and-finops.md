@@ -19,7 +19,7 @@ No se agrega por defecto un gate humano separado para aprobar la arquitectura an
 | Cellar · producto | Mantener la plantilla y referencias documentales de la instancia |
 | Cellar · instancia | Custodiar la idea, modelo, escenarios, estimaciones, fuentes y decisiones concretas |
 | Blends | Coordinar la secuencia, comprobar cobertura y presentar límites y decisiones necesarias |
-| PO o autoridad humana competente | Aprobar el presupuesto y alcance habilitados; decidir ampliaciones o cambios de compromiso |
+| Responsable del portfolio, autoridad humana en esta etapa | Aprobar el presupuesto y alcance habilitados; decidir ampliaciones o cambios de compromiso |
 
 Se usa la [plantilla FinOps](../../cellar/templates/finops/README.md). Sus valores pertenecen a la iniciativa; las reglas de cálculo pertenecen al instrumento que las aplique. Un resumen de portfolio deriva de esas fuentes, sin mantener otro presupuesto editable.
 

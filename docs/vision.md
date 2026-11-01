@@ -1,6 +1,6 @@
 # Misión y visión de VCX
 
-Estado: definición fundacional basada en los objetivos expresados por el usuario. Describe la dirección del ecosistema y de sus productos, no capacidades ya disponibles. VCX puede identificar la marca o propuesta comercial del conjunto; `vcx/` es la carpeta raíz de organización. No hay intención de convertir VCX en producto (VCX-D024).
+Estado: definición fundacional basada en los objetivos expresados por el usuario. Describe la dirección del ecosistema y de sus productos, no capacidades ya disponibles. VCX puede identificar la marca o propuesta comercial del conjunto, con VibeOS como nombre de marca según VCX-D029; `vcx/` es la carpeta raíz de organización. No hay intención de convertir VCX en producto (VCX-D024).
 
 ## Misión
 
@@ -16,7 +16,7 @@ Para propietarios de portfolios, equipos que inician o mantienen proyectos y per
 
 ## Objetivos
 
-- Ofrecer una base portable formada por Blends, Brix y Cellar.
+- Ofrecer una base portable formada por Blends, Brix y Cellar: Blends define el método y coordina las ideas, Cellar custodia y conduce los proyectos, Brix provee capacidades técnicas (VCX-D029).
 - Reducir el esfuerzo de preparar nuevos equipos e iniciativas mediante contextos y convenciones reutilizables.
 - Mantener una fuente editable por dato, identidad estable y relaciones explícitas entre iniciativas.
 - Permitir la evolución y adopción independiente de productos, herramientas y portfolios.
@@ -30,4 +30,4 @@ La migración del sistema existente y la implementación de las capacidades qued
 
 ## Señales de que la visión se cumple
 
-Un equipo nuevo puede empezar con contexto propio; Brix puede utilizarse sin Blends; Blends puede administrar otro Cellar; un Cellar conserva sus datos y referencias sin ejecutar ninguno de los dos; actualizar una pieza no obliga a actualizar todas. Estas son metas que requerirán demostración al implementar el sistema.
+Un equipo nuevo puede empezar con contexto propio; Brix puede utilizarse sin Blends; Blends puede administrar otro Cellar; un Cellar conserva sus datos y referencias sin ejecutar ninguno de los dos; un Cellar conduce un proyecto sin ejecutar Blends, con el método adoptado disponible como recurso versionado; actualizar una pieza no obliga a actualizar todas. Estas son metas que requerirán demostración al implementar el sistema.
