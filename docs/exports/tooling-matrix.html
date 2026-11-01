@@ -8,16 +8,16 @@
 :root{
   --bg:#f7f5f2;--surface:#fff;--ink:#1f1d1b;--muted:#6b6560;--line:#e4dfd8;--accent:#7a2e3a;
   --obs:#1f7a4d;--obs-bg:#e3f3ea;--asg:#2456a6;--asg-bg:#e4ecf9;--cand:#9a6700;--cand-bg:#fbf0d6;
-  --gap:#b42318;--gap-bg:#fde7e4;--none:#5f5a55;--none-bg:#ece9e5;--shadow:0 12px 40px rgba(0,0,0,.18);
+  --gap:#b42318;--gap-bg:#fde7e4;--none:#5f5a55;--none-bg:#ece9e5;--shadow:0 12px 40px rgba(0,0,0,.18);--mark:#ffe08a;--mark-ink:#1f1d1b;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#161413;--surface:#201e1c;--ink:#ece8e3;--muted:#a39c95;--line:#36322f;--accent:#e08a98;
   --obs:#6fd3a0;--obs-bg:#173326;--asg:#8fb4f3;--asg-bg:#1a2742;--cand:#f0c060;--cand-bg:#3a2d10;
-  --gap:#ff9a8f;--gap-bg:#41201c;--none:#bdb6ae;--none-bg:#2c2927;--shadow:0 12px 40px rgba(0,0,0,.6);}}
+  --gap:#ff9a8f;--gap-bg:#41201c;--none:#bdb6ae;--none-bg:#2c2927;--shadow:0 12px 40px rgba(0,0,0,.6);--mark:#7a5d12;--mark-ink:#fff6dc;}}
 :root[data-theme="dark"]{
   --bg:#161413;--surface:#201e1c;--ink:#ece8e3;--muted:#a39c95;--line:#36322f;--accent:#e08a98;
   --obs:#6fd3a0;--obs-bg:#173326;--asg:#8fb4f3;--asg-bg:#1a2742;--cand:#f0c060;--cand-bg:#3a2d10;
-  --gap:#ff9a8f;--gap-bg:#41201c;--none:#bdb6ae;--none-bg:#2c2927;--shadow:0 12px 40px rgba(0,0,0,.6);}
+  --gap:#ff9a8f;--gap-bg:#41201c;--none:#bdb6ae;--none-bg:#2c2927;--shadow:0 12px 40px rgba(0,0,0,.6);--mark:#7a5d12;--mark-ink:#fff6dc;}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
 main{max-width:1240px;margin:0 auto;padding:32px 16px 64px}
@@ -70,6 +70,13 @@ dialog::backdrop{background:rgba(20,16,14,.45)}
 .legend{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;font-size:13px}
 .legend div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
 .empty{color:var(--muted);font-size:13px}
+.search{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 14px}
+.search input{flex:1 1 280px;font:inherit;font-size:15px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+.search input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.search .hint{font-size:12.5px;color:var(--muted)}
+mark{background:var(--mark);color:var(--mark-ink);border-radius:3px;padding:0 1px}
+.hits{display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:6px}
+.hits span{display:block}
 </style>
 </head>
 <body>
@@ -77,6 +84,10 @@ dialog::backdrop{background:rgba(20,16,14,.45)}
   <h1>Matriz de tooling por ubicación</h1>
   <p class="lead">Dónde vive cada capacidad, skill y MCP de VCX. Tocá un elemento para ver qué productos y fases lo consumen. Vista derivada: no admite, instala ni autoriza herramientas.</p>
   <p class="meta" id="meta"></p>
+  <div class="search">
+    <input id="q" type="search" placeholder="Buscar skill, MCP, capacidad, fase o necesidad" aria-label="Buscar en la matriz" autocomplete="off">
+    <span class="hint" id="qinfo">Atajo: tecla / · sin distinguir tildes ni mayúsculas</span>
+  </div>
   <div class="bar" id="prodbar"><span class="lbl">Consumido por</span></div>
   <div class="bar" id="statebar"><span class="lbl">Estado</span></div>
   <div id="homes"></div>
@@ -101,13 +112,45 @@ const cls = s => s.split(" ")[0];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const md = s => esc(s).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`([^`]+)`/g, "<code>$1</code>");
 const rank = s => STATES.indexOf(s);
-let prod = null, state = null;
+let prod = null, state = null, tokens = [];
+const fold = c => (c.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase() || c)[0];
+const norm = s => [...String(s)].map(fold).join("");
+const plain = s => String(s).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`/g, "");
+const useText = u => plain([u.product, u.phase, u.need, u.cap, u.tool, u.state, u.note].join(" "));
+DATA.items.forEach(it => {
+  it.self = norm(plain([it.id, it.kind, it.home, it.source, it.note].join(" ")));
+  it.uses.forEach(u => u.idx = norm(useText(u)));
+  it.idx = it.self + " " + it.uses.map(u => u.idx).join(" ");
+});
+DATA.loose.forEach(u => u.idx = norm(useText(u)));
+const hits = s => tokens.every(k => s.includes(k));
+const touches = s => tokens.some(k => s.includes(k));
+function highlight(root){
+  if (!tokens.length) return;
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("mark,script,style") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n => {
+    const text = n.nodeValue, low = norm(text), ranges = [];
+    tokens.forEach(k => { for (let i = low.indexOf(k); i >= 0; i = low.indexOf(k, i + 1)) ranges.push([i, i + k.length]); });
+    if (!ranges.length) return;
+    ranges.sort((a, b) => a[0] - b[0]);
+    const merged = [ranges[0]];
+    ranges.slice(1).forEach(r => { const m = merged[merged.length - 1]; r[0] <= m[1] ? m[1] = Math.max(m[1], r[1]) : merged.push(r); });
+    const frag = document.createDocumentFragment(); let pos = 0;
+    merged.forEach(([a, b]) => {
+      frag.append(text.slice(pos, a));
+      const mk = document.createElement("mark"); mk.textContent = text.slice(a, b); frag.append(mk); pos = b;
+    });
+    frag.append(text.slice(pos)); n.replaceWith(frag);
+  });
+}
 
 document.getElementById("meta").innerHTML =
   `Instantánea generada desde <code>docs/architecture/tooling-matrix.md</code>, revisión ${esc(DATA.rev)}. ` +
   `No se actualiza sola: la fuente editable es el Markdown, según VCX-D028.`;
 
-const visible = it => it.uses.some(u => (!prod || u.product === prod) && (!state || u.state === state));
+const visible = it => hits(it.idx) && it.uses.some(u => (!prod || u.product === prod) && (!state || u.state === state));
 const consumers = it => [...new Set(it.uses.map(u => u.product))];
 
 function chip(bar, label, pressed, onClick, dotCls){
@@ -138,6 +181,7 @@ function open(it){
   const body = PRODUCTS.filter(p => it.uses.some(u => u.product === p)).map(p =>
     `<h4>Consumido por ${esc(p)}</h4>` + it.uses.filter(u => u.product === p).map(u => useHtml(u, it)).join("")).join("");
   document.getElementById("dlg-body").innerHTML = body;
+  ["dlg-title", "dlg-sub", "dlg-body"].forEach(id => highlight(document.getElementById(id)));
   document.getElementById("dlg").showModal();
 }
 document.getElementById("dlg-close").onclick = () => document.getElementById("dlg").close();
@@ -153,6 +197,10 @@ function tile(it){
     <span class="name${it.code ? "" : " plain"}">${esc(it.id)}</span>
     <span class="by">Consumido por <b>${consumers(it).map(esc).join(", ")}</b> · ${it.uses.length} ${it.uses.length === 1 ? "uso" : "usos"}</span>
     <span class="pills">${STATES.filter(s => counts[s]).map(s => `<span class="pill s-${cls(s)}">${counts[s]} ${s.toLowerCase()}</span>`).join("")}</span>`;
+  const matched = tokens.length ? it.uses.filter(u => touches(u.idx)) : [];
+  if (matched.length) b.insertAdjacentHTML("beforeend", `<span class="hits">${matched.slice(0, 3).map(u =>
+    `<span>${esc(u.product)} · ${esc(u.phase)}: ${md(u.need)}</span>`).join("")}${matched.length > 3 ? `<span>y ${matched.length - 3} más</span>` : ""}</span>`);
+  highlight(b);
   b.onclick = () => open(it);
   return b;
 }
@@ -186,15 +234,26 @@ function render(){
     if (!shown.length) sec.insertAdjacentHTML("beforeend", `<p class="empty">Ningún elemento con ese filtro.</p>`);
     host.appendChild(sec);
   });
-  const loose = DATA.loose.filter(u => (!prod || u.product === prod) && (!state || u.state === state));
+  const loose = DATA.loose.filter(u => hits(u.idx) && (!prod || u.product === prod) && (!state || u.state === state));
   if (DATA.loose.length) {
     const sec = document.createElement("section"); sec.className = "home";
     sec.innerHTML = `<div class="hhead"><h2>Necesidades sin elemento</h2><p>Decisiones humanas y brechas sin capacidad ni herramienta</p></div>` +
       (loose.length ? `<div class="loose">${loose.map(u => useHtml(Object.assign({}, u, {phase: `${u.product} · ${u.phase}`}))).join("")}</div>`
                     : `<p class="empty">Ninguna con ese filtro.</p>`);
+    highlight(sec);
     host.appendChild(sec);
   }
+  const n = DATA.items.filter(visible).length + loose.length;
+  document.getElementById("qinfo").textContent = tokens.length
+    ? `${n} ${n === 1 ? "resultado" : "resultados"} · Esc para limpiar` : "Atajo: tecla / · sin distinguir tildes ni mayúsculas";
 }
+const q = document.getElementById("q");
+let timer;
+q.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => { tokens = norm(q.value).split(/\s+/).filter(Boolean); render(); }, 80); });
+q.addEventListener("keydown", e => { if (e.key === "Escape" && q.value) { e.preventDefault(); q.value = ""; tokens = []; render(); } });
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && document.activeElement !== q && !document.getElementById("dlg").open) { e.preventDefault(); q.focus(); }
+});
 render();
 </script>
 </body>
