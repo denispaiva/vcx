@@ -27,6 +27,7 @@ Las rutas de las tablas son relativas a la raíz del workspace. Dentro de cada r
 | `docs/superpowers/reports/2026-10-30-vcx-foundation.md`, `docs/superpowers/reports/2026-10-30-blends-cellar-curation.md` | Raíz: evidencia de ejecución anterior, no nuevas fuentes de estado de producto |
 | `docs/superpowers/specs/2026-10-30-cellar-blends-first-journey-design.md` | Raíz: diseño conjunto y ejemplo sintético; cada producto conserva sus definiciones específicas |
 | `docs/exports/vcx-ecosystem.opml` | Raíz: instantánea histórica, no índice vigente de principios o decisiones |
+| `docs/exports/vcx-ecosystem-2026-11-01.opml` | Raíz: vista derivada fechada con VCX-D029 aplicado; no es índice vigente de principios o decisiones |
 | `cellars/README.md` | Raíz por ahora: punto de entrada informativo, no datos de una instancia real |
 
 En el estado estable, la raíz no seguirá el contenido de los repositorios de producto ni fijará sus commits mediante submódulos. Como excepción transitoria, el commit base preservará los documentos actuales de los tres productos y se verificará su recuperación antes de transferirlos; su retirada del seguimiento se realizará por producto, no por anticipación. Cuando una decisión necesite referir versiones adoptadas, las identificará en su propio registro; no se crea ahora un catálogo duplicado de versiones.

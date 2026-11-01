@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml version="2.0">
+  <head>
+    <title>VCX · VibeOS · 2026-11-01</title>
+  </head>
+  <body>
+    <outline text="VCX · VibeOS" _note="Vista derivada de la documentación de VCX al 2026-11-01, con VCX-D029 aplicado en el commit 5058c2e, y del precursor ../blends/ en la revisión f86a2a7 de main. No es una segunda fuente normativa: cada nodo resume su fuente y se corrige si difiere. Reemplaza como vista vigente a vcx-ecosystem.opml, que se conserva como instantánea de la fundación del 2026-10-30. Fuentes de entrada: README.md, docs/vision.md, docs/executive-pitch.md, AGENTS.md, README de Blends, Brix, Cellar y cellars/, docs/architecture/responsibility-matrix.md, docs/decisions/README.md.">
+      <outline text="Propósito" _note="Fuente: docs/vision.md.">
+        <outline text="Misión">
+          <outline text="Ayudar a personas, equipos y agentes a convertir ideas en resultados verificables mediante herramientas reutilizables, un proceso de trabajo explícito y contextos propios que preserven el propósito y la memoria de cada iniciativa."/>
+        </outline>
+        <outline text="Visión">
+          <outline text="Que un equipo pueda comenzar un portfolio con agilidad, aprovechar capacidades y aprendizajes existentes, y evolucionar cada proyecto con autonomía y continuidad alrededor de su misión y visión."/>
+        </outline>
+        <outline text="Para quién">
+          <outline text="Propietarios de portfolios, equipos que inician o mantienen proyectos y personas que trabajan con agentes de inteligencia artificial. Cada equipo adopta herramientas y configuración propias sin necesitar el portfolio que dio origen al ecosistema."/>
+        </outline>
+        <outline text="Objetivos">
+          <outline text="Ofrecer una base portable formada por Blends, Brix y Cellar: Blends define el método y coordina las ideas, Cellar custodia y conduce los proyectos, Brix provee capacidades técnicas (VCX-D029)."/>
+          <outline text="Reducir el esfuerzo de preparar nuevos equipos e iniciativas mediante contextos y convenciones reutilizables."/>
+          <outline text="Mantener una fuente editable por dato, identidad estable y relaciones explícitas entre iniciativas."/>
+          <outline text="Permitir la evolución y adopción independiente de productos, herramientas y portfolios."/>
+          <outline text="Conservar decisiones y evidencia para continuar el trabajo sin depender de la memoria informal de una conversación."/>
+        </outline>
+        <outline text="Marca y raíz" _note="Fuente: VCX-D024 y VCX-D029.">
+          <outline text="VCX, «VibeOS: Vibe Coding for X projects», es marca y raíz organizativa. No es un producto, un servicio central ni una dependencia ejecutable. Los principios comunes viven en la raíz y los productos los adoptan por referencia."/>
+        </outline>
+        <outline text="Mensaje ejecutivo" _note="Fuente editable: docs/executive-pitch.md, ajustado el 2026-11-01. No se copia aquí."/>
+      </outline>
+      <outline text="Principios transversales · VCX-P1 a VCX-P9" _note="Fuente: AGENTS.md, versión documental 1.1.0. Reglas de trabajo adoptadas; no demuestran controles ejecutables.">
+        <outline text="VCX-P1 · Evidencia antes que afirmaciones"/>
+        <outline text="VCX-P2 · Crítica constructiva y socrática"/>
+        <outline text="VCX-P3 · Simplicidad de producto y proceso"/>
+        <outline text="VCX-P4 · Rigor proporcional al riesgo"/>
+        <outline text="VCX-P5 · Verificación por resultados y contraejemplos"/>
+        <outline text="VCX-P6 · Resiliencia y recuperación"/>
+        <outline text="VCX-P7 · Autoridad explícita y alcance acotado"/>
+        <outline text="VCX-P8 · Costo por valor y presupuesto explícito"/>
+        <outline text="VCX-P9 · Fuente única, continuidad y revisión de reglas"/>
+      </outline>
+      <outline text="A · Base reutilizable" _note="Tres productos. El modelo prevé repositorio, versión y roadmap propios para cada uno (VCX-D025, VCX-D029); la independencia ejecutable no está demostrada. Se documenta el producto objetivo; la implementación existente sigue en el precursor hasta conciliar por VCX-D011.">
+        <outline text="Blends · Método y tramo de idea" _note="Fuente: blends/README.md.">
+          <outline text="Misión">
+            <outline text="Definir el método con el que personas, equipos y agentes convierten ideas en resultados verificables, y coordinar las actividades e hitos de cada idea hasta su graduación, mediante una experiencia integrada de planificación, coordinación y gobierno."/>
+          </outline>
+          <outline text="Visión">
+            <outline text="Que distintos equipos puedan adoptar un proceso explícito y configurable para sus portfolios, con decisiones trazables y continuidad entre sesiones, sin depender de los nombres o la disposición del portfolio original."/>
+          </outline>
+          <outline text="Alcance">
+            <outline text="Dueño del método: etapas, compuertas, criterios de evidencia, roles y plantillas de proceso. Lo publica versionado y lo verifica."/>
+            <outline text="Coordina ingreso, exploración, definición, gate y preparación del contexto de proyecto, y la presentación del portfolio."/>
+            <outline text="Define perfiles de skills y servidores MCP con criterios de adopción, compatibilidad y permisos (matriz de tooling, VCX-D028)."/>
+            <outline text="No conduce proyectos: Cellar los conduce bajo ese método. Propone y verifica; no decide presupuestos ni excepciones reservadas a una autoridad humana."/>
+            <outline text="Consume las interfaces públicas de Cellar para estado y de Brix para capacidades; no guarda otra copia editable del portfolio."/>
+          </outline>
+          <outline text="Estado">
+            <outline text="Producto objetivo documentado; la implementación no se trasladó. El núcleo de gobierno del sistema existente conserva la identidad Blends Kernel y allí sigue conduciendo proyectos hasta conciliar por VCX-D011."/>
+          </outline>
+        </outline>
+        <outline text="Brix · Capacidades técnicas reutilizables" _note="Fuente: brix/README.md.">
+          <outline text="Misión">
+            <outline text="Proveer capacidades e instrumentos técnicos reutilizables que ejecuten operaciones con entradas, permisos y resultados verificables."/>
+          </outline>
+          <outline text="Visión">
+            <outline text="Que proyectos y equipos puedan adoptar capacidades de ingeniería de forma independiente, con beneficio demostrable, interfaces estables y configuración explícita, tanto dentro como fuera de Blends."/>
+          </outline>
+          <outline text="Alcance">
+            <outline text="Núcleo de capacidades técnicas de VCX (VCX-D029): scoring y evaluación de herramientas, medición, especificaciones y scaffolding, motores de FinOps, validación y siembra de escenarios, diseño y operaciones Git. La disponibilidad real de cada capacidad se verifica en su implementación."/>
+            <outline text="Declara y verifica los permisos de cada operación e integración con código y artefactos locales o remotos."/>
+            <outline text="Puede recomendar capacidades; su adopción la decide la autoridad humana competente, conforme al método adoptado y a los permisos aplicables."/>
+            <outline text="No prescribe el proceso de gobierno ni decide en nombre de un equipo. No presupone un Cellar ni accede a implementaciones ajenas. Los drivers de un backend pertenecen al consumidor."/>
+            <outline text="No aloja el código de productos ni de proyectos: cada uno vive en su propio repositorio. «Kernel» queda reservado al núcleo de gobierno del sistema existente."/>
+          </outline>
+          <outline text="Estado">
+            <outline text="Producto objetivo documentado. El Brix existente tiene independencia parcial y dependencias de rutas de blends; la prueba de uso externo es una meta pendiente."/>
+          </outline>
+        </outline>
+        <outline text="Cellar · Custodia y conducción" _note="Fuente: cellar/README.md. Distinguir el producto (estructura y mecanismos) de cada instancia (un portfolio concreto).">
+          <outline text="Misión">
+            <outline text="Ofrecer una estructura y mecanismos portables para organizar y custodiar ideas, proyectos, configuración, decisiones, estado y evidencia de un portfolio, y para conducir sus proyectos después de graduar bajo el método que define Blends."/>
+          </outline>
+          <outline text="Visión">
+            <outline text="Que cada equipo pueda crear y conservar un portfolio propio, legible y recuperable con independencia del orquestador, y conducir sus proyectos con sus Product Owners, preservando la identidad y el contexto de sus iniciativas."/>
+          </outline>
+          <outline text="Alcance">
+            <outline text="Como producto: define organización, referencias, configuración, mecanismos de acceso y recuperación, y cómo se conduce un proyecto bajo el método adoptado."/>
+            <outline text="Como instancia: conserva los datos concretos del portfolio en todas las etapas, legibles y recuperables sin ejecutar Blends ni Brix, y conduce sus proyectos graduados con sus PO."/>
+            <outline text="La custodia comprende la preparación previa al ingreso: una propuesta puede custodiarse antes de elegir instancia y queda fuera del portfolio activo hasta la confirmación humana (VCX-D017)."/>
+            <outline text="Custodia y conducción son dos responsabilidades, no dos módulos ni servicios; su separación ejecutable no tiene necesidad demostrada."/>
+            <outline text="Registra dónde vive el código de cada proyecto sin alojarlo. La pertenencia a un Cellar es lógica; la ubicación del código sigue pendiente (VCX-D010)."/>
+            <outline text="El MVP es una vía de validación recomendada, no obligatoria."/>
+          </outline>
+          <outline text="Estado">
+            <outline text="Definición y plantillas; cellars/ es la entrada de futuras instancias. No se creó ninguna instancia ni se eligió su nombre (VCX-D009). El traspaso concreto al graduar sigue pendiente de diseño."/>
+          </outline>
+          <outline text="Plantillas documentales" _note="Fuente: cellar/README.md. Uso manual; no existe generador, wizard ni exportador implementado.">
+            <outline text="Ideas · propuesta enriquecida para revisión humana y consejo"/>
+            <outline text="FinOps · posterior al ingreso, desde la arquitectura de referencia de Brix"/>
+            <outline text="Cellar · identidad, custodia, configuración, iniciativas y recuperación"/>
+            <outline text="Iniciativa · contexto propio para una idea o proyecto"/>
+            <outline text="Instrucciones locales · entrada de contexto para participantes y agentes"/>
+          </outline>
+        </outline>
+      </outline>
+      <outline text="Frontera método · conducción · capacidad" _note="Fuente única: docs/architecture/responsibility-matrix.md, sección 1, derivada de VCX-D029. Redacción propuesta por el asistente sobre el modelo acordado.">
+        <outline text="Método, dueño Blends: toda regla que aplique a cualquier proyecto de cualquier Cellar. Blends la publica versionada y la verifica; no ejecuta el proyecto."/>
+        <outline text="Conducción, dueño Cellar: toda acción o decisión sobre un proyecto concreto después de graduar, con el PO del proyecto como autoridad humana. Cellar aplica el método; no redefine sus reglas."/>
+        <outline text="Tramo de idea, coordina Blends: desde la propuesta hasta la graduación, la instancia de Cellar custodia y decide el responsable del portfolio."/>
+        <outline text="Capacidad, dueño Brix: todo cálculo, instrumento o integración reutilizable, invocado desde cualquiera de los dos tramos con permisos explícitos."/>
+        <outline text="Prueba de pertenencia: si la frase vale para todos los proyectos es método; si nombra a un proyecto es conducción; si describe cómo se calcula o integra algo es capacidad."/>
+      </outline>
+      <outline text="Autoridad humana" _note="Fuente: spec VCX-D029 y matriz. Ninguna pieza ni agente es autoridad: Blends propone y verifica, Brix calcula y asesora, Cellar organiza y conserva la decisión.">
+        <outline text="El responsable del portfolio, dueño de la instancia de Cellar, decide sobre las ideas."/>
+        <outline text="Al graduar se asigna el PO del proyecto, que decide prioridades, alcance y aceptación. El responsable del portfolio conserva las decisiones del portfolio; ambas asignaciones coexisten."/>
+        <outline text="Una aprobación identifica autoridad, objeto, revisión y alcance (VCX-P7). Una recomendación, un reporte favorable o el silencio no autorizan."/>
+      </outline>
+      <outline text="B · Ideas y proyectos en instancias de Cellar" _note="Fuente: cellars/README.md. Todavía no contiene instancias.">
+        <outline text="Cada instancia custodia íntegra en todas las etapas y conduce sus proyectos graduados con sus PO, bajo el método de Blends."/>
+        <outline text="Registra dónde vive el código de cada proyecto, sin alojarlo; el código vive en su propio repositorio."/>
+        <outline text="Una propuesta en preparación puede custodiarse antes de elegir instancia y queda fuera del portfolio activo hasta la confirmación de ingreso."/>
+        <outline text="Instancias con requisitos distintos de confidencialidad necesitan aislamiento efectivo, no solo carpetas distintas."/>
+        <outline text="El sistema existente y su backlog continúan en sus fuentes actuales; cellars/ no es copia ni reemplazo de ese portfolio."/>
+      </outline>
+      <outline text="Invariantes de diseño" _note="Fuente: docs/architecture/responsibility-matrix.md, sección 5, con los invariantes 2 y 3 reescritos por VCX-D029.">
+        <outline text="Cada iniciativa puede entenderse y trabajarse desde su propio contexto; las dependencias y reglas compartidas se consultan de forma explícita."/>
+        <outline text="Blends define el método y coordina el tramo de idea; Brix ejecuta capacidades; Cellar custodia en todas las etapas y conduce los proyectos bajo ese método. Ninguna pieza absorbe silenciosamente las otras responsabilidades."/>
+        <outline text="Brix funciona sin Blends; Cellar conserva información legible y recuperable sin ejecutar Blends o Brix. Conducir un proyecto requiere además el método adoptado como recurso versionado, no una ejecución de Blends."/>
+        <outline text="Un Cellar adopta versiones compatibles de A; actualizar A no actualiza silenciosamente todos los portfolios."/>
+        <outline text="Blends, Brix y Cellar tienen contextos propios de desarrollo. Su seguimiento puede residir en un Cellar sin duplicar el código ni el estado de gestión."/>
+        <outline text="Una iniciativa tiene un Cellar propietario de su registro canónico; otras instancias pueden referenciarla. Regla propuesta (VCX-D012)."/>
+        <outline text="Las políticas particulares solo modifican parámetros autorizados por el perfil adoptado; no elevan permisos ni anulan autoridad de ámbitos superiores."/>
+        <outline text="Un monorepo no impone una versión, despliegue o contexto único. Los límites de dependencias deben ser comprobables."/>
+        <outline text="La confidencialidad entre propietarios exige aislamiento efectivo del almacenamiento y acceso; una carpeta no es suficiente."/>
+        <outline text="La exportación contempla los almacenamientos declarados fuera del árbol principal. Los secretos se reconectan desde sus almacenes seguros y los locks activos no se restauran como procesos vivos."/>
+      </outline>
+      <outline text="Iniciativas del portfolio precursor" _note="Cuatro proyectos graduados del portfolio precursor ../blends/, conducidos hoy allí por Blends Kernel. No existe instancia de Cellar que los registre y VCX-D029 no rige en ese repositorio hasta conciliar por VCX-D011. Estados tomados de README, actas de graduación y .roadmap.json en la revisión f86a2a7, leídos el 2026-11-01; ninguno verificado ejecutando el software ni consultando datos remotos. Marcas: [documentado] decisión, aprobación o estado de roadmap con acta o registro; [implementado] código comprobado por lectura estática; [previsto] diseñado o planificado sin implementación comprobada; [hipótesis] sin decisión ni fuente; [acordado, sin registrar] definición del responsable del portfolio del 2026-11-01 con acta propuesta pendiente de firma.">
+        <outline text="Teyst · Aprendizaje mediante degustaciones de vino a ciegas, gamificadas" _note="Nombre deliberado. Fuentes: vc/teyst/README y docs, .roadmap.json, acta 0001, functions/package.json.">
+          <outline text="[documentado] Proyecto brownfield graduado el 2026-08-13 (acta 0001). Roadmap activo al 50 % (2026-10-24): cliente nuevo entregado hasta T5a y release a prod-teyst, con gates y acciones de cierre pendientes."/>
+          <outline text="[implementado] App Expo/React Native con Firebase. Consume Pinot Index como biblioteca de scoring vendorizada en sus Functions (pinot-index-0.1.0.tgz) y toma el catálogo de vinos de Melquisedec por el contrato v2, con origen de imágenes restringido a Melquisedec."/>
+          <outline text="[previsto] Integración con Salmanazar para cargar las etiquetas de un evento, según el diseño «Etiquetas del evento»."/>
+          <outline text="Conserva la responsabilidad sobre su experiencia de usuario y su roadmap."/>
+        </outline>
+        <outline text="Pinot Index · Motor de scoring independiente" _note="Nombre visible en roadmap y acta; pinot-index es el identificador de paquete y ruta. Fuentes: acta 0001, .roadmap.json, docs/product (PRD, contrato 0.1.0, matriz de semillas), src/index.ts.">
+          <outline text="[documentado] Graduado el 2026-08-13 (acta 0001). Roadmap marcado terminado el 2026-09-05: cierra sus épicas, no el producto."/>
+          <outline text="[implementado] Biblioteca TypeScript con pruebas; contrato y paquete 0.1.0. Índice de jugadores: acierto ponderado por la dificultad de cada etiqueta más bonus de velocidad. El evento usa el multiplicador vigente (R7) y produce su actualización (R8) mediante una estimación bayesiana de aciertos sobre intentos acumulados: una etiqueta muy acertada baja su dificultad y una muy fallada la sube."/>
+          <outline text="[implementado] Recibe el estado por Liga y el índice global de dificultad como entradas; no lee datos por su cuenta ni depende de la interfaz de Teyst. Teyst persiste el índice actualizado por wine_id."/>
+          <outline text="[previsto] Índice de etiquetas por estrellas fraccionales: definido en el PRD, señalado como inexistente en el contrato 0.1.0."/>
+        </outline>
+        <outline text="Salmanazar · Catálogo de vinos y cava personal" _note="Fuentes: vc/salmanazar/README, acta 0001, .roadmap.json, diseño «carga y cava» del 2026-10-24. Actas 0002 y 0003 redactadas el 2026-11-01 como propuesta, pendientes de firma del PO.">
+          <outline text="[documentado] Graduado el 2026-10-24 (acta 0001) con diseño y plan «carga y cava» aprobados por el PO. Todavía no hay código; roadmap con épicas planificadas y 0 % de avance. El diseño prevé una base central de etiquetas sembrada con los identificadores del catálogo curado."/>
+          <outline text="[acordado, sin registrar] Destino designado del catálogo canónico, del contrato de propuestas de etiquetas y de su curaduría (acta 0002 propuesta). Cambia la frontera del 2026-10-24; el cambio efectivo requiere un traspaso aprobado y verificado. Hasta entonces Melquisedec conserva la fuente canónica vigente y sigue operando las tres funciones."/>
+          <outline text="[acordado, sin registrar] Durante la transición Teyst conserva contrato v2, identificadores y origen de imágenes; cambiar esas interfaces exige transición explícita y verificación de consumidores."/>
+          <outline text="[previsto] Ingesta de etiquetas y stock de cada persona, con fotos, datos del vino, notas propias y aviso del momento óptimo de consumo. La ingesta le corresponde desde el 2026-10-24; el wizard provisorio sigue congelado en Melquisedec."/>
+          <outline text="[previsto] Provee a Teyst las referencias de las etiquetas de un usuario o evento. Comparte con Teyst y Melquisedec identidad, Functions y módulos de carga."/>
+          <outline text="[acordado, sin registrar] Exhibe una vista derivada de la dificultad que calcula Pinot Index y persiste Teyst, sin trasladar estadísticas ni cálculo (acta 0003 propuesta). Diseño pendiente: contrato de consulta, métrica visible, procedencia, versión de regla, que hoy no se persiste, y correspondencia de identidades, porque el índice se guarda por vino y añada."/>
+        </outline>
+        <outline text="Melquisedec · Explorador de afinidad" _note="Fuentes: vc/melquisedec/README, actas 0001 a 0004, .roadmap.json.">
+          <outline text="[documentado] Graduado el 2026-08-30 (acta 0001). Roadmap activo, 17 % al 2026-10-24. Punto de cierre fijado por el PO el 2026-10-05: explorador PWA con el catálogo real y unas 50 etiquetas curadas; identidad y segunda ronda de curaduría planificadas sin compromiso de sprint."/>
+          <outline text="[implementado] Mantiene hoy el catálogo maestro (contrato v2, acta 0003), el contrato de propuestas de etiquetas y su promoción por el PO mediante un CLI local; su catálogo nutre la base de Teyst. Las tres funciones pasarán a Salmanazar cuando se registre y ejecute el traspaso; los cálculos y artefactos del explorador permanecen en Melquisedec."/>
+          <outline text="[previsto] Grafo por capas (etiquetas, cepas por terroir, regiones) sobre un mapamundi para descubrir asociaciones."/>
+          <outline text="[hipótesis] Recomendaciones por preferencias de consumidores y un marketplace vertical de vinos y bebidas, que requeriría validar demanda, modelo comercial y costo operativo."/>
+        </outline>
+      </outline>
+      <outline text="Decisiones VCX-D001 a VCX-D029" _note="Fuente editable: docs/decisions/README.md. Aquí solo ID, título y estado; fundamento y alcance en el registro.">
+        <outline text="VCX-D001 · A: base reutilizable; B: iniciativas con evolución propia · Acordado"/>
+        <outline text="VCX-D002 · Contexto propio por iniciativa, centrado en misión y visión · Acordado"/>
+        <outline text="VCX-D003 · B vive en instancias de Cellar · Acordado"/>
+        <outline text="VCX-D004 · Monorepo modular inicial · Propuesta histórica sustituida por VCX-D025"/>
+        <outline text="VCX-D005 · Fundación documental en VibeCoding/VCX · Autorizado para esta etapa"/>
+        <outline text="VCX-D006 · Reparto técnico, RACI e interfaces públicas · Propuesto"/>
+        <outline text="VCX-D007 · Glosario como banco de candidatos sin curar · Acordado"/>
+        <outline text="VCX-D008 · Nombre y distribución de convenciones compartidas · Pendiente"/>
+        <outline text="VCX-D009 · Primer Cellar: identidad, propietario y ubicación · Pendiente"/>
+        <outline text="VCX-D010 · Ubicación física del código de cada iniciativa · Pendiente"/>
+        <outline text="VCX-D011 · Conciliación con el kernel aprobado · Pendiente"/>
+        <outline text="VCX-D012 · Propietario canónico por iniciativa y referencias entre Cellars · Propuesto"/>
+        <outline text="VCX-D013 · Criterios para separar repositorios · Propuesto"/>
+        <outline text="VCX-D014 · Curar mediante un recorrido conjunto de Cellar y Blends · Acordado"/>
+        <outline text="VCX-D015 · Modelo mínimo y reglas del primer recorrido · Propuesto para revisión"/>
+        <outline text="VCX-D016 · Preparar propuestas mediante Brix, plantilla de ideas y preguntas asesinas · Acordado como requisito"/>
+        <outline text="VCX-D017 · Registro posterior al reporte y confirmación humana · Acordado"/>
+        <outline text="VCX-D018 · FinOps posterior al ingreso, basado en arquitectura de referencia de Brix · Acordado como requisito"/>
+        <outline text="VCX-D019 · Equivalencias de comandos y ayuda para completar parámetros · Acordado como requisito"/>
+        <outline text="VCX-D020 · Blends y Cellar como proyectos pares de primer nivel; prioridad de curación · Acordado; ejecución documental autorizada"/>
+        <outline text="VCX-D021 · Evaluación crítica como principio transversal de uso de VCX · Acordado; incorporación documental autorizada"/>
+        <outline text="VCX-D022 · Consolidación de los principios transversales de VCX · Acordado; modificación documental autorizada"/>
+        <outline text="VCX-D023 · Ajustes de principios y disparador de distribución externa · Acordado; ajustes documentales autorizados"/>
+        <outline text="VCX-D024 · VCX como raíz organizativa y posible marca, sin producto propio · Acordado; aclaración documental del objetivo"/>
+        <outline text="VCX-D025 · Repositorio documental raíz y repositorios de producto independientes · Acordado; preparación documental, sin ejecución Git"/>
+        <outline text="VCX-D026 · Preservación por commit base y continuidad de Blends mediante clon local · Ratificado como decisión documental el 2026-10-31; ejecución pendiente"/>
+        <outline text="VCX-D027 · Excepción de escritura en el precursor para la vista Backlog · Autorizado para esta etapa el 2026-10-31"/>
+        <outline text="VCX-D028 · Matriz de skills y MCP por producto y fase · Acordado el 2026-10-31; filas propuestas"/>
+        <outline text="VCX-D029 · Modelo de productos: método en Blends, conducción y custodia en Cellar, capacidades en Brix, VibeOS como marca · Acordado el 2026-10-31; aplicación documental ejecutada el 2026-11-01"/>
+      </outline>
+      <outline text="Estado al 2026-11-01 y pendientes" _note="Evidencia fechada; no sustituye el registro de decisiones ni los README.">
+        <outline text="Fundación documental del 2026-10-30 preservada en el commit base f47c71f; VCX-D027 a D029 registradas en c4d2dc1; D029 aplicado a las fuentes en 5058c2e."/>
+        <outline text="Pendientes: conciliación con el precursor (VCX-D011); primer Cellar (VCX-D009); ubicación del código (VCX-D010); diseño del traspaso al graduar; verificación de preservación del commit base; firma de las actas 0002 y 0003 de Salmanazar en el precursor."/>
+        <outline text="Sin implementación nueva, instancia real ni migración del precursor. La migración requiere un pedido posterior explícito."/>
+      </outline>
+    </outline>
+  </body>
+</opml>
