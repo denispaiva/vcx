@@ -51,7 +51,7 @@ Se toman de las fuentes de cada producto, sin crear fases nuevas:
 
 - **Blends:** [ingreso](../../blends/docs/idea-intake.md#secuencia-de-ingreso) y [recorrido de idea a proyecto](../../blends/docs/idea-to-project.md#secuencia) — exploración, definición, gate (graduar, diferir o archivar) y preparación. La [maduración con preguntas asesinas](../superpowers/specs/2026-10-31-idea-maturation-design.md) sigue en revisión.
 - **Brix:** capacidades invocables de [comandos](../../brix/docs/commands.md), incluida la admisión de tooling.
-- **Cellar:** organización del portfolio y backlog, custodia de decisiones y evidencia, respaldo, según su [README](../../cellar/README.md) y el [modelo de iniciativa](../../cellar/docs/initiative-model.md); y, desde VCX-D029, conducción de los proyectos graduados, con planificación, implementación, revisión, cierre e interfaz, según la [matriz](responsibility-matrix.md#1-método-y-conducción).
+- **Cellar:** organización del portfolio y backlog, custodia de decisiones y evidencia, respaldo, según su [README](../../cellar/README.md) y el [modelo de iniciativa](../../cellar/docs/initiative-model.md); y, desde VCX-D029, conducción de los proyectos graduados, con planificación, implementación, revisión, integración, entrega, cierre e interfaz, según la [matriz](responsibility-matrix.md#1-método-y-conducción).
 
 La entrega de un proyecto graduado pertenece a la conducción en Cellar según VCX-D029; el inventario actual concentra allí sus herramientas, medidas cuando Blends Kernel conducía los proyectos en el precursor.
 
@@ -74,8 +74,14 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 | Cellar · conducción, planificación | Uso directo | Plan del proyecto graduado | `writing-plans` | Skill | Observado | 21 invocaciones medidas, sin distinguir fase; figuraba en Blends · preparación antes de VCX-D029 |
 | Cellar · conducción, implementación | Uso directo | Ejecutar tareas con subagentes | `superpowers:subagent-driven-development` | Skill | Observado | Medido, pero no figura en el inventario del framework: conciliar |
 | Cellar · conducción, implementación | Uso directo | Código nuevo con pruebas | `test-driven-development` | Skill | Asignado | Según riesgo; VCX-P5 no impone TDD indiscriminado |
+| Cellar · conducción, implementación | Uso directo | Worktrees y terminales en paralelo | `orca-cli` | Skill | Candidato | `planned` en el inventario |
 | Cellar · conducción, revisión | Uso directo | Revisión independiente | `requesting-code-review`, `skill-codex` | Skill | Asignado; candidato | `skill-codex` está `planned` |
 | Cellar · conducción, revisión | Uso directo | Seguridad de cambios sensibles | `security-review` | Skill | Asignado | Alcance `task` |
+| Cellar · conducción, integración | No registrada | Limitar qué rutas toca cada rama y verificar antes de entregar | — | — | Sin herramienta | Implementada en el precursor sin registro: `branch-scopes.json`, `.githooks/` y `npm run verify`, scripts propios sobre `git`. Dueño entre Brix, Blends y Cellar sin decidir |
+| Cellar · conducción, integración | Uso directo | Convenciones de ramas, commits y versionado | `agent-skills` | Skill | Asignado | Subconjunto `git-workflow-and-versioning` |
+| Cellar · conducción, integración | `ci-scaffolding` | Crear el CI de un proyecto | `agent-skills` | Skill | Asignado | Subconjunto `ci-cd-and-automation` |
+| Cellar · conducción, entrega | No registrada | Commitear, pushear, encolar e integrar por tren con compuertas | — | — | Sin herramienta | Implementada en el precursor sin registro: `npm run entregar`, `queue`, `train`, `train-gate`, `train-merge`, `recycle` y `control-plane.json`. Es el ciclo del repositorio de Blends; cada producto independiente declara el suyo |
+| Cellar · conducción, entrega | `scarcity-monitoring`, `scarcity-cycle-closure` | Controlar el costo de GitHub Actions antes de disparar CI | — | — | Sin herramienta | |
 | Cellar · conducción, cierre | Uso directo | Evidencia antes de declarar éxito | `verification-before-completion` | Skill | Asignado | Transversal a todas las fases |
 | Cellar · conducción, interfaz | Uso directo | Diseño y anti-patrones de UI | `impeccable`, `emilkowalski-skills` | Skill | Asignado | Solo proyectos con interfaz |
 | Cellar · conducción, interfaz | Uso directo | Verificar lo renderizado | `browser` | MCP | Asignado | |
@@ -85,7 +91,7 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 | Cellar · custodia | Uso directo | Continuidad entre sesiones | `handoff` | Skill | Asignado | El traspaso no sustituye registros de decisión |
 | Cellar · instrucciones | Uso directo | Redactar AGENTS, skills y plantillas | `mattpocock-writing-for-agents` | Skill | Asignado | |
 
-Capacidades registradas sin fila al corte: `ci-scaffolding`, `seeding`, `backend-inventory`, `unattended-session-run`, `scarcity-monitoring`, `scarcity-cycle-closure` y los instrumentos de eficiencia (`actions-minutes-per-branch`, `context-window-per-branch`, `po-attention-per-branch`, `kpi-history`). Se agregan cuando una fase las use con alguna herramienta o se decida que no necesitan ninguna.
+Capacidades registradas sin fila al corte: `seeding`, `backend-inventory`, `unattended-session-run` y los instrumentos de eficiencia (`actions-minutes-per-branch`, `context-window-per-branch`, `po-attention-per-branch`, `kpi-history`). Se agregan cuando una fase las use con alguna herramienta o se decida que no necesitan ninguna.
 
 ## Cómo evoluciona
 
