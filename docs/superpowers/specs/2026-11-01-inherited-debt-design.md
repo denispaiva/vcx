@@ -44,6 +44,8 @@ Lecturas de solo lectura sobre `../blends` en `main` `f86a2a7d`. Las cifras son 
 | DH-12 | `ideas/trasiego` existe; Trasiego es candidato para las convenciones compartidas en VCX-D008 | Raíz | T0. Sigue pendiente; no se asigna por inferencia |
 | DH-13 | Una misma iniciativa aparece en `ideas/<slug>` y en `vc/<slug>` según su etapa, por ejemplo `pinot-index`; la identidad hoy depende de la ruta y del tag de ciclo | Instancia de Cellar | T3. Al reubicar una instancia, la identidad se conserva por el modelo de iniciativa, no por la carpeta; ambas carpetas viajan juntas |
 
+Ampliación por VCX-D032, 2026-11-01: DH-07 incluye también el renombre del repositorio en GitHub, no solo de la carpeta, porque el nombre `blends` pasa al repositorio público nuevo. Se agrega **DH-24**: 24 archivos rastreados del precursor que no son documentación citan `denispaiva/blends` por nombre, entre ellos `vc/tools/deliver.mjs`, `vc/tools/lib/train-actions.mjs`, tests y datos, y la biblioteca de CI se consume por nombre y tag; tratamiento T2 en el operador vigente antes de renombrar, con verificación por lista. Los consumidores externos de la biblioteca no se verificaron.
+
 ### Jerarquía de carpetas
 
 | ID | Evidencia [H] | Destino | Tratamiento [P] |

@@ -88,6 +88,7 @@ Hay dos clases de roadmap con el mismo formato. El de **cada producto** (Blends,
 | **Clon de autoría** | Checkout del repositorio de Blends que se colocaría en `vcx/blends/` para escribir ramas y decisiones; propuesto en VCX-D030, sin ratificar | El operador: no ejecuta `queue`, trenes ni hooks hasta el corte operativo |
 | **Operador** | El checkout que ejecuta `queue`, trenes y hooks; hoy `../blends` | Un lugar donde escribir decisiones nuevas |
 | **Espejo** | Repositorio separado que recibe una subcarpeta de `blends` exportada con `brix graduate`, sin commits propios; hoy `brix`, `pinot-index` y `teyst-blends` | Una fuente editable; convertirlo en canónico es una decisión de la extracción |
+| **Superficie publicable** | Rutas de un repositorio que pueden salir al público, declaradas explícitamente; por defecto, ninguna. Regla del precursor que VCX-D032 adopta para publicar los productos | Todo lo que no tiene secretos: importes, identificadores de facturación y datos de proyectos vivos tampoco se publican |
 
 ## Caso de referencia: `board`
 

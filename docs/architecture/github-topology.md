@@ -33,7 +33,7 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 
 ## Objetivo
 
-[P] Un repositorio por producto y por proyecto, organizados localmente bajo `vcx/` y sin submódulos, según VCX-D025 y VCX-D029. Todos privados al nacer.
+[P] Un repositorio por producto y por proyecto, organizados localmente bajo `vcx/` y sin submódulos, según VCX-D025 y VCX-D029. La visibilidad y el origen de cada uno los fija la propuesta VCX-D032, más abajo; la tabla siguiente conserva el reparto por pieza.
 
 | Repositorio objetivo | Contenido | De dónde sale | Cómo nace | Fase |
 |---|---|---|---|---|
@@ -48,13 +48,28 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 
 [I] Los espejos existentes ya materializan en GitHub la frontera que VCX-D025 pide: una subcarpeta de `blends`, exportada con historia propia, en un repositorio separado. La extracción canónica repite ese mecanismo con dos diferencias: el repositorio destino pasa a ser fuente editable y `blends` deja de contener la carpeta, dejando un puntero.
 
+## Visibilidad objetivo
+
+[P] Propuesta VCX-D032, fuente en el [diseño de visibilidad](../superpowers/specs/2026-11-01-public-visibility-design.md). Lo reutilizable es público; lo vivo es privado.
+
+| Repositorio | Visibilidad | Cómo nace |
+|---|---|---|
+| `vcx`, `blends`, `brix`, `cellar` | Público | Repositorio nuevo a partir de un export revisado de su superficie publicable, con historial filtrado por rutas según eligió el usuario el 2026-11-01, y historial nuevo si el scan falla; nunca por cambio de visibilidad de uno existente |
+| Instancia de Cellar | Privado | El precursor continuado y renombrado, con su historial íntegro; nombre pendiente por VCX-D009 |
+| Repositorios de proyecto | Privado | Extracción desde la instancia cuando VCX-D010 lo decida; nunca se vuelven públicos |
+| Heredados y ajenos | Sin cambio | Sin cambio |
+
+[H] Los runners estándar de GitHub en repositorios públicos no consumen la cuota de Actions; los grandes se facturan también en público. La CI del kernel y de Brix deja de consumir cuota al publicarse; los despliegues de proyectos siguen en privado y consumen como hoy.
+
+[I] Esta propuesta cambia dos filas de la tabla anterior: el precursor no se reubica como `vcx/blends/` sino como `vcx/cellars/<instancia>/`, y `blends` público es un repositorio nuevo cuyo checkout ocupa `vcx/blends/`.
+
 ## Qué no se rompe
 
 [P] Invariantes de la transición, verificables en cada fase:
 
 1. `blends` conserva nombre, historia, rama `queue`, tags, PR abierto, protección de `main` y workflows hasta que cada extracción retire lo suyo. Nunca se reescribe historia ni se borra en GitHub lo que el inventario de VCX-D031 marca como conservado.
 2. Un solo operador escribe en `queue` y lanza trenes; el clon de autoría solo hace push de ramas, exactamente lo que hoy hacen las sesiones.
-3. Ningún repositorio privado se vuelve público. Los nuevos nacen privados y vacíos; publicar sigue exigiendo espejo curado y aprobación humana.
+3. Ningún repositorio privado se vuelve público. Los públicos de VCX-D032 nacen como repositorios nuevos a partir de un export revisado, con scan del historial y aprobación humana; las instancias y los proyectos nacen privados.
 4. Los espejos no reciben commits mientras sean espejos. Convertir uno en canónico es una decisión registrada en la extracción, con su descripción y protección cambiadas en ese momento.
 5. Cada extracción deja `blends` verde: los checks obligatorios de `main` se ajustan en la misma entrega que retira el código que verifican. El check `teyst` es el primer caso.
 6. Los despliegues no cambian de repositorio hasta que el repositorio nuevo tenga CI con la biblioteca fijada, credenciales del builder y una corrida verde; hasta entonces el workflow sigue en `blends`.

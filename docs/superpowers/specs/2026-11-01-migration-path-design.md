@@ -79,6 +79,10 @@ Independientes entre sí y de la Fase C.
 
 [U] El usuario pidió aprovechar la migración para ordenar la deuda técnica heredada: desacoples, conflictos de nombres de carpetas, orden de Git y jerarquías de carpetas. [P] El [inventario de deuda heredada](2026-11-01-inherited-debt-design.md), propuesta VCX-D031, mide 23 ítems y asigna a cada uno un repositorio destino y uno de cuatro tratamientos: se resuelve al reubicar (Fase B), se resuelve en el repositorio destino bajo su gobierno (después de la Fase B), se resuelve por extracción (Fase D) o se declara sin tocar. Ninguna fase nueva; ninguna corrección implícita durante el clon.
 
+## Ajuste por la visibilidad pública
+
+[U] El usuario pidió después que VCX, Blends, Brix y Cellar sean públicos, que la CI no consuma cuota de Actions y que los proyectos vivos sigan privados. [P] El [diseño de visibilidad](2026-11-01-public-visibility-design.md), propuesta VCX-D032, concluye que el precursor no puede volverse público porque contiene esos proyectos y su historial, y que continúa privado como la instancia de Cellar. En consecuencia, el clon de autoría de la Fase B se coloca en `vcx/cellars/<instancia>/` y no en `vcx/blends/`; `vcx/blends/` pasa a ser el checkout de un repositorio público nuevo, exportado y revisado. La separación de planos y la regla de un solo operador no cambian. Mientras VCX-D032 no se ratifique, rige lo escrito arriba.
+
 ## Alternativas evaluadas
 
 | Opción | Costo | Evaluación |
