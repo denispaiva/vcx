@@ -52,13 +52,13 @@ Registrar la identidad observada de cada asiento y distinguirla de la solicitada
 
 ### Repetición
 
-La identidad de una corrida es el hash de tres entradas fijas: la revisión del documento, la pregunta normalizada (sin espacios sobrantes, en minúsculas) y los bindings solicitados, nunca los observados. Se calcula con una herramienta, no de memoria:
+La identidad de una corrida es el hash de tres entradas fijas, en este orden: la revisión del documento (su SHA en Git o, si no está versionado, los primeros 12 caracteres hexadecimales del SHA-256 de su contenido), la pregunta normalizada (sin espacios al inicio ni al final, espacios internos colapsados a uno, en minúsculas) y los bindings solicitados, nunca los observados. Los bindings se serializan en una sola línea con los once asientos en orden fijo (`advisor-contrarian`, `advisor-first-principles`, `advisor-expansionist`, `advisor-outsider`, `advisor-executor`, `reviewer-1` a `reviewer-5`, `synthesis`), cada uno como `asiento=familia/clase/runner`, separados por `;`. Se calcula con una herramienta, no de memoria:
 
 ```bash
 printf '%s\n%s\n%s' "$DOC_REVISION" "$QUESTION_NORMALIZED" "$BINDINGS_REQUESTED" | shasum -a 256 | cut -c1-12
 ```
 
-La misma entrada produce el mismo hash en dos corridas. Si en el destino autorizado ya existe un reporte completo con ese hash y el consumidor no aporta material nuevo, no se ejecuta: se informa el reporte existente. El material nuevo o los antecedentes que aporte el consumidor se registran en el reporte. No recorrer el portfolio. No sobrescribir un reporte existente ni presentar una corrida parcial como completa.
+La misma entrada produce el mismo hash en dos corridas. La guarda se comprueba con una herramienta, buscando en el destino autorizado un reporte cuyo frontmatter tenga `run_hash` igual y `status: complete`. Si existe y el consumidor no aporta material nuevo, no se ejecuta: se informa el reporte existente. El material nuevo o los antecedentes que aporte el consumidor se registran en el reporte. No recorrer el portfolio. No sobrescribir un reporte existente ni presentar una corrida parcial como completa.
 
 ### Fallos
 
@@ -68,9 +68,9 @@ Esta versión no reanuda corridas: el consumo de un parcial se declara perdido. 
 
 ### Salida
 
-Un reporte Markdown en el destino autorizado, nombrado con fecha y sufijo numérico si ya existe uno, con:
+Un reporte Markdown en el destino autorizado, nombrado `<fecha>-council-<nombre del documento>.md`; si ese nombre ya existe, se agrega el sufijo `-2`, `-3` y así, sin sobrescribir nunca. Contiene:
 
-- Frontmatter: revisión del documento de entrada, hash de la corrida, estado `complete` o `partial`, configuración solicitada y observada, invocaciones, `decorrelated: true | false`, costo observado o `not_measured`, material nuevo o `null`.
+- Frontmatter con estas claves: `document_revision`, `run_hash`, `status` (`complete` o `partial`), `bindings_requested`, `bindings_observed`, `invocations`, `decorrelated` (`true` o `false`), `cost` (observado o `not_measured`) y `new_material` (texto o `null`).
 - Primera línea del cuerpo: «Insumo de asesoramiento. No es evidencia y no autoriza nada.»
 - Secciones: pregunta y entrada, recursos declarados, configuración usada, lecturas declaradas por asiento, mapeo de anonimización (solo en reportes completos), encuadre, síntesis, respuestas completas, revisiones cruzadas y límites.
 
