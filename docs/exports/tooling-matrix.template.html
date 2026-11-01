@@ -77,6 +77,11 @@ dialog::backdrop{background:rgba(20,16,14,.45)}
 mark{background:var(--mark);color:var(--mark-ink);border-radius:3px;padding:0 1px}
 .hits{display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:6px}
 .hits span{display:block}
+.rev{font-size:12px;padding:2px 8px;border-radius:6px;align-self:flex-start}
+.r-vencida{color:var(--gap);background:var(--gap-bg)} .r-pronto{color:var(--cand);background:var(--cand-bg)}
+.r-vigente{color:var(--obs);background:var(--obs-bg)} .r-pendiente{color:var(--asg);background:var(--asg-bg)} .r-sin{color:var(--none);background:var(--none-bg)}
+.evalbox{margin-top:10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px;font-size:12.5px}
+.evalbox div span{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
 </style>
 </head>
 <body>
@@ -90,6 +95,7 @@ mark{background:var(--mark);color:var(--mark-ink);border-radius:3px;padding:0 1p
   </div>
   <div class="bar" id="prodbar"><span class="lbl">Consumido por</span></div>
   <div class="bar" id="statebar"><span class="lbl">Estado</span></div>
+  <div class="bar" id="revbar"><span class="lbl">Revisión</span></div>
   <div id="homes"></div>
   <div class="legend">
     <div><span class="dot d-Observado"></span><b>Observado</b><br>Uso medido en esa necesidad.</div>
@@ -112,13 +118,32 @@ const cls = s => s.split(" ")[0];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const md = s => esc(s).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`([^`]+)`/g, "<code>$1</code>");
 const rank = s => STATES.indexOf(s);
-let prod = null, state = null, tokens = [];
+let prod = null, state = null, review = null, tokens = [];
+const DECISION = {approved: "Aprobada", approved_with_exception: "Aprobada con excepción", deferred: "Diferida",
+  rejected: "Rechazada", decision_pending: "Decisión pendiente"};
+const LEVEL = {low: "Bajo", medium: "Medio", high: "Alto", critical: "Crítico"};
+const REVIEWS = [["vencida", "Vencida"], ["pronto", "Vence en 30 días"], ["vigente", "Vigente"],
+  ["pendiente", "Decisión pendiente"], ["sin", "Sin evaluación"]];
+const today = new Date(); today.setHours(0, 0, 0, 0);
+const fmt = d => d ? d.split("-").reverse().join("-") : "—";
+function reviewOf(it){
+  if (it.kind.startsWith("Capacidad") || it.eval === undefined) return null;
+  if (it.eval === null) return {key: "sin", label: "Sin evaluación"};
+  if (it.eval.status === "decision_pending") return {key: "pendiente", label: "Decisión pendiente"};
+  if (!it.eval.expiresAt) return {key: "sin", label: "Sin fecha de revisión"};
+  const days = Math.round((new Date(it.eval.expiresAt + "T00:00:00") - today) / 864e5);
+  if (days < 0) return {key: "vencida", label: `Revisión vencida el ${fmt(it.eval.expiresAt)}`};
+  if (days <= 30) return {key: "pronto", label: `Revisar antes del ${fmt(it.eval.expiresAt)} · ${days === 0 ? "hoy" : `en ${days} ${days === 1 ? "día" : "días"}`}`};
+  return {key: "vigente", label: `Vigente hasta ${fmt(it.eval.expiresAt)}`};
+}
+DATA.items.forEach(it => it.review = reviewOf(it));
 const fold = c => (c.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase() || c)[0];
 const norm = s => [...String(s)].map(fold).join("");
 const plain = s => String(s).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`/g, "");
 const useText = u => plain([u.product, u.phase, u.need, u.cap, u.tool, u.state, u.note].join(" "));
 DATA.items.forEach(it => {
-  it.self = norm(plain([it.id, it.kind, it.home, it.source, it.note].join(" ")));
+  it.self = norm(plain([it.id, it.kind, it.home, it.source, it.note, it.review ? it.review.label : "",
+    it.eval ? DECISION[it.eval.status] || it.eval.status : ""].join(" ")));
   it.uses.forEach(u => u.idx = norm(useText(u)));
   it.idx = it.self + " " + it.uses.map(u => u.idx).join(" ");
 });
@@ -148,9 +173,11 @@ function highlight(root){
 
 document.getElementById("meta").innerHTML =
   `Instantánea generada desde <code>docs/architecture/tooling-matrix.md</code>, revisión ${esc(DATA.rev)}. ` +
-  `No se actualiza sola: la fuente editable es el Markdown, según VCX-D028.`;
+  `No se actualiza sola: la fuente editable es el Markdown, según VCX-D028. ` +
+  (DATA.evalsRev ? `Evaluaciones leídas del precursor en la revisión ${esc(DATA.evalsRev)}; el vencimiento se calcula con la fecha en que se abre la vista.`
+                 : `Sin datos de evaluación: el precursor no estaba disponible al generar.`);
 
-const visible = it => hits(it.idx) && it.uses.some(u => (!prod || u.product === prod) && (!state || u.state === state));
+const visible = it => hits(it.idx) && (!review || (it.review && it.review.key === review)) && it.uses.some(u => (!prod || u.product === prod) && (!state || u.state === state));
 const consumers = it => [...new Set(it.uses.map(u => u.product))];
 
 function chip(bar, label, pressed, onClick, dotCls){
@@ -160,11 +187,16 @@ function chip(bar, label, pressed, onClick, dotCls){
   b.onclick = onClick; bar.appendChild(b);
 }
 function bars(){
-  const pb = document.getElementById("prodbar"), sb = document.getElementById("statebar");
-  [pb, sb].forEach(b => b.querySelectorAll("button").forEach(x => x.remove()));
+  const pb = document.getElementById("prodbar"), sb = document.getElementById("statebar"), rb = document.getElementById("revbar");
+  [pb, sb, rb].forEach(b => b.querySelectorAll("button").forEach(x => x.remove()));
   chip(pb, "Todos", !prod, () => { prod = null; render(); });
   PRODUCTS.forEach(p => chip(pb, p, prod === p, () => { prod = prod === p ? null : p; render(); }));
   STATES.forEach(s => chip(sb, s, state === s, () => { state = state === s ? null : s; render(); }, cls(s)));
+  REVIEWS.forEach(([k, l]) => {
+    const n = DATA.items.filter(it => it.review && it.review.key === k).length;
+    if (n) chip(rb, `${l} · ${n}`, review === k, () => { review = review === k ? null : k; render(); });
+  });
+  rb.style.display = DATA.evalsRev ? "" : "none";
 }
 function useHtml(u, it){
   const other = it && it.kind.startsWith("Capacidad") ? `Herramienta: ${md(u.tool)}` : `Capacidad: ${md(u.cap)}`;
@@ -177,7 +209,12 @@ function useHtml(u, it){
 function open(it){
   document.getElementById("dlg-title").innerHTML = it.code ? `<code>${esc(it.id)}</code>` : esc(it.id);
   document.getElementById("dlg-sub").innerHTML =
-    `${esc(it.kind)} · vive en <b>${esc(it.home)}</b> · fuente: ${md(it.source)}` + (it.note ? `<br>${md(it.note)}` : "");
+    `${esc(it.kind)} · vive en <b>${esc(it.home)}</b> · fuente: ${md(it.source)}` + (it.note ? `<br>${md(it.note)}` : "") +
+    (it.review ? `<div class="evalbox">${it.eval ? [
+      ["Revisión", `<span class="rev r-${it.review.key}">${esc(it.review.label)}</span>`],
+      ["Decisión", esc(DECISION[it.eval.status] || it.eval.status || "—")], ["Decidida", fmt(it.eval.decidedAt)],
+      ["Puntaje", esc(it.eval.score)], ["Riesgo", esc(LEVEL[it.eval.risk] || it.eval.risk || "—")], ["Confianza", esc(LEVEL[it.eval.confidence] || it.eval.confidence || "—")]
+    ].map(([k, v]) => `<div><span>${k}</span>${v}</div>`).join("") : `<div><span>Revisión</span><span class="rev r-sin">Sin evaluación registrada</span></div>`}</div>` : "");
   const body = PRODUCTS.filter(p => it.uses.some(u => u.product === p)).map(p =>
     `<h4>Consumido por ${esc(p)}</h4>` + it.uses.filter(u => u.product === p).map(u => useHtml(u, it)).join("")).join("");
   document.getElementById("dlg-body").innerHTML = body;
@@ -195,6 +232,7 @@ function tile(it){
   const counts = {}; it.uses.forEach(u => counts[u.state] = (counts[u.state] || 0) + 1);
   b.innerHTML = `<span class="kind">${esc(it.kind)}</span>
     <span class="name${it.code ? "" : " plain"}">${esc(it.id)}</span>
+    ${it.review ? `<span class="rev r-${it.review.key}">${esc(it.review.label)}</span>` : ""}
     <span class="by">Consumido por <b>${consumers(it).map(esc).join(", ")}</b> · ${it.uses.length} ${it.uses.length === 1 ? "uso" : "usos"}</span>
     <span class="pills">${STATES.filter(s => counts[s]).map(s => `<span class="pill s-${cls(s)}">${counts[s]} ${s.toLowerCase()}</span>`).join("")}</span>`;
   const matched = tokens.length ? it.uses.filter(u => touches(u.idx)) : [];

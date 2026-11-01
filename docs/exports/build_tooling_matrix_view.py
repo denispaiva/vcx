@@ -5,6 +5,11 @@ dependencia de ningún producto. Exige que la matriz no tenga cambios sin commit
 para que la vista cite una revisión identificable, y que cada elemento que la
 matriz consume tenga ubicación en la tabla «Dónde vive cada elemento».
 
+Si existe la carpeta hermana del precursor, incorpora de sus evaluaciones de
+solo lectura la decisión, las fechas y el riesgo de cada herramienta; la vista
+calcula al abrirse si la revisión venció. Sin esa carpeta, la vista se genera
+igual y avisa que no tiene datos de evaluación.
+
 Uso, desde la raíz de vcx: python3 -I docs/exports/build_tooling_matrix_view.py
 """
 import json, re, subprocess, sys
@@ -85,7 +90,26 @@ for c in table("Matriz"):
 if missing:
     sys.exit("Sin ubicación en «Dónde vive cada elemento»: " + ", ".join(sorted(set(missing))))
 
-data = json.dumps(dict(items=list(items.values()), loose=loose, rev=rev), ensure_ascii=False)
+evals_dir = root.parent / "blends/vc/tooling/evaluations"
+evals_rev = None
+if evals_dir.is_dir():
+    evals_rev = subprocess.run(["git", "-C", str(evals_dir), "log", "-1", "--format=%h %ad", "--date=short", "--", "."],
+                               capture_output=True, text=True).stdout.strip() or "sin revisión"
+    for it in items.values():
+        if it["kind"].startswith("Capacidad"):
+            continue
+        f = evals_dir / f"{it['id']}.evaluation.json"
+        if not f.exists():
+            it["eval"] = None
+            continue
+        e = json.loads(f.read_text())
+        decision = (e.get("humanDecision") or {})
+        it["eval"] = dict(status=decision.get("status") or e.get("status"), decidedAt=(decision.get("decidedAt") or "")[:10],
+                          expiresAt=(e.get("expiresAt") or "")[:10], score=round(e.get("overallScore") or 0, 1),
+                          risk=e.get("riskLevel"), confidence=e.get("confidence"))
+
+data = json.dumps(dict(items=list(items.values()), loose=loose, rev=rev, evalsRev=evals_rev), ensure_ascii=False)
 tpl = (Path(__file__).parent / "tooling-matrix.template.html").read_text()
 out.write_text(tpl.replace("/*DATA*/null", data))
-print(f"{len(items)} elementos, {len(loose)} necesidades sin elemento → {out} (fuente {rev})")
+print(f"{len(items)} elementos, {len(loose)} necesidades sin elemento → {out} (fuente {rev}; "
+      f"evaluaciones {evals_rev or 'no disponibles'})")
