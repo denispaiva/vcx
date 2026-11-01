@@ -45,6 +45,7 @@ Antes del primer clon independiente de cada producto, resolver los [requisitos d
 ## Convenciones
 
 - Inglés para código, identificadores, claves, estados, comandos, archivos y carpetas. Español para documentación, interfaz, comentarios y comunicación. Los nombres propios conservan su forma oficial.
+- Usar los términos del [vocabulario](docs/vocabulary.md) con el sentido allí definido; ante una diferencia, rige la fuente que cada entrada enlaza.
 - Consultar el [criterio de nombres](docs/naming.md) al proponer nombres. El glosario es un banco de candidatos sin curar; no asigna identidades ni autoriza renombrar proyectos.
 - Mantener una fuente editable por dato y una fuente canónica de código por producto. Enlazar las definiciones compartidas; no duplicar matrices, políticas o roadmaps.
 - Usar rutas relativas para dependencias documentales del workspace. Las rutas locales de origen se conservan solo como referencias históricas identificadas.

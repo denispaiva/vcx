@@ -31,6 +31,7 @@ Blends y Cellar son proyectos pares de primer nivel. Se prioriza su curación do
 
 - Para entender el propósito: [misión y visión](docs/vision.md) y [speech ejecutivo](docs/executive-pitch.md).
 - Para diseñar conexiones: [arquitectura](docs/architecture/overview.md), [responsabilidades](docs/architecture/responsibility-matrix.md) e [interoperabilidad](docs/architecture/interoperability.md).
+- Para saber qué skills y MCP usa o propone cada fase: [matriz de tooling](docs/architecture/tooling-matrix.md), fuente transitoria según VCX-D028 que referencia el inventario del precursor sin copiarlo.
 - Para continuar la curación gradual: [primer recorrido Cellar–Blends](docs/superpowers/specs/2026-10-30-cellar-blends-first-journey-design.md), diseño propuesto con ejemplo ficticio y correspondencia con el sistema actual.
 - Para preparar el ingreso de una idea: [flujo de documento, consejo y confirmación humana](blends/docs/idea-intake.md), con capacidad de Brix y plantilla de ideas; todavía sin comandos nuevos implementados.
 - Para consultar las interfaces objetivo: [comandos de Brix y ayuda de parámetros](brix/docs/commands.md), con equivalencias `brix idea` ↔ `/idea` y `brix council` ↔ `/council`.
