@@ -8,16 +8,16 @@
 :root{
   --bg:#f7f5f2;--surface:#fff;--ink:#1f1d1b;--muted:#6b6560;--line:#e4dfd8;--accent:#7a2e3a;
   --obs:#1f7a4d;--obs-bg:#e3f3ea;--asg:#2456a6;--asg-bg:#e4ecf9;--cand:#9a6700;--cand-bg:#fbf0d6;
-  --gap:#b42318;--gap-bg:#fde7e4;--none:#5f5a55;--none-bg:#ece9e5;
+  --gap:#b42318;--gap-bg:#fde7e4;--none:#5f5a55;--none-bg:#ece9e5;--shadow:0 12px 40px rgba(0,0,0,.18);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#161413;--surface:#201e1c;--ink:#ece8e3;--muted:#a39c95;--line:#36322f;--accent:#e08a98;
   --obs:#6fd3a0;--obs-bg:#173326;--asg:#8fb4f3;--asg-bg:#1a2742;--cand:#f0c060;--cand-bg:#3a2d10;
-  --gap:#ff9a8f;--gap-bg:#41201c;--none:#bdb6ae;--none-bg:#2c2927;}}
+  --gap:#ff9a8f;--gap-bg:#41201c;--none:#bdb6ae;--none-bg:#2c2927;--shadow:0 12px 40px rgba(0,0,0,.6);}}
 :root[data-theme="dark"]{
   --bg:#161413;--surface:#201e1c;--ink:#ece8e3;--muted:#a39c95;--line:#36322f;--accent:#e08a98;
   --obs:#6fd3a0;--obs-bg:#173326;--asg:#8fb4f3;--asg-bg:#1a2742;--cand:#f0c060;--cand-bg:#3a2d10;
-  --gap:#ff9a8f;--gap-bg:#41201c;--none:#bdb6ae;--none-bg:#2c2927;}
+  --gap:#ff9a8f;--gap-bg:#41201c;--none:#bdb6ae;--none-bg:#2c2927;--shadow:0 12px 40px rgba(0,0,0,.6);}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
 main{max-width:1240px;margin:0 auto;padding:32px 16px 64px}
@@ -26,45 +26,60 @@ h1{font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
 .meta{font-size:13px;color:var(--muted);margin:0 0 24px}
 code{font:12.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--none-bg);padding:1px 5px;border-radius:4px}
 .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}
-.bar span.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-right:4px;min-width:64px}
+.bar span.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-right:4px;min-width:96px}
 button.chip{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:5px 12px;border-radius:999px;cursor:pointer}
 button.chip[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);font-weight:600}
 .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:1px}
-section.product{margin-top:36px}
-.phead{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 20px;border-bottom:2px solid var(--accent);padding-bottom:8px;margin-bottom:16px}
-.phead h2{margin:0;font-size:22px}
-.counts{display:flex;flex-wrap:wrap;gap:6px}
-.count{font-size:12.5px;padding:2px 9px;border-radius:999px}
-.stages{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
-.stage{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px}
-.stage h3{margin:0;font-size:15px;display:flex;justify-content:space-between;gap:8px}
-.stage h3 small{color:var(--muted);font-weight:400}
-.row{border-left:3px solid var(--line);padding:2px 0 2px 10px}
-.row .sub{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-.row .need{font-weight:550;margin:1px 0 5px}
-.row .cap{font-size:12.5px;color:var(--muted);margin-bottom:5px}
-.tools{display:flex;flex-wrap:wrap;gap:5px}
-.tool{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;padding:2px 8px;border-radius:5px;border:1px solid transparent}
-.note{font-size:12.5px;color:var(--muted);margin-top:5px}
+section.home{margin-top:36px}
+.hhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;border-bottom:2px solid var(--accent);padding-bottom:8px;margin-bottom:16px}
+.hhead h2{margin:0;font-size:22px}
+.hhead p{margin:0;color:var(--muted);font-size:13px}
+h3.sub{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:18px 0 10px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+button.tile{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;border-left:4px solid var(--line)}
+button.tile:hover{border-color:var(--accent)}
+button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tile .name{font:600 13.5px ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-word}
+.tile .name.plain{font:600 14.5px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.tile .kind{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.tile .by{font-size:12.5px;color:var(--muted)}
+.tile .by b{color:var(--ink);font-weight:600}
+.pill{font-size:11.5px;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.pills{display:flex;flex-wrap:wrap;gap:4px}
 .s-Observado{color:var(--obs);background:var(--obs-bg)} .b-Observado{border-left-color:var(--obs)} .d-Observado{background:var(--obs)}
 .s-Asignado{color:var(--asg);background:var(--asg-bg)} .b-Asignado{border-left-color:var(--asg)} .d-Asignado{background:var(--asg)}
 .s-Candidato{color:var(--cand);background:var(--cand-bg)} .b-Candidato{border-left-color:var(--cand)} .d-Candidato{background:var(--cand)}
 .s-Brecha{color:var(--gap);background:var(--gap-bg)} .b-Brecha{border-left-color:var(--gap)} .d-Brecha{background:var(--gap)}
 .s-Sin{color:var(--none);background:var(--none-bg)} .b-Sin{border-left-color:var(--none)} .d-Sin{background:var(--none)}
+.loose{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:4px 14px}
+.loose .u{border-top:1px solid var(--line);padding:10px 0}
+.loose .u:first-child{border-top:0}
+dialog{border:1px solid var(--line);border-radius:12px;padding:0;background:var(--surface);color:var(--ink);width:min(720px,calc(100vw - 32px));max-height:calc(100vh - 48px);box-shadow:var(--shadow)}
+dialog::backdrop{background:rgba(20,16,14,.45)}
+.dhead{position:sticky;top:0;background:var(--surface);padding:16px 18px 12px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+.dhead h2{margin:0;font-size:18px;word-break:break-word}
+.dhead p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.dclose{font:inherit;font-size:20px;line-height:1;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;width:32px;height:32px;cursor:pointer;flex:none}
+.dbody{padding:6px 18px 18px}
+.dbody h4{margin:16px 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent)}
+.u{border-left:3px solid var(--line);padding:4px 0 4px 10px;margin:8px 0}
+.u .phase{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.u .need{font-weight:550;margin:1px 0 4px}
+.u .rel,.u .note{font-size:12.5px;color:var(--muted)}
+.u .note{margin-top:3px}
 .legend{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;font-size:13px}
 .legend div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
-footer{margin-top:28px;font-size:13px;color:var(--muted)}
 .empty{color:var(--muted);font-size:13px}
 </style>
 </head>
 <body>
 <main>
-  <h1>Matriz de skills y MCP por producto</h1>
-  <p class="lead">Qué capacidad y qué skill o MCP usa o propone cada fase de Blends, Brix y Cellar. Vista derivada: no admite, instala ni autoriza herramientas.</p>
+  <h1>Matriz de tooling por ubicación</h1>
+  <p class="lead">Dónde vive cada capacidad, skill y MCP de VCX. Tocá un elemento para ver qué productos y fases lo consumen. Vista derivada: no admite, instala ni autoriza herramientas.</p>
   <p class="meta" id="meta"></p>
-  <div class="bar" id="prodbar"><span class="lbl">Producto</span></div>
+  <div class="bar" id="prodbar"><span class="lbl">Consumido por</span></div>
   <div class="bar" id="statebar"><span class="lbl">Estado</span></div>
-  <div id="products"></div>
+  <div id="homes"></div>
   <div class="legend">
     <div><span class="dot d-Observado"></span><b>Observado</b><br>Uso medido en esa necesidad.</div>
     <div><span class="dot d-Asignado"></span><b>Asignado</b><br>Activa en el inventario; su uso en la fase es propuesta.</div>
@@ -72,21 +87,28 @@ footer{margin-top:28px;font-size:13px;color:var(--muted)}
     <div><span class="dot d-Brecha"></span><b>Brecha</b><br>Necesidad sin herramienta o sin capacidad.</div>
     <div><span class="dot d-Sin"></span><b>Sin herramienta</b><br>La capacidad o la persona no necesitan skill ni MCP.</div>
   </div>
-  <footer id="foot"></footer>
 </main>
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dhead"><div><h2 id="dlg-title"></h2><p id="dlg-sub"></p></div><button class="dclose" id="dlg-close" aria-label="Cerrar">×</button></div>
+  <div class="dbody" id="dlg-body"></div>
+</dialog>
 <script>
 const DATA = /*DATA*/null;
 const STATES = ["Observado","Asignado","Candidato","Brecha","Sin herramienta"];
+const PRODUCTS = ["Blends","Brix","Cellar"];
+const HOMES = ["Brix","Blends","Cellar"];
 const cls = s => s.split(" ")[0];
-const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const md = s => esc(s).replace(/`([^`]+)`/g, "<code>$1</code>");
-const ORDER = ["Blends","Brix","Cellar"];
-const products = [...new Set(DATA.rows.map(r => r.product))].sort((a, b) => (ORDER.indexOf(a) + 1 || 99) - (ORDER.indexOf(b) + 1 || 99));
-let prod = "Todos", state = null;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const md = s => esc(s).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`([^`]+)`/g, "<code>$1</code>");
+const rank = s => STATES.indexOf(s);
+let prod = null, state = null;
 
 document.getElementById("meta").innerHTML =
   `Instantánea generada desde <code>docs/architecture/tooling-matrix.md</code>, revisión ${esc(DATA.rev)}. ` +
   `No se actualiza sola: la fuente editable es el Markdown, según VCX-D028.`;
+
+const visible = it => it.uses.some(u => (!prod || u.product === prod) && (!state || u.state === state));
+const consumers = it => [...new Set(it.uses.map(u => u.product))];
 
 function chip(bar, label, pressed, onClick, dotCls){
   const b = document.createElement("button");
@@ -96,47 +118,83 @@ function chip(bar, label, pressed, onClick, dotCls){
 }
 function bars(){
   const pb = document.getElementById("prodbar"), sb = document.getElementById("statebar");
-  pb.querySelectorAll("button").forEach(b => b.remove());
-  sb.querySelectorAll("button").forEach(b => b.remove());
-  ["Todos", ...products].forEach(p => chip(pb, p, prod === p, () => { prod = p; render(); }));
+  [pb, sb].forEach(b => b.querySelectorAll("button").forEach(x => x.remove()));
+  chip(pb, "Todos", !prod, () => { prod = null; render(); });
+  PRODUCTS.forEach(p => chip(pb, p, prod === p, () => { prod = prod === p ? null : p; render(); }));
   STATES.forEach(s => chip(sb, s, state === s, () => { state = state === s ? null : s; render(); }, cls(s)));
 }
-function rowStates(r){ return r.tools.length ? r.tools.map(t => t.state) : [r.state]; }
+function useHtml(u, it){
+  const other = it && it.kind.startsWith("Capacidad") ? `Herramienta: ${md(u.tool)}` : `Capacidad: ${md(u.cap)}`;
+  return `<div class="u b-${cls(u.state)}">
+    <div class="phase">${esc(u.phase)}</div>
+    <div class="need">${md(u.need)} <span class="pill s-${cls(u.state)}">${esc(u.state)}</span></div>
+    <div class="rel">${other}</div>
+    ${u.note ? `<div class="note">${md(u.note)}</div>` : ""}</div>`;
+}
+function open(it){
+  document.getElementById("dlg-title").innerHTML = it.code ? `<code>${esc(it.id)}</code>` : esc(it.id);
+  document.getElementById("dlg-sub").innerHTML =
+    `${esc(it.kind)} · vive en <b>${esc(it.home)}</b> · fuente: ${md(it.source)}` + (it.note ? `<br>${md(it.note)}` : "");
+  const body = PRODUCTS.filter(p => it.uses.some(u => u.product === p)).map(p =>
+    `<h4>Consumido por ${esc(p)}</h4>` + it.uses.filter(u => u.product === p).map(u => useHtml(u, it)).join("")).join("");
+  document.getElementById("dlg-body").innerHTML = body;
+  document.getElementById("dlg").showModal();
+}
+document.getElementById("dlg-close").onclick = () => document.getElementById("dlg").close();
+document.getElementById("dlg").addEventListener("click", e => { if (e.target.id === "dlg") e.target.close(); });
+
+function tile(it){
+  const b = document.createElement("button");
+  const best = it.uses.map(u => u.state).sort((a, c) => rank(a) - rank(c))[0];
+  b.className = `tile b-${cls(best)}`;
+  b.setAttribute("aria-haspopup", "dialog");
+  const counts = {}; it.uses.forEach(u => counts[u.state] = (counts[u.state] || 0) + 1);
+  b.innerHTML = `<span class="kind">${esc(it.kind)}</span>
+    <span class="name${it.code ? "" : " plain"}">${esc(it.id)}</span>
+    <span class="by">Consumido por <b>${consumers(it).map(esc).join(", ")}</b> · ${it.uses.length} ${it.uses.length === 1 ? "uso" : "usos"}</span>
+    <span class="pills">${STATES.filter(s => counts[s]).map(s => `<span class="pill s-${cls(s)}">${counts[s]} ${s.toLowerCase()}</span>`).join("")}</span>`;
+  b.onclick = () => open(it);
+  return b;
+}
 function render(){
   bars();
-  const host = document.getElementById("products"); host.innerHTML = "";
-  products.filter(p => prod === "Todos" || prod === p).forEach(p => {
-    const all = DATA.rows.filter(r => r.product === p);
-    const rows = all.filter(r => !state || rowStates(r).includes(state));
-    const counts = {}; all.forEach(r => rowStates(r).forEach(s => counts[s] = (counts[s] || 0) + 1));
-    const sec = document.createElement("section"); sec.className = "product";
-    sec.innerHTML = `<div class="phead"><h2>${esc(p)}</h2><div class="counts">${
-      STATES.filter(s => counts[s]).map(s => `<span class="count s-${cls(s)}">${counts[s]} ${s.toLowerCase()}</span>`).join("")
-    }</div></div>`;
-    const grid = document.createElement("div"); grid.className = "stages";
-    const stages = [...new Set(rows.map(r => r.stage))];
-    if (!stages.length) grid.innerHTML = `<p class="empty">Ninguna fila de ${esc(p)} con ese estado.</p>`;
-    stages.forEach(st => {
-      const rs = rows.filter(r => r.stage === st);
-      const card = document.createElement("div"); card.className = "stage";
-      card.innerHTML = `<h3>${esc(st)}<small>${rs.length} ${rs.length === 1 ? "necesidad" : "necesidades"}</small></h3>` +
-        rs.map(r => `<div class="row b-${cls(rowStates(r)[0])}">
-          ${r.sub ? `<div class="sub">${esc(r.sub)}</div>` : ""}
-          <div class="need">${md(r.need)}</div>
-          <div class="cap">Capacidad: ${md(r.cap)}</div>
-          <div class="tools">${r.tools.length
-            ? r.tools.map(t => `<span class="tool s-${cls(t.state)}" title="${esc(t.state)}">${esc(t.id)}</span>`).join("")
-            : `<span class="tool s-${cls(r.state)}">${esc(r.state)}</span>`}</div>
-          ${r.note ? `<div class="note">${md(r.note)}</div>` : ""}
-        </div>`).join("");
-      grid.appendChild(card);
-    });
-    sec.appendChild(grid); host.appendChild(sec);
+  const host = document.getElementById("homes"); host.innerHTML = "";
+  const groups = {};
+  DATA.items.forEach(it => {
+    const [h, ...rest] = it.home.split(" · ");
+    (groups[h] = groups[h] || {})[rest.join(" · ") || "—"] = [...((groups[h] || {})[rest.join(" · ") || "—"] || []), it];
   });
+  const order = [...HOMES, ...Object.keys(groups).filter(h => !HOMES.includes(h))];
+  order.forEach(h => {
+    if (!groups[h]) {
+      host.insertAdjacentHTML("beforeend", `<section class="home"><div class="hhead"><h2>${esc(h)}</h2><p>0 elementos</p></div>` +
+        `<p class="empty">No aloja capacidades ni herramientas de esta matriz. Cada instancia conserva su configuración de uso; lo que consume figura en los popups.</p></section>`);
+      return;
+    }
+    const subs = groups[h];
+    const all = Object.values(subs).flat(), shown = all.filter(visible);
+    const sec = document.createElement("section"); sec.className = "home";
+    sec.innerHTML = `<div class="hhead"><h2>${esc(h)}</h2><p>${all.length} elementos${shown.length !== all.length ? ` · ${shown.length} con el filtro` : ""}</p></div>`;
+    Object.entries(subs).forEach(([sub, its]) => {
+      const vis = its.filter(visible).sort((a, c) => a.id.localeCompare(c.id));
+      if (!vis.length) return;
+      sec.insertAdjacentHTML("beforeend", `<h3 class="sub">${esc(sub)}</h3>`);
+      const grid = document.createElement("div"); grid.className = "tiles";
+      vis.forEach(it => grid.appendChild(tile(it)));
+      sec.appendChild(grid);
+    });
+    if (!shown.length) sec.insertAdjacentHTML("beforeend", `<p class="empty">Ningún elemento con ese filtro.</p>`);
+    host.appendChild(sec);
+  });
+  const loose = DATA.loose.filter(u => (!prod || u.product === prod) && (!state || u.state === state));
+  if (DATA.loose.length) {
+    const sec = document.createElement("section"); sec.className = "home";
+    sec.innerHTML = `<div class="hhead"><h2>Necesidades sin elemento</h2><p>Decisiones humanas y brechas sin capacidad ni herramienta</p></div>` +
+      (loose.length ? `<div class="loose">${loose.map(u => useHtml(Object.assign({}, u, {phase: `${u.product} · ${u.phase}`}))).join("")}</div>`
+                    : `<p class="empty">Ninguna con ese filtro.</p>`);
+    host.appendChild(sec);
+  }
 }
-document.getElementById("foot").innerHTML =
-  `Capacidades registradas sin fila: ${DATA.unused.map(u => `<code>${esc(u)}</code>`).join(", ")}. ` +
-  `Inventario, admisión y uso medido se consultan en el precursor; esta vista no los copia.`;
 render();
 </script>
 </body>

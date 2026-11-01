@@ -2,11 +2,12 @@
 
 Herramienta documental opcional: solo usa la biblioteca estándar y git. No es
 dependencia de ningún producto. Exige que la matriz no tenga cambios sin commit,
-para que la vista cite una revisión identificable.
+para que la vista cite una revisión identificable, y que cada elemento que la
+matriz consume tenga ubicación en la tabla «Dónde vive cada elemento».
 
 Uso, desde la raíz de vcx: python3 -I docs/exports/build_tooling_matrix_view.py
 """
-import html, json, re, subprocess, sys
+import json, re, subprocess, sys
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[2]
@@ -21,28 +22,70 @@ dirty = subprocess.run(["git", "-C", str(root), "status", "--porcelain", "--", s
 if dirty:
     sys.exit("La matriz tiene cambios sin commit; la vista debe citar una revisión identificable.")
 
-section = text.split("## Matriz", 1)[1].split("\n## ", 1)[0]
-lines = [l for l in section.splitlines() if l.startswith("| ")]
-rows = []
-for l in lines[1:]:
-    if set(l.replace("|", "").strip()) <= {"-"}:
-        continue
-    c = [x.strip() for x in l.strip().strip("|").split("|")]
+
+def table(heading):
+    section = text.split(f"## {heading}", 1)[1].split("\n## ", 1)[0]
+    lines = [l for l in section.splitlines() if l.startswith("| ")][1:]
+    return [[x.strip() for x in l.strip().strip("|").split("|")]
+            for l in lines if not set(l.replace("|", "").strip()) <= {"-"}]
+
+
+ticks = lambda s: re.findall(r"`([^`]+)`", s)
+unregistered = lambda s: (re.match(r"No registrada \((.+)\)", s) or [None, None])[1]
+
+# Dónde vive: clave → ubicación; la fila sin claves de tipo «Skill o MCP» es la regla general.
+homes, default_tool_home = {}, None
+for c in table("Dónde vive cada elemento"):
+    home = dict(home=c[2], source=c[3], note=c[4])
+    keys = ticks(c[0])
+    if keys:
+        for k in keys:
+            homes[k] = home
+    elif c[1] == "Skill o MCP":
+        default_tool_home = home
+    else:
+        homes[c[0].lower()] = home
+
+items, loose, missing = {}, [], []
+
+
+def item(key, label, kind, home):
+    if home is None:
+        missing.append(label)
+        return None
+    return items.setdefault(key, dict(id=label, kind=kind, code=kind != "Capacidad no registrada",
+                                      uses=[], **home))
+
+
+for c in table("Matriz"):
     product, _, phase = c[0].partition(" · ")
-    stage, _, sub = phase.partition(", ")
-    tools = re.findall(r"`([^`]+)`", c[3])
-    states = [s.strip() for s in c[5].split(";")]
+    tools = ticks(c[3].split("(")[0]) if c[3] != "—" else []
+    states = [s.strip().capitalize() for s in c[5].split(";")]
     if len(states) != len(tools):
         states = [states[0]] * max(len(tools), 1)
-    rows.append(dict(product=product, stage=stage, sub=sub, cap=c[1], need=c[2],
-                     tools=[dict(id=t, state=s.capitalize()) for t, s in zip(tools, states)],
-                     state=states[0].capitalize(), kind=c[4], note=c[6]))
+    kinds = c[4].split(", ")
+    if len(kinds) != len(tools):
+        kinds = [c[4]] * len(tools)
+    use = dict(product=product, phase=phase, need=c[2], cap=c[1], tool=c[3], note=c[6])
+    touched = False
+    for t, s, k in zip(tools, states, kinds):
+        it = item("t:" + t, t, k, homes.get(t, default_tool_home))
+        if it:
+            it["uses"].append(dict(use, state=s)); touched = True
+    caps = ticks(c[1]) or ([unregistered(c[1])] if unregistered(c[1]) else [])
+    for k in caps:
+        label_kind = "Capacidad" if ticks(c[1]) else "Capacidad no registrada"
+        label = k if ticks(c[1]) else k[0].upper() + k[1:]
+        it = item("c:" + k, label, label_kind, homes.get(k) or homes.get(k.lower()))
+        if it:
+            it["uses"].append(dict(use, state=states[0])); touched = True
+    if not touched:
+        loose.append(dict(use, state=states[0]))
 
-unused = re.search(r"Capacidades registradas sin fila al corte: (.+?)\. Se agregan", text)
-unused = re.findall(r"`([^`]+)`", unused.group(1)) if unused else []
+if missing:
+    sys.exit("Sin ubicación en «Dónde vive cada elemento»: " + ", ".join(sorted(set(missing))))
 
-data = json.dumps(dict(rows=rows, unused=unused, rev=rev), ensure_ascii=False)
+data = json.dumps(dict(items=list(items.values()), loose=loose, rev=rev), ensure_ascii=False)
 tpl = (Path(__file__).parent / "tooling-matrix.template.html").read_text()
-out.parent.mkdir(parents=True, exist_ok=True)
 out.write_text(tpl.replace("/*DATA*/null", data))
-print(f"{len(rows)} filas → {out} (fuente {rev})")
+print(f"{len(items)} elementos, {len(loose)} necesidades sin elemento → {out} (fuente {rev})")

@@ -29,7 +29,22 @@ Una **capacidad** es un comando o instrumento propio de Brix o Blends, registrad
 |---|---|
 | `capability` del registro | La fase usa esa capacidad; la herramienta de la fila es la que esa capacidad o su ejecución necesita |
 | Uso directo | El agente usa la herramienta en la fase sin capacidad propia de por medio |
-| No registrada | La fase necesita una capacidad que todavía no existe en el registro |
+| No registrada (nombre) | La fase necesita una capacidad que todavía no existe en el registro; el nombre entre paréntesis la identifica en la tabla de ubicación |
+
+## Dónde vive cada elemento
+
+La matriz se lee desde dos lados. Esta tabla fija **dónde vive** cada capacidad y herramienta; la columna «Se usa en» de la matriz indica **quién la consume**. Que una skill se use en una fase de Cellar no significa que Cellar la aloje. La [vista HTML](../exports/tooling-matrix.html) agrupa por ubicación y abre los consumidores de cada elemento en un popup.
+
+| Elemento | Tipo | Vive en | Fuente actual | Nota |
+|---|---|---|---|---|
+| Toda skill o MCP de terceros sin fila propia aquí | Skill o MCP | Brix · catálogo | Inventario `tooling` de `../blends/vc/framework/.roadmap.json` | La [matriz de responsabilidades](responsibility-matrix.md) asigna a Brix el catálogo de instrumentos reutilizables y a cada instancia de Cellar su configuración de uso. Lectura propuesta; trasladar el inventario requiere alcance explícito |
+| `killer-questions` | Skill | Brix · catálogo | `brix/.claude/skills/` | Ya ubicada en Brix, sin admisión en el inventario |
+| `idea-to-spec`, `graduation`, `finops-ledger`, `ci-scaffolding` | Capacidad | Brix · capacidades | Registro de capacidades del precursor, campo `owner` | |
+| `tooling-audit` | Capacidad | Brix · capacidades | Registro de capacidades del precursor | El motor es de Brix; el comando `/tool` figura con dueño Blends |
+| `llm-council`, `spec-quality-checklist`, `spec-consistency-analysis`, `backlog-and-sprint-planning`, `scarcity-monitoring`, `scarcity-cycle-closure` | Capacidad | Blends · capacidades | Registro de capacidades del precursor, campo `owner` | Según la prueba de pertenencia de VCX-D029, un instrumento es capacidad y correspondería a Brix; conciliar al migrar |
+| Ciclo de integración | Capacidad no registrada | Blends · repositorio | Scripts y hooks del precursor | Dueño entre Brix, Blends y Cellar sin decidir |
+| Ciclo de entrega | Capacidad no registrada | Blends · repositorio | Scripts del precursor | Dueño entre Brix, Blends y Cellar sin decidir |
+| Preguntas asesinas | Capacidad no registrada | Sin ubicar | — | Brecha de capacidad abierta |
 
 ## Estados de una asignación
 
@@ -59,11 +74,11 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 
 ## Matriz
 
-| Producto · fase | Capacidad | Necesidad | Herramienta (`id`) | Tipo | Estado | Nota |
+| Se usa en (producto · fase) | Capacidad | Necesidad | Herramienta (`id`) | Tipo | Estado | Nota |
 |---|---|---|---|---|---|---|
 | Blends · ingreso, entrada | `idea-to-spec` | Leer ideas en PDF, DOCX u otros formatos | `markitdown` | Skill | Asignado | Alcance `task` en el inventario |
 | Blends · ingreso, encuadre | `idea-to-spec` | Extraer de la idea su problema esencial (prensado) | `brainstorming` | Skill | Asignado | |
-| Blends · ingreso, encuadre | No registrada | Instrumento de preguntas asesinas | `killer-questions` (adaptación de `phuryn/pm-skills` · `identify-assumptions-new`) | Skill | Candidato | Incorporada el 2026-11-01 en [`brix/.claude/skills/`](../../brix/.claude/skills/killer-questions/PROVENANCE.md), sin admisión en el inventario ni uso medido. Demostrado solo un caso ficticio ([reporte](../superpowers/reports/2026-11-01-killer-questions-instrument.md)). La capacidad sigue sin registrarse y el diseño de maduración sigue siendo propuesta: la brecha de capacidad permanece abierta |
+| Blends · ingreso, encuadre | No registrada (preguntas asesinas) | Instrumento de preguntas asesinas | `killer-questions` (adaptación de `phuryn/pm-skills` · `identify-assumptions-new`) | Skill | Candidato | Incorporada el 2026-11-01 en [`brix/.claude/skills/`](../../brix/.claude/skills/killer-questions/PROVENANCE.md), sin admisión en el inventario ni uso medido. Demostrado solo un caso ficticio ([reporte](../superpowers/reports/2026-11-01-killer-questions-instrument.md)). La capacidad sigue sin registrarse y el diseño de maduración sigue siendo propuesta: la brecha de capacidad permanece abierta |
 | Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `llm-council-skill` | Skill | Candidato | La capacidad está en uso; la evaluación de la skill figura `decision_pending` |
 | Blends · arquitectura y FinOps | `finops-ledger` | Planilla y escenarios de costo | `xlsx`, `sheets-api` | Skill, MCP | Asignado | `sheets-api` escribe en la planilla operativa: exige alcance explícito |
 | Blends · arquitectura y FinOps | `finops-ledger` | Respaldar importes con comprobantes reales | `gmail` | MCP | Asignado | Aprobado con excepción; puede enviar y borrar: limitar a lectura |
@@ -78,10 +93,10 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 | Cellar · conducción, implementación | Uso directo | Código nuevo con pruebas | `test-driven-development` | Skill | Asignado | Según riesgo; VCX-P5 no impone TDD indiscriminado |
 | Cellar · conducción, revisión | Uso directo | Revisión independiente | `requesting-code-review` | Skill | Asignado | |
 | Cellar · conducción, revisión | Uso directo | Seguridad de cambios sensibles | `security-review` | Skill | Asignado | Alcance `task` |
-| Cellar · conducción, integración | No registrada | Limitar qué rutas toca cada rama y verificar antes de entregar | — | — | Sin herramienta | Implementada en el precursor sin registro: `branch-scopes.json`, `.githooks/` y `npm run verify`, scripts propios sobre `git`. Dueño entre Brix, Blends y Cellar sin decidir |
+| Cellar · conducción, integración | No registrada (ciclo de integración) | Limitar qué rutas toca cada rama y verificar antes de entregar | — | — | Sin herramienta | Implementada en el precursor sin registro: `branch-scopes.json`, `.githooks/` y `npm run verify`, scripts propios sobre `git`. Dueño entre Brix, Blends y Cellar sin decidir |
 | Cellar · conducción, integración | Uso directo | Convenciones de ramas, commits y versionado | `agent-skills` | Skill | Asignado | Subconjunto `git-workflow-and-versioning` |
 | Cellar · conducción, integración | `ci-scaffolding` | Crear el CI de un proyecto | `agent-skills` | Skill | Asignado | Subconjunto `ci-cd-and-automation` |
-| Cellar · conducción, entrega | No registrada | Commitear, pushear, encolar e integrar por tren con compuertas | — | — | Sin herramienta | Implementada en el precursor sin registro: `npm run entregar`, `queue`, `train`, `train-gate`, `train-merge`, `recycle` y `control-plane.json`. Es el ciclo del repositorio de Blends; cada producto independiente declara el suyo |
+| Cellar · conducción, entrega | No registrada (ciclo de entrega) | Commitear, pushear, encolar e integrar por tren con compuertas | — | — | Sin herramienta | Implementada en el precursor sin registro: `npm run entregar`, `queue`, `train`, `train-gate`, `train-merge`, `recycle` y `control-plane.json`. Es el ciclo del repositorio de Blends; cada producto independiente declara el suyo |
 | Cellar · conducción, entrega | `scarcity-monitoring`, `scarcity-cycle-closure` | Controlar el costo de GitHub Actions antes de disparar CI | — | — | Sin herramienta | |
 | Cellar · conducción, cierre | Uso directo | Evidencia antes de declarar éxito | `verification-before-completion` | Skill | Asignado | Transversal a todas las fases |
 | Cellar · conducción, interfaz | Uso directo | Diseño y anti-patrones de UI | `impeccable`, `emilkowalski-skills` | Skill | Asignado | Solo proyectos con interfaz |
