@@ -95,7 +95,7 @@ Solo lectura según VCX-D024. Nada de esta sección se corrige desde VCX: cada c
 
 [P] Dos roles distintos, conforme a la [RACI](responsibility-matrix.md#4-matriz-raci-humana-propuesta): quien mantiene el inventario y reúne pruebas (R) y quien autoriza cambios o acepta riesgos (A).
 
-- **Autoridad.** Para las filas del precursor existe hoy: el PO de Blends, bajo su gobierno vigente, que no autoriza corregir el precursor desde VCX. Para las filas de la raíz y de los productos no hay designación general registrada. Esa falta no invalida una autorización puntual del usuario con alcance explícito, como las que registran VCX-D026 y VCX-D027; solo obliga a pedirla en cada caso. Se propone registrar como decisión al responsable del portfolio como A de raíz y productos.
+- **Autoridad.** Para las filas del precursor existe hoy: el PO de Blends, bajo su gobierno vigente, que no autoriza corregir el precursor desde VCX. Para las filas de la raíz y de los productos no hay designación general registrada. Esa falta no invalida una autorización puntual del usuario con alcance explícito, como las que registran VCX-D026 y VCX-D027; solo obliga a pedirla en cada caso. Esa propuesta está registrada como [VCX-D034](../decisions/README.md), pendiente de ratificación.
 - **Mantenimiento.** Quien prepara una transición actualiza las filas que esa puerta exige, como parte de su evidencia, y registra fecha y conclusión. No hace falta un mantenedor permanente hasta que exista una revisión periódica programada.
 
 ## Presupuesto
