@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matriz de tooling VCX</title>
+<style>
+:root{
+  --bg:#f7f5f2;--surface:#fff;--ink:#1f1d1b;--muted:#6b6560;--line:#e4dfd8;--accent:#7a2e3a;
+  --obs:#1f7a4d;--obs-bg:#e3f3ea;--asg:#2456a6;--asg-bg:#e4ecf9;--cand:#9a6700;--cand-bg:#fbf0d6;
+  --gap:#b42318;--gap-bg:#fde7e4;--none:#5f5a55;--none-bg:#ece9e5;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#161413;--surface:#201e1c;--ink:#ece8e3;--muted:#a39c95;--line:#36322f;--accent:#e08a98;
+  --obs:#6fd3a0;--obs-bg:#173326;--asg:#8fb4f3;--asg-bg:#1a2742;--cand:#f0c060;--cand-bg:#3a2d10;
+  --gap:#ff9a8f;--gap-bg:#41201c;--none:#bdb6ae;--none-bg:#2c2927;}}
+:root[data-theme="dark"]{
+  --bg:#161413;--surface:#201e1c;--ink:#ece8e3;--muted:#a39c95;--line:#36322f;--accent:#e08a98;
+  --obs:#6fd3a0;--obs-bg:#173326;--asg:#8fb4f3;--asg-bg:#1a2742;--cand:#f0c060;--cand-bg:#3a2d10;
+  --gap:#ff9a8f;--gap-bg:#41201c;--none:#bdb6ae;--none-bg:#2c2927;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+main{max-width:1240px;margin:0 auto;padding:32px 16px 64px}
+h1{font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
+.lead{color:var(--muted);margin:0 0 4px;max-width:820px}
+.meta{font-size:13px;color:var(--muted);margin:0 0 24px}
+code{font:12.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--none-bg);padding:1px 5px;border-radius:4px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}
+.bar span.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-right:4px;min-width:64px}
+button.chip{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:5px 12px;border-radius:999px;cursor:pointer}
+button.chip[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);font-weight:600}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:1px}
+section.product{margin-top:36px}
+.phead{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 20px;border-bottom:2px solid var(--accent);padding-bottom:8px;margin-bottom:16px}
+.phead h2{margin:0;font-size:22px}
+.counts{display:flex;flex-wrap:wrap;gap:6px}
+.count{font-size:12.5px;padding:2px 9px;border-radius:999px}
+.stages{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.stage h3{margin:0;font-size:15px;display:flex;justify-content:space-between;gap:8px}
+.stage h3 small{color:var(--muted);font-weight:400}
+.row{border-left:3px solid var(--line);padding:2px 0 2px 10px}
+.row .sub{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.row .need{font-weight:550;margin:1px 0 5px}
+.row .cap{font-size:12.5px;color:var(--muted);margin-bottom:5px}
+.tools{display:flex;flex-wrap:wrap;gap:5px}
+.tool{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;padding:2px 8px;border-radius:5px;border:1px solid transparent}
+.note{font-size:12.5px;color:var(--muted);margin-top:5px}
+.s-Observado{color:var(--obs);background:var(--obs-bg)} .b-Observado{border-left-color:var(--obs)} .d-Observado{background:var(--obs)}
+.s-Asignado{color:var(--asg);background:var(--asg-bg)} .b-Asignado{border-left-color:var(--asg)} .d-Asignado{background:var(--asg)}
+.s-Candidato{color:var(--cand);background:var(--cand-bg)} .b-Candidato{border-left-color:var(--cand)} .d-Candidato{background:var(--cand)}
+.s-Brecha{color:var(--gap);background:var(--gap-bg)} .b-Brecha{border-left-color:var(--gap)} .d-Brecha{background:var(--gap)}
+.s-Sin{color:var(--none);background:var(--none-bg)} .b-Sin{border-left-color:var(--none)} .d-Sin{background:var(--none)}
+.legend{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;font-size:13px}
+.legend div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+footer{margin-top:28px;font-size:13px;color:var(--muted)}
+.empty{color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Matriz de skills y MCP por producto</h1>
+  <p class="lead">Qué capacidad y qué skill o MCP usa o propone cada fase de Blends, Brix y Cellar. Vista derivada: no admite, instala ni autoriza herramientas.</p>
+  <p class="meta" id="meta"></p>
+  <div class="bar" id="prodbar"><span class="lbl">Producto</span></div>
+  <div class="bar" id="statebar"><span class="lbl">Estado</span></div>
+  <div id="products"></div>
+  <div class="legend">
+    <div><span class="dot d-Observado"></span><b>Observado</b><br>Uso medido en esa necesidad.</div>
+    <div><span class="dot d-Asignado"></span><b>Asignado</b><br>Activa en el inventario; su uso en la fase es propuesta.</div>
+    <div><span class="dot d-Candidato"></span><b>Candidato</b><br>No activa o sin decisión de admisión.</div>
+    <div><span class="dot d-Brecha"></span><b>Brecha</b><br>Necesidad sin herramienta o sin capacidad.</div>
+    <div><span class="dot d-Sin"></span><b>Sin herramienta</b><br>La capacidad o la persona no necesitan skill ni MCP.</div>
+  </div>
+  <footer id="foot"></footer>
+</main>
+<script>
+const DATA = {"rows": [{"product": "Blends", "stage": "ingreso", "sub": "entrada", "cap": "`idea-to-spec`", "need": "Leer ideas en PDF, DOCX u otros formatos", "tools": [{"id": "markitdown", "state": "Asignado"}], "state": "Asignado", "kind": "Skill", "note": "Alcance `task` en el inventario"}, {"product": "Blends", "stage": "ingreso", "sub": "encuadre", "cap": "`idea-to-spec`", "need": "Extraer de la idea su problema esencial (prensado)", "tools": [{"id": "brainstorming", "state": "Asignado"}], "state": "Asignado", "kind": "Skill", "note": ""}, {"product": "Blends", "stage": "ingreso", "sub": "encuadre", "cap": "No registrada", "need": "Instrumento de preguntas asesinas", "tools": [], "state": "Brecha", "kind": "—", "note": "Falta capacidad y herramienta; el diseño de maduración define el formato. Decidir si es plantilla o capacidad antes de buscar una skill"}, {"product": "Blends", "stage": "ingreso", "sub": "consejo", "cap": "`llm-council`", "need": "Reporte del consejo", "tools": [{"id": "llm-council-skill", "state": "Candidato"}], "state": "Candidato", "kind": "Skill", "note": "La capacidad está en uso; la evaluación de la skill figura `decision_pending`"}, {"product": "Blends", "stage": "arquitectura y FinOps", "sub": "", "cap": "`finops-ledger`", "need": "Planilla y escenarios de costo", "tools": [{"id": "xlsx", "state": "Asignado"}, {"id": "sheets-api", "state": "Asignado"}], "state": "Asignado", "kind": "Skill, MCP", "note": "`sheets-api` escribe en la planilla operativa: exige alcance explícito"}, {"product": "Blends", "stage": "arquitectura y FinOps", "sub": "", "cap": "`finops-ledger`", "need": "Respaldar importes con comprobantes reales", "tools": [{"id": "gmail", "state": "Asignado"}], "state": "Asignado", "kind": "MCP", "note": "Aprobado con excepción; puede enviar y borrar: limitar a lectura"}, {"product": "Blends", "stage": "exploración", "sub": "", "cap": "Uso directo", "need": "Documentación vigente de bibliotecas y SDK", "tools": [{"id": "context7-mcp", "state": "Candidato"}], "state": "Candidato", "kind": "MCP", "note": "`planned` en el inventario"}, {"product": "Blends", "stage": "exploración", "sub": "", "cap": "Uso directo", "need": "Investigación de mercado y alternativas con varias fuentes", "tools": [], "state": "Brecha", "kind": "—", "note": "Hay skills de investigación disponibles en la sesión, ninguna evaluada"}, {"product": "Blends", "stage": "definición", "sub": "", "cap": "`spec-quality-checklist`", "need": "Calidad de requisitos antes del plan", "tools": [{"id": "spec-kit-checklist", "state": "Asignado"}], "state": "Asignado", "kind": "Skill", "note": "Compuerta opcional"}, {"product": "Blends", "stage": "definición", "sub": "", "cap": "`spec-consistency-analysis`", "need": "Consistencia entre diseño y plan", "tools": [{"id": "spec-kit-analyze", "state": "Asignado"}], "state": "Asignado", "kind": "Skill", "note": ""}, {"product": "Blends", "stage": "gate", "sub": "", "cap": "Uso directo", "need": "Graduar, diferir o archivar", "tools": [], "state": "Sin herramienta", "kind": "—", "note": "Decide la autoridad humana; el consejo asesora y no reemplaza evidencia"}, {"product": "Blends", "stage": "preparación", "sub": "", "cap": "`graduation`", "need": "Aplicar una graduación autorizada", "tools": [], "state": "Sin herramienta", "kind": "—", "note": "La capacidad de Brix no requiere skill ni MCP"}, {"product": "Cellar", "stage": "conducción", "sub": "planificación", "cap": "Uso directo", "need": "Plan del proyecto graduado", "tools": [{"id": "writing-plans", "state": "Observado"}], "state": "Observado", "kind": "Skill", "note": "21 invocaciones medidas, sin distinguir fase; figuraba en Blends · preparación antes de VCX-D029"}, {"product": "Cellar", "stage": "conducción", "sub": "implementación", "cap": "Uso directo", "need": "Ejecutar tareas con subagentes", "tools": [{"id": "superpowers:subagent-driven-development", "state": "Observado"}], "state": "Observado", "kind": "Skill", "note": "Medido, pero no figura en el inventario del framework: conciliar"}, {"product": "Cellar", "stage": "conducción", "sub": "implementación", "cap": "Uso directo", "need": "Código nuevo con pruebas", "tools": [{"id": "test-driven-development", "state": "Asignado"}], "state": "Asignado", "kind": "Skill", "note": "Según riesgo; VCX-P5 no impone TDD indiscriminado"}, {"product": "Cellar", "stage": "conducción", "sub": "revisión", "cap": "Uso directo", "need": "Revisión independiente", "tools": [{"id": "requesting-code-review", "state": "Asignado"}, {"id": "skill-codex", "state": "Candidato"}], "state": "Asignado", "kind": "Skill", "note": "`skill-codex` está `planned`"}, {"product": "Cellar", "stage": "conducción", "sub": "revisión", "cap": "Uso directo", "need": "Seguridad de cambios sensibles", "tools": [{"id": "security-review", "state": "Asignado"}], "state": "Asignado", "kind": "Skill", "note": "Alcance `task`"}, {"product": "Cellar", "stage": "conducción", "sub": "cierre", "cap": "Uso directo", "need": "Evidencia antes de declarar éxito", "tools": [{"id": "verification-before-completion", "state": "Asignado"}], "state": "Asignado", "kind": "Skill", "note": "Transversal a todas las fases"}, {"product": "Cellar", "stage": "conducción", "sub": "interfaz", "cap": "Uso directo", "need": "Diseño y anti-patrones de UI", "tools": [{"id": "impeccable", "state": "Asignado"}, {"id": "emilkowalski-skills", "state": "Asignado"}], "state": "Asignado", "kind": "Skill", "note": "Solo proyectos con interfaz"}, {"product": "Cellar", "stage": "conducción", "sub": "interfaz", "cap": "Uso directo", "need": "Verificar lo renderizado", "tools": [{"id": "browser", "state": "Asignado"}], "state": "Asignado", "kind": "MCP", "note": ""}, {"product": "Brix", "stage": "admisión de tooling", "sub": "", "cap": "`tooling-audit`", "need": "Evaluar y registrar una herramienta", "tools": [], "state": "Sin herramienta", "kind": "—", "note": "La capacidad es el proceso propio; 42 invocaciones medidas de `/tool`"}, {"product": "Brix", "stage": "admisión de tooling", "sub": "", "cap": "`tooling-audit`", "need": "Descubrir candidatas", "tools": [{"id": "find-skills", "state": "Asignado"}], "state": "Asignado", "kind": "Skill", "note": ""}, {"product": "Cellar", "stage": "portfolio y backlog", "sub": "", "cap": "`backlog-and-sprint-planning`", "need": "Organizar ideas, proyectos y backlog", "tools": [], "state": "Sin herramienta", "kind": "—", "note": "Capacidad de Blends sobre archivos versionados; un MCP de gestión externo crearía una segunda fuente sin necesidad demostrada"}, {"product": "Cellar", "stage": "custodia", "sub": "", "cap": "Uso directo", "need": "Continuidad entre sesiones", "tools": [{"id": "handoff", "state": "Asignado"}], "state": "Asignado", "kind": "Skill", "note": "El traspaso no sustituye registros de decisión"}, {"product": "Cellar", "stage": "instrucciones", "sub": "", "cap": "Uso directo", "need": "Redactar AGENTS, skills y plantillas", "tools": [{"id": "mattpocock-writing-for-agents", "state": "Asignado"}], "state": "Asignado", "kind": "Skill", "note": ""}], "unused": ["ci-scaffolding", "seeding", "backend-inventory", "unattended-session-run", "scarcity-monitoring", "scarcity-cycle-closure", "actions-minutes-per-branch", "context-window-per-branch", "po-attention-per-branch", "kpi-history"], "rev": "57095c9 2026-11-01"};
+const STATES = ["Observado","Asignado","Candidato","Brecha","Sin herramienta"];
+const cls = s => s.split(" ")[0];
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const md = s => esc(s).replace(/`([^`]+)`/g, "<code>$1</code>");
+const ORDER = ["Blends","Brix","Cellar"];
+const products = [...new Set(DATA.rows.map(r => r.product))].sort((a, b) => (ORDER.indexOf(a) + 1 || 99) - (ORDER.indexOf(b) + 1 || 99));
+let prod = "Todos", state = null;
+
+document.getElementById("meta").innerHTML =
+  `Instantánea generada desde <code>docs/architecture/tooling-matrix.md</code>, revisión ${esc(DATA.rev)}. ` +
+  `No se actualiza sola: la fuente editable es el Markdown, según VCX-D028.`;
+
+function chip(bar, label, pressed, onClick, dotCls){
+  const b = document.createElement("button");
+  b.className = "chip"; b.setAttribute("aria-pressed", pressed);
+  b.innerHTML = (dotCls ? `<span class="dot d-${dotCls}"></span>` : "") + esc(label);
+  b.onclick = onClick; bar.appendChild(b);
+}
+function bars(){
+  const pb = document.getElementById("prodbar"), sb = document.getElementById("statebar");
+  pb.querySelectorAll("button").forEach(b => b.remove());
+  sb.querySelectorAll("button").forEach(b => b.remove());
+  ["Todos", ...products].forEach(p => chip(pb, p, prod === p, () => { prod = p; render(); }));
+  STATES.forEach(s => chip(sb, s, state === s, () => { state = state === s ? null : s; render(); }, cls(s)));
+}
+function rowStates(r){ return r.tools.length ? r.tools.map(t => t.state) : [r.state]; }
+function render(){
+  bars();
+  const host = document.getElementById("products"); host.innerHTML = "";
+  products.filter(p => prod === "Todos" || prod === p).forEach(p => {
+    const all = DATA.rows.filter(r => r.product === p);
+    const rows = all.filter(r => !state || rowStates(r).includes(state));
+    const counts = {}; all.forEach(r => rowStates(r).forEach(s => counts[s] = (counts[s] || 0) + 1));
+    const sec = document.createElement("section"); sec.className = "product";
+    sec.innerHTML = `<div class="phead"><h2>${esc(p)}</h2><div class="counts">${
+      STATES.filter(s => counts[s]).map(s => `<span class="count s-${cls(s)}">${counts[s]} ${s.toLowerCase()}</span>`).join("")
+    }</div></div>`;
+    const grid = document.createElement("div"); grid.className = "stages";
+    const stages = [...new Set(rows.map(r => r.stage))];
+    if (!stages.length) grid.innerHTML = `<p class="empty">Ninguna fila de ${esc(p)} con ese estado.</p>`;
+    stages.forEach(st => {
+      const rs = rows.filter(r => r.stage === st);
+      const card = document.createElement("div"); card.className = "stage";
+      card.innerHTML = `<h3>${esc(st)}<small>${rs.length} ${rs.length === 1 ? "necesidad" : "necesidades"}</small></h3>` +
+        rs.map(r => `<div class="row b-${cls(rowStates(r)[0])}">
+          ${r.sub ? `<div class="sub">${esc(r.sub)}</div>` : ""}
+          <div class="need">${md(r.need)}</div>
+          <div class="cap">Capacidad: ${md(r.cap)}</div>
+          <div class="tools">${r.tools.length
+            ? r.tools.map(t => `<span class="tool s-${cls(t.state)}" title="${esc(t.state)}">${esc(t.id)}</span>`).join("")
+            : `<span class="tool s-${cls(r.state)}">${esc(r.state)}</span>`}</div>
+          ${r.note ? `<div class="note">${md(r.note)}</div>` : ""}
+        </div>`).join("");
+      grid.appendChild(card);
+    });
+    sec.appendChild(grid); host.appendChild(sec);
+  });
+}
+document.getElementById("foot").innerHTML =
+  `Capacidades registradas sin fila: ${DATA.unused.map(u => `<code>${esc(u)}</code>`).join(", ")}. ` +
+  `Inventario, admisión y uso medido se consultan en el precursor; esta vista no los copia.`;
+render();
+</script>
+</body>
+</html>
