@@ -24,7 +24,7 @@ Brix es el núcleo de capacidades técnicas de VCX, según VCX-D029. La denomina
 
 La [capacidad de preparación de ideas](docs/idea-intake.md) documenta el requisito `/idea <texto o archivo>`: aplicar una plantilla, invocar preguntas asesinas y producir un Markdown revisable. Aún no está implementada y no equivale al generador de especificaciones `brix idea` del sistema existente.
 
-Las [interfaces de comandos](docs/commands.md) fijan `brix idea` = `/idea` y `brix council` = `/council`, con ayuda para completar parámetros. Son capacidades objetivo compartidas entre CLI y conversación; Blends coordina su uso dentro del recorrido.
+Las [interfaces de comandos](docs/commands.md) fijan `brix idea` = `/idea` y `brix council` = `/council`, con ayuda para completar parámetros. Son capacidades objetivo compartidas entre CLI y conversación; Blends coordina su uso dentro del recorrido. Las skills propias viven en `.claude/skills/` y se descubren solo desde este directorio; otro consumidor las copia con su procedencia, según VCX-D033.
 
 La [capacidad de arquitectura de referencia](docs/reference-architecture.md) documenta el modelo propuesto que alimentará FinOps después del ingreso de la idea. Su interfaz está por implementar; el motor de ledger existente no demuestra generación automática de arquitectura o estimaciones.
 

@@ -1,6 +1,6 @@
 # Procedencia de `brix-llm-council`
 
-Fecha: 2026-11-01. Estado: herramienta candidata de Brix, creada a partir de un diseño aprobado por el usuario el 2026-11-01; sin evaluación con `/tool`, sin admisión y sin uso medido.
+Fecha: 2026-11-01. Estado: herramienta candidata de Brix, creada a partir de un diseño aprobado por el usuario el 2026-11-01 y ajustada el mismo día según las decisiones VCX-D033; sin evaluación con `/tool`, sin admisión y sin uso medido.
 
 ## Origen
 
@@ -20,19 +20,32 @@ Fecha: 2026-11-01. Estado: herramienta candidata de Brix, creada a partir de un 
 
 | Elemento | `/council` | Esta skill |
 |---|---|---|
-| Entrada | Slug de `ideas/<slug>/`, ficha y `.roadmap.json` | Documento Markdown con revisión identificada y pregunta suministrada |
-| Lecturas | El orquestador lee la ficha y trazas previas; los asesores leen el repo | Solo el documento y una lista cerrada de referencias autorizadas |
-| Modelos | Tabla de bindings, resolver y runner del precursor | Configuración declarada por el consumidor; sin resolvers privados |
-| Recursos | Costo anotado si se puede medir | Máximo de invocaciones, concurrencia, espera y presupuesto declarados antes de ejecutar |
+| Entrada | Slug de `ideas/<slug>/`, ficha y `.roadmap.json`; pregunta de `--question` o de las preguntas asesinas vigentes | Documento Markdown con revisión identificada y una pregunta explícita escrita por el consumidor |
+| Lecturas | El orquestador lee la ficha y trazas previas; los asesores leen el repo nombrando archivos | Solo el documento y una lista cerrada de referencias autorizadas, pasadas dentro de la consigna; cada asiento declara qué leyó. La restricción es instructiva en ambos casos |
+| Modelos | Tabla de bindings, resolver y runner del precursor; Contrarian por `codex` | Un binding por asiento declarado por el consumidor; en esta versión solo runner `subagent`, `decorrelated: false` declarado |
+| Recursos | Costo anotado si se puede medir | Tope de invocaciones declarado antes de ejecutar (11, sin reintentos); gasto observado o `not_measured` |
 | Salida | Traza en la carpeta de la idea | Reporte Markdown en destino autorizado, vinculado a la revisión de entrada |
-| Repetición | Guarda por hash de pregunta | Identidad derivada de documento, pregunta y configuración |
-| Fallos | Se explican en la traza | Salida parcial conservada, asientos fallidos y consumo conocido |
+| Repetición | Guarda por hash de la pregunta | Guarda por hash de revisión del documento, pregunta normalizada y bindings solicitados, calculado con `shasum` |
+| Fallos | Se explican en la traza | Salida parcial conservada sin mapeo de anonimización, marcada `partial`; sin reanudación, consumo perdido declarado |
+
+## Decisiones de diseño aplicadas
+
+El 2026-11-01 el usuario confirmó ocho decisiones tras la revisión crítica del diseño; quedan registradas como VCX-D033 en el [registro de decisiones](../../../../docs/decisions/README.md). Resumen de lo que fijan en esta skill: pregunta explícita única; solo asientos por subagente en esta versión; tope de invocaciones declarado sin exigir cuota verificable; sin reanudación. Las otras cuatro fijan su entorno: fuente única, regla de `sourceUrl`, lugar de la evaluación y distribución, descritas abajo.
+
+## Fuente única
+
+La skill es la fuente canónica del procedimiento de consejo en VCX. El comando `/council` del precursor sigue vigente en Blends hasta su migración; al migrar, pasará a adaptador delgado sobre esta skill, con trazabilidad en la matriz de tooling. Hasta entonces son dos textos del mismo método y esa duplicación se declara como deuda; esta procedencia no autoriza modificar el precursor.
+
+## Distribución
+
+La skill se descubre solo desde el directorio donde está instalada (`brix/` en este workspace); una sesión abierta en otro directorio no la ve. El mecanismo vigente es copia por consumidor: cada consumidor copia la carpeta completa, conserva este archivo y registra la revisión copiada. La sincronización es manual. Un plugin con espacio de nombres propio se considerará cuando Brix tenga repositorio.
 
 ## Qué falta
 
 - Un runtime o driver público: esta skill describe el procedimiento y no está implementada como comando.
-- Evaluación con `/tool` y decisión humana. Ver el [diseño](../../../../docs/superpowers/specs/2026-11-01-council-skill-design.md) para las validaciones previstas.
+- Evaluación con `/tool` y decisión humana, según VCX-D033: `evaluatedRef` fijado al SHA de la raíz de VCX más la ruta de la skill; `sourceUrl` declarado si existe repositorio público al evaluar, nunca omitido para subir el puntaje; escritura acotada a los archivos de evaluación en el precursor bajo autorización explícita. Ver el [diseño](../../../../docs/superpowers/specs/2026-11-01-council-skill-design.md) para las validaciones previstas.
 - Licencia del producto.
+- Asiento de otra familia de modelo por runner `command`, en una versión posterior y con evaluación de riesgo propia.
 
 ## Actualización
 
