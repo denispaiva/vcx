@@ -8,7 +8,7 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 
 ### Repositorios de la cuenta
 
-[H] Ocho repositorios, todos privados, ninguno archivado, ninguno fork. No existen `vcx` ni `cellar`.
+[H] Ocho repositorios, todos privados, ninguno archivado, ninguno fork. No existen `vcx` ni `cellar`. Actualización del 2026-11-02: existe `denispaiva/vcx`, público, creado con autorización del usuario y con `main` en `4b01168`; `cellar` sigue sin existir.
 
 | Repositorio | Rol hoy | Rama por defecto | Último push | Observación |
 |---|---|---|---|---|
@@ -85,6 +85,6 @@ VCX-D032, ratificada como decisión documental el 2026-11-01; fuente en el [dise
 
 ## Decisiones que esto deja al usuario
 
-1. Crear `denispaiva/vcx` y subir `main`: es el único cambio en GitHub posible en la Fase A, no rompe nada y da respaldo fuera de la máquina al repositorio raíz. Requiere autorización explícita. La visibilidad quedó decidida el 2026-11-01: público, con la [revisión del historial](../superpowers/reports/2026-11-01-vcx-public-history-review.md) hecha; resta elegir si se reescribe el correo del autor antes del push. El [inventario de controles](security-controls-inventory.md) habla de «remoto privado» para SEC-01; rige esta decisión.
+1. Crear `denispaiva/vcx` y subir `main`: hecho el 2026-11-02, público, con `main` en `4b01168` tras la reescritura del correo y el scan de secretos; queda como antecedente. Era el único cambio en GitHub posible en la Fase A. La visibilidad quedó decidida el 2026-11-01: público, con la [revisión del historial](../superpowers/reports/2026-11-01-vcx-public-history-review.md) hecha; resta elegir si se reescribe el correo del autor antes del push. El [inventario de controles](security-controls-inventory.md) habla de «remoto privado» para SEC-01; rige esta decisión.
 2. Reutilizar `brix`, `teyst-blends` y `pinot-index` como repositorios canónicos en su extracción, o crear nuevos y archivar los espejos.
 3. Nombre de los repositorios de los proyectos sin espejo; la instancia ya tiene nombre, `solera`, por VCX-D009, con el [criterio de nombres](../naming.md).
