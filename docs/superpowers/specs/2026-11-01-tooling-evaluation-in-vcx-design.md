@@ -1,6 +1,6 @@
 # Evaluación de tooling con registro en VCX
 
-Fecha: 2026-11-01. Estado: **propuesta del asistente**, revisada por una sesión independiente (nota orientativa 6/10, trece hallazgos, incorporados abajo) y pendiente de aprobación del usuario. No ejecuta evaluaciones, no cambia la política de admisión ni el generador de la vista.
+Fecha: 2026-11-01. Estado: **propuesta del asistente**, revisada por una sesión independiente (nota orientativa 6/10, trece hallazgos, incorporados abajo) y **aprobada por el usuario el 2026-11-01** como VCX-D035 («Aprobar VCX-D035»). No ejecuta evaluaciones, no cambia la política de admisión ni el generador de la vista.
 
 ## Problema
 

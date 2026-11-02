@@ -128,7 +128,7 @@ Cuando una herramienta se rechaza por su evaluación y otra cubre la misma capac
 
 - **Cuándo se edita:** al cambiar el inventario o el registro de capacidades, al aparecer uso medido que confirme o contradiga una fila, o al diseñar una fase nueva. No se revisa por calendario.
 - **Cómo se agrega una fila:** con una necesidad concreta de la fase, ligada a una capacidad o declarada como uso directo. Una herramienta sin necesidad no entra; una necesidad sin herramienta o sin capacidad queda como brecha.
-- **Promociones:** candidato → asignado exige admisión en el inventario; asignado → observado exige registro de uso o evidencia fechada; cualquier fila puede pasar a sin herramienta con fundamento. Una capacidad no registrada pasa a `capability` cuando su dueño la incorpora al registro.
+- **Promociones:** candidato → asignado exige admisión: desde el 2026-11-01, una decisión `approved` o `approved_with_exception` vigente en `brix/tooling/evaluations/`, según VCX-D035; las anteriores, en el inventario del precursor; asignado → observado exige registro de uso o evidencia fechada; cualquier fila puede pasar a sin herramienta con fundamento. Una capacidad no registrada pasa a `capability` cuando su dueño la incorpora al registro.
 - **Retiros:** una herramienta o capacidad retirada se marca con fecha y motivo antes de borrar la fila.
 - **Reemplazos:** la fila reemplazada queda en estado Rechazado mientras su reemplazo no esté admitido. Cuando el reemplazo se admite, la rechazada se retira con fecha y el par sale de la tabla de reemplazos.
 
