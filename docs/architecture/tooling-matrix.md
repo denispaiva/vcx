@@ -34,7 +34,7 @@ Una **capacidad** es un comando o instrumento propio de Brix o Blends, registrad
 
 ## Dónde vive cada elemento
 
-La matriz se lee desde dos lados. Esta tabla fija **dónde vive** cada capacidad y herramienta; la columna «Se usa en» de la matriz indica **quién la consume**. Que una skill se use en una fase de Cellar no significa que Cellar la aloje. La [vista HTML](../exports/tooling-matrix.html) agrupa por ubicación y abre los consumidores de cada elemento en un popup. La columna «Construida por» distingue lo que VCX construyó o adaptó, de lo que viene de terceros o del precursor; la vista marca lo construido por VCX con el badge «Hecha en VCX».
+La matriz se lee desde dos lados. Esta tabla fija **dónde vive** cada capacidad y herramienta; la columna «Se usa en» de la matriz indica **quién la consume**. Que una skill se use en una fase de Cellar no significa que Cellar la aloje. La [vista HTML](../exports/tooling-matrix.html) agrupa por ubicación y abre los consumidores de cada elemento en un popup. La columna «Construida por» distingue lo que VCX construyó o adaptó, de lo que viene de terceros o del precursor; la vista marca lo construido por VCX con el badge «powered by VCX».
 
 | Elemento | Tipo | Vive en | Fuente actual | Nota | Construida por |
 |---|---|---|---|---|---|
