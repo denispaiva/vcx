@@ -17,7 +17,7 @@ Autoridad: el usuario autorizó la evaluación («Autorizo la evaluación»). An
 | Decisión humana | `approved_with_exception`, por Denis Paiva, `decidedAt` 2026-11-02T00:53:21Z, revisión el 2026-12-02, riesgo aceptado |
 | Vencimiento de la admisión | `expiresAt` 2027-01-31: el motor fija 90 días con confianza `medium` |
 
-**Excepción, no cumplimiento.** Las reglas de lectura de VCX-D035, fijadas antes de puntuar, no admiten una recomendación `do_not_advance`: solo permitían `rejected` o `deferred`. El usuario admitió la skill por su autoridad. El fundamento está completo en `humanDecision.rationale`, con las reservas: no hay verificación automatizada, la corrección `ce392b1` no se reverificó con una corrida, se probó en un solo host y una sola familia de modelo, y los puntajes `rubric` los asignó el mismo modelo que escribió la skill. Los puntajes no se ajustaron después de ver el número. Lo que más baja el puntaje es `engineering`: `automatedVerification` 20, `versioningDiscipline` 20 y `compatibilityEvidence` 25. Le sigue `securityHygiene` con 35.
+**Excepción, no cumplimiento** (registrada también como nota en el [registro de decisiones](../../decisions/README.md)). Las reglas de lectura de VCX-D035, fijadas antes de puntuar, no admiten una recomendación `do_not_advance`: solo permitían `rejected` o `deferred`. El usuario admitió la skill por su autoridad. El fundamento está completo en `humanDecision.rationale`, con las reservas: no hay verificación automatizada, la corrección `ce392b1` no se reverificó con una corrida, se probó en un solo host y una sola familia de modelo, y los puntajes `rubric` los asignó el mismo modelo que escribió la skill. Los puntajes no se ajustaron después de ver el número. Lo que más baja el puntaje es `engineering`: `automatedVerification` 20, `versioningDiscipline` 20 y `compatibilityEvidence` 25. Le sigue `securityHygiene` con 35.
 
 ## Procedencia
 
@@ -55,4 +55,3 @@ Durante la evaluación, otra sesión reescribió el correo del historial de `vcx
 - Revisión el 2026-12-02, o antes si hay evidencia nueva: una corrida que verifique la corrección de la etapa 2, usos reales para `observedOutcome` y un contador de uso para `observedAdoption`.
 - El envoltorio de VCX-D035 en `brix/`, que tiene que hacer cumplir las precondiciones y escribir `score-runs.jsonl` antes de cualquier reevaluación o segundo candidato.
 - Cambiar el generador de la vista para que lea `brix/tooling/`, con su propia autorización.
-- Si corresponde, dejar en el registro de decisiones una fila que remita a esta excepción. No se agregó porque otra sesión tiene ese archivo con cambios sin commitear.
