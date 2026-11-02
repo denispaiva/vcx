@@ -11,7 +11,7 @@ Estado: herramienta **candidata**, sin admisión en el inventario ni uso medido.
 
 ### Entrada
 
-Idea o propuesta: **$ARGUMENTS**.
+Idea o propuesta: **$ARGUMENTS**. En Claude Code ese campo se sustituye por el argumento de la invocación; en hosts sin sustitución, como Codex, llega vacío o literal: tomar entonces la idea del mensaje que invoca la skill y, si no hay ninguna, pedirla.
 
 Antes de preguntar, leer lo disponible: el texto o archivo indicado, la plantilla de ideas si se suministra y los documentos que la propuesta cite. Preguntar solo lo que cambie una decisión y no se pueda deducir. En ejecución no interactiva, listar las aclaraciones pendientes, marcar como condicionales las preguntas que dependan de ellas y continuar con lo que no dependa; no adivinar ni esperar.
 

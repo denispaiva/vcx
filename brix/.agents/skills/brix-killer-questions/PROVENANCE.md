@@ -35,13 +35,17 @@ Límites del original frente al instrumento de VCX: pide 8 categorías de riesgo
 
 ## Ubicación y descubrimiento
 
-Está bajo `brix/.claude/skills/` porque el [instrumento de preguntas asesinas](../../../docs/idea-intake.md) lo ofrece Brix y el directorio sigue la convención del precursor (`.claude/skills/<nombre>/`). No crea runtime ni dependencia ejecutable entre productos. Cualquier otro consumidor debe copiarlo o referenciarlo con su propia configuración.
+Está bajo `brix/.agents/skills/` porque el [instrumento de preguntas asesinas](../../../docs/idea-intake.md) lo ofrece Brix y esa es la carpeta del estándar abierto de skills de agentes: Codex la descubre desde el directorio de trabajo hasta la raíz del repositorio, según su documentación oficial leída el 2026-11-02, y el precursor ya la usa como carpeta canónica de sus skills vendorizadas. `brix/.claude/skills/brix-killer-questions` es un symlink a esta carpeta para el descubrimiento de Claude Code, el mismo patrón del precursor: una sola fuente editable y dos rutas de descubrimiento. Codex no sustituye `$ARGUMENTS`; `SKILL.md` lo contempla. No crea runtime ni dependencia ejecutable entre productos. Cualquier otro consumidor debe copiarlo o referenciarlo con su propia configuración.
 
-Observado el 2026-11-01: una sesión con `brix/` como directorio de trabajo la lista y la carga; una sesión con `vcx/` como raíz no (`Unknown skill`). Son comprobaciones aisladas, no una garantía para otros entornos.
+Observado el 2026-11-01, con la skill todavía en `brix/.claude/skills/`: una sesión de Claude Code con `brix/` como directorio de trabajo la lista y la carga; una sesión con `vcx/` como raíz no (`Unknown skill`). Son comprobaciones aisladas, no una garantía para otros entornos. Tras la reubicación del 2026-11-02: Codex CLI `0.166.0-alpha.5.1`, con `codex debug prompt-input` (muestra el prompt visible para el modelo sin llamarlo), lista `brix-killer-questions` desde `brix/.agents/skills` al ejecutarse en `brix/` y no la lista al ejecutarse en `vcx/`; `brix-llm-council` no aparece en Codex porque sigue en `.claude/skills/`. Claude Code cargó la skill a través del symlink, con el texto nuevo, en un subagente de la sesión que hizo el movimiento; no se comprobó aún una sesión nueva de Claude Code abierta en `brix/`. La documentación de Claude Code leída el 2026-11-02 no menciona `.agents/skills`; por eso el symlink.
 
 ## Actualización
 
 El original no se sincroniza solo. Para actualizar: leer la nueva revisión, comparar contra el SHA-256 anterior, repetir la revisión y registrar la nueva revisión aquí. Para retirar: marcar con fecha y motivo en la matriz de tooling antes de borrar.
+
+## Reubicación
+
+El 2026-11-02 se movió de `brix/.claude/skills/` a `brix/.agents/skills/`, con symlink en la ruta anterior, para que una sola copia sirva a Claude Code y a Codex (ver [Ubicación y descubrimiento](#ubicación-y-descubrimiento)). El texto de la skill solo cambió en la nota sobre `$ARGUMENTS`. Los reportes fechados anteriores conservan la ruta de entonces.
 
 ## Renombre
 
