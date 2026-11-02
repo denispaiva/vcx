@@ -43,6 +43,7 @@ Clasificación inicial propuesta, a confirmar al preparar cada producto:
 |---|---|---|
 | VCX-D019 | Brix | Define sus comandos, equivalencias y ayuda de parámetros |
 | VCX-D017 | Blends | Fija una compuerta de su proceso de ingreso; Cellar solo registra el resultado |
+| VCX-D040 | Blends | Regla del método para reconsiderar la arquitectura de proyectos graduados; Cellar la aplica |
 | VCX-D015, VCX-D016, VCX-D018 | Raíz | Reparten responsabilidades entre Cellar, Blends y Brix |
 | Demás decisiones vigentes | Raíz | Topología, principios, nombres, instancias o conciliación del conjunto |
 
