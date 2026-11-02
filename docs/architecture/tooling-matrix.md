@@ -12,7 +12,8 @@ Para no crear otra fuente editable, cada fila referencia el `capability` del reg
 |---|---|
 | Capacidades de Brix y Blends | `../blends/vc/tooling/brix-capabilities.json`, campo `capability` |
 | Inventario de skills y MCP | Campo `tooling` de `../blends/vc/framework/.roadmap.json` y de cada `.roadmap.json` de proyecto |
-| Admisión y puntaje | Política `../blends/vc/docs/standards/skills.md` y `../blends/vc/tooling/evaluations/` |
+| Admisión y puntaje | Política `../blends/vc/docs/standards/skills.md` y `../blends/vc/tooling/evaluations/`, como antecedente |
+| Decisiones humanas de tooling desde el 2026-11-01 | **Esta matriz** y el [registro de decisiones](../decisions/README.md); el precursor no se actualiza |
 | Uso medido | `../blends/vc/tooling/usage/records/` |
 | Features y backlog | `.roadmap.json` de cada producto o instancia de Cellar; cada ítem referencia las capacidades que necesita |
 | Relación producto · fase → capacidad → herramienta | **Esta matriz** |
@@ -82,7 +83,7 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 | Blends · ingreso, entrada | `idea-to-spec` | Leer ideas en PDF, DOCX u otros formatos | `markitdown` | Skill | Asignado | Alcance `task` en el inventario |
 | Blends · ingreso, encuadre | `idea-to-spec` | Extraer de la idea su problema esencial (prensado) | `brainstorming` | Skill | Asignado | |
 | Blends · ingreso, encuadre | No registrada (preguntas asesinas) | Instrumento de preguntas asesinas | `brix-killer-questions` (adaptación de `phuryn/pm-skills` · `identify-assumptions-new`) | Skill | Candidato | Incorporada el 2026-11-01 en [`brix/.claude/skills/`](../../brix/.claude/skills/brix-killer-questions/PROVENANCE.md), sin admisión en el inventario ni uso medido. Demostrado solo un caso ficticio ([reporte](../superpowers/reports/2026-11-01-killer-questions-instrument.md)). La capacidad sigue sin registrarse y el diseño de maduración sigue siendo propuesta: la brecha de capacidad permanece abierta |
-| Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `llm-council-skill` | Skill | Rechazado | Puntaje 39,6 con recomendación `do_not_advance` del proceso de evaluación; el usuario la rechazó el 2026-11-01. Su evaluación en el precursor sigue `decision_pending` hasta registrar el rechazo |
+| Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `llm-council-skill` | Skill | Rechazado | Puntaje 39,6 con recomendación `do_not_advance` del proceso de evaluación; el usuario la rechazó el 2026-11-01. El rechazo vive en VCX; la evaluación del precursor queda en `decision_pending` como antecedente desactualizado |
 | Blends · ingreso, consejo | `llm-council` | Reporte del consejo | `brix-llm-council` | Skill | Candidato | Skill propia de Brix que la reemplaza, adaptada del comando `/council` del precursor; creada el 2026-11-01 en [`brix/.claude/skills/`](../../brix/.claude/skills/brix-llm-council/PROVENANCE.md) según el [diseño](../superpowers/specs/2026-11-01-council-skill-design.md) y ajustada por VCX-D033 (fuente canónica del consejo; `/council` del precursor pasará a adaptador delgado al migrar), sin evaluar ni ejecutar |
 | Blends · arquitectura y FinOps | `finops-ledger` | Planilla y escenarios de costo | `xlsx`, `sheets-api` | Skill, MCP | Asignado | `sheets-api` escribe en la planilla operativa: exige alcance explícito |
 | Blends · arquitectura y FinOps | `finops-ledger` | Respaldar importes con comprobantes reales | `gmail` | MCP | Asignado | Aprobado con excepción; puede enviar y borrar: limitar a lectura |
@@ -113,7 +114,7 @@ La entrega de un proyecto graduado pertenece a la conducción en Cellar según V
 
 Capacidades registradas sin fila al corte: `seeding`, `backend-inventory`, `unattended-session-run` y los instrumentos de eficiencia (`actions-minutes-per-branch`, `context-window-per-branch`, `po-attention-per-branch`, `kpi-history`). Se agregan cuando una fase las use con alguna herramienta o se decida que no necesitan ninguna.
 
-Retiros: `orca-cli` se quitó el 2026-11-01 a pedido del usuario. Su evaluación figura `deferred` por decisión humana del 2026-08-10, con riesgo crítico y sin caso de uso, porque el harness gestiona worktrees de forma nativa; el inventario del precursor todavía la marca `planned`. `skill-codex` se quitó el mismo día, a pedido del usuario, por la misma inconsistencia: evaluación `deferred` por decisión humana del 2026-08-10 e inventario en `planned`.
+Retiros: `orca-cli` se quitó el 2026-11-01 a pedido del usuario. Su evaluación figura `deferred` por decisión humana del 2026-08-10, con riesgo crítico y sin caso de uso, porque el harness gestiona worktrees de forma nativa; el inventario del precursor todavía la marca `planned`, sin corregir, porque las decisiones de tooling viven en VCX. `skill-codex` se quitó el mismo día, a pedido del usuario, por la misma inconsistencia: evaluación `deferred` por decisión humana del 2026-08-10 e inventario en `planned`.
 
 ## Reemplazos
 
@@ -121,7 +122,7 @@ Cuando una herramienta se rechaza por su evaluación y otra cubre la misma capac
 
 | Capacidad | Reemplazada | Reemplazo | Motivo | Fecha | Estado del reemplazo |
 |---|---|---|---|---|---|
-| `llm-council` | `llm-council-skill` | `brix-llm-council` | Puntaje 39,6 con `do_not_advance`: un solo commit, sin versión fijable ni licencia declarada y lecturas amplias del workspace | 2026-11-01 | Creada, sin evaluar ni ejecutar; falta evaluarla con `/tool` y obtener la decisión humana |
+| `llm-council` | `llm-council-skill` | `brix-llm-council` | Puntaje 39,6 con `do_not_advance`: un solo commit, sin versión fijable ni licencia declarada y lecturas amplias del workspace | 2026-11-01 | Creada, sin evaluar ni ejecutar; falta evaluarla con registro en VCX, con procedimiento por definir, y obtener la decisión humana |
 
 ## Cómo evoluciona
 
