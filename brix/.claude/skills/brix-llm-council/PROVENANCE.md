@@ -48,7 +48,7 @@ La skill se descubre solo desde el directorio donde está instalada (`brix/` en 
 ## Qué falta
 
 - Un runtime o driver público: esta skill describe el procedimiento y no está implementada como comando.
-- Evaluación con `/tool` y decisión humana, según VCX-D033: `evaluatedRef` fijado al SHA de la raíz de VCX más la ruta de la skill; `sourceUrl` declarado si existe repositorio público al evaluar, nunca omitido para subir el puntaje; escritura acotada a los archivos de evaluación en el precursor bajo autorización explícita. Ver el [diseño](../../../../docs/superpowers/specs/2026-11-01-council-skill-design.md) para las validaciones previstas.
+- Evaluación con `/tool` y decisión humana, según VCX-D033: `evaluatedRef` fijado al SHA de la raíz de VCX más la ruta de la skill; `sourceUrl` declarado si existe repositorio público al evaluar, nunca omitido para subir el puntaje; escritura acotada a los archivos de evaluación en el precursor bajo autorización explícita. Ver el [diseño](../../../../docs/superpowers/specs/2026-11-01-council-skill-design.md) para las validaciones previstas y el [plan de la etapa 3](../../../../docs/superpowers/plans/2026-11-01-council-stage3-tool-evaluation-plan.md) para el alcance propuesto, pendiente de autorización.
 - Licencia del producto.
 - Asiento de otra familia de modelo por runner `command`, en una versión posterior y con evaluación de riesgo propia.
 
