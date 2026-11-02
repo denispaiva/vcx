@@ -47,11 +47,13 @@ Durante la evaluación, otra sesión reescribió el correo del historial de `vcx
 
 ## Cambios derivados
 
-- La [matriz](../../architecture/tooling-matrix.md) pasa la fila de consejo a «Asignado», porque bajo VCX-D035 la admisión es la decisión vigente en `brix/tooling/`, igual que la fila de `gmail`, aprobada con excepción. El generador de la vista todavía lee solo las evaluaciones del precursor, así que su popup no muestra este registro.
+- La [matriz](../../architecture/tooling-matrix.md) pasa la fila de consejo a «Asignado», porque bajo VCX-D035 la admisión es la decisión vigente en `brix/tooling/`, igual que la fila de `gmail`, aprobada con excepción. Desde `cbf0cb9` el generador lee este registro.
 - SKILL.md y PROVENANCE.md cambian solo su estado y sus pendientes. Por eso la carpeta ya no está en el `evaluatedRef`; la próxima evaluación usará el último commit de la carpeta.
 
 ## Pendientes
 
+Ordenados como pedidos en el [plan hacia la revisión](../plans/2026-11-01-council-review-backlog-plan.md).
+
 - Revisión el 2026-12-02, o antes si hay evidencia nueva: una corrida que verifique la corrección de la etapa 2, usos reales para `observedOutcome` y un contador de uso para `observedAdoption`.
-- El envoltorio de VCX-D035 en `brix/`, que tiene que hacer cumplir las precondiciones y escribir `score-runs.jsonl` antes de cualquier reevaluación o segundo candidato.
-- Cambiar el generador de la vista para que lea `brix/tooling/`, con su propia autorización.
+
+Cerrados después de esta evaluación: el envoltorio de VCX-D035, [`brix/tooling/score-run.mjs`](../../../brix/tooling/score-run.mjs) (`6b47396`), probado solo en seco; y el generador de la vista, que lee primero `brix/tooling/` y muestra la fecha de revisión (`cbf0cb9`).
