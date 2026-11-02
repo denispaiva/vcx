@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "brainstorming",
+    "type": "skill",
+    "sourceUrl": "https://github.com/obra/superpowers",
+    "evaluatedRef": "openai-curated-remote/superpowers@7.0.1"
+  },
+  "observedAt": "2026-11-02T15:30:00.000Z",
+  "overallScore": 76.36542890917761,
+  "evidenceCoverage": 97,
+  "factorScores": {
+    "community": 82.03964454588807,
+    "maintenance": 81.8,
+    "security": 73.25000000000001,
+    "fit": 70,
+    "engineering": 73.35,
+    "sustainability": 80.35000000000001
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.9,
+  "confidence": "high",
+  "riskLevel": "high",
+  "baselineRecommendation": "advance",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#brainstorming",
+  "evidenceInputRef": "brix/tooling/evaluations/brainstorming.evidence.json",
+  "expiresAt": "2027-01-31T15:30:00.000Z",
+  "communityEvidenceNote": null
+}

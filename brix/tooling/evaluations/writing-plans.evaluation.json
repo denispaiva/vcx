@@ -1,0 +1,37 @@
+{
+  "candidate": {
+    "id": "writing-plans",
+    "type": "skill",
+    "sourceUrl": "https://github.com/obra/superpowers",
+    "evaluatedRef": "openai-curated-remote/superpowers@7.0.1"
+  },
+  "observedAt": "2026-11-02T15:30:00.000Z",
+  "overallScore": 74.55454655623645,
+  "evidenceCoverage": 97,
+  "factorScores": {
+    "community": 82.03964454588807,
+    "maintenance": 81.8,
+    "security": 75.65000000000002,
+    "fit": 63.47058823529412,
+    "engineering": 64.55,
+    "sustainability": 83.7
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.9,
+  "confidence": "high",
+  "riskLevel": "medium",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "approved_with_exception",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#writing-plans",
+  "evidenceInputRef": "brix/tooling/evaluations/writing-plans.evidence.json",
+  "expiresAt": "2027-01-31T15:30:00.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "approved_with_exception",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-02T16:19:36.406Z",
+    "rationale": "Renovación del 2026-11-02 sobre superpowers 7.0.1 (plan de renovación de tooling, triage): 74,6 con advance_with_reservations y confianza high. Reserva: la skill no tiene pruebas automáticas y 7.0.1 cambió su contenido; los planes que produce se revisan como cualquier documento. Revisión a 30 días según VCX-D035. Uso medido en VCX: 3 lecturas en sesiones de Codex.",
+    "reviewAt": "2026-12-02",
+    "acceptedRisk": true
+  }
+}
