@@ -55,3 +55,7 @@ La skill se descubre solo desde el directorio donde está instalada (`brix/` en 
 ## Actualización
 
 El comando original no se sincroniza solo. Para actualizar: leer la nueva revisión, comparar contra el SHA-256 anterior y registrar la revisión aquí. Para retirar: marcar con fecha y motivo en la matriz de tooling antes de borrar.
+
+## Reubicación
+
+El 2026-11-02 se movió de `brix/.claude/skills/` a `brix/.agents/skills/`, sin cambio de contenido, por decisión del usuario de unificar las skills de Brix en la carpeta del estándar abierto; `brix/.claude/skills` es desde entonces un symlink de directorio para Claude Code. Los registros de evaluación en `brix/tooling/evaluations/` conservan `evaluatedRef` `vcx@45f961a48236d51a42106ea153578f64900d84f3:brix/.claude/skills/brix-llm-council/` y `sourceUrl` con la ruta anterior: son evidencia fechada de esa revisión y no se reescriben. La próxima evaluación llevará la ruta nueva en su `evaluatedRef`. Los reportes y planes fechados anteriores conservan la ruta de entonces.
