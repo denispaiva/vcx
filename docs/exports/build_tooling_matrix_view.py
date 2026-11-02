@@ -41,7 +41,7 @@ unregistered = lambda s: (re.match(r"No registrada \((.+)\)", s) or [None, None]
 # Dónde vive: clave → ubicación; la fila sin claves de tipo «Skill o MCP» es la regla general.
 homes, default_tool_home = {}, None
 for c in table("Dónde vive cada elemento"):
-    home = dict(home=c[2], source=c[3], note=c[4])
+    home = dict(home=c[2], source=c[3], note=c[4], origin=c[5], own=c[5].startswith("VCX"))
     keys = ticks(c[0])
     if keys:
         for k in keys:

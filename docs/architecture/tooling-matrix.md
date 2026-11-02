@@ -34,20 +34,20 @@ Una **capacidad** es un comando o instrumento propio de Brix o Blends, registrad
 
 ## Dónde vive cada elemento
 
-La matriz se lee desde dos lados. Esta tabla fija **dónde vive** cada capacidad y herramienta; la columna «Se usa en» de la matriz indica **quién la consume**. Que una skill se use en una fase de Cellar no significa que Cellar la aloje. La [vista HTML](../exports/tooling-matrix.html) agrupa por ubicación y abre los consumidores de cada elemento en un popup.
+La matriz se lee desde dos lados. Esta tabla fija **dónde vive** cada capacidad y herramienta; la columna «Se usa en» de la matriz indica **quién la consume**. Que una skill se use en una fase de Cellar no significa que Cellar la aloje. La [vista HTML](../exports/tooling-matrix.html) agrupa por ubicación y abre los consumidores de cada elemento en un popup. La columna «Construida por» distingue lo que VCX construyó o adaptó, de lo que viene de terceros o del precursor; la vista marca lo construido por VCX con el badge «Hecha en VCX».
 
-| Elemento | Tipo | Vive en | Fuente actual | Nota |
-|---|---|---|---|---|
-| Toda skill o MCP de terceros sin fila propia aquí | Skill o MCP | Brix · catálogo | Inventario `tooling` de `../blends/vc/framework/.roadmap.json` | La [matriz de responsabilidades](responsibility-matrix.md) asigna a Brix el catálogo de instrumentos reutilizables y a cada instancia de Cellar su configuración de uso. Lectura propuesta; trasladar el inventario requiere alcance explícito |
-| `brix-killer-questions` | Skill | Brix · catálogo | `brix/.claude/skills/` | Ya ubicada en Brix, sin admisión en el inventario; renombrada el 2026-11-01 desde `killer-questions` según la convención de nombres |
-| `brix-llm-council` | Skill | Brix · catálogo | `brix/.claude/skills/` | Creada el 2026-11-01, sin evaluar; skill propia, el prefijo indica el producto de origen |
-| `llm-council-skill` | Skill | Fuera del catálogo · rechazadas | Evaluación del precursor | Rechazada; se conserva para mostrar el reemplazo |
-| `idea-to-spec`, `graduation`, `finops-ledger`, `ci-scaffolding` | Capacidad | Brix · capacidades | Registro de capacidades del precursor, campo `owner` | |
-| `tooling-audit` | Capacidad | Brix · capacidades | Registro de capacidades del precursor | El motor es de Brix; el comando `/tool` figura con dueño Blends |
-| `llm-council`, `spec-quality-checklist`, `spec-consistency-analysis`, `backlog-and-sprint-planning`, `scarcity-monitoring`, `scarcity-cycle-closure` | Capacidad | Blends · capacidades | Registro de capacidades del precursor, campo `owner` | Según la prueba de pertenencia de VCX-D029, un instrumento es capacidad y correspondería a Brix; conciliar al migrar |
-| Ciclo de integración | Capacidad no registrada | Blends · repositorio | Scripts y hooks del precursor | Dueño entre Brix, Blends y Cellar sin decidir |
-| Ciclo de entrega | Capacidad no registrada | Blends · repositorio | Scripts del precursor | Dueño entre Brix, Blends y Cellar sin decidir |
-| Preguntas asesinas | Capacidad no registrada | Sin ubicar | — | Brecha de capacidad abierta |
+| Elemento | Tipo | Vive en | Fuente actual | Nota | Construida por |
+|---|---|---|---|---|---|
+| Toda skill o MCP de terceros sin fila propia aquí | Skill o MCP | Brix · catálogo | Inventario `tooling` de `../blends/vc/framework/.roadmap.json` | La [matriz de responsabilidades](responsibility-matrix.md) asigna a Brix el catálogo de instrumentos reutilizables y a cada instancia de Cellar su configuración de uso. Lectura propuesta; trasladar el inventario requiere alcance explícito | Terceros |
+| `brix-killer-questions` | Skill | Brix · catálogo | `brix/.claude/skills/` | Ya ubicada en Brix, sin admisión en el inventario; renombrada el 2026-11-01 desde `killer-questions` según la convención de nombres | VCX · adapta `phuryn/pm-skills` · `identify-assumptions-new` |
+| `brix-llm-council` | Skill | Brix · catálogo | `brix/.claude/skills/` | Creada el 2026-11-01, sin evaluar; skill propia, el prefijo indica el producto de origen | VCX · adapta el comando `/council` del precursor |
+| `llm-council-skill` | Skill | Fuera del catálogo · rechazadas | Evaluación del precursor | Rechazada; se conserva para mostrar el reemplazo | Terceros |
+| `idea-to-spec`, `graduation`, `finops-ledger`, `ci-scaffolding` | Capacidad | Brix · capacidades | Registro de capacidades del precursor, campo `owner` | | Precursor |
+| `tooling-audit` | Capacidad | Brix · capacidades | Registro de capacidades del precursor | El motor es de Brix; el comando `/tool` figura con dueño Blends | Precursor |
+| `llm-council`, `spec-quality-checklist`, `spec-consistency-analysis`, `backlog-and-sprint-planning`, `scarcity-monitoring`, `scarcity-cycle-closure` | Capacidad | Blends · capacidades | Registro de capacidades del precursor, campo `owner` | Según la prueba de pertenencia de VCX-D029, un instrumento es capacidad y correspondería a Brix; conciliar al migrar | Precursor |
+| Ciclo de integración | Capacidad no registrada | Blends · repositorio | Scripts y hooks del precursor | Dueño entre Brix, Blends y Cellar sin decidir | Precursor |
+| Ciclo de entrega | Capacidad no registrada | Blends · repositorio | Scripts del precursor | Dueño entre Brix, Blends y Cellar sin decidir | Precursor |
+| Preguntas asesinas | Capacidad no registrada | Sin ubicar | — | Brecha de capacidad abierta | — |
 
 ## Estados de una asignación
 
