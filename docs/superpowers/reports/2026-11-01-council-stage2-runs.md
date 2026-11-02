@@ -53,4 +53,4 @@ Fecha: 2026-11-01 (la corrida 3 terminó pasada la medianoche UTC del 2026-11-02
 
 Cerrados el 2026-11-01: los reportes y el plan de esta etapa se commitearon en `81b5c9d`, sin los archivos de la otra sesión. Los hallazgos 1 a 3 se corrigieron en SKILL.md en `ce392b1`; para el 4 el usuario eligió reformular la pregunta 4 de los revisores en vez de pasarles el documento; el 5 queda como riesgo declarado.
 
-Abierto: etapa 3, según su [plan](../plans/2026-11-01-council-stage3-tool-evaluation-plan.md), con `evaluatedRef` en `ce392b1` y la ruta de la skill. Requiere la autorización escrita del usuario para la escritura acotada en el precursor; el plan muestra que `/tool` tal como está escrito excede los dos archivos de VCX-D033 decisión 4.
+Abierto: etapa 3, según su [plan](../plans/2026-11-01-council-stage3-tool-evaluation-plan.md), con el procedimiento de VCX-D035 y registro en `brix/tooling/`, sin escribir en el precursor. Requiere la autorización aparte que VCX-D035 exige para evaluar esta skill.

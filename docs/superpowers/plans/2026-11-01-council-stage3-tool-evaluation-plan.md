@@ -1,22 +1,10 @@
-# Etapa 3 de `brix-llm-council`: plan de la evaluación con `/tool`
+# Etapa 3 de `brix-llm-council`: plan de la evaluación de tooling
 
-Fecha: 2026-11-01. Estado: propuesta; nada ejecutado. Continúa el [reporte de la etapa 2](../reports/2026-11-01-council-stage2-runs.md). Marco: VCX-D033, decisiones 3 y 4, en el [registro de decisiones](../../decisions/README.md).
+Fecha: 2026-11-01. Estado: propuesta; nada ejecutado. Continúa el [reporte de la etapa 2](../reports/2026-11-01-council-stage2-runs.md). Marco: VCX-D033 y VCX-D035 en el [registro de decisiones](../../decisions/README.md); procedimiento en el [diseño de evaluación con registro en VCX](../specs/2026-11-01-tooling-evaluation-in-vcx-design.md).
 
 ## Autoridad requerida y no otorgada todavía
 
-La evaluación escribe en el precursor, que está en solo lectura por VCX-D026. VCX-D033 decisión 4 acota esa escritura a dos archivos y exige una autorización explícita posterior, que este plan pide y no presupone. Sin ella no se corre ningún paso que escriba; el paso en seco no escribe y tampoco se corre antes de que el usuario apruebe este plan.
-
-## Hecho que cambia el alcance de VCX-D033 decisión 4
-
-El guion `/tool` del precursor (`.claude/commands/tool.md`) no escribe dos archivos, sino más (lectura del 2026-11-01, precursor en `f86a2a7`):
-
-| Paso de `/tool` | Escribe en el precursor |
-|---|---|
-| 6, `evaluate-tooling.mjs evaluate` | `vc/tooling/evaluations/<id>.evaluation.json`, `<id>.evidence.json` y una sección nueva en `vc/docs/tooling/evaluations.md` |
-| 7, `decide` | Reescribe `<id>.evaluation.json`, crea `vc/tooling/evaluations/history/<id>/` y agrega la decisión a `evaluations.md`; con `approved*` el envoltorio además registra la herramienta en un `.roadmap.json` y regenera `roadmap/data.js` |
-| Cierre | Rama `tooling/<id>-evaluation`, commit y validadores (`npm run lint` incluido) |
-
-La [verificación del motor](../reports/2026-11-01-scoring-engine-external-output-check.md) midió que `brix tool score` acepta `--policy`, `--output-dir` y `--narrative-doc`, y que los flags prevalecen sobre `brix.config.json` (`engine.mjs`, resolución de rutas). Con `--output-dir <blends>/vc/tooling` y `--narrative-doc` fuera del precursor, `evaluate` escribe exactamente los dos archivos de VCX-D033 decisión 4. `history/` solo se crea si ya existe un registro del mismo id; hoy no existe (`ls vc/tooling/evaluations/brix-llm-council.*` sin coincidencias). Por eso este plan usa el motor directo y no el envoltorio, y no corre `decide` en el precursor.
+VCX-D035 aprueba el procedimiento, pero «no autoriza evaluar `brix-llm-council`»: esta corrida exige una autorización aparte, que este plan pide. Cubre la corrida en seco, la persistida, la decisión humana, la línea de procedencia, el commit en VCX y la regeneración de la vista. No se pide escritura en el precursor: el usuario fijó el 2026-11-01 que nada se edita allí, y VCX-D035 lo aplica a la evaluación. Por eso este plan no sigue la vía de VCX-D033 decisión 4, que preveía escribir dos archivos en el precursor.
 
 ## Entrada fijada
 
@@ -24,32 +12,40 @@ La [verificación del motor](../reports/2026-11-01-scoring-engine-external-outpu
 |---|---|
 | `id` | `brix-llm-council` |
 | `type` | `skill` |
-| `evaluatedRef` | `vcx@ce392b1f6909d0a46a96b9bf58cc4c7567d50cfe:brix/.claude/skills/brix-llm-council/SKILL.md`: SHA de la raíz de VCX que contiene la corrección de la etapa 2, más la ruta de la skill |
-| `sourceUrl` | Ausente (`null`): no existe repositorio público de Brix que contenga la skill. Por VCX-D033 decisión 3 se vuelve a comprobar el día de la corrida; si existiera, se declara aunque comunidad puntúe bajo. Sin `sourceUrl` el motor no llama al colector y `community` queda `unavailable`, que es el comportamiento correcto |
+| `evaluatedRef` | `vcx@45f961a48236d51a42106ea153578f64900d84f3:brix/.claude/skills/brix-llm-council/`. VCX-D035 fija el último commit de VCX que toca la carpeta; `74c9db5` y `45f961a` solo cambian PROVENANCE.md (enlace a este plan y alineación con VCX-D035), y SKILL.md no cambia desde `ce392b1`, que corrige los hallazgos de la etapa 2. La carpeta no tiene cambios sin commit (comprobado el 2026-11-01). Si vuelve a cambiar antes de correr, se usa el nuevo último commit y se registra |
+| `sourceUrl` | `file:brix/.claude/skills/brix-llm-council`, según VCX-D035. No existe repositorio público que contenga la skill; si existiera al correr, VCX-D033 decisión 3 obliga a declararlo, y se consulta al usuario antes de seguir. Con `file:` el motor no consulta GitHub y `community` queda `unavailable` |
 | Comparador de `incrementalValue` | `/council` del precursor en `f86a2a7`, SHA-256 `bcc70adc…7885004`, con la tabla de diferencias de [PROVENANCE.md](../../../brix/.claude/skills/brix-llm-council/PROVENANCE.md#diferencias-frente-a-council) |
-| Procedencia del cálculo | Política `vc/tooling/scoring-policy.json`, SHA-256 `ce6e1a31…cd5ad49161`, último commit `a41b2382`; motor `engine.mjs`, último commit `a8f3eb7f`. El registro del motor no guarda ninguno de los dos, así que se anotan en el reporte de VCX |
+| `--now` | Fijado al correr en seco y reutilizado en la corrida persistida |
+
+## Precondiciones del motor, medidas el 2026-11-01
+
+| Dato | Valor |
+|---|---|
+| `git --no-optional-locks -C ../blends status --porcelain --ignored -- vc/brix/packages/cli vc/tooling/scoring-policy.json` | Vacío |
+| `precursorHead` | `f86a2a7df72e55bbb97451c1a35ef3c03b961fc3` |
+| `cliTree` | `889332c5d1065a3a39e25889587f503caad40195` |
+| `policySha256` | `ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161`, `formulaVersion` 1.6.0 |
+
+Se vuelven a medir inmediatamente antes y después de correr. Si difieren de esta tabla, se registra y se pregunta antes de seguir; si difieren entre antes y después, la corrida se invalida.
 
 ## Subfactores
 
-Los 23 van en el archivo de evidencia. Los puntajes se fijan al correr, con su `rationale` y `evidenceRefs` fechados; aquí se fija solo disponibilidad y fuente para que no se ajusten después de ver el número.
+Los 23 van en el archivo de evidencia. Aquí se fija solo disponibilidad y fuente; los puntajes se asignan al correr, con `rationale` y `evidenceRefs` fechados, y no se ajustan para que la skill apruebe.
 
 | Factor | Subfactor | Disponibilidad | Fuente y método |
 |---|---|---|---|
-| maintenance | `activityRecency` | available | `git log` de la ruta en VCX; metric |
-| maintenance | `releaseContinuity` | available | Sin tags ni releases: cero, como el precedente `llm-council-skill`; metric |
-| maintenance | `commitContinuity` | available | Commits de la ruta, todos del 2026-11-01; metric |
-| maintenance | `responseHealth` | unavailable | Sin repositorio público ni gestor de issues |
+| maintenance | los cuatro | unavailable | VCX-D035: no aplican a una skill propia de un día, sin repositorio público, releases ni gestor de issues |
 | security | `vulnerabilityStatus` | unavailable | Sin código ejecutable propio ni base de avisos aplicable |
 | security | `sourceProvenance` | available | Autoría propia, PROVENANCE.md con SHA del comando de origen, sin texto de terceros; rubric |
 | security | `securityHygiene` | available | VCX sin CI ni escaneo de secretos; contenido incrustado tratado como dato y probado en la corrida 2 (C11, C12); rubric |
 | security | `permissionTransparency` | available | SKILL.md declara lecturas, contexto del host, escritura, tope de invocaciones y runner; rubric |
 | fit | `capabilityGapCoverage` | available | Consejo sobre cualquier documento con pregunta explícita, frente a `/council` atado a `ideas/<slug>/`; rubric |
 | fit | `technicalCompatibility` | available | Corrió en Claude Code con subagentes en las etapas 1 y 2; rubric |
-| fit | `incrementalValue` | available | Diferencias medidas frente a `/council`, con los costos que agrega (verificación manual del orquestador); rubric |
-| fit | `observedOutcome` | unavailable | Sin fuente de resultado observado; las corridas de las etapas 1 y 2 fueron pruebas, no uso, y no se reutilizan |
+| fit | `incrementalValue` | available | Diferencias frente a `/council`, con los costos que agrega (verificación manual del orquestador); rubric |
+| fit | `observedOutcome` | available | Solo la corrida 1 de la etapa 2, sobre un documento real: tras leerla, el usuario autorizó revisar VCX-D031. Una observación, sin grupo de control; las corridas 2 y 3 son sintéticas y no cuentan, ni las trazas de `/council` del precursor; rubric |
 | fit | `adoptionSimplicity` | available | Copia de una carpeta por consumidor; metric |
-| fit | `observedAdoption` | unavailable | Sin registro de uso: no está en ningún roadmap del precursor ni en `vc/tooling/usage/records/`, y las corridas de prueba no cuentan |
-| engineering | `automatedVerification` | available | Cero pruebas automatizadas; las etapas fueron verificación manual; metric |
+| fit | `observedAdoption` | unavailable | Sin registro de uso: la skill no está en `vc/tooling/usage/records/` ni hay otro contador; las corridas de prueba no son adopción |
+| engineering | `automatedVerification` | available | VCX-D035 toma como evidencia las salidas de la etapa 2: 16 criterios fijados antes de ejecutar y verificados con herramientas sobre las transcripciones. No es una suite automatizada repetible, y el puntaje lo refleja; metric |
 | engineering | `documentationQuality` | available | SKILL.md, PROVENANCE.md, diseño y reportes de etapa; rubric |
 | engineering | `versioningDiscipline` | available | Sin versión semántica ni tags; solo SHA de Git; metric |
 | engineering | `compatibilityEvidence` | available | Un host y una familia de modelo, 27 invocaciones medidas; metric |
@@ -63,38 +59,39 @@ Los 23 van en el archivo de evidencia. Los puntajes se fijan al correr, con su `
 
 ## `riskFlags`
 
-Los 12 presentes. Verdaderos: `localWriteReversible`, porque la skill crea un reporte nuevo en el destino autorizado y nunca sobrescribe. Falsos los once restantes. `networkAccess` es falso porque la versión evaluada solo usa el runner `subagent`: las llamadas al modelo son las del host, no un canal que la skill abra; el runner `command` queda reservado y su evaluación deberá declararlo. `scopedLocalReadOnly` es falso porque escribe. `broadScope` es falso porque las lecturas son una lista cerrada; el contexto del host es un canal declarado, no un alcance que la skill amplíe.
+Los 12 presentes. Verdadero solo `localWriteReversible`: la skill crea un reporte nuevo en el destino autorizado y nunca sobrescribe. `networkAccess` es falso porque la versión evaluada solo usa el runner `subagent`: las llamadas al modelo son las del host, no un canal que la skill abra; el runner `command` queda reservado y su evaluación deberá declararlo. `scopedLocalReadOnly` es falso porque escribe. `broadScope` es falso porque las lecturas son una lista cerrada; el contexto del host es un canal declarado, no un alcance que la skill amplíe. Los ocho restantes, falsos. Con esta configuración el riesgo es `medium` y el gate no exige excepción.
 
 ## Pasos
 
-1. **Precondiciones**, sin escribir: HEAD del precursor y SHA-256 de política y motor iguales a los de la tabla; si difieren, se registra y se pregunta antes de seguir. Ningún `brix-llm-council.*` en `vc/tooling/evaluations/`; si apareció, parar, porque `evaluate` escribiría en `history/`. Foto de control: `git status --porcelain` del precursor y una marca de tiempo para `find -newer`.
-2. **Evidencia** en el scratchpad de la sesión, con los valores de este plan.
-3. **En seco**: `node <blends>/vc/brix/packages/cli/bin/brix.js tool score evaluate --input <evidencia> --policy <blends>/vc/tooling/scoring-policy.json --output-dir <blends>/vc/tooling --narrative-doc <vcx>/docs/superpowers/reports/<fecha>-tool-evaluation-brix-llm-council.md --dry-run`, con el directorio de trabajo en la raíz del precursor para que `evidenceInputRef` quede como en el resto del registro. No escribe nada.
-4. **Reporte al usuario** con puntaje, confianza, riesgo y recomendación base. Se itera solo sobre `fit` con información del usuario, como prevé `/tool`.
-5. **Corrida real**, solo con la autorización escrita: el mismo comando sin `--dry-run`. Controles después: `git status --porcelain` del precursor igual a la foto más exactamente dos rutas nuevas, y `find -newer` sin otros archivos. Cualquier otra escritura se reporta como incidente.
-6. **Decisión humana** con `approved`, `approved_with_exception`, `rejected` o `deferred`, registrada en VCX según VCX-D033 decisión 4. No se corre `decide` en el precursor: su registro queda `decision_pending` y eso se declara.
+Los del [procedimiento de VCX-D035](../specs/2026-11-01-tooling-evaluation-in-vcx-design.md#procedimiento), sin envoltorio: es la primera evaluación y no hay registro previo en `brix/tooling/` que pisar (la carpeta no existe).
+
+1. Repetir las precondiciones y guardar la foto de control del precursor: `git --no-optional-locks status --porcelain` y una marca de tiempo para `find -newer`.
+2. Escribir la evidencia en el scratchpad de la sesión.
+3. En seco, desde la raíz de VCX: `node ../blends/vc/brix/packages/cli/bin/brix.js tool score evaluate --input <evidencia> --policy ../blends/vc/tooling/scoring-policy.json --output-dir brix/tooling --now <ISO> --dry-run`.
+4. Reportar puntaje, confianza, riesgo y recomendación base. Iterar solo con información nueva del usuario, sobre `fit`.
+5. Pedir la decisión humana con las reglas de lectura fijadas en el diseño: `hold` no admite; `advance_with_reservations` o confianza `low` admiten como mucho `approved_with_exception`, con reserva escrita y revisión a 30 días; `advance` con confianza `medium` o `high` permite `approved`.
+6. Persistir: el mismo `evaluate` sin `--dry-run`, luego `decide` con los flags del estado elegido, y una línea por comando en `brix/tooling/score-runs.jsonl`.
+7. Verificar, commitear en VCX y regenerar la vista de la matriz con `python3 -I docs/exports/build_tooling_matrix_view.py`. El cambio del generador para leer `brix/tooling/` es otra autorización de VCX-D035; si todavía no se hizo, la vista no mostrará esta decisión y se declara.
 
 ## Criterios de aceptación, fijados antes de ejecutar
 
+Los seis del diseño de VCX-D035 para esta corrida, más dos de este plan:
+
 | ID | Criterio | Cómo se verifica |
 |---|---|---|
-| E1 | El archivo de evidencia tiene los 23 subfactores y los 12 `riskFlags` | Conteo con herramienta |
-| E2 | `observedAdoption` y `observedOutcome` son `unavailable`; ningún `rationale` cita las corridas de prueba como uso | Lectura del archivo |
-| E3 | `sourceUrl` ausente y comprobado el día de la corrida | Registro de la comprobación |
-| E4 | La corrida en seco no escribe | `git status` y `find -newer` iguales |
-| E5 | La corrida real escribe exactamente dos archivos en el precursor | Mismos controles, diferencia de dos rutas |
-| E6 | La narrativa queda en VCX con política, motor y comando registrados | Lectura del reporte |
-| E7 | La decisión humana queda en VCX con autoridad, objeto, revisión y alcance | Registro de decisiones |
+| E1 | Todo archivo nuevo o modificado está bajo `brix/tooling/`, salvo `docs/exports/` al regenerar la vista | `git status` de VCX |
+| E2 | `score-runs.jsonl` tiene una línea por comando persistido, con la procedencia completa | Conteo y lectura |
+| E3 | El precursor queda igual antes y después | `git --no-optional-locks status --porcelain` y `find -newer` |
+| E4 | El registro contiene `humanDecision` con autor, fecha y fundamento | Lectura del registro |
+| E5 | Si `evidenceCoverage` queda bajo 50, el fundamento de la decisión lo menciona con el número | Lectura |
+| E6 | `community` sin evidencia por `sourceUrl` no GitHub | Lectura del registro |
+| E7 | La evidencia tiene los 23 subfactores y los 12 `riskFlags` | Conteo con herramienta |
+| E8 | `observedAdoption` es `unavailable` y ningún `rationale` presenta corridas de prueba como adopción | Lectura |
 
 ## Riesgos y límites
 
-- Los dos archivos quedan sin commitear en el precursor, cuyo árbol ya tiene cambios ajenos sin seguimiento: un `git add -A` de otra sesión podría arrastrarlos. Commitearlos exigiría rama y commit en el precursor, fuera del alcance de VCX-D033.
-- El precursor no tendrá la decisión humana; su `validate-tooling` verá un `decision_pending`, que es un estado válido.
 - La evaluación la hace un asistente de la misma familia de modelo que escribió la skill: no es una revisión independiente y los puntajes `rubric` lo llevan como sesgo declarado.
-- Con muchos subfactores indisponibles y sin `community`, la cobertura y la confianza saldrán bajas. Es el dato correcto para una herramienta de un día, no un defecto que haya que compensar.
-- El motor del precursor corre en su estado de trabajo, sin pin de versión; la tabla de procedencia permite detectar un cambio, no impedirlo.
-
-## Alternativas que el usuario puede elegir en vez de este alcance
-
-1. **Sin escribir en el precursor**: `--output-dir` también fuera del precursor, con los dos archivos en VCX. Cero escrituras en el precursor, pero contradice el lugar fijado por VCX-D033 decisión 4 y exige revisar esa decisión.
-2. **`/tool` completo**: envoltorio, `decide`, rama y commit en el precursor. Sigue el guion al pie de la letra, pero escribe narrativa, `history/`, rama y, si se aprueba, roadmap; excede VCX-D033 decisión 4 y exige revisarla.
+- Sin `community` ni `maintenance`, la cobertura y la confianza saldrán bajas, y la admisión vencerá a los 30 días si la confianza es `low`. Es el dato correcto para una herramienta de un día; no se compensa.
+- El puntaje no es comparable con el de candidatas externas, que sí tienen `community` y `maintenance`.
+- El motor corre en el estado de trabajo del precursor, sin versión fijada; las precondiciones detectan un cambio, no lo impiden.
+- Los controles son manuales hasta que exista el envoltorio que pide VCX-D035 antes de una reevaluación o de un segundo candidato.
