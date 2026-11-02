@@ -53,8 +53,8 @@ Instantánea del 2026-11-01 en Claude Code dentro de la app de escritorio. No es
 | Clase | Catálogo del precursor | Despachable aquí | Estado de la verificación |
 |---|---|---|---|
 | `frontier` | `claude-fable-5-1`, `gpt-6-astra` | `fable` (subagente) y el agente principal | El agente principal se identifica como `claude-fable-5-1`; el subagente `fable` no fue ejercitado |
-| `frontier` | no contratado | `opus` (subagente) | Fuera del catálogo contratado; no usar sin decisión del PO |
-| `balanced` | `claude-sonnet-5`, `gpt-5.6-terra` | `sonnet` (subagente) | La versión concreta que resuelve `sonnet` no fue verificada |
+| `frontier` | no contratado | `opus` (subagente) | Fuera del catálogo contratado; no usar sin decisión del PO. Ejercitado el 2026-11-02 por decisión del usuario (F003): se identificó como `claude-opus-5-5` |
+| `balanced` | `claude-sonnet-5`, `gpt-5.6-terra` | `sonnet` (subagente) | Ejercitado el 2026-11-02 (F003): se identificó como `claude-sonnet-5-5`, no como el `claude-sonnet-5` del catálogo; la equivalencia de clase es una hipótesis razonable, sin medición de costo relativo |
 | `economy` | `gpt-5.6-luna`; Anthropic sin modelo economy en Max 5x | `haiku` (subagente) | Sin verificar que exista bajo el plan actual ni su costo relativo; hasta entonces, tratar `economy` como `balanced` con sustitución hacia arriba, igual que el alias `anthropic-economy-model` del precursor |
 | cualquiera | `gpt-*`, `gemini-*`, `ollama/*` | No | Esta sesión no despacha modelos de OpenAI, Google ni Ollama; el canal `claude -p` del precursor no está disponible desde aquí |
 
@@ -96,6 +96,7 @@ Si falta un modelo de la clase requerida, declarar la sustitución o el bloqueo 
 |---|---|---|---|---|---|
 | F001 | Configuración documental de orquestación | Principal no expuesto en el entorno de origen | Fase de Pruebas | Sin medir; sin delta | Creación solicitada por el usuario el 2026-11-01; sin ejecución de código de producto |
 | F002 | Reformulación de esta política sobre las fuentes del precursor | Agente principal, `claude-fable-5-1` | Cerrada | Sin medir; sin delta | Lectura en solo lectura de las fuentes enlazadas el 2026-11-01; sin subagentes; costo no disponible |
+| F003 | Evidencia de evaluación de tooling, perfil `audit` (dos candidatos) e `inventory`/`bounded-search` (tres) | Subagentes `opus` (se identificaron como `claude-opus-5-5`) y `sonnet` (`claude-sonnet-5-5`); `opus` fuera del catálogo contratado, por decisión del usuario en el chat del 2026-11-02 | Cerrada | Sin medir; sin delta. Éxito técnico: los cinco archivos cumplieron el contrato del motor, uno tras agregar referencias a subfactores sin evidencia | [Reporte](docs/superpowers/reports/2026-11-02-finops-orchestration-repos-tool-dry-run.md): 580.294 tokens de subagentes informados por el harness, 3 simultáneos como máximo, costo en dinero no disponible |
 
 ## Pendientes
 

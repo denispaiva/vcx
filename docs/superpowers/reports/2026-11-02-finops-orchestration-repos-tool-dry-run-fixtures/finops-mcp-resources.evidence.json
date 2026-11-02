@@ -1,0 +1,396 @@
+{
+  "candidate": {
+    "id": "finops-mcp-resources",
+    "type": "practice",
+    "sourceUrl": "https://github.com/OptimNow/finops-mcp-resources",
+    "evaluatedRef": "7a364fc58d74f3c5dcd67a9c8c51fd4c795c34b8"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 95,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último push 2026-10-28T08:03:33Z, 5 días antes de la medición (2026-11-02); HEAD de main del mismo día. Rango de la guía: esta semana = 95.",
+        "evidenceRefs": [
+          "github-api:repos/OptimNow/finops-mcp-resources (pushed_at=2026-10-28T08:03:33Z; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 releases y 0 tags (API). Compensación parcial: CHANGELOG.md con entradas mensuales fechadas (2026-07-29, 2026-09-02) en formato Keep a Changelog, que declara SemVer 'where applicable' sin tags. Sin releases consumibles ni versión fijable.",
+        "evidenceRefs": [
+          "github-api:repos/OptimNow/finops-mcp-resources/releases (total=0; medido 2026-11-02)",
+          "github-api:repos/OptimNow/finops-mcp-resources/tags (total=0; medido 2026-11-02)",
+          "github-raw:OptimNow/finops-mcp-resources/CHANGELOG.md (entradas 2026-07-29 y 2026-09-02; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 70,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sobre los últimos 100 commits: 3 en 30 días, 14 en 90 días, 21 en 180 días (corte 2026-11-02). Cadencia irregular con ráfagas (5 commits el 2026-09-02, 4 el 2026-08-16) y huecos de semanas; dos autores casi únicos (OptimNow 49, Jean Latiere 47) y 3 commits de externos.",
+        "evidenceRefs": [
+          "github-api:repos/OptimNow/finops-mcp-resources/commits?per_page=100 (n30d=3; n90d=14; n180d=21; OptimNow=49, Jean Latiere=47; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 55,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "18 de 21 elementos cerrados (mediana de cierre <1 día, pero casi todos son PRs propios del mantenedor que se fusionan al instante). PRs externos tardaron: #15 Costory 20 días, #12 nable 47, #20 getnable 35, #4 46, #1 2. El único issue abierto (#9 'FOCUS MCP Server', 2026-04-11) lleva ~205 días sin respuesta cerrada. Señal mixta.",
+        "evidenceRefs": [
+          "github-api:repos/OptimNow/finops-mcp-resources/issues?state=all&per_page=30 (21 items; abierto #9 desde 2026-04-11; medido 2026-11-02)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 72,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 security advisories (API devuelve lista vacía), sin CVE propio. Es documentación sin código ejecutable propio, salvo un CloudFormation de 206 KB (tutorials/03.finops_multi_agent_with_nova/cfn-finops-bedrock-multiagent-nova.yaml) y un zip de 477 KB (AWS-Amplify-Frontend.zip) que no se inspeccionaron. Ausencia de advisories no prueba ausencia de fallos; no se midió el estado de los 23 servidores listados.",
+        "evidenceRefs": [
+          "github-api:repos/OptimNow/finops-mcp-resources/security-advisories (total=0; medido 2026-11-02)",
+          "github-raw:OptimNow/finops-mcp-resources/(árbol) (cfn yaml 206238 B; zip 477128 B no inspeccionados; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El propietario 'OptimNow' es una cuenta de tipo User, no una Organization (el brief la suponía organización). Cuenta creada 2025-07-15 y repo 2025-09-01 (cuenta anterior al repo por ~1.5 meses), 17 repos públicos, 14 seguidores, company=OptimNow, blog www.optimnow.io; SECURITY.md remite a jean@optimnow.io y los commits son de 'Jean Latiere'. Marca consultora identificable, pero sin respaldo organizacional verificable en GitHub y con ~14 meses de trayectoria. El mantenedor lista tres servidores propios (cloud-finops-mcp, ai-pricing-hub-mcp, ai-roi-calculator-mcp) en su propio catálogo: conflicto de interés editorial.",
+        "evidenceRefs": [
+          "github-api:users/OptimNow (type=User; created_at=2025-07-15; public_repos=17; followers=14; medido 2026-11-02)",
+          "github-api:repos/OptimNow/finops-mcp-resources (created_at=2025-09-01; owner.type=User; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tiene SECURITY.md (canal privado por correo; advierte que los servidores de terceros no están bajo su control) y gobernanza extensa (governance/security-best-practices-2025.md, IAM, vulnerabilidades MCP). Pero 0 workflows de CI (API), sin escaneo de secretos/dependencias visible, y el badge 'links checked' del README tiene enlace vacío (sin job que lo respalde). CONTRIBUTING pide probar los servidores añadidos, sin criterio verificable ni revisión de seguridad. Hay binarios (zip, mp4 de 1.9 MB) sin procedencia.",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/SECURITY.md (existe, 631 B; medido 2026-11-02)",
+          "github-api:repos/OptimNow/finops-mcp-resources/actions/workflows (total_count=0; medido 2026-11-02)",
+          "github-raw:OptimNow/finops-mcp-resources/README.md (badge links-checked con enlace vacío; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "servers/configs/registry.yaml (23 entradas, con schema.json) declara por servidor 'auth' y 'security_notes' (p. ej. aws-billing: solo lectura, ce:Get*; ai-pricing-hub: endpoint alojado sin credenciales; nable: credenciales en keyring local). Declaración autoinformada por el mantenedor o por proveedores que se autopostulan, sin verificar. La colección en sí no pide permisos.",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/servers/configs/registry.yaml (23 entradas con auth y security_notes; medido 2026-11-02)",
+          "github-raw:OptimNow/finops-mcp-resources/servers/INDEX.md (23 servidores; medido 2026-11-02)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 12,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Necesidad A (elegir clase/modelo al despachar): de 23 servidores, ninguno enruta ni elige modelo. Clasificación por texto del registro: 2 tratan precios/ROI de LLM como foco (ai-pricing-hub-mcp: precios de 250+ modelos; ai-roi-calculator-mcp: caso de negocio de un uso de LLM), 3 tocan gasto de IA dentro de una oferta mayor (nable: track-llm-spend-by-model; costory: LLM APIs; cloud-finops-mcp: 'AI inference economics' como referencia) y 18 son de nube/flujos (AWS 7, Azure 4, GCP 4, tagging/JIRA/Slack 3). El resolver propio ya fija clases por perfil y riesgo, con costOrder [free, subscription-included, pay-per-token] y allowPayPerToken=false: el precio por token no es una variable de decisión, y un servidor de precios sólo informaría el costo teórico de una vía que la política excluye. Necesidad B (tokens por rama/sesión): ninguno lee transcripts locales de Claude Code; nable rastrea gasto vía API de proveedores (claves/facturación), que no refleja consumo de suscripciones Max/ChatGPT. Cobertura marginal.",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/servers/configs/registry.yaml (clasificación: LLM-foco=2, LLM-parcial=3, nube/flujo=18; medido 2026-11-02)",
+          "file:/Users/denis/VibeCoding/blends/vc/tooling/lifecycle/model-routing-policy.json (allowPayPerToken=false; costOrder; medido 2026-11-02)",
+          "file:/Users/denis/VibeCoding/blends/vc/tools/resolve-model.mjs (280 líneas; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La colección es Markdown/YAML: compatible con cualquier host sin instalar nada. Pero lo útil son servidores MCP que (a) son en su mayoría de nube y requieren credenciales, o (b) alojados por terceros (ai-pricing-hub en Alpic), y (c) los de gasto de LLM miden facturación por token, ajena al modelo de suscripción del Owner. Sólo ai-pricing-hub, ai-roi-calculator y cloud-finops-mcp declaran no requerir credenciales. Baja compatibilidad con consumo por suscripción.",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/servers/configs/registry.yaml (auth por entrada; medido 2026-11-02)",
+          "file:/Users/denis/VibeCoding/blends/vc/tooling/lifecycle/model-routing-policy.json (allowPayPerToken=false; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 20,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Aporta un catálogo curado con 5 servidores relacionados con gasto/precio de IA y un registro YAML con esquema; sirve como lista de candidatos a evaluar por separado. Sobre el resolver existente suma sólo precios públicos (ai-pricing-hub) que la política no usa para decidir y ninguna medición de consumo de suscripción. El resto (AWS/Azure/GCP, tagging, JIRA, Slack) es ajeno a las necesidades A y B.",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/servers/INDEX.md (sección AI Cost & FinOps Knowledge: 3 servidores del propio mantenedor; medido 2026-11-02)",
+          "file:/Users/denis/VibeCoding/blends/vc/tools/resolve-model.mjs (medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No hay registros de uso de este candidato en el workspace; no se presentan pruebas propias como resultado observado.",
+        "evidenceRefs": [
+          "workspace:sin registros de uso (medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Adoptar la colección es leerla (sin instalación ni configuración). Pero aprovechar su contenido exige evaluar e instalar servidores individuales, con endpoints alojados o credenciales, cada uno con su propia evaluación. Recorrido corto para consulta; largo para obtener valor.",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/README.md (sin instalación; 7 tutoriales; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No hay registros de adopción de este candidato en el workspace. Las 27 estrellas y 8 forks son métricas de comunidad que trae el motor aparte.",
+        "evidenceRefs": [
+          "workspace:sin registros de uso (medido 2026-11-02)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 5,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 workflows de GitHub Actions (total_count=0), sin tests ni validación del registro contra schema.json en CI. El badge 'links checked' del README no tiene enlace ni job asociado. Los recuentos de servidores ya derivaron entre README, INDEX y registro (corregido en PR #18, 2026-09-02).",
+        "evidenceRefs": [
+          "github-api:repos/OptimNow/finops-mcp-resources/actions/workflows (total_count=0; medido 2026-11-02)",
+          "github-raw:OptimNow/finops-mcp-resources/CHANGELOG.md (PR #18 reconcilia el recuento de servidores; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 72,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Estructura clara (foundations, servers, clients, tutorials, governance), INDEX por sección, registry.yaml con schema.json, llms.txt, CHANGELOG detallado, CODE_OF_CONDUCT y CONTRIBUTING. Defectos: README con 'Recent Updates (July 2026)' atrasado respecto de septiembre y 'registry now at 18 entries' cuando hay 23. No define criterio de admisión: CONTRIBUTING sólo pide probar lo documentado y 'accuracy first'; sin barra de seguridad, mantenimiento ni independencia, y proveedores se autopostulan (Costory #15, nable #12/#20).",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/README.md ('registry ... now at 18 entries' vs 23; medido 2026-11-02)",
+          "github-raw:OptimNow/finops-mcp-resources/CONTRIBUTING.md (sin criterios formales de admisión; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin tags ni releases; CHANGELOG mensual con fechas (Keep a Changelog) que invoca SemVer 'where applicable' pero no versiona. Tolerable para una colección de referencia, pero sólo es fijable por SHA.",
+        "evidenceRefs": [
+          "github-api:repos/OptimNow/finops-mcp-resources/releases (total=0; medido 2026-11-02)",
+          "github-raw:OptimNow/finops-mcp-resources/CHANGELOG.md (secciones por mes; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "clients/comparison.md compara 9 clientes y hay guías por cliente; sin matriz de pruebas con fechas/versiones ni automatización. Evidencia declarativa: CONTRIBUTING exige probar pero no hay registro de pruebas por servidor (finopshub-mcp se declara sin tests ni CI).",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/clients/comparison.md (existe, 5877 B; medido 2026-11-02)",
+          "github-raw:OptimNow/finops-mcp-resources/servers/configs/registry.yaml (maturity y security_notes por entrada; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin dependencias: Markdown, YAML y JSON schema; sin package.json ni lockfile.",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/(árbol) (sin manifiestos de paquetes; medido 2026-11-02)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La colección es gratuita (repo público). Lo listado mezcla servidores alojados sin credenciales, servidores de nube con uso de APIs facturables y un servicio de pago (Costory: Starter 300 USD/mes, 30 días de prueba). Los servidores de gasto de LLM se basan en facturación por token, no en cupo de suscripción. Costo de leer: cero; costo de usar lo listado: heterogéneo y no consolidado.",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/servers/INDEX.md (Costory Starter $300/mo, 30-day free trial; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Archivos planos Markdown/YAML, legibles en cualquier host y sin acoplamiento a Claude Code. Descuento menor: LICENSE truncado (284 B, cabecera de Apache 2.0 sin el texto completo; GitHub reporta NOASSERTION) crea incertidumbre de reutilización.",
+        "evidenceRefs": [
+          "github-api:repos/OptimNow/finops-mcp-resources (license.spdx_id=NOASSERTION; medido 2026-11-02)",
+          "github-raw:OptimNow/finops-mcp-resources/LICENSE (284 B, cabecera de Apache 2.0 sin texto completo; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 95,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No instala ni modifica nada; adoptar es leer o enlazar y retirar no deja residuos. Los servidores listados tendrían su propia reversibilidad.",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/README.md (documentación sin instalador; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cero operación para la colección: sin daemons, servicios ni claves. La operación recae en cada servidor individual (alojado o local, con credenciales de nube en la mayoría).",
+        "evidenceRefs": [
+          "github-raw:OptimNow/finops-mcp-resources/servers/configs/registry.yaml (auth por entrada; medido 2026-11-02)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 80
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": true,
+    "localWriteReversible": false,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

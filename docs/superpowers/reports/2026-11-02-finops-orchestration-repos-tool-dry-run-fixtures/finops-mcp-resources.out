@@ -1,0 +1,47 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · finops-mcp-resources (practice)
+  github.com/OptimNow/finops-mcp-resources · evaluado 2026-11-02
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         45.0 / 100
+  CONFIANZA             high (93)
+  NIVEL DE RIESGO        low
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        26.7
+  maintenance      61.8
+  security         59.5
+  fit              23.3
+  engineering      39.8
+  sustainability   78.5
+
+  ── Riesgo, por ─────────────────────────────────────
+  • scopedLocalReadOnly (solo lectura local con alcance acotado)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • maintenance.activityRecency (95) — Último push 2026-10-28T08:03:33Z, 5 días antes de la medición (2026-11-02); HEAD de main del mismo día. Rango de la guía: esta semana = 95.
+  • engineering.dependencySimplicity (90) — Sin dependencias: Markdown, YAML y JSON schema; sin package.json ni lockfile.
+  • sustainability.portability (85) — Archivos planos Markdown/YAML, legibles en cualquier host y sin acoplamiento a Claude Code. Descuento menor: LICENSE truncado (284 B, cabecera de Apache 2.0 sin el texto completo; GitHub reporta NOASSERTION) crea incertidumbre de reutilización.
+  • sustainability.reversibility (95) — No instala ni modifica nada; adoptar es leer o enlazar y retirar no deja residuos. Los servidores listados tendrían su propia reversibilidad.
+  • sustainability.operatingOverhead (85) — Cero operación para la colección: sin daemons, servicios ni claves. La operación recae en cada servidor individual (alojado o local, con credenciales de nube en la mayoría).
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.releaseContinuity (25) — 0 releases y 0 tags (API). Compensación parcial: CHANGELOG.md con entradas mensuales fechadas (2026-07-29, 2026-09-02) en formato Keep a Changelog, que declara SemVer 'where applicable' sin tags. Sin releases consumibles ni versión fijable.
+  • security.securityHygiene (40) — Tiene SECURITY.md (canal privado por correo; advierte que los servidores de terceros no están bajo su control) y gobernanza extensa (governance/security-best-practices-2025.md, IAM, vulnerabilidades MCP). Pero 0 workflows de CI (API), sin escaneo de secretos/dependencias visible, y el badge 'links checked' del README tiene enlace vacío (sin job que lo respalde). CONTRIBUTING pide probar los servidores añadidos, sin criterio verificable ni revisión de seguridad. Hay binarios (zip, mp4 de 1.9 MB) sin procedencia.
+  • fit.capabilityGapCoverage (12) — Necesidad A (elegir clase/modelo al despachar): de 23 servidores, ninguno enruta ni elige modelo. Clasificación por texto del registro: 2 tratan precios/ROI de LLM como foco (ai-pricing-hub-mcp: precios de 250+ modelos; ai-roi-calculator-mcp: caso de negocio de un uso de LLM), 3 tocan gasto de IA dentro de una oferta mayor (nable: track-llm-spend-by-model; costory: LLM APIs; cloud-finops-mcp: 'AI inference economics' como referencia) y 18 son de nube/flujos (AWS 7, Azure 4, GCP 4, tagging/JIRA/Slack 3). El resolver propio ya fija clases por perfil y riesgo, con costOrder [free, subscription-included, pay-per-token] y allowPayPerToken=false: el precio por token no es una variable de decisión, y un servidor de precios sólo informaría el costo teórico de una vía que la política excluye. Necesidad B (tokens por rama/sesión): ninguno lee transcripts locales de Claude Code; nable rastrea gasto vía API de proveedores (claves/facturación), que no refleja consumo de suscripciones Max/ChatGPT. Cobertura marginal.
+  • fit.technicalCompatibility (25) — La colección es Markdown/YAML: compatible con cualquier host sin instalar nada. Pero lo útil son servidores MCP que (a) son en su mayoría de nube y requieren credenciales, o (b) alojados por terceros (ai-pricing-hub en Alpic), y (c) los de gasto de LLM miden facturación por token, ajena al modelo de suscripción del Owner. Sólo ai-pricing-hub, ai-roi-calculator y cloud-finops-mcp declaran no requerir credenciales. Baja compatibilidad con consumo por suscripción.
+  • fit.incrementalValue (20) — Aporta un catálogo curado con 5 servidores relacionados con gasto/precio de IA y un registro YAML con esquema; sirve como lista de candidatos a evaluar por separado. Sobre el resolver existente suma sólo precios públicos (ai-pricing-hub) que la política no usa para decidir y ninguna medición de consumo de suscripción. El resto (AWS/Azure/GCP, tagging, JIRA, Slack) es ajeno a las necesidades A y B.
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (5) — 0 workflows de GitHub Actions (total_count=0), sin tests ni validación del registro contra schema.json en CI. El badge 'links checked' del README no tiene enlace ni job asociado. Los recuentos de servidores ya derivaron entre README, INDEX y registro (corregido en PR #18, 2026-09-02).
+  • engineering.versioningDiscipline (30) — Sin tags ni releases; CHANGELOG mensual con fechas (Keep a Changelog) que invoca SemVer 'where applicable' pero no versiona. Tolerable para una colección de referencia, pero sólo es fijable por SHA.
+  • engineering.compatibilityEvidence (35) — clients/comparison.md compara 9 clientes y hay guías por cliente; sin matriz de pruebas con fechas/versiones ni automatización. Evidencia declarativa: CONTRIBUTING exige probar pero no hay registro de pruebas por servidor (finopshub-mcp se declara sin tests ni CI).
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)

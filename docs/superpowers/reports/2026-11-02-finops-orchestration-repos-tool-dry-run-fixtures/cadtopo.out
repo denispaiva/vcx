@@ -1,0 +1,50 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · cadtopo (technology)
+  github.com/code0-tech/cadtopo · evaluado 2026-11-02
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         36.3 / 100
+  CONFIANZA             high (93)
+  NIVEL DE RIESGO        high
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        8.8
+  maintenance      42.4
+  security         59.0
+  fit              23.0
+  engineering      46.0
+  sustainability   48.5
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+  • newLocalDependencies (nuevas dependencias locales)
+  • networkAccess (acceso a red)
+  • credentialsAccess (acceso a credenciales)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  (ninguna)
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.releaseContinuity (20) — Una sola release, 0.0.1, marcada prerelease, publicada 2026-08-18 (el mismo día de creación del repo) y un solo tag. No hubo releases en los 75 días siguientes; HEAD está 2 commits por delante del tag, incluido un cambio de escala de puntaje a 0-100 sin publicar.
+  • maintenance.commitContinuity (30) — 7 commits en total, todos dentro de los últimos 90 días pero concentrados en 3 días (2026-08-18: 5, 2026-09-02: 1, 2026-09-10: 1); ninguno en los últimos 52 días. Un único autor (nicosammito). Es una ráfaga inicial, no continuidad sostenida.
+  • maintenance.responseHealth — sin evidencia disponible (unavailable)
+  • security.permissionTransparency (40) — El README declara que los modelos se llaman vía LiteLLM y que cada backbone lleva api_key. No declara: que EmbeddingModel descarga de HuggingFace 'sentence-transformers/multi-qa-mpnet-base-dot-v1' al primer uso (red y caché local); que tracing.py escribe prompts y respuestas completas en runs/AAAA-MM-DD_HH-MM-SS/ (JSONL y txt); que CallLog retiene en memoria cada request verbatim; ni que las herramientas que el modelo elige se ejecutan del lado del harness (tools.dispatch). Sin sección de datos enviados a terceros.
+  • fit.capabilityGapCoverage (25) — Necesidad A (elegir clase y modelo por perfil, riesgo y costo): cubre solo una parte distinta. CostAwareSelector elige peldaño de una escalera por agente según 1-confianza autodeclarada, posición en eje log-costo y urgencia por rondas restantes; no tiene perfiles de tarea, pisos por riesgo, piso de auditoría o datos sensibles, motivos de elevación registrados ni acta. El resolver existente ya tiene 3 clases, 16 perfiles, pisos P0/P1/P2, decorrelación de revisores por linaje y acta JSONL. Necesidad B (tokens por rama y sesión): telemetry.py suma tokens por agente y modelo solo de las llamadas que el propio cadtopo hace en proceso; no lee transcripts de Claude Code ni conoce ramas o sesiones.
+  • fit.technicalCompatibility (15) — Biblioteca Python >=3.10 que posee el bucle de ejecución (rondas, manager, router) y llama a los modelos directamente con litellm.completion usando api_key/api_base por backbone. El consumidor es un workspace documental con Node 26 que despacha subagentes de Claude Code por una herramienta interna sin LiteLLM: cadtopo no puede gobernar ese despacho. Los modelos de las suscripciones Claude Max y ChatGPT no son alcanzables vía LiteLLM sin claves de API pago por token, prohibidas por allowPayPerToken=false. La única vía sin pago por token es un modelo local (Ollama u otro) vía api_base, no documentada en el repo y ajena a los modelos que el consumidor usa; llm.py menciona tiers gratuitos de OpenRouter/Groq, que igual exigen claves y envían datos a terceros.
+  • fit.incrementalValue (30) — Aporte real como referencia de diseño, no como herramienta adoptable: (1) eje log-costo normalizado para elegir peldaño, (2) urgencia creciente con el presupuesto de rondas, (3) escalado y desescalado automático recalculado cada ronda sin estado persistente, (4) par de jueces de modelo distinto con escalado por desacuerdo. El consumidor ya cubre (4) en parte con decorrelación por linaje y define elevación por motivos humanos explícitos; (1)-(3) dependen de una señal de confianza autodeclarada que el despacho de Claude Code no expone. Costo de obtener ese valor: Python, ~108 paquetes bloqueados con torch, claves de proveedor y reestructurar el trabajo en rondas con manager.
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • fit.adoptionSimplicity (20) — Instalación simple (uv sync o pip install -e .), pero adoptarlo exige reescribir el flujo como equipo de Agent con Router, Manager y CadTopoAI, configurar escaleras de backbones con claves, y aceptar la descarga del modelo de embeddings y torch. No hay modo de usar solo el selector sobre un despachador externo sin escribir pegamento propio en Python.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • engineering.versioningDiscipline (25) — Un único tag 0.0.1 (prerelease) frente a version='0.1.0' en pyproject.toml; el workflow de publicación sobrescribe la versión con el tag, así que el número del código no coincide con el publicado. Sin CHANGELOG. Los 2 commits posteriores al tag (escala de puntaje 0-100 y juicio cruzado entre modelos) cambian comportamiento y no tienen release.
+  • engineering.compatibilityEvidence (30) — Declara Python >=3.10 pero CI solo prueba 3.12 en ubuntu-latest; sin matriz de versiones ni de SO. La compatibilidad con 'OpenAI, Anthropic, OpenRouter, local models' se apoya en LiteLLM; el repo solo ejemplifica OpenRouter. uv.lock incluye 15 paquetes nvidia (ruedas CUDA de torch para Linux), sin evidencia de prueba en macOS.
+  • engineering.dependencySimplicity (20) — 6 dependencias directas de runtime (instructor, litellm, numpy, pydantic, tenacity, sentence-transformers) que resuelven a 108 entradas [[package]] en uv.lock (749810 bytes), incluidas torch 2.13.0, transformers 5.14.1, scipy, scikit-learn, openai y aiohttp; además el modelo de embeddings se descarga de HuggingFace al instanciar EmbeddingModel. Peso alto para un selector cuyo núcleo (selection.py, 14951 bytes) solo usa math.
+  • sustainability.costPredictability (15) — Cada backbone requiere una cadena LiteLLM con clave de proveedor; los ejemplos usan OpenRouter de pago por token. El 'cost' es solo un orden relativo, sin tope en dinero: el único límite es max_rounds, y cada llamada puede repetirse hasta 6 veces por errores transitorios más 2 re-preguntas de Instructor; el manager corre hasta 2 jueces por ronda. Para este consumidor, con allowPayPerToken=false y modelos por suscripción, el uso previsto depende de claves pago por token o de modelos locales no documentados: costo bajo de predecir y contrario a la política.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)

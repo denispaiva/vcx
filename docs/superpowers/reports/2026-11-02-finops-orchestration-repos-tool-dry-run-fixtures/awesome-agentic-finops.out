@@ -1,0 +1,51 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · awesome-agentic-finops (practice)
+  github.com/gregoire-costory/awesome-agentic-finops · evaluado 2026-11-02
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         46.3 / 100
+  CONFIANZA             high (95)
+  NIVEL DE RIESGO        low
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        24.2
+  maintenance      54.1
+  security         63.3
+  fit              29.3
+  engineering      37.5
+  sustainability   92.2
+
+  ── Riesgo, por ─────────────────────────────────────
+  (sin señales de riesgo marcadas)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • maintenance.activityRecency (88) — Ultimo push 2026-10-21T09:46Z (11 dias antes de la medicion); ultimo commit 2026-10-15 (17 dias). Repo creado 2026-06-09, no archivado. Actividad reciente, aunque el repo tiene menos de 5 meses de vida.
+  • security.vulnerabilityStatus (85) — Sin software ejecutable: 3 archivos (README.md, CONTRIBUTING.md, LICENSE). security-advisories devuelve 0. La superficie es solo de enlaces a terceros; no se escaneo el contenido de las ~100 herramientas listadas. Puntaje por ausencia de codigo, no por auditoria de lo enlazado.
+  • fit.adoptionSimplicity (90) — No hay nada que instalar: se consulta el README. El costo de adopcion es solo leer 223 lineas y filtrar lo relevante.
+  • engineering.dependencySimplicity (98) — Cero dependencias: 3 archivos de texto (README.md 22317 B, CONTRIBUTING.md 2152 B, LICENSE 374 B).
+  • sustainability.costPredictability (85) — El candidato es gratuito (CC0). Descuento por contenido: 15 menciones de la etiqueta vendor y las entradas de IA mas visibles son comerciales o por consumo, lo que no es costo del candidato pero sesga hacia opciones de pago.
+  • sustainability.portability (95) — Markdown plano bajo CC0 1.0, sin formato propietario ni servicio. La API de GitHub reporta licencia NOASSERTION/other porque no es una licencia de software reconocida, pero el texto de LICENSE es CC0.
+  • sustainability.reversibility (98) — Nada se instala ni se modifica en el workspace; abandonarla no deja residuo.
+  • sustainability.operatingOverhead (92) — Sin servicios, claves ni daemons. Costo operativo solo si se quisiera seguir la lista (vigilar PRs y cambios), sin automatizacion.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.releaseContinuity (25) — 0 releases y sin tags (releases devuelve lista vacia). Es una lista curada y las releases no son su medio natural, pero no existe ningun marcador de version ni changelog; la continuidad solo se lee del historial de commits.
+  • maintenance.responseHealth (35) — 23 issues+PRs: 8 cerrados, 15 abiertos. Los cierres del propio autor son del mismo dia (#11,#18,#19). Entre los externos, solo #8 (1 dia) y #9 (6 dias) se resolvieron; 14 items externos abiertos con 0-1 comentarios, el mas antiguo (#1) desde 2026-06-24 (130 dias) y #7 (consulta de alcance sobre trazado de costo LLM) sin respuesta desde 2026-07-10. #20 (PR del propio autor sobre su entrada) tambien abierto.
+  • security.securityHygiene (40) — Sin SECURITY.md, sin workflows de CI (total_count=0), sin escaneo. Perfil de comunidad 57%: tiene codigo de conducta, plantillas de issue y PR, contributing y licencia. Poco relevante para un repo de solo markdown, pero no hay verificacion automatica de enlaces ni de la regla de actividad de 12 meses. El README no pide ejecutar comandos ni revelar secretos.
+  • fit.capabilityGapCoverage (12) — Lista centrada en costo de nube (AWS, Azure, GCP, Kubernetes, SaaS): de 101 entradas unicas, unas 5 tocan gasto de LLM/IA: aws-cost-explorer-mcp-server (Bedrock invocation logs), Costory (fuentes OpenAI/Anthropic/Cursor; vendor), Atmoz (eficiencia cloud y AI; vendor), FOCUS_Spec (unidades no monetarias como tokens) y finopsfoundation (nota FinOps for AI). Necesidad A (clase/modelo por tarea): ninguna entrada. Necesidad B (tokens por rama/sesion en Claude Code): ninguna entrada la cubre. Mas cercanas: costory-io/costory-finops-mcp-skills (plugin para Claude Code, pero MCP hosted y comercial que consulta gasto agregado, sin rama ni sesion), aws-cost-explorer-mcp-server (solo Bedrock) y FOCUS_Spec como vocabulario. Las 5 skills de Claude Code listadas auditan facturas de nube, no consumo de Claude.
+  • fit.technicalCompatibility (35) — Como documento no exige integracion, pero su contenido apunta a herramientas incompatibles con las politicas: las entradas mas relevantes a IA son hosted/OAuth comerciales (Costory, 30 dias de prueba y plan Starter pendiente en PR #20) o dependen de AWS/Bedrock. Nada mide ventanas de contexto o transcripts de Claude Code, que es lo que ya hace el instrumento context-window-per-branch del precursor.
+  • fit.incrementalValue (15) — El resolver de modelos y la politica de enrutamiento existentes, gratuitos, ya cubren A; B se cubre con el instrumento por rama. La lista no aporta herramienta adicional. Unico valor residual: punteros de vocabulario (FOCUS 1.2+ con tokens como unidad, distincion FinOps for AI frente a AI for FinOps). Nota: el PR #8 (awesome-ai-tokenomics, adyacente a la necesidad B) se cerro sin incorporarse.
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (10) — 0 workflows, sin verificador de enlaces ni lint de formato awesome. Los criterios de admision (relevancia, actividad en ~12 meses, disponibilidad honesta) se aplican a mano.
+  • engineering.versioningDiscipline (15) — Sin tags, releases ni changelog; historial de 16 commits con mensajes descriptivos pero sin esquema de versionado.
+  • engineering.compatibilityEvidence (25) — Sin matriz de compatibilidad propia. La tabla comparativa de 9 filas informa nubes, licencia y entrega por herramienta, pero son afirmaciones del autor sin verificar; la regla de actividad de 12 meses no deja evidencia revisable.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)

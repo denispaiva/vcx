@@ -1,0 +1,395 @@
+{
+  "candidate": {
+    "id": "aws-finops-mcp-server",
+    "type": "mcp",
+    "sourceUrl": "https://github.com/ravikiranvm/aws-finops-mcp-server",
+    "evaluatedRef": "d8316bd06943506564aeb129b162e7671c7a4b93"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 5,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último push 2025-06-11T13:53:12Z; a 2026-11-01 pasaron 508 días (muy por debajo de la guía: 30 a 180 días). El updated_at 2026-10-20 es metadato del repo (estrellas), no actividad de código.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server (pushed_at=2025-06-11T13:53:12Z; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 12,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Una sola release/tag: v0.1.1 publicada 2025-06-08, hace 511 días; ninguna posterior ni anterior en GitHub. Versión 0.x sin cadencia.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/releases (1 release v0.1.1 2025-06-08; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/tags (v0.1.1; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 8,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "20 commits en total, todos entre 2025-05-22 y 2025-06-11 (ráfaga de 3 semanas); 0 commits en los últimos 90 días y 0 en los últimos 500 días.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/commits?per_page=100 (20 commits; último 2025-06-11T13:47:49Z; 0 en 90 días; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 35,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Los 3 issues se cerraron en 0 a 2 días (#1 en ~2 d, #2 en <1 d, el PR #3 externo se fusionó en 12 h). Pero 3 PRs externos siguen abiertos sin respuesta: #4 (2025-06-23), #5 (2025-07-08) y #6 (2026-01-06, corrige lectura de tamaño de volumen en util.py), de 300 a 500 días sin atención. Respuesta buena en junio de 2025 y nula desde entonces.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/issues?state=all (6 ítems, 3 PRs abiertos sin comentarios del mantenedor; medido 2026-11-01)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "security-advisories devuelve lista vacía (0 publicados). Ausencia de advisories no es evidencia de ausencia de vulnerabilidades: no hay escaneo, dependencias sin fijar (boto3, mcp[cli]) y el repo no se mantiene desde hace 508 días, por lo que un fallo futuro en dependencias no tendría parche del autor.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/security-advisories (lista vacía; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/pyproject.toml (deps sin versión; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cuenta de usuario personal creada 2018-02-12 (anterior al repo, creado 2025-05-22), 16 repos públicos, 138 seguidores, licencia MIT; proyecto hermano aws-finops-dashboard. Sin organización ni respaldo institucional, sin firma de releases ni workflow de publicación que acredite el paquete PyPI (procedencia del paquete no verificada con la API de GitHub).",
+        "evidenceRefs": [
+          "github-api:users/ravikiranvm (created_at=2018-02-12; public_repos=16; followers=138; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server (created_at=2025-05-22; license=MIT; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 28,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin SECURITY.md, sin workflows de CI ni escaneo (actions/workflows vacío), sin tests. Puntos a favor: uv.lock presente, herramientas anotadas con readOnlyHint, IAM de solo lectura documentada. No se hallaron instrucciones incrustadas que pidan ejecutar comandos o revelar secretos; las instrucciones de instalación (pipx/uv/pip, curl|sh de astral.sh para instalar uv) son estándar y opcionales.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/git/trees/main?recursive=1 (sin SECURITY.md, sin .github; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/actions/workflows (0 workflows; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 76,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El README declara la política IAM exacta (ce:GetCostAndUsage, budgets:ViewBudget, ec2:DescribeInstances/DescribeVolumes/DescribeAddresses, sts:GetCallerIdentity, Resource *), que es de solo lectura, que usa perfiles del AWS CLI locales y que cada get_cost cuesta USD 0.01. El código coincide con lo declarado (sólo llamadas read/describe de boto3). No declara con claridad que all_profiles recorre todos los perfiles de ~/.aws ni que devuelve IDs de cuenta; sin SECURITY.md.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/README.md (política IAM y Cost Considerations; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/aws_finops_mcp_server/main.py (get_cost, run_finops_audit con readOnlyHint; medido 2026-11-01)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 3,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Necesidad A (elegir clase/modelo por perfil, riesgo y costo) y Necesidad B (medir tokens de inferencia por rama y sesión): la herramienta sólo consulta AWS Cost Explorer, Budgets y EC2 (tools get_cost y run_finops_audit). No ve tokens, transcripts, modelos ni despacho de subagentes; las suscripciones Claude Max y ChatGPT no pasan por AWS. Cobertura de ambas necesidades: nula; el 3 refleja sólo adyacencia temática (control de costos).",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/aws_finops_mcp_server/main.py (2 tools, sólo boto3 ce/ec2/budgets/sts; medido 2026-11-01)",
+          "blends/vc/tools/resolve-model.mjs y model-routing-policy.json (resolver propio ya cubre A; instrumento context-window-per-branch cubre medición de contexto; lectura de contexto del brief)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 10,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "VCX no tiene recursos AWS ni perfiles AWS CLI como parte de su flujo; exige AWS CLI, cuenta y política IAM. Es Python (VCX usa Node 26 y no tiene toolchain Python). La utils usa f-strings con comillas anidadas (f\"{volume[\"Size\"]} GB\") válidas sólo desde Python 3.12 pese a requires-python >=3.10; .python-version fija 3.13. No depende de claves pay-per-token (no es contrario a la política), pero tampoco es utilizable por el consumidor.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/pyproject.toml (requires-python >=3.10; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/.python-version (3.13; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/aws_finops_mcp_server/helpers/util.py (f-string con comillas anidadas, Python 3.12+; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 2,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Frente al resolver de modelos y política de enrutamiento gratuitos ya existentes, no aporta nada a A ni a B. Valor incremental nulo para este consumidor; sólo sería útil a quien gestione cuentas AWS reales.",
+        "evidenceRefs": [
+          "blends/vc/tools/resolve-model.mjs (resolver existente; lectura de contexto del brief)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de uso de este candidato en el workspace; no se presentan pruebas propias como resultado observado.",
+        "evidenceRefs": [
+          "workspace VCX: sin registros de uso de aws-finops-mcp-server (sin dato; consultado 2026-11-01)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Instalación en una línea (pipx install aws-finops-mcp-server) y un bloque JSON en la config MCP, sin daemon. Pero exige AWS CLI, perfiles configurados y política IAM, y falla en Python 3.10/3.11 pese a declararlo compatible. Para VCX los prerrequisitos AWS no existen.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/README.md (Installation y Configuration; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de adopción en el workspace VCX; las 184 estrellas y 54 forks de GitHub son señal de comunidad (la trae el motor), no adopción observada aquí.",
+        "evidenceRefs": [
+          "workspace VCX: sin registros de adopción (sin dato; consultado 2026-11-01)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 3,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Árbol de 15 archivos sin tests, sin directorio de pruebas, sin workflows de CI. Verificación automatizada inexistente.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/git/trees/main?recursive=1 (0 tests; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/actions/workflows (0 workflows; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 68,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "README extenso: casos de uso con capturas, prerrequisitos, política IAM, tres métodos de instalación, configuración de cliente, referencia de parámetros de las 2 tools, nota de costo. Defectos: docstrings con parámetros que no existen (profile_name), copia errónea (\"Install aws-finops-dashboard\"), la línea \"Output Format: JSON, CSV, PDF, HTML\" no corresponde al servidor (sólo devuelve dict), sin CHANGELOG.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/README.md (≈220 líneas; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Un tag v0.1.1 coincide con la versión de pyproject (0.1.1) y con el badge de PyPI, pero no hay CHANGELOG, no hay notas de release, y el mensaje de commit dominante es informal. Fase 0.x sin evolución posterior.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/releases (v0.1.1, sin notas de versión extensas; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/pyproject.toml (version=0.1.1; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 10,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "requires-python >=3.10 sin matriz de pruebas ni CI; el código usa sintaxis de Python 3.12+ (f-string con comillas anidadas), por lo que la compatibilidad declarada es incorrecta. Sin evidencia de pruebas con clientes MCP más allá de capturas (Claude Desktop, Amazon Q CLI). Bug abierto en PR #6 (lectura de tamaño de volumen).",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/aws_finops_mcp_server/helpers/util.py (medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/pulls/6 (abierto, sin revisión; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 70,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Dos dependencias directas (boto3, mcp[cli]) sin versiones fijas en pyproject ni requirements.txt; uv.lock presente. Sólo 2 módulos de código (~400 líneas). boto3 y mcp[cli] son pesadas en transitivas pero estándar.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/pyproject.toml (2 dependencias; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/requirements.txt (2 líneas; medido 2026-11-01)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No requiere claves pay-per-token de modelo ni suscripciones. Pero cada get_cost genera 2 llamadas a Cost Explorer con costo declarado de USD 0.01 por invocación de la tool (según README, no verificado con tarifa AWS); consumo dependiente de cuántos perfiles se consulten y del uso por el LLM. Costo predecible y documentado, pero no nulo.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/README.md (Cost Considerations: USD 0.01 por get_cost; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/aws_finops_mcp_server/main.py (2 llamadas ce.get_cost_and_usage por perfil; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Servidor MCP stdio estándar (FastMCP) utilizable en cualquier cliente MCP; Python puro, MIT. Acoplado a AWS (boto3, perfiles AWS CLI) y fijado a Python 3.12+ en la práctica.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/aws_finops_mcp_server/main.py (mcp.run(transport='stdio'); medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Desinstalación con pipx uninstall y remoción del bloque en la config MCP. No escribe archivos, no crea servicios ni recursos AWS (sólo lecturas); no deja estado salvo la política IAM creada por el usuario.",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/README.md (instalación pipx/uv/pip; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/aws_finops_mcp_server/helpers/util.py (sólo llamadas describe_*; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin daemon: el cliente lanza el proceso stdio bajo demanda. Requiere AWS CLI, perfiles/credenciales vigentes, política IAM y mantener Python 3.12+. Sin mantenimiento upstream; correcciones propias necesarias (PR #6, #4).",
+        "evidenceRefs": [
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/contents/README.md (Prerequisites; medido 2026-11-01)",
+          "github-api:repos/ravikiranvm/aws-finops-mcp-server/issues?state=all (3 PRs abiertos; medido 2026-11-01)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": false,
+    "newLocalDependencies": true,
+    "networkAccess": true,
+    "credentialsAccess": true,
+    "sensitiveDataAccess": true,
+    "remoteWrite": false,
+    "broadScope": true,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

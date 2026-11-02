@@ -1,0 +1,382 @@
+{
+  "candidate": {
+    "id": "<kebab-id>",
+    "type": "<technology|skill|mcp|practice>",
+    "sourceUrl": "https://github.com/<owner>/<repo>",
+    "evaluatedRef": "<SHA completo del commit evaluado>"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available|unavailable",
+        "score": 0,
+        "method": "metric|rubric",
+        "assessor": {
+          "type": "model",
+          "version": "<id del modelo que evalúa>",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "<en español, con números y fechas; si unavailable, por qué>",
+        "evidenceRefs": [
+          "<fuente (dato; medido AAAA-MM-DD)>"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 0
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": false,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

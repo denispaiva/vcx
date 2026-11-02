@@ -1,0 +1,54 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · agentic-flow (technology)
+  github.com/ruvnet/agentic-flow · evaluado 2026-11-02
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         38.4 / 100
+  CONFIANZA             high (94)
+  NIVEL DE RIESGO        high
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        48.0
+  maintenance      61.5
+  security         42.8
+  fit              16.7
+  engineering      28.0
+  sustainability   34.8
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+  • newLocalDependencies (nuevas dependencias locales)
+  • networkAccess (acceso a red)
+  • credentialsAccess (acceso a credenciales)
+  • sensitiveDataAccess (acceso a datos sensibles)
+  • broadScope (alcance amplio)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • maintenance.activityRecency (95) — Último push 2026-10-31T23:30:51Z, un día antes de la medición; el HEAD de main (2c86073, merge del PR #248) es del 2026-10-31. Actividad de esta semana.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.releaseContinuity (40) — 25 releases publicadas (1 prerelease) y 51 tags. La última release es v2.1.3 (2026-09-16, 47 días). Entre v2.3.6 (2025-11-24) y v2.1.3 hubo 296 días sin releases. Los PR #237, #243, #245 y #247 anuncian 2.1.4, 2.1.5, 3.0.0 y 3.1.0 (2026-10-09 a 2026-10-31) sin release ni tag correspondiente. Solo existen v3.0.0-alpha.2 y plugin-v3.1.0. La cadencia existe, pero no se refleja de forma fiable en releases.
+  • maintenance.responseHealth (40) — De los 30 ítems cerrados más recientes, 4 son issues: #178, una vulnerabilidad de protobufjs, cerró en 12,8 días; #167 en 15,6; #162 en 19,8; y #169, abierta por el propio autor, en minutos. La mediana es de unos 15,6 días. Los PR externos esperaron hasta 3,5 meses: #160 y #166, abiertos el 2026-06-01 y el 2026-06-07, se cerraron el 2026-09-16. Hay 115 issues y PR abiertos. Desde 2026-09-25 sigue abierto #235, que pide habilitar el reporte privado de vulnerabilidades.
+  • security.securityHygiene (25) — SECURITY.md (21 líneas, del PR externo #166) es la plantilla de GitHub sin editar: declara soporte para versiones 5.1.x y 4.0.x inexistentes y no ofrece canal de reporte. El reporte privado de vulnerabilidades sigue pendiente (#235). En el árbol no hay configuración de Dependabot ni de CodeQL. Los puntos positivos son que el Quality Gate instala con 'npm ci --ignore-scripts' y que el CVE de junio se parcheó. En contra: el postinstall reescribe archivos de otro paquete (agentdb) dentro de node_modules, y también en rutas padre para npx. agentic-flow/src/cli/claude-code-wrapper.ts imprime por consola los primeros 10 caracteres de ANTHROPIC_API_KEY. En el repositorio hay 11 artefactos binarios o de estado versionados (por ejemplo agentic-flow-1.10.0.tgz, agentdb.db-shm y .agentic-flow/intelligence.db-shm) y un .env.test en la raíz. El antecedente del mismo autor (ruflo) fue un RCE crítico por un despliegue inseguro por defecto. Ningún contenido leído pidió ejecutar comandos ni revelar secretos.
+  • security.permissionTransparency (35) — La guía del router enumera las variables ANTHROPIC_API_KEY, OPENAI_API_KEY, GOOGLE_GEMINI_API_KEY y OPENROUTER_API_KEY, y claude-code-wrapper.ts documenta qué clave exige cada proveedor. No hay una declaración consolidada del acceso de red (proxy local que reemplaza ANTHROPIC_BASE_URL, envío de prompts a terceros), de las escrituras locales ni del alcance del paquete (213 herramientas MCP, swarms, reparación autónoma). El issue abierto #226 informa que '--provider onnx' descarga 4,6 GB en process.cwd() sin aviso. El README no menciona cómo desinstalar.
+  • fit.capabilityGapCoverage (20) — Necesidad A (elegir clase y modelo por perfil, riesgo y costo al despachar subtareas): el candidato enruta por proveedor o modelo en cada llamada a API, de forma manual, por reglas, por costo (un stub con orden fijo) o 'cost-optimal'. Este último modo es un k-NN entrenado con un dataset propio de embeddings y calidad por modelo. No opera sobre el despacho de subagentes de Claude Code (sonnet/opus/haiku/fable) ni ofrece perfiles de tarea, pisos por riesgo, motivos de elevación ni un acta. Esas capacidades ya están en el resolver existente: 16 perfiles, clases economy/balanced/frontier y acta JSONL. Necesidad B (tokens por rama y sesión): solo acumula totalTokens y totalCost por instancia de ModelRouter, sin relación con ramas ni transcripts.
+  • fit.technicalCompatibility (15) — Si no se configura otro proveedor, createConfigFromEnv usa 'anthropic', y claude-code-wrapper.ts aborta con 'Missing ANTHROPIC_API_KEY'. Las claves de Anthropic, OpenRouter y Gemini son de API (OpenRouter y Anthropic se pagan por token; Gemini y OpenRouter tienen tramos gratuitos con clave). El wrapper reemplaza ANTHROPIC_BASE_URL y ANTHROPIC_API_KEY de Claude Code por un proxy propio, por lo que no consume las suscripciones Claude Max ni ChatGPT; esto choca con allowPayPerToken=false. Los únicos caminos sin pago por token son los locales: Ollama, u ONNX con descarga de 4,6 GB. La herramienta interna de despacho del host no acepta un enrutador externo. engines de Node >=20 es compatible en papel con Node 26, pero la CI solo prueba 20.x y 22.x.
+  • fit.incrementalValue (10) — Frente al resolver propio (gratuito, con política versionada, pisos por riesgo y acta) y a 'claude -p --max-budget-usd' (tope de gasto aplicado por el CLI), el aporte neto se reduce al enrutamiento 'cost-optimal' aprendido. Para funcionar necesita un dataset etiquetado y proveedores pagados por token, ambos ajenos a la política del Owner. El control de presupuesto que motivaría la adopción (budget.total, fallbackToFree, dailyLimit, hardStop) está documentado pero no implementado en src/router. Para obtenerlo habría que sumar 26 dependencias de runtime, un proxy y claves de API.
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • fit.adoptionSimplicity (25) — La instalación es 'npm install -g agentic-flow', con 26 dependencias de runtime y 7 opcionales, varias nativas (onnxruntime-node, sharp, better-sqlite3), y un postinstall que parchea otro paquete. Después hay que exportar claves por proveedor, escribir un router.config y, para el modo cost-optimal, construir un dataset de evaluación con embeddings. Hay issues abiertos de instalación: #231 (crash de 'npm audit fix' o de una instalación limpia) y #229 (resolución de dependencias inconsistente). La guía describe 'npx agentic-flow router init/test', pero agentic-flow/src/cli-proxy.ts no tiene un modo 'router': sus modos son init, list, config, proxy, quic, claude-code, mcp, reasoningbank, federation, hooks, workers y embeddings, y 'router' solo aparece como parte de OpenRouter.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • engineering.documentationQuality (15) — Hay mucho volumen (555 archivos bajo docs/, más agentic-flow/docs y un README de 2.238 líneas) y poca fidelidad. La guía MULTI-MODEL-ROUTER documenta APIs y comandos ausentes del código: RouterOptimizedAgent, budget.total y perDocument, fallbackToFree, budget.dailyLimit y hardStop, y 'router init'. Las cifras de ahorro se contradicen entre documentos: 99% y 87% en la guía, 60% y 28,5% en el README. El README raíz dice v2.0.0-alpha y Node 18+, mientras que el paquete es 3.1.0 con engines >=20. El enlace a LICENSE está roto y un benchmark sintético se presenta como 'Measured'.
+  • engineering.versioningDiscipline (20) — Dos package.json comparten el nombre 'agentic-flow': la raíz en 2.0.2-alpha y agentic-flow/ en 3.1.0. La numeración retrocede: los tags v2.3.x son de noviembre de 2025, pero en 2026 se publicaron 2.1.x y el CVE de junio se parcheó en 2.0.14. Las versiones 2.1.4, 2.1.5, 3.0.0 y 3.1.0 salen en PR sin tag. Existe un tag v3.0.0-alpha.2 sin release. Hay un agentic-flow/CHANGELOG.md, pero la semántica de versiones no es confiable para fijar dependencias.
+  • engineering.compatibilityEvidence (25) — La CI cubre solo Ubuntu con Node 20.x y 22.x; no hay evidencia con Node 26. El PR #230 corrigió un crash en Windows por onnxruntime-node (2026-09-16), y siguen abiertos issues de instalación (#231 y #229) y de rutas del proveedor ONNX (#227). Lo más relevante para este encaje: las funciones de presupuesto que documenta la guía no existen en src/, así que no hay compatibilidad demostrable entre el contrato documentado y el código.
+  • engineering.dependencySimplicity (15) — El paquete publicable (agentic-flow/package.json) tiene 26 dependencias de runtime y 7 opcionales. Relacionadas con el enrutamiento de modelos hay 11: @anthropic-ai/claude-agent-sdk, @anthropic-ai/sdk, @google/genai, @metaharness/router, @ruvector/router, @ruvector/tiny-dancer, @ruvector/ruvllm, axios, express, http-proxy-middleware y tiktoken; a ellas se suma la opcional onnxruntime-node. Las otras 15 son ajenas: memoria vectorial (agentdb, ruvector, @ruvector/core y edge-full, ruvector-onnx-embeddings-wasm, @huggingface/transformers), MCP (fastmcp), P2P (gun), nube (@supabase/supabase-js) y utilidades (dotenv, glob, ulid, ws, yaml, zod). Hay opcionales nativas: better-sqlite3, sharp, onnxruntime-node y @rollup/rollup-darwin-arm64. El package.json raíz suma 38, 4 y 2 (claude-flow y flow-nexus como peers, React, Vite y Tailwind en runtime).
+  • sustainability.costPredictability (20) — El software es gratuito y declara MIT en package.json, aunque no hay LICENSE en la raíz. El costo de operación depende de proveedores con pago por token, y el control de gasto documentado no está implementado: selectByCost es un stub y costOptimization.maxCostPerRequest y budgetAlerts no se leen en router.ts. El issue #234 informa que los acumulados de costo usan una tarifa promedio fija. Bajo allowPayPerToken=false, solo los proveedores locales (Ollama u ONNX) tienen costo predecible, pero no son los modelos contratados.
+  • sustainability.operatingOverhead (25) — Para operar exige claves por proveedor, un proxy HTTP local (express y http-proxy-middleware) cuando se usa con Claude Code, la configuración del router y, en el modo cost-optimal, mantener un dataset de evaluación y una función de embeddings. Los modos locales suman modelos de varios GB o un servidor Ollama. Para el enrutamiento no es obligatorio un daemon persistente, pero sí lo es una pieza de red en marcha durante la sesión.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)

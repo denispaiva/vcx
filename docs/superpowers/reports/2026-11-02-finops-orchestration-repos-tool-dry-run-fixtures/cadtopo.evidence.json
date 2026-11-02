@@ -1,0 +1,416 @@
+{
+  "candidate": {
+    "id": "cadtopo",
+    "type": "technology",
+    "sourceUrl": "https://github.com/code0-tech/cadtopo",
+    "evaluatedRef": "1ba0af0ee116eff0d00e53cca42fe1726d29dd1f"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 75,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último push 2026-09-10T07:08:39Z y último commit 2026-09-10T07:08:30Z: 52 días antes de la medición (2026-11-01). Interpolado entre 95 (esta semana) y 60 (90 días) de la guía.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo (pushed_at=2026-09-10T07:08:39Z; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/commits/main (sha=1ba0af0e, committer.date=2026-09-10T07:08:30Z; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 20,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Una sola release, 0.0.1, marcada prerelease, publicada 2026-08-18 (el mismo día de creación del repo) y un solo tag. No hubo releases en los 75 días siguientes; HEAD está 2 commits por delante del tag, incluido un cambio de escala de puntaje a 0-100 sin publicar.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/releases (count=1, tag=0.0.1, prerelease=true, published_at=2026-08-18T20:04:19Z; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/tags (count=1, 0.0.1->f0541029; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 30,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "7 commits en total, todos dentro de los últimos 90 días pero concentrados en 3 días (2026-08-18: 5, 2026-09-02: 1, 2026-09-10: 1); ninguno en los últimos 52 días. Un único autor (nicosammito). Es una ráfaga inicial, no continuidad sostenida.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/commits?per_page=100 (total=7, autores=1 (nicosammito), primero=2026-08-18, último=2026-09-10; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "unavailable",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin evidencia: el repositorio no tiene issues de terceros (0 abiertos, 0 cerrados); el único ítem es el PR #1 del propio autor, fusionado en 78 segundos. No hay tiempos de respuesta medibles ante usuarios externos.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/issues?state=all (items=1 (PR #1 propio, creado 20:02:24Z, cerrado 20:03:42Z 2026-08-18); open_issues_count=0; medido 2026-11-01)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 security advisories publicados y el grafo de dependencias de Dependabot está activo. No se pudo consultar alertas de dependencias (requiere permisos del dueño), y el árbol bloqueado incluye litellm 1.95.0, torch 2.13.0 y transformers 5.14.1, dependencias grandes con superficie amplia. Sin vulnerabilidad crítica conocida verificada; código de 75 días sin auditoría externa.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/security-advisories (count=0; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/actions/workflows (Dependency Graph activo; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/uv.lock@1ba0af0ee116 (litellm=1.95.0, torch=2.13.0, transformers=5.14.1; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Organización code0-tech (CodeZero) verificada, creada 2023-11-12, 29 repos públicos con actividad el 2026-11-01 y sitio codezero.build: anterior al repo (creado 2026-08-18), con trayectoria. Descuentos: un solo contribuidor; el proyecto no pertenece al producto central de la organización (plataforma no-code) y el README reutiliza su branding; el enlace al paper DyTopo apunta a https://arxiv.org/ (raíz, no un paper concreto), por lo que la base académica declarada no es verificable; la sección de licencia del README habla de 'subprojects' que no existen, aunque LICENSE es MIT.",
+        "evidenceRefs": [
+          "github-api:orgs/code0-tech (created_at=2023-11-12T20:30:24Z, is_verified=true, public_repos=29, blog=https://codezero.build; medido 2026-11-01)",
+          "github-api:orgs/code0-tech/repos (29 repos; cadtopo es el segundo más reciente; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo (created_at=2026-08-18T00:10:21Z, license=MIT, stars=3, forks=0; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/README.md@1ba0af0ee116 (enlace DyTopo=https://arxiv.org/; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "A favor: CI 'Build package' corre pytest en cada push (5 corridas, todas success); la publicación usa PyPI trusted publishing por OIDC con environment 'packages', sin token guardado. En contra: no hay SECURITY.md ni en el repo ni en code0-tech/.github (solo LICENSE y profile); sin CodeQL ni escaneo de secretos; acciones fijadas por tag mayor (@v6), no por SHA; el quickstart del README muestra api_key='sk-...' literal en código. No se halló contenido que intente instruir a agentes ni pida ejecutar comandos fuera de la instalación normal.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/git/trees/1ba0af0ee116eff0d00e53cca42fe1726d29dd1f?recursive=1 (sin SECURITY.md; medido 2026-11-01)",
+          "github-api:repos/code0-tech/.github/contents (LICENSE, profile; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/.github/workflows/publish.yml@1ba0af0ee116 (id-token: write, uv publish --trusted-publishing always; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/actions/runs (total=7, todas success; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El README declara que los modelos se llaman vía LiteLLM y que cada backbone lleva api_key. No declara: que EmbeddingModel descarga de HuggingFace 'sentence-transformers/multi-qa-mpnet-base-dot-v1' al primer uso (red y caché local); que tracing.py escribe prompts y respuestas completas en runs/AAAA-MM-DD_HH-MM-SS/ (JSONL y txt); que CallLog retiene en memoria cada request verbatim; ni que las herramientas que el modelo elige se ejecutan del lado del harness (tools.dispatch). Sin sección de datos enviados a terceros.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/contents/README.md@1ba0af0ee116 (sin sección de red/datos/credenciales; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/embedding.py@1ba0af0ee116 (SentenceTransformer('sentence-transformers/multi-qa-mpnet-base-dot-v1'); medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/tracing.py@1ba0af0ee116 (make_run_dir('runs'), jsonl_path.write_text; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/tools.py@1ba0af0ee116 (dispatch ejecuta Tool.run(); medido 2026-11-01)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Necesidad A (elegir clase y modelo por perfil, riesgo y costo): cubre solo una parte distinta. CostAwareSelector elige peldaño de una escalera por agente según 1-confianza autodeclarada, posición en eje log-costo y urgencia por rondas restantes; no tiene perfiles de tarea, pisos por riesgo, piso de auditoría o datos sensibles, motivos de elevación registrados ni acta. El resolver existente ya tiene 3 clases, 16 perfiles, pisos P0/P1/P2, decorrelación de revisores por linaje y acta JSONL. Necesidad B (tokens por rama y sesión): telemetry.py suma tokens por agente y modelo solo de las llamadas que el propio cadtopo hace en proceso; no lee transcripts de Claude Code ni conoce ramas o sesiones.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/selection.py@1ba0af0ee116 (CostAwareSelector: risk=1-confidence, urgency 0.5->2.0, DISJOINT_BONUS=0.5; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/telemetry.py@1ba0af0ee116 (CostTracker by_agent/by_model en memoria; medido 2026-11-01)",
+          "local:/Users/denis/VibeCoding/blends/vc/tooling/lifecycle/model-routing-policy.json (classOrder=economy/balanced/frontier; 16 taskProfiles; floors.risk P0=balanced; decorrelation por linaje; allowPayPerToken=false; leído 2026-11-01)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 15,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Biblioteca Python >=3.10 que posee el bucle de ejecución (rondas, manager, router) y llama a los modelos directamente con litellm.completion usando api_key/api_base por backbone. El consumidor es un workspace documental con Node 26 que despacha subagentes de Claude Code por una herramienta interna sin LiteLLM: cadtopo no puede gobernar ese despacho. Los modelos de las suscripciones Claude Max y ChatGPT no son alcanzables vía LiteLLM sin claves de API pago por token, prohibidas por allowPayPerToken=false. La única vía sin pago por token es un modelo local (Ollama u otro) vía api_base, no documentada en el repo y ajena a los modelos que el consumidor usa; llm.py menciona tiers gratuitos de OpenRouter/Groq, que igual exigen claves y envían datos a terceros.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/llm.py@1ba0af0ee116 (litellm.completion(model, api_key, api_base); comentario 'free OpenRouter/Groq tiers'; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/backbone.py@1ba0af0ee116 (api_key None -> resolución de entorno de LiteLLM; api_url opcional; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/pyproject.toml@1ba0af0ee116 (requires-python >=3.10; medido 2026-11-01)",
+          "local:/Users/denis/VibeCoding/blends/vc/tooling/lifecycle/model-routing-policy.json (classOrder=economy/balanced/frontier; 16 taskProfiles; floors.risk P0=balanced; decorrelation por linaje; allowPayPerToken=false; leído 2026-11-01)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Aporte real como referencia de diseño, no como herramienta adoptable: (1) eje log-costo normalizado para elegir peldaño, (2) urgencia creciente con el presupuesto de rondas, (3) escalado y desescalado automático recalculado cada ronda sin estado persistente, (4) par de jueces de modelo distinto con escalado por desacuerdo. El consumidor ya cubre (4) en parte con decorrelación por linaje y define elevación por motivos humanos explícitos; (1)-(3) dependen de una señal de confianza autodeclarada que el despacho de Claude Code no expone. Costo de obtener ese valor: Python, ~108 paquetes bloqueados con torch, claves de proveedor y reestructurar el trabajo en rondas con manager.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/selection.py@1ba0af0ee116 (_target_rung, _urgency, _rank_judges, observe(disagreement); medido 2026-11-01)",
+          "local:/Users/denis/VibeCoding/blends/vc/tooling/lifecycle/model-routing-policy.json (classOrder=economy/balanced/frontier; 16 taskProfiles; floors.risk P0=balanced; decorrelation por linaje; allowPayPerToken=false; leído 2026-11-01)",
+          "local:/Users/denis/VibeCoding/blends/vc/tools/resolve-model.mjs (8499 bytes; leído 2026-11-01)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No hay registros de uso de cadtopo en el workspace ni ejecución propia; el brief prohíbe ejecutar código del candidato. Los resultados de HumanEval del README no están publicados en el repo.",
+        "evidenceRefs": [
+          "local:sin registros de uso en el workspace (verificado 2026-11-01)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 20,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Instalación simple (uv sync o pip install -e .), pero adoptarlo exige reescribir el flujo como equipo de Agent con Router, Manager y CadTopoAI, configurar escaleras de backbones con claves, y aceptar la descarga del modelo de embeddings y torch. No hay modo de usar solo el selector sobre un despachador externo sin escribir pegamento propio en Python.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/contents/README.md@1ba0af0ee116 (Quickstart con Agent/Router/Manager/CadTopoAI; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/pyproject.toml@1ba0af0ee116 (6 dependencias de runtime; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No hay registros de adopción de cadtopo en el workspace; 3 estrellas y 0 forks no son adopción por este consumidor.",
+        "evidenceRefs": [
+          "local:sin registros de adopción en el workspace (verificado 2026-11-01)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 65,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "133 funciones test_ en 10 archivos (selection 17, manager 21, orchestrator 15, router 14, agent 14, telemetry 14, tools 13, tracing 11, embedding 9, llm 5) más conftest.py; build.yml corre 'uv run pytest' en cada push y las 5 corridas de build registradas terminaron success, incluida la de HEAD. Descuentos: una sola versión de Python (3.12) y un solo SO; sin cobertura reportada ni lint; las llamadas a LLM se prueban con dobles, sin prueba de integración con un proveedor.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/git/trees/1ba0af0ee116eff0d00e53cca42fe1726d29dd1f?recursive=1 (tests/ con 10 archivos test_*.py; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/tests/*.py@1ba0af0ee116 (def test_ = 133; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/.github/workflows/build.yml@1ba0af0ee116 (on: push; uv run pytest; python 3.12; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/actions/runs (Build package 1ba0af0e success 2026-09-10; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "README claro: qué es, diagrama de fases por ronda, tabla de componentes, instalación, quickstart, ejemplo de escalera y ejemplo HumanEval; docstrings extensos que explican el algoritmo del selector. Faltas: enlace al paper DyTopo roto (raíz de arxiv.org), sección de licencia inconsistente, sin guía para modelos locales pese a afirmarlo, sin changelog, sin declaración de red, datos o archivos escritos, y el branding de la organización ocupa la cabecera.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/contents/README.md@1ba0af0ee116 (8314 bytes; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/selection.py@1ba0af0ee116 (docstring de módulo extenso; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 25,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Un único tag 0.0.1 (prerelease) frente a version='0.1.0' en pyproject.toml; el workflow de publicación sobrescribe la versión con el tag, así que el número del código no coincide con el publicado. Sin CHANGELOG. Los 2 commits posteriores al tag (escala de puntaje 0-100 y juicio cruzado entre modelos) cambian comportamiento y no tienen release.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/tags (0.0.1; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/pyproject.toml@1ba0af0ee116 (version=0.1.0; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/.github/workflows/publish.yml@1ba0af0ee116 (uv version ${GITHUB_REF_NAME#v}; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Declara Python >=3.10 pero CI solo prueba 3.12 en ubuntu-latest; sin matriz de versiones ni de SO. La compatibilidad con 'OpenAI, Anthropic, OpenRouter, local models' se apoya en LiteLLM; el repo solo ejemplifica OpenRouter. uv.lock incluye 15 paquetes nvidia (ruedas CUDA de torch para Linux), sin evidencia de prueba en macOS.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/contents/pyproject.toml@1ba0af0ee116 (requires-python >=3.10; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/.github/workflows/build.yml@1ba0af0ee116 (python-version 3.12, ubuntu-latest; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/uv.lock@1ba0af0ee116 (15 paquetes nvidia*; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 20,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "6 dependencias directas de runtime (instructor, litellm, numpy, pydantic, tenacity, sentence-transformers) que resuelven a 108 entradas [[package]] en uv.lock (749810 bytes), incluidas torch 2.13.0, transformers 5.14.1, scipy, scikit-learn, openai y aiohttp; además el modelo de embeddings se descarga de HuggingFace al instanciar EmbeddingModel. Peso alto para un selector cuyo núcleo (selection.py, 14951 bytes) solo usa math.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/contents/pyproject.toml@1ba0af0ee116 (dependencies=6; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/uv.lock@1ba0af0ee116 ([[package]]=108, torch=2.13.0, 15 nvidia*; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/selection.py@1ba0af0ee116 (imports: math, typing, backbone, logging_utils; medido 2026-11-01)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 15,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cada backbone requiere una cadena LiteLLM con clave de proveedor; los ejemplos usan OpenRouter de pago por token. El 'cost' es solo un orden relativo, sin tope en dinero: el único límite es max_rounds, y cada llamada puede repetirse hasta 6 veces por errores transitorios más 2 re-preguntas de Instructor; el manager corre hasta 2 jueces por ronda. Para este consumidor, con allowPayPerToken=false y modelos por suscripción, el uso previsto depende de claves pago por token o de modelos locales no documentados: costo bajo de predecir y contrario a la política.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/llm.py@1ba0af0ee116 (stop_after_attempt(6), max_retries=2; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/backbone.py@1ba0af0ee116 (cost: solo orden relativo; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/examples/humaneval/.env.example@1ba0af0ee116 (PROVIDER=openrouter/..., AUTH=sk-...; medido 2026-11-01)",
+          "local:/Users/denis/VibeCoding/blends/vc/tooling/lifecycle/model-routing-policy.json (classOrder=economy/balanced/frontier; 16 taskProfiles; floors.risk P0=balanced; decorrelation por linaje; allowPayPerToken=false; leído 2026-11-01)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Python multiplataforma, licencia MIT, proveedor intercambiable vía cadena LiteLLM y selector detrás del protocolo ModelSelector. Descuentos: atado a LiteLLM e Instructor para todas las llamadas y a sentence-transformers para el ruteo; el formato de trazas es propio.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo (license=MIT; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/selection.py@1ba0af0ee116 (Protocol ModelSelector; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se desinstala borrando el entorno virtual; deja la caché de HuggingFace con el modelo de embeddings y los directorios runs/AAAA-MM-DD_HH-MM-SS/ si se usó tracing. No modifica configuración del sistema ni instala servicios. Revertir la adopción sí cuesta si el flujo se reescribió en torno a CadTopoAI.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/tracing.py@1ba0af0ee116 (make_run_dir('runs'); medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/embedding.py@1ba0af0ee116 (descarga de modelo HF; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin daemons ni servicios propios. Exige en operación: claves por peldaño de cada agente y del manager, entorno Python con torch, carga local del modelo de embeddings (CPU/RAM) en cada proceso y mantenimiento de la escalera de modelos y costos relativos a mano.",
+        "evidenceRefs": [
+          "github-api:repos/code0-tech/cadtopo/contents/src/cadtopo/embedding.py@1ba0af0ee116 (SentenceTransformer cargado en __init__; medido 2026-11-01)",
+          "github-api:repos/code0-tech/cadtopo/contents/examples/humaneval/.env.example@1ba0af0ee116 (PROVIDER/AUTH por peldaño; medido 2026-11-01)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": true,
+    "networkAccess": true,
+    "credentialsAccess": true,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

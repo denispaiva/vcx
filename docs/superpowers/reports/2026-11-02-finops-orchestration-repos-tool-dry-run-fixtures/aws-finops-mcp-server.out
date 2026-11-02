@@ -1,0 +1,50 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · aws-finops-mcp-server (mcp)
+  github.com/ravikiranvm/aws-finops-mcp-server · evaluado 2026-11-02
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         33.6 / 100
+  CONFIANZA             high (94)
+  NIVEL DE RIESGO        high
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        33.2
+  maintenance      12.3
+  security         56.0
+  fit              10.2
+  engineering      34.4
+  sustainability   67.0
+
+  ── Riesgo, por ─────────────────────────────────────
+  • newLocalDependencies (nuevas dependencias locales)
+  • networkAccess (acceso a red)
+  • credentialsAccess (acceso a credenciales)
+  • sensitiveDataAccess (acceso a datos sensibles)
+  • broadScope (alcance amplio)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • sustainability.reversibility (90) — Desinstalación con pipx uninstall y remoción del bloque en la config MCP. No escribe archivos, no crea servicios ni recursos AWS (sólo lecturas); no deja estado salvo la política IAM creada por el usuario.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.activityRecency (5) — Último push 2025-06-11T13:53:12Z; a 2026-11-01 pasaron 508 días (muy por debajo de la guía: 30 a 180 días). El updated_at 2026-10-20 es metadato del repo (estrellas), no actividad de código.
+  • maintenance.releaseContinuity (12) — Una sola release/tag: v0.1.1 publicada 2025-06-08, hace 511 días; ninguna posterior ni anterior en GitHub. Versión 0.x sin cadencia.
+  • maintenance.commitContinuity (8) — 20 commits en total, todos entre 2025-05-22 y 2025-06-11 (ráfaga de 3 semanas); 0 commits en los últimos 90 días y 0 en los últimos 500 días.
+  • maintenance.responseHealth (35) — Los 3 issues se cerraron en 0 a 2 días (#1 en ~2 d, #2 en <1 d, el PR #3 externo se fusionó en 12 h). Pero 3 PRs externos siguen abiertos sin respuesta: #4 (2025-06-23), #5 (2025-07-08) y #6 (2026-01-06, corrige lectura de tamaño de volumen en util.py), de 300 a 500 días sin atención. Respuesta buena en junio de 2025 y nula desde entonces.
+  • security.securityHygiene (28) — Sin SECURITY.md, sin workflows de CI ni escaneo (actions/workflows vacío), sin tests. Puntos a favor: uv.lock presente, herramientas anotadas con readOnlyHint, IAM de solo lectura documentada. No se hallaron instrucciones incrustadas que pidan ejecutar comandos o revelar secretos; las instrucciones de instalación (pipx/uv/pip, curl|sh de astral.sh para instalar uv) son estándar y opcionales.
+  • fit.capabilityGapCoverage (3) — Necesidad A (elegir clase/modelo por perfil, riesgo y costo) y Necesidad B (medir tokens de inferencia por rama y sesión): la herramienta sólo consulta AWS Cost Explorer, Budgets y EC2 (tools get_cost y run_finops_audit). No ve tokens, transcripts, modelos ni despacho de subagentes; las suscripciones Claude Max y ChatGPT no pasan por AWS. Cobertura de ambas necesidades: nula; el 3 refleja sólo adyacencia temática (control de costos).
+  • fit.technicalCompatibility (10) — VCX no tiene recursos AWS ni perfiles AWS CLI como parte de su flujo; exige AWS CLI, cuenta y política IAM. Es Python (VCX usa Node 26 y no tiene toolchain Python). La utils usa f-strings con comillas anidadas (f"{volume["Size"]} GB") válidas sólo desde Python 3.12 pese a requires-python >=3.10; .python-version fija 3.13. No depende de claves pay-per-token (no es contrario a la política), pero tampoco es utilizable por el consumidor.
+  • fit.incrementalValue (2) — Frente al resolver de modelos y política de enrutamiento gratuitos ya existentes, no aporta nada a A ni a B. Valor incremental nulo para este consumidor; sólo sería útil a quien gestione cuentas AWS reales.
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (3) — Árbol de 15 archivos sin tests, sin directorio de pruebas, sin workflows de CI. Verificación automatizada inexistente.
+  • engineering.versioningDiscipline (40) — Un tag v0.1.1 coincide con la versión de pyproject (0.1.1) y con el badge de PyPI, pero no hay CHANGELOG, no hay notas de release, y el mensaje de commit dominante es informal. Fase 0.x sin evolución posterior.
+  • engineering.compatibilityEvidence (10) — requires-python >=3.10 sin matriz de pruebas ni CI; el código usa sintaxis de Python 3.12+ (f-string con comillas anidadas), por lo que la compatibilidad declarada es incorrecta. Sin evidencia de pruebas con clientes MCP más allá de capturas (Claude Desktop, Amazon Q CLI). Bug abierto en PR #6 (lectura de tamaño de volumen).
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
