@@ -5,10 +5,12 @@ dependencia de ningún producto. Exige que la matriz no tenga cambios sin commit
 para que la vista cite una revisión identificable, y que cada elemento que la
 matriz consume tenga ubicación en la tabla «Dónde vive cada elemento».
 
-Si existe la carpeta hermana del precursor, incorpora de sus evaluaciones de
-solo lectura la decisión, las fechas y el riesgo de cada herramienta; la vista
-calcula al abrirse si la revisión venció. Sin esa carpeta, la vista se genera
-igual y avisa que no tiene datos de evaluación.
+Incorpora la decisión, las fechas y el riesgo de cada herramienta desde
+brix/tooling/evaluations/ y, si no tiene registro ahí, desde las evaluaciones de
+solo lectura del precursor (VCX-D035); exige que las de VCX estén commiteadas y
+anota de qué fuente viene cada una. La vista calcula al abrirse si la revisión
+venció y muestra una aprobación vencida como sin admisión. Sin ninguna de las
+dos carpetas, la vista se genera igual y avisa que no tiene datos de evaluación.
 
 Uso, desde la raíz de vcx: python3 -I docs/exports/build_tooling_matrix_view.py
 """
@@ -99,26 +101,36 @@ for c in table("Reemplazos"):
 if missing:
     sys.exit("Sin ubicación en «Dónde vive cada elemento»: " + ", ".join(sorted(set(missing))))
 
-evals_dir = root.parent / "blends/vc/tooling/evaluations"
-evals_rev = None
-if evals_dir.is_dir():
-    evals_rev = subprocess.run(["git", "-C", str(evals_dir), "log", "-1", "--format=%h %ad", "--date=short", "--", "."],
-                               capture_output=True, text=True).stdout.strip() or "sin revisión"
+# Fuentes de evaluación en orden de prioridad (VCX-D035): prevalece la de VCX.
+eval_dirs = [("vcx", root / "brix/tooling/evaluations"), ("precursor", root.parent / "blends/vc/tooling/evaluations")]
+eval_dirs = [(name, d) for name, d in eval_dirs if d.is_dir()]
+if any(name == "vcx" for name, _ in eval_dirs) and subprocess.run(
+        ["git", "-C", str(root), "status", "--porcelain", "--", str(root / "brix/tooling/evaluations")],
+        capture_output=True, text=True).stdout.strip():
+    sys.exit("Las evaluaciones de brix/tooling tienen cambios sin commit; la vista debe citar una revisión identificable.")
+evals_revs = {name: subprocess.run(["git", "-C", str(d), "log", "-1", "--format=%h %ad", "--date=short", "--", "."],
+                                   capture_output=True, text=True).stdout.strip() or "sin revisión"
+              for name, d in eval_dirs}
+if eval_dirs:
     for it in items.values():
         if it["kind"].startswith("Capacidad"):
             continue
-        f = evals_dir / f"{it['id']}.evaluation.json"
-        if not f.exists():
+        found = [(name, d / f"{it['id']}.evaluation.json") for name, d in eval_dirs]
+        found = [(name, f) for name, f in found if f.exists()]
+        if not found:
             it["eval"] = None
             continue
+        source, f = found[0]
         e = json.loads(f.read_text())
         decision = (e.get("humanDecision") or {})
         it["eval"] = dict(status=decision.get("status") or e.get("status"), decidedAt=(decision.get("decidedAt") or "")[:10],
                           expiresAt=(e.get("expiresAt") or "")[:10], score=round(e.get("overallScore") or 0, 1),
-                          risk=e.get("riskLevel"), confidence=e.get("confidence"))
+                          risk=e.get("riskLevel"), confidence=e.get("confidence"),
+                          source=source, shadows=len(found) > 1)
 
-data = json.dumps(dict(items=list(items.values()), loose=loose, replacements=replacements, rev=rev, evalsRev=evals_rev), ensure_ascii=False)
+data = json.dumps(dict(items=list(items.values()), loose=loose, replacements=replacements, rev=rev,
+                       evalsRev=evals_revs.get("precursor"), vcxEvalsRev=evals_revs.get("vcx")), ensure_ascii=False)
 tpl = (Path(__file__).parent / "tooling-matrix.template.html").read_text()
 out.write_text(tpl.replace("/*DATA*/null", data))
-print(f"{len(items)} elementos, {len(loose)} necesidades sin elemento → {out} (fuente {rev}; "
-      f"evaluaciones {evals_rev or 'no disponibles'})")
+print(f"{len(items)} elementos, {len(loose)} necesidades sin elemento → {out} (fuente {rev}; evaluaciones "
+      f"{', '.join(f'{n} {r}' for n, r in evals_revs.items()) or 'no disponibles'})")

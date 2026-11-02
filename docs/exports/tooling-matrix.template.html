@@ -140,6 +140,8 @@ const rank = s => STATES.indexOf(s);
 let prod = null, state = null, review = null, tokens = [];
 const DECISION = {approved: "Aprobada", approved_with_exception: "Aprobada con excepción", deferred: "Diferida",
   rejected: "Rechazada", decision_pending: "Decisión pendiente"};
+const ADMITS = ["approved", "approved_with_exception"];
+const SOURCE = {vcx: "VCX · <code>brix/tooling/evaluations/</code>", precursor: "Precursor · antecedente"};
 const LEVEL = {low: "Bajo", medium: "Medio", high: "Alto", critical: "Crítico"};
 const REVIEWS = [["rechazada", "Rechazada"], ["vencida", "Vencida"], ["pronto", "Vence en 30 días"], ["vigente", "Vigente"],
   ["pendiente", "Decisión pendiente"], ["sin", "Sin evaluación"]];
@@ -153,7 +155,8 @@ function reviewOf(it){
   if (it.eval.status === "decision_pending") return {key: "pendiente", label: "Decisión pendiente"};
   if (!it.eval.expiresAt) return {key: "sin", label: "Sin fecha de revisión"};
   const days = Math.round((new Date(it.eval.expiresAt + "T00:00:00") - today) / 864e5);
-  if (days < 0) return {key: "vencida", label: `Revisión vencida el ${fmt(it.eval.expiresAt)}`};
+  if (days < 0) return {key: "vencida", label: ADMITS.includes(it.eval.status)
+    ? `Sin admisión · venció el ${fmt(it.eval.expiresAt)}` : `Revisión vencida el ${fmt(it.eval.expiresAt)}`};
   if (days <= 30) return {key: "pronto", label: `Revisar antes del ${fmt(it.eval.expiresAt)} · ${days === 0 ? "hoy" : `en ${days} ${days === 1 ? "día" : "días"}`}`};
   return {key: "vigente", label: `Vigente hasta ${fmt(it.eval.expiresAt)}`};
 }
@@ -195,8 +198,11 @@ function highlight(root){
 document.getElementById("meta").innerHTML =
   `Instantánea generada desde <code>docs/architecture/tooling-matrix.md</code>, revisión ${esc(DATA.rev)}. ` +
   `No se actualiza sola: la fuente editable es el Markdown, según VCX-D028. ` +
-  (DATA.evalsRev ? `Evaluaciones leídas del precursor en la revisión ${esc(DATA.evalsRev)}; el vencimiento se calcula con la fecha en que se abre la vista.`
-                 : `Sin datos de evaluación: el precursor no estaba disponible al generar.`);
+  (DATA.vcxEvalsRev || DATA.evalsRev
+    ? `Evaluaciones leídas de ${[DATA.vcxEvalsRev && `<code>brix/tooling/evaluations/</code> en la revisión ${esc(DATA.vcxEvalsRev)}`,
+        DATA.evalsRev && `${DATA.vcxEvalsRev ? "y, si no hay registro ahí, " : ""}el precursor en la revisión ${esc(DATA.evalsRev)}`].filter(Boolean).join(" ")}; ` +
+      `el vencimiento se calcula con la fecha en que se abre la vista y una aprobación vencida no cuenta como admisión.`
+    : `Sin datos de evaluación: ni <code>brix/tooling/evaluations/</code> ni el precursor estaban disponibles al generar.`);
 
 const visible = it => hits(it.idx) && (!review || (it.review && it.review.key === review)) && it.uses.some(u => (!prod || u.product === prod) && (!state || u.state === state));
 const consumers = it => [...new Set(it.uses.map(u => u.product))];
@@ -217,7 +223,7 @@ function bars(){
     const n = DATA.items.filter(it => it.review && it.review.key === k).length;
     if (n) chip(rb, `${l} · ${n}`, review === k, () => { review = review === k ? null : k; render(); });
   });
-  rb.style.display = DATA.evalsRev ? "" : "none";
+  rb.style.display = DATA.vcxEvalsRev || DATA.evalsRev ? "" : "none";
 }
 function useHtml(u, it){
   const other = it && it.kind.startsWith("Capacidad") ? `Herramienta: ${md(u.tool)}` : `Capacidad: ${md(u.cap)}`;
@@ -237,7 +243,8 @@ function open(it){
     (it.review ? `<div class="evalbox">${it.eval ? [
       ["Revisión", `<span class="rev r-${it.review.key}">${esc(it.review.label)}</span>`],
       ["Decisión", esc(DECISION[it.eval.status] || it.eval.status || "—")], ["Decidida", fmt(it.eval.decidedAt)],
-      ["Puntaje", esc(it.eval.score)], ["Riesgo", esc(LEVEL[it.eval.risk] || it.eval.risk || "—")], ["Confianza", esc(LEVEL[it.eval.confidence] || it.eval.confidence || "—")]
+      ["Puntaje", esc(it.eval.score)], ["Riesgo", esc(LEVEL[it.eval.risk] || it.eval.risk || "—")], ["Confianza", esc(LEVEL[it.eval.confidence] || it.eval.confidence || "—")],
+      ["Fuente", (SOURCE[it.eval.source] || esc(it.eval.source || "—")) + (it.eval.shadows ? " · prevalece sobre el registro del precursor" : "")]
     ].map(([k, v]) => `<div><span>${k}</span>${v}</div>`).join("") : `<div><span>Revisión</span><span class="rev r-sin">Sin evaluación registrada</span></div>`}</div>` : "");
   const body = PRODUCTS.filter(p => it.uses.some(u => u.product === p)).map(p =>
     `<h4>Consumido por ${esc(p)}</h4>` + it.uses.filter(u => u.product === p).map(u => useHtml(u, it)).join("")).join("");
