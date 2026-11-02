@@ -42,7 +42,7 @@ Un repositorio por producto y por proyecto, organizados localmente bajo `vcx/` y
 | `brix` | Producto Brix: núcleo de capacidades | `vc/brix/` de `blends`, con la historia del subárbol | El espejo actual es candidato a convertirse en canónico en la extracción; se decide entonces si se reutiliza o se crea uno nuevo. Hasta ese día sigue siendo espejo y conserva su descripción | D |
 | `cellar` | Producto Cellar: modelo de iniciativa, plantillas, contrato de conducción | `vcx/cellar/`, documentación nueva | Crear vacío y público cuando el paso 3 del mapa se autorice | D, adelantable |
 | Un repositorio por proyecto: Teyst, Melquisedec, Pinot Index, Salmanazar | Código de cada proyecto | `vc/<proyecto>/` de `blends`, con historia del subárbol | `teyst-blends` y `pinot-index` son candidatos a canónicos por el mismo criterio que `brix`; Melquisedec y Salmanazar nacen nuevos. Cada uno lleva sus workflows de despliegue | D, por proyecto |
-| Un repositorio por instancia de Cellar | Custodia del portfolio: proyectos vivos, iniciativas, decisiones, evidencia, FinOps, `queue` del portfolio, despliegues | La primera es el precursor `blends`, continuado y renombrado con su historial íntegro (VCX-D026 enmendada) | Privado; no nace, se renombra en el paso 2 de la secuencia de VCX-D032. Nombre `solera` por VCX-D009, elegido el 2026-11-01; checkout `vcx/cellars/solera/`, o `vcx/cellars/` si se ratifica la propuesta VCX-D036 | B, renombre en el paso 2 |
+| Un repositorio por instancia de Cellar | Custodia del portfolio: proyectos vivos, iniciativas, decisiones, evidencia, FinOps, `queue` del portfolio, despliegues | La primera es el precursor `blends`, continuado y renombrado con su historial íntegro (VCX-D026 enmendada) | Privado; no nace, se renombra en el paso 2 de la secuencia de VCX-D032. Nombre `solera` por VCX-D009, elegido el 2026-11-01; checkout `vcx/cellars/`, por VCX-D036; A desde el renombre, el responsable del portfolio por VCX-D034 | B, renombre en el paso 2 |
 | `Teyst`, `syrah`, `merlot` | Heredados | Sin cambio | No se tocan; el estándar de mantenimiento mínimo sigue rigiendo desde Blends | Ninguna |
 | `TintumHero` | Fuera del portfolio | Sin cambio | No se toca | Ninguna |
 
@@ -61,7 +61,7 @@ VCX-D032, ratificada como decisión documental el 2026-11-01; fuente en el [dise
 
 [H] Los runners estándar de GitHub en repositorios públicos no consumen la cuota de Actions; los grandes se facturan también en público. La CI del kernel y de Brix deja de consumir cuota al publicarse; los despliegues de proyectos siguen en privado y consumen como hoy.
 
-[I] Por esta decisión el precursor no se reubica como `vcx/blends/` sino como `vcx/cellars/<instancia>/`, y `blends` público es un repositorio nuevo cuyo checkout ocupa `vcx/blends/`; la tabla de objetivo ya lo refleja. [P] VCX-D036 propone que la estructura local replique la de GitHub repositorio por repositorio: `vcx/cellars/` es la instancia y cada proyecto vive en `vcx/cellars/<proyecto>/` con repositorio propio.
+[I] Por esta decisión el precursor no se reubica como `vcx/blends/` sino como `vcx/cellars/`, por VCX-D036, y `blends` público es un repositorio nuevo cuyo checkout ocupa `vcx/blends/`; la tabla de objetivo ya lo refleja. VCX-D036, ratificada el 2026-11-02, hace que la estructura local replique la de GitHub repositorio por repositorio: `vcx/cellars/` es la instancia y cada proyecto vive en `vcx/cellars/<proyecto>/` con repositorio propio.
 
 ## Qué no se rompe
 

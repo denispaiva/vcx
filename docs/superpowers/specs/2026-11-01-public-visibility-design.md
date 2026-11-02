@@ -55,11 +55,11 @@ Conclusión: Blends público es un repositorio nuevo, y el precursor sigue priva
 | `blends` | Público, nuevo | Producto Blends: kernel, método, estándares, biblioteca de CI con sus tags `ci-v*` | Export revisado de las rutas del kernel del precursor | `vcx/blends/` |
 | `brix` | Público, nuevo | Producto Brix: núcleo de capacidades | Export revisado de `vc/brix/`, sin `data/` ni `finops/` | `vcx/brix/` |
 | `cellar` | Público, nuevo | Producto Cellar: modelo de iniciativa, plantillas, contrato de conducción | `vcx/cellar/` | `vcx/cellar/` |
-| Instancia de Cellar, `solera` por VCX-D009 | Privado | El precursor continuado: proyectos vivos, `ideas/`, `vc/finops/`, IDs de entorno, historial de evaluaciones, `queue` del portfolio, despliegues | Renombre del repositorio `blends` actual, con su historial íntegro | `vcx/cellars/<instancia>/` |
-| Un repositorio por proyecto, cuando VCX-D010 lo decida | Privado | Código de cada proyecto | Extracción desde la instancia | `vcx/cellars/<instancia>/…` o donde VCX-D010 fije |
+| Instancia de Cellar, `solera` por VCX-D009 | Privado | El precursor continuado: proyectos vivos, `ideas/`, `vc/finops/`, IDs de entorno, historial de evaluaciones, `queue` del portfolio, despliegues | Renombre del repositorio `blends` actual, con su historial íntegro | `vcx/cellars/`, por VCX-D036 |
+| Un repositorio por proyecto, cuando VCX-D010 lo decida | Privado | Código de cada proyecto | Extracción desde la instancia | `vcx/cellars/<proyecto>/`, por VCX-D036 |
 | `Teyst`, `syrah`, `merlot`, `TintumHero` | Sin cambio | Heredados y ajenos | Sin cambio | Ninguno |
 
-[P] VCX-D036, propuesta del 2026-11-01 en el [registro](../../decisions/README.md), cambia esta colocación a `vcx/cellars/` como repositorio de la instancia, con cada proyecto en `vcx/cellars/<proyecto>/`, para que la estructura local replique la de GitHub; hasta su ratificación rige lo siguiente. Consecuencia local: el clon de autoría de VCX-D030 no se coloca en `vcx/blends/` sino en `vcx/cellars/<instancia>/`, porque el precursor continuado es la instancia; `vcx/blends/` pasa a ser el checkout del repositorio público nuevo. Cada carpeta local corresponde a un repositorio y a un producto o instancia, sin excepciones.
+VCX-D036, ratificada el 2026-11-02 en el [registro](../../decisions/README.md), cambia esta colocación a `vcx/cellars/` como repositorio de la instancia, con cada proyecto en `vcx/cellars/<proyecto>/`, para que la estructura local replique la de GitHub; lo siguiente queda como antecedente. Consecuencia local: el clon de autoría de VCX-D030 no se coloca en `vcx/blends/` sino en `vcx/cellars/<instancia>/`, porque el precursor continuado es la instancia; `vcx/blends/` pasa a ser el checkout del repositorio público nuevo. Cada carpeta local corresponde a un repositorio y a un producto o instancia, sin excepciones.
 
 ## CI sin cuota
 
