@@ -57,8 +57,8 @@ Ninguna pieza es autoridad: Blends propone y verifica, Brix calcula y asesora, C
 |---|---|---|
 | **Comando** | Punto de entrada que una persona o un agente invoca | `npm run backlog`, `/idea` |
 | **Subcomando** | Una operación concreta dentro de un comando | `board`, `add`, `triage`, `promote` |
-| **Vista** | Lo que se presenta a una persona a partir de los datos. Es derivada: no reemplaza la fuente | La vista Backlog, `roadmap/backlog.html` |
-| **Snapshot** | Copia fechada de datos para alimentar una vista; se regenera y no se edita | `roadmap/backlog-snapshot.js` |
+| **Vista** | Lo que se presenta a una persona a partir de los datos. Es derivada: no reemplaza la fuente | La vista Backlog, `roadmap/backlog.html`, en una rama sin integrar del precursor |
+| **Snapshot** | Copia fechada de datos para alimentar una vista; se regenera y no se edita | `roadmap/backlog-snapshot.js`, en la misma rama |
 
 «Feature» no se usa en la documentación: es ambiguo entre una capacidad que existe y una unidad de trabajo del roadmap. Se dice **capacidad** para lo primero y **épica** o **tarea** para lo segundo.
 
@@ -92,14 +92,16 @@ Hay dos clases de roadmap con el mismo formato. El de **cada producto** (Blends,
 
 ## Caso de referencia: `board`
 
-`board` es un **subcomando** de la capacidad de backlog. Genera la **vista** Backlog a partir de un **snapshot**. No es un producto ni una feature, y no gestiona datos: solo los lee.
+`board` es un **subcomando** de la capacidad de backlog, invocado como `npm run backlog -- board`. Genera la **vista** Backlog a partir de un **snapshot**. No es un producto ni una feature, y no gestiona datos: no escribe en la cola ni en los roadmaps. Sí escribe el snapshot derivado y, salvo con `--offline`, actualiza con un fetch la ref remota de `queue`.
+
+Estado verificado el 2026-11-02 en el precursor, solo con lectura: `board` existe únicamente en la rama `feat/framework-backlog-view` (`6510adb9`), creada bajo VCX-D027 y encolada para el tren según la ref local de `queue`, consultada sin fetch. No está en `main` (`f86a2a7d`): allí la capacidad `instrument.backlog` está registrada, pero su comando no ofrece ese subcomando.
 
 | Pregunta | En el precursor, hoy | En el modelo objetivo de D029 |
 |---|---|---|
-| ¿Dónde está implementado? | En el repositorio de Blends, registrado como `instrument.backlog` con dueño `blends` | Sin decidir; depende del contrato de conducción |
+| ¿Dónde está implementado? | En el repositorio de Blends: la capacidad `instrument.backlog`, con dueño `blends`, en `main`; `board`, solo en la rama sin integrar | Sin decidir; depende del contrato de conducción |
 | ¿De quién son los datos que lee? | Del repositorio de Blends: rama `queue` y `.roadmap.json` | De la instancia de Cellar, por su contrato |
 | La regla de orden: prioridad confirmada, luego sugerida, luego antigüedad | Regla del backlog de Blends | Vale para todos los proyectos: **método**, Blends |
-| Mostrar el backlog de un proyecto concreto | Lo hace `board` | Uso en la **conducción**, Cellar |
-| Calcular la proyección a partir de los datos | Lógica de `board` | Si se reutiliza, **capacidad**, Brix |
+| Mostrar el backlog de un proyecto concreto | Lo hace `board`, en la rama sin integrar | Uso en la **conducción**, Cellar |
+| Calcular la proyección a partir de los datos | Lógica de `board`, en la misma rama | Si se reutiliza, **capacidad**, Brix |
 
-Mientras no exista el contrato de Cellar, `board` lee la rama `queue` y `roadmap/data.js` directamente. Es deuda declarada y se resuelve al definir ese contrato.
+Mientras no exista el contrato de Cellar, `board` lee en esa rama la ref de `queue` y `roadmap/data.js` directamente. Es deuda declarada y se resuelve al definir ese contrato.
