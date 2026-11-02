@@ -438,7 +438,7 @@ Configuración independiente por repositorio: cada repositorio de VCX lleva su p
 
 ### 4.1 Instalación local reproducible, darwin arm64
 
-Etiqueta: **propuesto sin ejecutar** en esta máquina. Es el procedimiento que el precursor documenta en `vc/docs/standards/secrets.md`, reproducido sin cambios de fondo. Procedencia: `checksums.txt` está firmado con Sigstore desde el workflow de release del proyecto; la identidad del certificado no está documentada por Betterleaks y se infiere de ese workflow, pero el precursor obtuvo «Verified OK» con ella el 2026-10-01. Integridad: el SHA-256 del tarball se comprueba contra el valor fijado aquí y contra la línea firmada; el valor de darwin arm64 coincide con el que el [scan del 2026-11-02](../reports/2026-11-02-vcx-secrets-scan.md) leyó de la release. Requiere `cosign`, hoy no instalado (`brew install cosign`); sin `cosign` el procedimiento no se degrada a «solo checksum»: se detiene. VCX no firma nada propio, porque no distribuye artefactos.
+Etiqueta: **ejecutable verificado** en esta máquina el 2026-11-02 a las 12:14 UTC, con autorización del usuario «Sí, instalar y activar»: `cosign` 3.1.4 instalado con Homebrew; `cosign verify-blob` devolvió «Verified OK» con la identidad indicada; los dos `shasum -c` dieron `OK`; `betterleaks version` imprime `2.0.0-rc.1`; binario en `~/.local/bin`, que no está en el `PATH` de los shells de esta máquina, por lo que el hook lo antepone. Es el procedimiento que el precursor documenta en `vc/docs/standards/secrets.md`, reproducido sin cambios de fondo. Procedencia: `checksums.txt` está firmado con Sigstore desde el workflow de release del proyecto; la identidad del certificado no está documentada por Betterleaks y se infiere de ese workflow, pero el precursor obtuvo «Verified OK» con ella el 2026-10-01. Integridad: el SHA-256 del tarball se comprueba contra el valor fijado aquí y contra la línea firmada; el valor de darwin arm64 coincide con el que el [scan del 2026-11-02](../reports/2026-11-02-vcx-secrets-scan.md) leyó de la release. Requiere `cosign`, hoy no instalado (`brew install cosign`); sin `cosign` el procedimiento no se degrada a «solo checksum»: se detiene. VCX no firma nada propio, porque no distribuye artefactos.
 
 ```bash
 (
@@ -467,7 +467,7 @@ Etiqueta: **propuesto sin ejecutar** en esta máquina. Es el procedimiento que e
 
 Homebrew ofrece Betterleaks 1.9.0, de la línea v1, que no entiende `--config`, `--ignore-file`, `--validate` ni `--analyze`; no sirve para esta compuerta. Por eso se instala la release fijada y el hook exige la versión exacta.
 
-Configuración del repositorio, `.betterleaks.toml` en la raíz de `vcx`, etiqueta **propuesto sin ejecutar**. v2 no la descubre sola: el hook y el workflow la pasan con `--config`, y su ausencia es un error, no un pase con defaults. A diferencia del precursor no se desactiva `generic-password`: el scan del 2026-11-02 con las reglas por defecto dio cero hallazgos en `vcx`, así que no hay falsos positivos que justificar todavía.
+Configuración del repositorio, [`.betterleaks.toml`](../../../.betterleaks.toml) en la raíz de `vcx`, creada el 2026-11-02. v2 no la descubre sola: el hook y el workflow la pasan con `--config`, y su ausencia es un error, no un pase con defaults. A diferencia del precursor no se desactiva `generic-password`: el scan del 2026-11-02 con las reglas por defecto dio cero hallazgos en `vcx`, así que no hay falsos positivos que justificar todavía.
 
 ```toml
 # Compuerta de secretos de la raíz vcx: Betterleaks 2.0.0-rc.1. Extiende las reglas por defecto.
@@ -479,13 +479,15 @@ title = "vcx — Betterleaks"
 useDefault = true
 ```
 
-Hook `.githooks/pre-commit` con el motor, que reemplaza al interino de la §3.8 cuando el motor esté instalado. Falla cerrado: sin binario, con otra versión o sin configuración no hay commit. `--validate=false --analyze=false` explícitos, porque en v2 la validación también se enciende por variable de entorno y enviaría los candidatos a las API de sus proveedores. Con `--exit-code 3`, los hallazgos salen con 3 y cualquier error con 1; el flag está documentado («`--exit-code` changes that»), y la distinción se comprueba en la primera ejecución.
+Hook [`.githooks/pre-commit`](../../../.githooks/pre-commit) con el motor, activo en este clon desde el 2026-11-02 con `git config core.hooksPath .githooks`, ruta relativa; reemplaza al interino de la §3.8, que queda como segunda herramienta para SEC-14. Probado en un repositorio desechable con el mismo hook y configuración: commit limpio pasa; commit con un token sintético de GitHub bloqueado por la rama 3, salida redactada sin el valor; `git commit -a` con el valor en un archivo rastreado bloqueado; sin `.betterleaks.toml` bloqueado por la comprobación previa. En `vcx`, el hook sobre el índice con la configuración y el hook preparados dio «no leaks found», `config_hash` `2b8e4814…`, el mismo del scan del 2026-11-02. Falla cerrado: sin binario, con otra versión o sin configuración no hay commit. `--validate=false --analyze=false` explícitos, porque en v2 la validación también se enciende por variable de entorno y enviaría los candidatos a las API de sus proveedores. Con `--exit-code 3`, los hallazgos salen con 3 y cualquier error con 1; el flag está documentado («`--exit-code` changes that»), y la distinción se comprueba en la primera ejecución.
 
 ```bash
 #!/bin/sh
 # Compuerta de secretos de la raíz vcx: Betterleaks 2.0.0-rc.1 sobre el índice. Falla cerrado.
 # Se deja GIT_INDEX_FILE: en `git commit -a` apunta al índice temporal que se commitea.
+# Diseño y procedimiento: docs/superpowers/specs/2026-11-02-secret-detection-strategy-design.md §4.1.
 unset GIT_DIR GIT_WORK_TREE GIT_PREFIX
+PATH="$HOME/.local/bin:$PATH"   # la release verificada se instala ahí; los hooks no cargan el perfil del shell
 ROOT="$(git rev-parse --show-toplevel)"
 V=2.0.0-rc.1
 command -v betterleaks >/dev/null 2>&1 || { echo "✖ betterleaks no está instalado; ver docs/superpowers/specs/2026-11-02-secret-detection-strategy-design.md §4.1" >&2; exit 1; }
@@ -693,7 +695,7 @@ Aplica a cualquier modo, local o CI, con el script interino o con el scanner ded
 | Fase | Entregables | Responsable propuesto | Dependencias | Criterio observable de salida |
 |---|---|---|---|---|
 | **1. Compuerta local interina** | Script en `scripts/`, pruebas en `scripts/tests/`, procedimiento de la §3.8, hook opcional | R: quien prepare el siguiente push; A: responsable del portfolio | Archivos agregados el 2026-11-02, sin commit; falta decidir el hook | Las 18 comprobaciones en verde desde el repositorio, cumplido el 2026-11-02; `--history` en 0 sobre el SHA a subir, cumplido sobre `09bcced`; reporte en `docs/superpowers/reports/`, pendiente |
-| **2. Motor dedicado, local y CI** | Decisión de motor tomada el 2026-11-02 (Betterleaks); versión y excepción registradas en el registro de decisiones; `cosign` y Betterleaks instalados con verificación; `.github/workflows/secrets.yml`; `.betterleaks.toml`; ruleset cuando haya autoridad | A: responsable del portfolio | Fase 1 no es prerrequisito técnico; faltan la autoridad para instalar y para crear el workflow | Un commit con un valor sintético bloqueado en local; un run de CI identificado, rojo con el fixture y verde sin él; ruleset que exige el check, comprobado por API |
+| **2. Motor dedicado, local y CI** | Decisión de motor tomada el 2026-11-02 (Betterleaks); versión y excepción registradas en el registro de decisiones; `cosign` y Betterleaks instalados con verificación; `.github/workflows/secrets.yml`; `.betterleaks.toml`; ruleset cuando haya autoridad | A: responsable del portfolio | Instalación y hook hechos el 2026-11-02 en este clon; faltan el registro de la decisión, el commit de la configuración y el hook, y la autoridad para crear el workflow | Un commit con un valor sintético bloqueado en local; un run de CI identificado, rojo con el fixture y verde sin él; ruleset que exige el check, comprobado por API |
 | **3. Controles y evidencia** | Filas SEC-22 a SEC-24 en el inventario; SEC-03 actualizado; reportes por escaneo; retiro o reubicación del script interino como segunda herramienta de SEC-14 | R: quien prepare la transición; A: responsable del portfolio | Fases 1 y 2 | Cada fila con estado, evidencia fechada y SHA; ninguna fila en Verificado sin la prueba que su definición exige |
 
 Orden: la fase 1 puede ejecutarse hoy con una autorización de dos archivos. La fase 2 está desbloqueada del lado de GitHub desde las 11:54 UTC y bloqueada del lado local por la decisión de motor. La fase 3 cierra cada una con evidencia, no con redacción.
@@ -711,11 +713,11 @@ Orden: la fase 1 puede ejecutarse hoy con una autorización de dos archivos. La 
 | Objeto sobre 1 MiB | 1 | Fixture 5 | 3, nunca 0 | Verificado |
 | Binario con secreto | 1 | Fixture 6 | 0, límite declarado | Verificado |
 | Ruta que no es repositorio; sin modo | 1 | Fixture 7 | 2 | Verificado |
-| Hook bloquea `git commit -a` con secreto no preparado | 1 | Commit en un clon desechable con el hook activo | Commit rechazado con código 1 | Propuesto sin ejecutar |
-| Scanner dedicado bloquea un valor sintético en local | 2 | Mismo fixture con el motor elegido, `--staged` | Código 1, hallazgo redactado | Propuesto sin ejecutar |
+| Hook bloquea `git commit -a` con secreto no preparado | 2 | Commit en un clon desechable con el hook de Betterleaks activo | Commit rechazado con código 1 | Verificado 2026-11-02 con el hook de la §4.1; no probado con el interino |
+| Scanner dedicado bloquea un valor sintético en local | 2 | Token sintético de GitHub preparado en un clon desechable, hook activo | Betterleaks sale con 3, el hook con 1, salida redactada | Verificado 2026-11-02 |
 | CI rojo con fixture en un PR; verde sin él | 2 | Dos PR de prueba desde una rama del propio repositorio | Run rojo y run verde identificados | Propuesto sin ejecutar |
 | Verificación de integridad falla | 2 | Alterar un byte del tarball descargado en un run de prueba | El paso de verificación falla antes de extraer; el job no pasa al escaneo | Propuesto sin ejecutar |
-| Error de configuración | 2 | Quitar el archivo de configuración del motor en una rama de prueba | El job falla con mensaje explícito; no se escanea con defaults | Propuesto sin ejecutar |
+| Error de configuración | 2 | Quitar el archivo de configuración del motor | El job o el hook fallan con mensaje explícito; no se escanea con defaults | Verificado 2026-11-02 en local; en CI, propuesto sin ejecutar |
 | Fallo operativo del scanner | 2 | Binario incorrecto para la plataforma | El job falla; nunca pasa a verde por ausencia de hallazgos | Propuesto sin ejecutar |
 | Push protection bloquea un push | 3 | Push de un valor sintético con formato de proveedor soportado a una rama de prueba | Push rechazado por GitHub con referencia al patrón | Propuesto sin ejecutar; requiere autoridad por ser un push a un repositorio público |
 | Check obligatorio impide integrar | 3 | PR con run rojo | Botón de merge bloqueado; API lo confirma | Propuesto sin ejecutar |
@@ -724,7 +726,7 @@ Orden: la fase 1 puede ejecutarse hoy con una autorización de dos archivos. La 
 
 1. **Registro de la decisión de motor** en el registro de decisiones: Betterleaks, decidido por el usuario el 2026-11-02; versión 2.0.0-rc.1 propuesta con excepción propia de VCX y revisión al publicarse la primera 2.x estable. Autoridad: responsable del portfolio.
 2. **Commit de `scripts/secret-regex-check.py`, su prueba y este documento**, y autorización para activar el hook de la §3.8 en este clon. Los archivos ya están en el árbol de trabajo desde el 2026-11-02.
-3. **Autorización para instalar `cosign` y Betterleaks 2.0.0-rc.1 en la máquina**, con el procedimiento de la §4.1; sin `cosign` no se verifica la procedencia y el procedimiento se detiene.
+3. **Instalación hecha el 2026-11-02** de `cosign` 3.1.4 y Betterleaks 2.0.0-rc.1 en esta máquina, con firma y hashes verificados; `.betterleaks.toml` y `.githooks/pre-commit` entraron al historial en `b3c0bb5`, un commit de otra sesión sobre el tablero del portfolio que arrastró los archivos preparados en el índice compartido; la procedencia correcta es esta estrategia, y el mensaje de ese commit no la menciona. Se registra como deuda de trazabilidad, sin reescribir historia. Falta repetir la instalación en cualquier otro clon o máquina.
 4. **Autorización para el workflow en `main` de `denispaiva/vcx`** y, con él, la primera ejecución de Actions en un repositorio de VCX. Sin costo en runners estándar para repositorios públicos según VCX-D032, condición que conviene volver a leer en la documentación de GitHub al activarlo.
 5. **Ruleset con check obligatorio**: autoridad y decisión de si `main` admite push directo mientras el único autor es el responsable del portfolio.
 6. **Funciones de GitHub apagadas**: decidir si se activan patrones no de proveedor, alertas de vulnerabilidades y actualizaciones de seguridad de Dependabot en `denispaiva/vcx`. Hoy sin dependencias ejecutables, su valor es bajo; se registra para que la cobertura parcial de SEC-22 no se lea como completa.
