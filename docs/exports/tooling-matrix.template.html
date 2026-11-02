@@ -55,7 +55,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .s-Rechazado{color:var(--gap);background:transparent;border:1px solid var(--gap)} .b-Rechazado{border-left-color:var(--gap);border-left-style:dashed} .d-Rechazado{background:transparent;border:2px solid var(--gap)}
 button.tile.rejected .name{text-decoration:line-through;text-decoration-thickness:1.5px;color:var(--muted)}
 .swap{font-size:12.5px;font-weight:600}
-.vcx{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.vcx{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--accent);border:1.5px solid var(--accent);border-radius:999px;padding:1px 8px;white-space:nowrap}
 .tile .head{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .swap.out{color:var(--gap)} .swap.in{color:var(--obs)}
 .pairs{display:grid;gap:12px}
@@ -121,7 +121,7 @@ mark{background:var(--mark);color:var(--mark-ink);border-radius:3px;padding:0 1p
     <div><span class="dot d-Brecha"></span><b>Brecha</b><br>Necesidad sin herramienta o sin capacidad.</div>
     <div><span class="dot d-Sin"></span><b>Sin herramienta</b><br>La capacidad o la persona no necesitan skill ni MCP.</div>
     <div><span class="dot d-Rechazado"></span><b>Rechazado</b><br>Decisión humana de no usarla; se muestra junto a su reemplazo.</div>
-    <div><span class="vcx">Hecha en VCX</span><br>Construida o adaptada por VCX; no viene de terceros ni del precursor.</div>
+    <div><span class="vcx">powered by VCX</span><br>Construida o adaptada por VCX; no viene de terceros ni del precursor.</div>
   </div>
 </main>
 <dialog id="dlg" aria-labelledby="dlg-title">
@@ -166,7 +166,7 @@ const norm = s => [...String(s)].map(fold).join("");
 const plain = s => String(s).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`/g, "");
 const useText = u => plain([u.product, u.phase, u.need, u.cap, u.tool, u.state, u.note].join(" "));
 DATA.items.forEach(it => {
-  it.self = norm(plain([it.id, it.kind, it.home, it.source, it.note, it.origin, it.own ? "Hecha en VCX" : "", it.review ? it.review.label : "",
+  it.self = norm(plain([it.id, it.kind, it.home, it.source, it.note, it.origin, it.own ? "powered by VCX" : "", it.review ? it.review.label : "",
     it.eval ? DECISION[it.eval.status] || it.eval.status : ""].join(" ")));
   it.uses.forEach(u => u.idx = norm(useText(u)));
   it.idx = it.self + " " + it.uses.map(u => u.idx).join(" ");
@@ -236,7 +236,7 @@ function useHtml(u, it){
 function open(it){
   document.getElementById("dlg-title").innerHTML = it.code ? `<code>${esc(it.id)}</code>` : esc(it.id);
   document.getElementById("dlg-sub").innerHTML =
-    (it.own ? `<span class="vcx">Hecha en VCX</span> ` : "") +
+    (it.own ? `<span class="vcx">powered by VCX</span> ` : "") +
     `${esc(it.kind)} · vive en <b>${esc(it.home)}</b> · fuente: ${md(it.source)}` + (it.origin ? ` · construida por ${md(it.origin)}` : "") + (it.note ? `<br>${md(it.note)}` : "") +
     (it.replacedBy ? `<br><span class="swap out">Reemplazada por ${esc(it.replacedBy)}</span>` : "") +
     (it.replaces ? `<br><span class="swap in">Reemplaza a ${esc(it.replaces)}</span>` : "") +
@@ -261,7 +261,7 @@ function tile(it){
   b.className = `tile b-${cls(best)}${best === "Rechazado" ? " rejected" : ""}`;
   b.setAttribute("aria-haspopup", "dialog");
   const counts = {}; it.uses.forEach(u => counts[u.state] = (counts[u.state] || 0) + 1);
-  b.innerHTML = `<span class="head"><span class="kind">${esc(it.kind)}</span>${it.own ? `<span class="vcx" title="${esc(plain(it.origin))}">Hecha en VCX</span>` : ""}</span>
+  b.innerHTML = `<span class="head"><span class="kind">${esc(it.kind)}</span>${it.own ? `<span class="vcx" title="${esc(plain(it.origin))}">powered by VCX</span>` : ""}</span>
     <span class="name${it.code ? "" : " plain"}">${esc(it.id)}</span>
     ${it.review ? `<span class="rev r-${it.review.key}">${esc(it.review.label)}</span>` : ""}
     ${it.replacedBy ? `<span class="swap out">Reemplazada por ${esc(it.replacedBy)}</span>` : ""}
