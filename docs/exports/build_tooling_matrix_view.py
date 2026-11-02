@@ -124,7 +124,7 @@ if eval_dirs:
         e = json.loads(f.read_text())
         decision = (e.get("humanDecision") or {})
         it["eval"] = dict(status=decision.get("status") or e.get("status"), decidedAt=(decision.get("decidedAt") or "")[:10],
-                          expiresAt=(e.get("expiresAt") or "")[:10], score=round(e.get("overallScore") or 0, 1),
+                          expiresAt=(e.get("expiresAt") or "")[:10], reviewAt=(decision.get("reviewAt") or "")[:10], score=round(e.get("overallScore") or 0, 1),
                           risk=e.get("riskLevel"), confidence=e.get("confidence"),
                           source=source, shadows=len(found) > 1)
 

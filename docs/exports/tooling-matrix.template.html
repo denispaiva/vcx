@@ -153,12 +153,17 @@ function reviewOf(it){
     return {key: "rechazada", label: it.eval ? `Rechazada · puntaje ${it.eval.score}` : "Rechazada"};
   if (it.eval === null) return {key: "sin", label: "Sin evaluación"};
   if (it.eval.status === "decision_pending") return {key: "pendiente", label: "Decisión pendiente"};
-  if (!it.eval.expiresAt) return {key: "sin", label: "Sin fecha de revisión"};
-  const days = Math.round((new Date(it.eval.expiresAt + "T00:00:00") - today) / 864e5);
-  if (days < 0) return {key: "vencida", label: ADMITS.includes(it.eval.status)
-    ? `Sin admisión · venció el ${fmt(it.eval.expiresAt)}` : `Revisión vencida el ${fmt(it.eval.expiresAt)}`};
-  if (days <= 30) return {key: "pronto", label: `Revisar antes del ${fmt(it.eval.expiresAt)} · ${days === 0 ? "hoy" : `en ${days} ${days === 1 ? "día" : "días"}`}`};
-  return {key: "vigente", label: `Vigente hasta ${fmt(it.eval.expiresAt)}`};
+  // La revisión vence en la fecha más temprana entre la decidida (reviewAt) y la del motor (expiresAt);
+  // la admisión, solo con expiresAt (VCX-D035).
+  const due = [it.eval.reviewAt, it.eval.expiresAt].filter(Boolean).sort()[0];
+  if (!due) return {key: "sin", label: "Sin fecha de revisión"};
+  const until = d => Math.round((new Date(d + "T00:00:00") - today) / 864e5);
+  const days = until(due);
+  if (it.eval.expiresAt && until(it.eval.expiresAt) < 0 && ADMITS.includes(it.eval.status))
+    return {key: "vencida", label: `Sin admisión · venció el ${fmt(it.eval.expiresAt)}`};
+  if (days < 0) return {key: "vencida", label: `Revisión vencida el ${fmt(due)}`};
+  if (days <= 30) return {key: "pronto", label: `Revisar antes del ${fmt(due)} · ${days === 0 ? "hoy" : `en ${days} ${days === 1 ? "día" : "días"}`}`};
+  return {key: "vigente", label: `Vigente · revisar el ${fmt(due)}`};
 }
 DATA.items.forEach(it => it.review = reviewOf(it));
 const fold = c => (c.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase() || c)[0];
@@ -243,6 +248,7 @@ function open(it){
     (it.review ? `<div class="evalbox">${it.eval ? [
       ["Revisión", `<span class="rev r-${it.review.key}">${esc(it.review.label)}</span>`],
       ["Decisión", esc(DECISION[it.eval.status] || it.eval.status || "—")], ["Decidida", fmt(it.eval.decidedAt)],
+      ["Revisar el", fmt(it.eval.reviewAt)], ["Evaluación vence", fmt(it.eval.expiresAt)],
       ["Puntaje", esc(it.eval.score)], ["Riesgo", esc(LEVEL[it.eval.risk] || it.eval.risk || "—")], ["Confianza", esc(LEVEL[it.eval.confidence] || it.eval.confidence || "—")],
       ["Fuente", (SOURCE[it.eval.source] || esc(it.eval.source || "—")) + (it.eval.shadows ? " · prevalece sobre el registro del precursor" : "")]
     ].map(([k, v]) => `<div><span>${k}</span>${v}</div>`).join("") : `<div><span>Revisión</span><span class="rev r-sin">Sin evaluación registrada</span></div>`}</div>` : "");
