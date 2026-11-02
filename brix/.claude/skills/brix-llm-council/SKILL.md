@@ -7,7 +7,7 @@ description: "Run a documented council over a Markdown document with an explicit
 
 Adaptación local del comando `/council` del precursor. Procedencia, método original, diferencias y decisiones de diseño: [PROVENANCE.md](PROVENANCE.md). El método (asesores independientes, revisión cruzada anónima, síntesis) proviene del LLM Council de Andrej Karpathy; aquí se declara su contrato.
 
-Estado: herramienta **candidata**, sin admisión ni uso medido. Produce asesoramiento; no decide, no aprueba y no recomienda ingreso, graduación ni aprobación. La decisión es del humano.
+Estado: **aprobada con excepción** el 2026-11-02 (puntaje 58,0 bajo el umbral; detalle en [PROVENANCE.md](PROVENANCE.md)), sin uso medido; cada corrida requiere autorización. Produce asesoramiento; no decide, no aprueba y no recomienda ingreso, graduación ni aprobación. La decisión es del humano.
 
 ### Entrada
 

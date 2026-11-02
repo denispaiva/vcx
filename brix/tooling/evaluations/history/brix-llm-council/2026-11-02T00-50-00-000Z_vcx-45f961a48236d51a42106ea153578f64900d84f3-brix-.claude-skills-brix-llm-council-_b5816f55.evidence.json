@@ -1,0 +1,333 @@
+{
+  "candidate": {
+    "id": "brix-llm-council",
+    "type": "skill",
+    "sourceUrl": "file:brix/.claude/skills/brix-llm-council",
+    "evaluatedRef": "vcx@45f961a48236d51a42106ea153578f64900d84f3:brix/.claude/skills/brix-llm-council/"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "unavailable",
+        "rationale": "Skill propia sin repositorio público, releases ni gestor de issues; existe desde el 2026-11-01 (6 commits en VCX, todos ese día). Según VCX-D035, maintenance queda unavailable en una skill propia: el dato no aplica todavía, no es un cero."
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "unavailable",
+        "rationale": "Skill propia sin repositorio público, releases ni gestor de issues; existe desde el 2026-11-01 (6 commits en VCX, todos ese día). Según VCX-D035, maintenance queda unavailable en una skill propia: el dato no aplica todavía, no es un cero."
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "unavailable",
+        "rationale": "Skill propia sin repositorio público, releases ni gestor de issues; existe desde el 2026-11-01 (6 commits en VCX, todos ese día). Según VCX-D035, maintenance queda unavailable en una skill propia: el dato no aplica todavía, no es un cero."
+      },
+      {
+        "id": "responseHealth",
+        "availability": "unavailable",
+        "rationale": "Skill propia sin repositorio público, releases ni gestor de issues; existe desde el 2026-11-01 (6 commits en VCX, todos ese día). Según VCX-D035, maintenance queda unavailable en una skill propia: el dato no aplica todavía, no es un cero."
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "unavailable",
+        "rationale": "Sin código ejecutable propio ni dependencias: no hay base de avisos aplicable. El riesgo de la skill es de instrucciones (lecturas, inyección), cubierto en securityHygiene y permissionTransparency."
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Autoría propia con historia completa en el Git local de VCX (6 commits del 2026-11-01). PROVENANCE.md registra el comando de origen del precursor con revisión y SHA-256, y atribuye el método a Karpathy sin copiar código. Descuentos: sin remoto ni firma de commits, sin licencia declarada.",
+        "evidenceRefs": [
+          "vcx:brix/.claude/skills/brix-llm-council/PROVENANCE.md@45f961a (medido 2026-11-01)",
+          "vcx:git log -- brix/.claude/skills/brix-llm-council/ (medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tratamiento del contenido como dato probado con consumo real: en la corrida 2 los cinco asesores señalaron la instrucción incrustada y ninguno la obedeció (C11, C12). Descuentos: VCX no tiene CI, escaneo de secretos ni commits firmados; la restricción de lectura es instructiva y el entorno no la aplica; el contexto del host es un canal que la skill no puede cerrar.",
+        "evidenceRefs": [
+          "vcx:docs/superpowers/reports/2026-11-01-council-stage2-runs.md (C3, C11, C12; medido 2026-11-01)",
+          "vcx:brix/.claude/skills/brix-llm-council/SKILL.md@45f961a"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SKILL.md declara lecturas (lista cerrada pasada en la consigna), el contexto del host como canal no cubierto, la única escritura (un reporte nuevo en el destino autorizado, nunca sobrescribe), el tope de 11 invocaciones sin reintentos y el runner subagent; reserva el runner command con su riesgo. Descuento: todo es declarativo, no hay control ejecutable.",
+        "evidenceRefs": [
+          "vcx:brix/.claude/skills/brix-llm-council/SKILL.md@45f961a (medido 2026-11-01)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cubre la capacidad llm-council (Reporte del consejo), cuyo candidato externo llm-council-skill se rechazó: consejo de cinco asesores, revisión cruzada anónima y síntesis sobre cualquier documento Markdown con pregunta explícita. No cubre: asiento de otra familia de modelo (decorrelated false), driver ejecutable ni reanudación.",
+        "evidenceRefs": [
+          "vcx:docs/architecture/tooling-matrix.md (fila llm-council; medido 2026-11-01)",
+          "vcx:brix/.claude/skills/brix-llm-council/SKILL.md@45f961a"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Corrió en Claude Code (app de escritorio) con subagentes: 26 asientos ejecutados con identidad observada igual a la solicitada y cero llamadas a herramientas. Límite: solo se descubre desde el directorio brix/ y depende del formato de skills de Claude Code.",
+        "evidenceRefs": [
+          "vcx:docs/superpowers/reports/2026-11-01-council-stage2-runs.md (C2, C3; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Frente a /council del precursor: entrada por documento con revisión en vez de slug de idea, lecturas cerradas y declaradas, guarda de repetición por hash de revisión, pregunta y bindings, parciales sin mapeo, conteo de palabras y recorte de autoidentificación registrados; y es usable desde VCX sin escribir en el precursor, que /council sí requiere (traza en ideas/). Mismo método. Costo agregado: más trabajo manual del orquestador.",
+        "evidenceRefs": [
+          "vcx:brix/.claude/skills/brix-llm-council/PROVENANCE.md@45f961a (Diferencias frente a /council; medido 2026-11-01)",
+          "blends:.claude/commands/council.md@f86a2a7 (sha256 bcc70adc...7885004)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Una sola observación con documento real: tras leer la corrida 1 sobre el inventario de deuda, el usuario autorizó revisar VCX-D031, que corrigió una contradicción interna señalada por el consejo. La síntesis corrigió hechos que los revisores marcaron mal. Sin grupo de control ni repetición; las corridas 2 y 3 son sintéticas y no cuentan, ni las trazas de /council del precursor.",
+        "evidenceRefs": [
+          "vcx:docs/superpowers/reports/2026-11-01-council-inherited-debt-design.md",
+          "vcx:docs/decisions/README.md (revisión de VCX-D031; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 80,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Copia de una carpeta con dos archivos Markdown (2565 palabras), sin instalación ni dependencias. El consumidor debe suministrar documento, pregunta, destino, referencias y bindings antes de cada corrida.",
+        "evidenceRefs": [
+          "vcx:brix/.claude/skills/brix-llm-council/SKILL.md@45f961a (Entrada; medido 2026-11-01)",
+          "vcx:brix/.claude/skills/brix-llm-council/PROVENANCE.md@45f961a (Distribución)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "rationale": "Sin señal de uso: la skill no está en ningún roadmap del precursor ni en vc/tooling/usage/records/, y VCX no tiene contador de invocaciones. Las corridas de las etapas 1 y 2 fueron pruebas autorizadas, no adopción."
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 20,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin suite automatizada repetible. Evidencia por VCX-D035: la etapa 2 fijó 16 criterios antes de ejecutar y los verificó con herramientas sobre 27 transcripciones; 15 cumplidos y C8 (límites de palabras) incumplido. La corrección de ce392b1 no se volvió a verificar con una corrida.",
+        "evidenceRefs": [
+          "vcx:docs/superpowers/reports/2026-11-01-council-stage2-runs.md (Resultado por criterio; medido 2026-11-01)",
+          "vcx:docs/superpowers/plans/2026-11-01-council-stage2-run-plan.md"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SKILL.md declara entrada, recursos, pasos, repetición, fallos, salida y límites; PROVENANCE.md cubre origen, diferencias, decisiones, distribución y pendientes; hay diseño y reportes de las etapas 1 y 2. Descuento: no trae un ejemplo de configuración listo para copiar.",
+        "evidenceRefs": [
+          "vcx:brix/.claude/skills/brix-llm-council/SKILL.md@45f961a",
+          "vcx:brix/.claude/skills/brix-llm-council/PROVENANCE.md@45f961a",
+          "vcx:docs/superpowers/reports/2026-11-01-council-stage1-dry-run.md",
+          "vcx:docs/superpowers/reports/2026-11-01-council-stage2-runs.md"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 20,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin versión semántica, tags ni changelog. Fijable por SHA de Git de VCX; PROVENANCE.md registra las revisiones relevantes. 6 commits en un día.",
+        "evidenceRefs": [
+          "vcx:git log -- brix/.claude/skills/brix-llm-council/ (medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 25,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Un host (Claude Code, app de escritorio), una familia de modelo (Claude: haiku, sonnet, opus), tres corridas y 27 invocaciones. El runner command y otros hosts no se probaron.",
+        "evidenceRefs": [
+          "vcx:docs/superpowers/reports/2026-11-01-council-stage2-runs.md (Consumo; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 90,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cero dependencias de paquetes. Requiere subagentes del host y shasum para el hash de corrida.",
+        "evidenceRefs": [
+          "vcx:brix/.claude/skills/brix-llm-council/SKILL.md@45f961a (Repetición)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tope declarado de 11 invocaciones sin reintentos. Medido en la etapa 2: 102 a 159 mil tokens de salida y 1,6 a 1,9 millones de entrada (con caché) por corrida completa. Dinero not_measured: el host no lo expone y no equivale a costo cero.",
+        "evidenceRefs": [
+          "vcx:docs/superpowers/reports/2026-11-01-council-stage2-runs.md (Consumo; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El procedimiento es Markdown legible por cualquier operador, pero su ejecución depende del formato de skills de Claude Code y de sus subagentes; el runner command que permitiría otra familia queda reservado.",
+        "evidenceRefs": [
+          "vcx:brix/.claude/skills/brix-llm-council/SKILL.md@45f961a (Configuración y familia de modelo; Límites)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 95,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se retira borrando la carpeta. La skill solo crea reportes nuevos sin sobrescribir y no deja estado en otro lugar.",
+        "evidenceRefs": [
+          "vcx:brix/.claude/skills/brix-llm-council/SKILL.md@45f961a (Salida)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El orquestador calcula el hash, busca la guarda, sortea el mapeo, rota órdenes, cuenta palabras, recorta autoidentificaciones y arma el reporte a mano; la etapa 2 mostró que funciona, con verificación manual extensa.",
+        "evidenceRefs": [
+          "vcx:docs/superpowers/reports/2026-11-01-council-stage2-runs.md",
+          "vcx:brix/.claude/skills/brix-llm-council/SKILL.md@45f961a"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 60
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false,
+    "localWriteReversible": true
+  }
+}

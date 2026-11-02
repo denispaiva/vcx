@@ -1,0 +1,37 @@
+{
+  "candidate": {
+    "id": "brix-llm-council",
+    "type": "skill",
+    "sourceUrl": "file:brix/.claude/skills/brix-llm-council",
+    "evaluatedRef": "vcx@45f961a48236d51a42106ea153578f64900d84f3:brix/.claude/skills/brix-llm-council/"
+  },
+  "observedAt": "2026-11-02T00:50:00.000Z",
+  "overallScore": 57.99046679815912,
+  "evidenceCoverage": 56,
+  "factorScores": {
+    "community": null,
+    "maintenance": null,
+    "security": 61.53846153846153,
+    "fit": 65.55555555555556,
+    "engineering": 41.5,
+    "sustainability": 60.5
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 70.2,
+  "confidence": "medium",
+  "riskLevel": "medium",
+  "baselineRecommendation": "do_not_advance",
+  "status": "approved_with_exception",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#brix-llm-council",
+  "evidenceInputRef": "brix/tooling/evaluations/brix-llm-council.evidence.json",
+  "expiresAt": "2027-01-31T00:50:00.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "approved_with_exception",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-02T00:53:21.204Z",
+    "rationale": "Excepción a la regla de lectura de VCX-D035, que no admite una recomendación do_not_advance: puntaje 58,0 bajo el umbral de 60, cobertura 56, confianza medium (70). El usuario la admite por su autoridad el 2026-11-02 («Si este lo construimos nosotros por qué no lo aprobaríamos?»; luego «Excepción registrada»), con la necesidad declarada de una skill de Reporte de Consejo. No es cumplimiento de la regla. Riesgo aceptado: medium por localWriteReversible. Reservas: sin verificación automatizada, la corrección ce392b1 sin reverificar con una corrida, un solo host y una familia de modelo, y puntajes rubric asignados por el mismo modelo que escribió la skill. Uso sujeto a autorización por corrida. Revisión a 30 días.",
+    "reviewAt": "2026-12-02",
+    "acceptedRisk": true
+  }
+}

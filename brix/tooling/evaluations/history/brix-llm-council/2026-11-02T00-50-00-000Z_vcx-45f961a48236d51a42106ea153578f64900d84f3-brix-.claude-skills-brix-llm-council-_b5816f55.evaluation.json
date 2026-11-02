@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "brix-llm-council",
+    "type": "skill",
+    "sourceUrl": "file:brix/.claude/skills/brix-llm-council",
+    "evaluatedRef": "vcx@45f961a48236d51a42106ea153578f64900d84f3:brix/.claude/skills/brix-llm-council/"
+  },
+  "observedAt": "2026-11-02T00:50:00.000Z",
+  "overallScore": 57.99046679815912,
+  "evidenceCoverage": 56,
+  "factorScores": {
+    "community": null,
+    "maintenance": null,
+    "security": 61.53846153846153,
+    "fit": 65.55555555555556,
+    "engineering": 41.5,
+    "sustainability": 60.5
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 70.2,
+  "confidence": "medium",
+  "riskLevel": "medium",
+  "baselineRecommendation": "do_not_advance",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#brix-llm-council",
+  "evidenceInputRef": "brix/tooling/evaluations/brix-llm-council.evidence.json",
+  "expiresAt": "2027-01-31T00:50:00.000Z",
+  "communityEvidenceNote": null
+}

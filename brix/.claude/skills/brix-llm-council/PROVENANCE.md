@@ -1,6 +1,6 @@
 # Procedencia de `brix-llm-council`
 
-Fecha: 2026-11-01. Estado: herramienta candidata de Brix, creada a partir de un diseño aprobado por el usuario el 2026-11-01 y ajustada el mismo día según las decisiones VCX-D033; sin evaluación con `/tool`, sin admisión y sin uso medido.
+Fecha: 2026-11-01. Estado: herramienta candidata de Brix, creada a partir de un diseño aprobado por el usuario el 2026-11-01 y ajustada el mismo día según las decisiones VCX-D033; aprobada con excepción el 2026-11-02 según VCX-D035 ([evaluación](../../../../docs/superpowers/reports/2026-11-01-council-stage3-evaluation.md)), sin uso medido.
 
 ## Origen
 
@@ -48,7 +48,7 @@ La skill se descubre solo desde el directorio donde está instalada (`brix/` en 
 ## Qué falta
 
 - Un runtime o driver público: esta skill describe el procedimiento y no está implementada como comando.
-- Evaluación y decisión humana con registro en `brix/tooling/`, según VCX-D035, que reemplaza la escritura en el precursor prevista por VCX-D033 decisión 4: el precursor no se edita. `sourceUrl` se declara si existe repositorio público al evaluar, nunca se omite para subir el puntaje. Ver el [diseño](../../../../docs/superpowers/specs/2026-11-01-council-skill-design.md) para las validaciones previstas y el [plan de la etapa 3](../../../../docs/superpowers/plans/2026-11-01-council-stage3-tool-evaluation-plan.md) para el alcance propuesto, pendiente de autorización.
+- Evidencia para la revisión del 2026-12-02: una corrida que verifique la corrección de la etapa 2, usos reales y un contador de uso; y el envoltorio que VCX-D035 exige antes de reevaluar. `sourceUrl` se declara si existe repositorio público al evaluar, nunca se omite para subir el puntaje. Detalle en la [evaluación](../../../../docs/superpowers/reports/2026-11-01-council-stage3-evaluation.md).
 - Licencia del producto.
 - Asiento de otra familia de modelo por runner `command`, en una versión posterior y con evaluación de riesgo propia.
 
