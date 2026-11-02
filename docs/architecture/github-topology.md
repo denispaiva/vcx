@@ -37,7 +37,7 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 
 | Repositorio objetivo | Contenido | De dónde sale | Cómo nace | Fase |
 |---|---|---|---|---|
-| `vcx` | Repositorio documental raíz: principios, visión, arquitectura, decisiones, nombres | `vcx/` local, ya con historia desde `f47c71f` | Crear vacío y privado; push de `main`. No afecta a ningún otro repositorio | A o B, con autorización propia |
+| `vcx` | Repositorio documental raíz: principios, visión, arquitectura, decisiones, nombres | `vcx/` local, ya con historia desde `f47c71f` | Crear vacío y hacer push de `main`. La visibilidad la fija la ratificación de VCX-D032: público, tras revisar la dirección de correo y las rutas locales del historial. Si se crea privado antes, como respaldo, nunca se vuelve público: el público sería otro repositorio. No afecta a ningún otro repositorio | A o B, con autorización propia |
 | `blends` | Producto Blends: método, kernel, `queue`, trenes, estándares | El mismo repositorio, continuado (VCX-D026) | No nace: se reubica el checkout; el nombre y la historia no cambian. Se achica a medida que salen las extracciones | B a D |
 | `brix` | Producto Brix: núcleo de capacidades | `vc/brix/` de `blends`, con la historia del subárbol | El espejo actual es candidato a convertirse en canónico en la extracción; se decide entonces si se reutiliza o se crea uno nuevo. Hasta ese día sigue siendo espejo y conserva su descripción | D |
 | `cellar` | Producto Cellar: modelo de iniciativa, plantillas, contrato de conducción | `vcx/cellar/`, documentación nueva | Crear vacío y privado cuando el paso 3 del mapa se autorice | D, adelantable |
@@ -85,6 +85,6 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 
 ## Decisiones que esto deja al usuario
 
-1. Crear `denispaiva/vcx` como repositorio privado y subir `main`: es el único cambio en GitHub posible en la Fase A, no rompe nada y da respaldo fuera de la máquina al repositorio raíz. Requiere autorización explícita.
+1. Crear `denispaiva/vcx` y subir `main`: es el único cambio en GitHub posible en la Fase A, no rompe nada y da respaldo fuera de la máquina al repositorio raíz. Requiere autorización explícita y una sola decisión de visibilidad: público según VCX-D032, con la revisión previa del historial que el diseño fija, o privado como respaldo, en cuyo caso el público nace aparte. El [inventario de controles](security-controls-inventory.md) habla de «remoto privado» para SEC-01; rige la decisión que el usuario tome aquí.
 2. Reutilizar `brix`, `teyst-blends` y `pinot-index` como repositorios canónicos en su extracción, o crear nuevos y archivar los espejos.
 3. Nombre del repositorio de la instancia de Cellar y de los proyectos sin espejo, con el [criterio de nombres](../naming.md).
