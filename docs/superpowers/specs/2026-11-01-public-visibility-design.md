@@ -1,6 +1,6 @@
 # Visibilidad pública de los productos y CI sin cuota de Actions
 
-Fecha: 2026-11-01. Estado: propuesta del asistente, registrada como VCX-D032 en el [registro de decisiones](../../decisions/README.md) con estado Propuesto. El usuario pidió en el chat con Claude: «Algo que quisiera cambiar es que VCX, BLENDS, BRIX y CELLAR, quisiera hacerlos públicos en Github y no consumir quota de actions en el proceso CI. Si dejaría en private a los proyectos vivos bajo cellars, ej. teyst». Este documento evalúa el pedido, verifica sus supuestos y propone cómo cumplirlo sin romper el precursor. No cambia la visibilidad de ningún repositorio ni crea repositorios.
+Fecha: 2026-11-01. Estado: propuesta del asistente, registrada como VCX-D032 en el [registro de decisiones](../../decisions/README.md) y ratificada por el usuario como decisión documental el 2026-11-01, con la opción B y la salida B'; ningún paso de la secuencia queda autorizado para ejecutar. El usuario pidió en el chat con Claude: «Algo que quisiera cambiar es que VCX, BLENDS, BRIX y CELLAR, quisiera hacerlos públicos en Github y no consumir quota de actions en el proceso CI. Si dejaría en private a los proyectos vivos bajo cellars, ej. teyst». Este documento evalúa el pedido, verifica sus supuestos y propone cómo cumplirlo sin romper el precursor. No cambia la visibilidad de ningún repositorio ni crea repositorios.
 
 Etiquetas: [U] pedido del usuario; [H] hecho verificado con referencia; [I] interpretación; [P] propuesta.
 
@@ -55,11 +55,11 @@ Conclusión: Blends público es un repositorio nuevo, y el precursor sigue priva
 | `blends` | Público, nuevo | Producto Blends: kernel, método, estándares, biblioteca de CI con sus tags `ci-v*` | Export revisado de las rutas del kernel del precursor | `vcx/blends/` |
 | `brix` | Público, nuevo | Producto Brix: núcleo de capacidades | Export revisado de `vc/brix/`, sin `data/` ni `finops/` | `vcx/brix/` |
 | `cellar` | Público, nuevo | Producto Cellar: modelo de iniciativa, plantillas, contrato de conducción | `vcx/cellar/` | `vcx/cellar/` |
-| Instancia de Cellar, nombre pendiente por VCX-D009 | Privado | El precursor continuado: proyectos vivos, `ideas/`, `vc/finops/`, IDs de entorno, historial de evaluaciones, `queue` del portfolio, despliegues | Renombre del repositorio `blends` actual, con su historial íntegro | `vcx/cellars/<instancia>/` |
+| Instancia de Cellar, `solera` por VCX-D009 | Privado | El precursor continuado: proyectos vivos, `ideas/`, `vc/finops/`, IDs de entorno, historial de evaluaciones, `queue` del portfolio, despliegues | Renombre del repositorio `blends` actual, con su historial íntegro | `vcx/cellars/<instancia>/` |
 | Un repositorio por proyecto, cuando VCX-D010 lo decida | Privado | Código de cada proyecto | Extracción desde la instancia | `vcx/cellars/<instancia>/…` o donde VCX-D010 fije |
 | `Teyst`, `syrah`, `merlot`, `TintumHero` | Sin cambio | Heredados y ajenos | Sin cambio | Ninguno |
 
-Consecuencia local: el clon de autoría de VCX-D030 no se coloca en `vcx/blends/` sino en `vcx/cellars/<instancia>/`, porque el precursor continuado es la instancia; `vcx/blends/` pasa a ser el checkout del repositorio público nuevo. Cada carpeta local corresponde a un repositorio y a un producto o instancia, sin excepciones.
+[P] VCX-D036, propuesta del 2026-11-01 en el [registro](../../decisions/README.md), cambia esta colocación a `vcx/cellars/` como repositorio de la instancia, con cada proyecto en `vcx/cellars/<proyecto>/`, para que la estructura local replique la de GitHub; hasta su ratificación rige lo siguiente. Consecuencia local: el clon de autoría de VCX-D030 no se coloca en `vcx/blends/` sino en `vcx/cellars/<instancia>/`, porque el precursor continuado es la instancia; `vcx/blends/` pasa a ser el checkout del repositorio público nuevo. Cada carpeta local corresponde a un repositorio y a un producto o instancia, sin excepciones.
 
 ## CI sin cuota
 
@@ -75,7 +75,7 @@ Consecuencia local: el clon de autoría de VCX-D030 no se coloca en `vcx/blends/
 
 [P] Ajusta las fases de VCX-D030; cada paso requiere su autorización.
 
-0. Ratificar VCX-D032 y elegir B o B'. Resolver VCX-D009, el nombre de la instancia, que pasa a ser bloqueante del paso 3.
+0. Ratificar VCX-D032 y elegir B o B': hecho el 2026-11-01, B con salida B'. Resolver VCX-D009, el nombre de la instancia, bloqueante del paso 3: resuelto el 2026-11-01 con `solera`.
 1. `vcx` público: revisar la dirección de correo y las rutas locales en el historial, crear el repositorio público vacío y subir `main`. No depende de nada más y no toca el precursor.
 2. Renombrar el precursor a la instancia: actualizar primero, en el operador y con su gobierno, los 24 archivos que citan `denispaiva/blends`, `brix.config.json`, remotos de clones y worktrees y tareas programadas; después renombrar en GitHub y verificar que `queue`, trenes y despliegues siguen funcionando con el nombre nuevo. Mientras no exista otro `blends`, la redirección protege lo que quede sin actualizar.
 3. `blends` público: declarar la superficie publicable por rutas, exportar según B o B', correr el scan sobre todo el historial exportado, revisar los importes de estándares y changelogs, crear el repositorio público con ese nombre, lo que termina la redirección del paso 2, subir `main` y los tags `ci-v*`, configurar protección y CI. Desde ese momento las decisiones de Blends se escriben ahí; las rutas del kernel en la instancia quedan congeladas con un puntero.
@@ -85,10 +85,10 @@ Consecuencia local: el clon de autoría de VCX-D030 no se coloca en `vcx/blends/
 
 ## Qué cambia en las decisiones vigentes
 
-- **VCX-D026.** La continuidad del repositorio del precursor con su historial íntegro se conserva, pero en la instancia privada, no en el producto Blends; Blends público recibe el historial exportado. Requiere enmienda del usuario.
-- **VCX-D030.** La colocación del clon de autoría cambia a `vcx/cellars/<instancia>/`; el principio de escribir las decisiones en el destino no cambia.
+- **VCX-D026.** La continuidad del repositorio del precursor con su historial íntegro se conserva, pero en la instancia privada, no en el producto Blends; Blends público recibe el historial exportado. Enmendada por el usuario el 2026-11-01.
+- **VCX-D030.** La colocación del clon de autoría cambia a `vcx/cellars/<instancia>/`; el principio de escribir las decisiones en el destino no cambia. Ratificada con esa colocación el 2026-11-01.
 - **VCX-D031.** DH-07 suma el renombre del repositorio, no solo de la carpeta; se agrega la deuda de las 24 referencias por nombre y de los consumidores externos de la biblioteca de CI.
-- **VCX-D009.** Deja de ser un pendiente de diseño y pasa a bloquear el nombre público `blends`.
+- **VCX-D009.** Deja de ser un pendiente de diseño y pasa a bloquear el nombre público `blends`. El usuario eligió `solera` el 2026-11-01.
 - **Organización en GitHub.** La tabla de objetivo y su frase «todos privados al nacer» quedan sustituidas por la regla de visibilidad por grupo.
 
 ## Riesgos y contraejemplos

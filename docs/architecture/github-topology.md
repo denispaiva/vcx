@@ -1,6 +1,6 @@
 # Organización en GitHub: hoy y objetivo
 
-Fecha: 2026-11-01. Estado: la sección «Hoy» es evidencia medida en solo lectura con la CLI de GitHub autenticada como `denispaiva`; la sección «Objetivo» es propuesta derivada de VCX-D025, VCX-D029, VCX-D030 y VCX-D031, pendiente de ratificación. El usuario pidió «más precisión con cómo se organiza la información hoy en github y cómo se estructurará en el futuro, sin romper nada». Este documento no crea, renombra ni modifica repositorios; cada cambio en GitHub figura abajo con la fase y la autorización que requiere.
+Fecha: 2026-11-01. Estado: la sección «Hoy» es evidencia medida en solo lectura con la CLI de GitHub autenticada como `denispaiva`; la sección «Objetivo» deriva de VCX-D025 y VCX-D029 y de VCX-D030, VCX-D031 y VCX-D032, ratificadas como decisiones documentales el 2026-11-01; ningún paso en GitHub está autorizado. El usuario pidió «más precisión con cómo se organiza la información hoy en github y cómo se estructurará en el futuro, sin romper nada». Este documento no crea, renombra ni modifica repositorios; cada cambio en GitHub figura abajo con la fase y la autorización que requiere.
 
 Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 
@@ -33,16 +33,16 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 
 ## Objetivo
 
-[P] Un repositorio por producto y por proyecto, organizados localmente bajo `vcx/` y sin submódulos, según VCX-D025 y VCX-D029. La visibilidad y el origen de cada uno los fija la propuesta VCX-D032, más abajo; la tabla siguiente conserva el reparto por pieza.
+Un repositorio por producto y por proyecto, organizados localmente bajo `vcx/` y sin submódulos, según VCX-D025 y VCX-D029. La visibilidad y el origen de cada uno los fija VCX-D032, ratificada el 2026-11-01 y detallada más abajo; la tabla siguiente ya la incorpora.
 
 | Repositorio objetivo | Contenido | De dónde sale | Cómo nace | Fase |
 |---|---|---|---|---|
-| `vcx` | Repositorio documental raíz: principios, visión, arquitectura, decisiones, nombres | `vcx/` local, ya con historia desde `f47c71f` | Crear vacío y hacer push de `main`. La visibilidad la fija la ratificación de VCX-D032: público, tras revisar la dirección de correo y las rutas locales del historial. Si se crea privado antes, como respaldo, nunca se vuelve público: el público sería otro repositorio. No afecta a ningún otro repositorio | A o B, con autorización propia |
-| `blends` | Producto Blends: método, kernel, `queue`, trenes, estándares | El mismo repositorio, continuado (VCX-D026) | No nace: se reubica el checkout; el nombre y la historia no cambian. Se achica a medida que salen las extracciones | B a D |
+| `vcx` | Repositorio documental raíz: principios, visión, arquitectura, decisiones, nombres | `vcx/` local, ya con historia desde `f47c71f` | Crear vacío y hacer push de `main`. Público, elegido por el usuario el 2026-11-01 conforme a VCX-D032, tras la [revisión del historial](../superpowers/reports/2026-11-01-vcx-public-history-review.md); falta decidir si el correo del autor se reescribe antes del primer push. No afecta a ningún otro repositorio | A o B, con autorización propia |
+| `blends` | Producto Blends: método, kernel, estándares, biblioteca de CI | Export revisado de las rutas del kernel del precursor, con historial filtrado por rutas (VCX-D032, opción B) | Repositorio público nuevo, con historial nuevo si el scan encuentra un hallazgo real (B'). El nombre se libera al renombrar el precursor a `solera` (VCX-D009). Checkout `vcx/blends/` | Paso 3 de la secuencia de VCX-D032 |
 | `brix` | Producto Brix: núcleo de capacidades | `vc/brix/` de `blends`, con la historia del subárbol | El espejo actual es candidato a convertirse en canónico en la extracción; se decide entonces si se reutiliza o se crea uno nuevo. Hasta ese día sigue siendo espejo y conserva su descripción | D |
-| `cellar` | Producto Cellar: modelo de iniciativa, plantillas, contrato de conducción | `vcx/cellar/`, documentación nueva | Crear vacío y privado cuando el paso 3 del mapa se autorice | D, adelantable |
+| `cellar` | Producto Cellar: modelo de iniciativa, plantillas, contrato de conducción | `vcx/cellar/`, documentación nueva | Crear vacío y público cuando el paso 3 del mapa se autorice | D, adelantable |
 | Un repositorio por proyecto: Teyst, Melquisedec, Pinot Index, Salmanazar | Código de cada proyecto | `vc/<proyecto>/` de `blends`, con historia del subárbol | `teyst-blends` y `pinot-index` son candidatos a canónicos por el mismo criterio que `brix`; Melquisedec y Salmanazar nacen nuevos. Cada uno lleva sus workflows de despliegue | D, por proyecto |
-| Un repositorio por instancia de Cellar | Custodia del portfolio: iniciativas, decisiones, evidencia, FinOps, referencias a los repositorios de proyecto | `ideas/`, `vc/<proyecto>/docs`, `vc/finops`, `vc/tooling/environment-ids.json` | Nombre e identidad pendientes por VCX-D009; ubicación por VCX-D010 | D, al final |
+| Un repositorio por instancia de Cellar | Custodia del portfolio: proyectos vivos, iniciativas, decisiones, evidencia, FinOps, `queue` del portfolio, despliegues | La primera es el precursor `blends`, continuado y renombrado con su historial íntegro (VCX-D026 enmendada) | Privado; no nace, se renombra en el paso 2 de la secuencia de VCX-D032. Nombre `solera` por VCX-D009, elegido el 2026-11-01; checkout `vcx/cellars/solera/`, o `vcx/cellars/` si se ratifica la propuesta VCX-D036 | B, renombre en el paso 2 |
 | `Teyst`, `syrah`, `merlot` | Heredados | Sin cambio | No se tocan; el estándar de mantenimiento mínimo sigue rigiendo desde Blends | Ninguna |
 | `TintumHero` | Fuera del portfolio | Sin cambio | No se toca | Ninguna |
 
@@ -50,24 +50,24 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 
 ## Visibilidad objetivo
 
-[P] Propuesta VCX-D032, fuente en el [diseño de visibilidad](../superpowers/specs/2026-11-01-public-visibility-design.md). Lo reutilizable es público; lo vivo es privado.
+VCX-D032, ratificada como decisión documental el 2026-11-01; fuente en el [diseño de visibilidad](../superpowers/specs/2026-11-01-public-visibility-design.md). Lo reutilizable es público; lo vivo es privado.
 
 | Repositorio | Visibilidad | Cómo nace |
 |---|---|---|
 | `vcx`, `blends`, `brix`, `cellar` | Público | Repositorio nuevo a partir de un export revisado de su superficie publicable, con historial filtrado por rutas según eligió el usuario el 2026-11-01, y historial nuevo si el scan falla; nunca por cambio de visibilidad de uno existente |
-| Instancia de Cellar | Privado | El precursor continuado y renombrado, con su historial íntegro; nombre pendiente por VCX-D009 |
+| Instancia de Cellar, `solera` | Privado | El precursor continuado y renombrado, con su historial íntegro; nombre elegido en VCX-D009 el 2026-11-01 |
 | Repositorios de proyecto | Privado | Extracción desde la instancia cuando VCX-D010 lo decida; nunca se vuelven públicos |
 | Heredados y ajenos | Sin cambio | Sin cambio |
 
 [H] Los runners estándar de GitHub en repositorios públicos no consumen la cuota de Actions; los grandes se facturan también en público. La CI del kernel y de Brix deja de consumir cuota al publicarse; los despliegues de proyectos siguen en privado y consumen como hoy.
 
-[I] Esta propuesta cambia dos filas de la tabla anterior: el precursor no se reubica como `vcx/blends/` sino como `vcx/cellars/<instancia>/`, y `blends` público es un repositorio nuevo cuyo checkout ocupa `vcx/blends/`.
+[I] Por esta decisión el precursor no se reubica como `vcx/blends/` sino como `vcx/cellars/<instancia>/`, y `blends` público es un repositorio nuevo cuyo checkout ocupa `vcx/blends/`; la tabla de objetivo ya lo refleja. [P] VCX-D036 propone que la estructura local replique la de GitHub repositorio por repositorio: `vcx/cellars/` es la instancia y cada proyecto vive en `vcx/cellars/<proyecto>/` con repositorio propio.
 
 ## Qué no se rompe
 
 [P] Invariantes de la transición, verificables en cada fase:
 
-1. `blends` conserva nombre, historia, rama `queue`, tags, PR abierto, protección de `main` y workflows hasta que cada extracción retire lo suyo. Nunca se reescribe historia ni se borra en GitHub lo que el inventario de VCX-D031 marca como conservado.
+1. El precursor `blends` conserva historia, rama `queue`, tags, PR abierto, protección de `main` y workflows hasta que cada extracción retire lo suyo; conserva también el nombre hasta su renombre como instancia en el paso 2 de VCX-D032. Nunca se reescribe historia ni se borra en GitHub lo que el inventario de VCX-D031 marca como conservado.
 2. Un solo operador escribe en `queue` y lanza trenes; el clon de autoría solo hace push de ramas, exactamente lo que hoy hacen las sesiones.
 3. Ningún repositorio privado se vuelve público. Los públicos de VCX-D032 nacen como repositorios nuevos a partir de un export revisado, con scan del historial y aprobación humana; las instancias y los proyectos nacen privados.
 4. Los espejos no reciben commits mientras sean espejos. Convertir uno en canónico es una decisión registrada en la extracción, con su descripción y protección cambiadas en ese momento.
@@ -85,6 +85,6 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 
 ## Decisiones que esto deja al usuario
 
-1. Crear `denispaiva/vcx` y subir `main`: es el único cambio en GitHub posible en la Fase A, no rompe nada y da respaldo fuera de la máquina al repositorio raíz. Requiere autorización explícita y una sola decisión de visibilidad: público según VCX-D032, con la revisión previa del historial que el diseño fija, o privado como respaldo, en cuyo caso el público nace aparte. El [inventario de controles](security-controls-inventory.md) habla de «remoto privado» para SEC-01; rige la decisión que el usuario tome aquí.
+1. Crear `denispaiva/vcx` y subir `main`: es el único cambio en GitHub posible en la Fase A, no rompe nada y da respaldo fuera de la máquina al repositorio raíz. Requiere autorización explícita. La visibilidad quedó decidida el 2026-11-01: público, con la [revisión del historial](../superpowers/reports/2026-11-01-vcx-public-history-review.md) hecha; resta elegir si se reescribe el correo del autor antes del push. El [inventario de controles](security-controls-inventory.md) habla de «remoto privado» para SEC-01; rige esta decisión.
 2. Reutilizar `brix`, `teyst-blends` y `pinot-index` como repositorios canónicos en su extracción, o crear nuevos y archivar los espejos.
-3. Nombre del repositorio de la instancia de Cellar y de los proyectos sin espejo, con el [criterio de nombres](../naming.md).
+3. Nombre de los repositorios de los proyectos sin espejo; la instancia ya tiene nombre, `solera`, por VCX-D009, con el [criterio de nombres](../naming.md).
