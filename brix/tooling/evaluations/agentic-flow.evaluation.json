@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "id": "agentic-flow",
+    "type": "technology",
+    "sourceUrl": "https://github.com/ruvnet/agentic-flow",
+    "evaluatedRef": "2c86073bf55a105282bbdd4476fc18f5b7e6f97d"
+  },
+  "observedAt": "2026-11-03T01:37:33.000Z",
+  "overallScore": 38.377968764412586,
+  "evidenceCoverage": 95,
+  "factorScores": {
+    "community": 47.973177155396215,
+    "maintenance": 61.5,
+    "security": 42.75000000000001,
+    "fit": 16.666666666666668,
+    "engineering": 28,
+    "sustainability": 34.75
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94,
+  "confidence": "high",
+  "riskLevel": "high",
+  "baselineRecommendation": "do_not_advance",
+  "status": "rejected",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#agentic-flow",
+  "evidenceInputRef": "brix/tooling/evaluations/agentic-flow.evidence.json",
+  "expiresAt": "2027-02-01T01:37:33.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "rejected",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-03T01:37:34.633Z",
+    "rationale": "Rechazo confirmado por puntaje: 38,4/100, confianza high (94), riesgo high, recomendación base do_not_advance, sobre 2c86073 (HEAD sin cambios desde 2026-10-31). Decisión del usuario en el chat con Claude del 2026-11-02: «Sí, rechazar y commitear», ante «¿Registro el rechazo de agentic-flow igual que cadtopo?». Ratifica el rechazo del 2026-11-01 registrado en la matriz de tooling. Motivos: (1) el control de presupuesto documentado (budget.total, fallbackToFree, dailyLimit, hardStop, router init) no existe en src; selectByCost es un stub. (2) Exige claves de pago por token (Anthropic por defecto) y reemplaza ANTHROPIC_BASE_URL de Claude Code por un proxy propio, sin consumir las suscripciones; contra Free Tier first y allowPayPerToken=false. (3) Higiene de seguridad débil: SECURITY.md es la plantilla sin editar, sin canal de reporte privado (#235), y el postinstall reescribe archivos de otro paquete en node_modules. (4) Documentación y versionado poco confiables: dos package.json con el mismo nombre (2.0.2-alpha y 3.1.0), versiones que retroceden, cifras de ahorro contradictorias y enlace a LICENSE roto. (5) 26 dependencias de runtime, 15 ajenas al enrutamiento. No opera sobre el despacho de subagentes de Claude Code; el resolver del precursor y claude -p --max-budget-usd cubren la necesidad. Reabrir solo si implementa el control de presupuesto y admite modelos por suscripción sin claves de pago por token."
+  }
+}

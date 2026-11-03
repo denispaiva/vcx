@@ -1,0 +1,455 @@
+{
+  "candidate": {
+    "id": "agentic-flow",
+    "type": "technology",
+    "sourceUrl": "https://github.com/ruvnet/agentic-flow",
+    "evaluatedRef": "2c86073bf55a105282bbdd4476fc18f5b7e6f97d"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 95,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último push 2026-10-31T23:30:51Z, un día antes de la medición; el HEAD de main (2c86073, merge del PR #248) es del 2026-10-31. Actividad de esta semana.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow (pushed_at=2026-10-31T23:30:51Z; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/commits/main (sha=2c86073bf55a105282bbdd4476fc18f5b7e6f97d; committer.date=2026-10-31T23:30:38Z; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 40,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "25 releases publicadas (1 prerelease) y 51 tags. La última release es v2.1.3 (2026-09-16, 47 días). Entre v2.3.6 (2025-11-24) y v2.1.3 hubo 296 días sin releases. Los PR #237, #243, #245 y #247 anuncian 2.1.4, 2.1.5, 3.0.0 y 3.1.0 (2026-10-09 a 2026-10-31) sin release ni tag correspondiente. Solo existen v3.0.0-alpha.2 y plugin-v3.1.0. La cadencia existe, pero no se refleja de forma fiable en releases.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/releases?per_page=100 (count=25; latest=v2.1.3 2026-09-16; previa=v2.3.6 2025-11-24; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/tags?per_page=100 (count=51; incluye v3.0.0-alpha.2 y plugin-v3.1.0; sin v3.0.0/v3.1.0/v2.1.4/v2.1.5; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/issues?state=closed&per_page=30 (PR #237 2.1.4, #243 2.1.5, #245 3.0.0, #247 3.1.0; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 60,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "54 commits desde el 2026-08-03 (90 días), pero concentrados en 4 días: 9 el 2026-09-16, 4 el 2026-10-09, 2 el 2026-10-26 y 39 el 2026-10-31. El 93% es del autor (50 de 54 como ruv/rUv) y hay 4 colaboradores externos con un commit cada uno. Los últimos 100 commits llegan hasta 2026-03-25. Hay volumen, pero el desarrollo es episódico y depende de una persona.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/commits?since=2026-08-03T00:00:00Z&per_page=100 (count=54; dias_activos=4; ruv+rUv=50; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/commits?per_page=100 (commit_100=2026-03-25T22:58:30Z; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 40,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "De los 30 ítems cerrados más recientes, 4 son issues: #178, una vulnerabilidad de protobufjs, cerró en 12,8 días; #167 en 15,6; #162 en 19,8; y #169, abierta por el propio autor, en minutos. La mediana es de unos 15,6 días. Los PR externos esperaron hasta 3,5 meses: #160 y #166, abiertos el 2026-06-01 y el 2026-06-07, se cerraron el 2026-09-16. Hay 115 issues y PR abiertos. Desde 2026-09-25 sigue abierto #235, que pide habilitar el reporte privado de vulnerabilidades.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/issues?state=closed&per_page=30 (issues=4; mediana_dias=15.6; PR externos #160/#163/#164/#166 cerrados 2026-09-16; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow (open_issues_count=115; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/issues?state=open&per_page=10 (#235 'Enable private vulnerability reporting' abierto desde 2026-09-25; medido 2026-11-02)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Hay una advisory publicada: GHSA-vcv2-r9jh-99m5 / CVE-2026-58195. Es de severidad alta (CVSS 8.8, CWE-78): inyección de comandos del sistema en las herramientas del servidor MCP por interpolación en execSync. Afecta a <=2.0.13, se publicó el 2026-06-18 y se parcheó en 2.0.14 (PR #170). El issue #178 sobre la cadena vulnerable de protobufjs cerró el 2026-07-30. El PR #244 sigue abierto: migra zod 3 a ^4.6.7 por GHSA-mrhx, y ambos package.json aún declaran zod ^3.25.76. No hay una vulnerabilidad crítica conocida abierta, pero el historial es reciente y no hay acceso a alertas de Dependabot para confirmar el resto.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/security-advisories (1 advisory; GHSA-vcv2-r9jh-99m5; high; CVSS 8.8; patched 2.0.14; publicada 2026-06-18; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/issues?state=open&per_page=10 (PR #244 zod GHSA-mrhx abierto desde 2026-10-27; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/package.json?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (zod ^3.25.76; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La cuenta ruvnet existe desde 2012-11-30, con 230 repositorios públicos y 12.229 seguidores; el repositorio es de 2024-09-02. La identidad es antigua y estable, pero la correspondencia entre lo publicado y el código es débil. agentic-flow/docs/guides/MULTI-MODEL-ROUTER.md, también copiado en docs/guides/, documenta RouterOptimizedAgent y budget.total, perDocument y fallbackToFree. Una búsqueda de código solo los encuentra en esas dos guías. agentic-flow/src/router/router.ts y types.ts no los contienen, y selectByCost tiene 'TODO: Implement actual cost calculation' con un orden fijo openrouter>anthropic>openai. El README del paquete presenta como 'Measured' un benchmark que el propio script declara sintético: un PRNG con semilla y un lineup simulado. El README declara licencia MIT y enlaza un LICENSE inexistente en la raíz. Antecedente del autor: ruflo, diferida el 2026-08-10 por un RCE crítico no autenticado (CVE-2026-59726).",
+        "evidenceRefs": [
+          "github-api:users/ruvnet (created_at=2012-11-30; public_repos=230; followers=12229; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow (created_at=2024-09-02; license=null; medido 2026-11-02)",
+          "github-api:search/code?q=fallbackToFree+repo:ruvnet/agentic-flow (total=2; solo docs/guides/MULTI-MODEL-ROUTER.md y agentic-flow/docs/guides/MULTI-MODEL-ROUTER.md; medido 2026-11-02)",
+          "github-api:search/code?q=RouterOptimizedAgent+repo:ruvnet/agentic-flow (total=2; solo las mismas dos guías; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/router/router.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (selectByCost con TODO; sin budget/fallbackToFree; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/benchmarks/cost-optimal-router-benchmark.mjs?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d ('synthetic query stream'; mulberry32 seeded; medido 2026-11-02)",
+          "local:/Users/denis/VibeCoding/blends/vc/tooling/evaluations/ruflo.evaluation.json (status=deferred; riskLevel=critical; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SECURITY.md (21 líneas, del PR externo #166) es la plantilla de GitHub sin editar: declara soporte para versiones 5.1.x y 4.0.x inexistentes y no ofrece canal de reporte. El reporte privado de vulnerabilidades sigue pendiente (#235). En el árbol no hay configuración de Dependabot ni de CodeQL. Los puntos positivos son que el Quality Gate instala con 'npm ci --ignore-scripts' y que el CVE de junio se parcheó. En contra: el postinstall reescribe archivos de otro paquete (agentdb) dentro de node_modules, y también en rutas padre para npx. agentic-flow/src/cli/claude-code-wrapper.ts imprime por consola los primeros 10 caracteres de ANTHROPIC_API_KEY. En el repositorio hay 11 artefactos binarios o de estado versionados (por ejemplo agentic-flow-1.10.0.tgz, agentdb.db-shm y .agentic-flow/intelligence.db-shm) y un .env.test en la raíz. El antecedente del mismo autor (ruflo) fue un RCE crítico por un despliegue inseguro por defecto. Ningún contenido leído pidió ejecutar comandos ni revelar secretos.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/SECURITY.md?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (plantilla sin editar; versiones 5.1.x/4.0.x; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/.github/workflows/test.yml?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (npm ci --ignore-scripts; Node 20.x/22.x; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/scripts/postinstall.js?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (writeFileSync sobre agentdb/.../controllers/index; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/cli/claude-code-wrapper.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (línea 219: ANTHROPIC_API_KEY?.substring(0, 10); medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/git/trees/2c86073bf55a105282bbdd4476fc18f5b7e6f97d?recursive=1 (sin dependabot/codeql; 11 .tgz/.db-shm; .env.test en raíz; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/issues?state=open&per_page=10 (#235 reporte privado pendiente; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La guía del router enumera las variables ANTHROPIC_API_KEY, OPENAI_API_KEY, GOOGLE_GEMINI_API_KEY y OPENROUTER_API_KEY, y claude-code-wrapper.ts documenta qué clave exige cada proveedor. No hay una declaración consolidada del acceso de red (proxy local que reemplaza ANTHROPIC_BASE_URL, envío de prompts a terceros), de las escrituras locales ni del alcance del paquete (213 herramientas MCP, swarms, reparación autónoma). El issue abierto #226 informa que '--provider onnx' descarga 4,6 GB en process.cwd() sin aviso. El README no menciona cómo desinstalar.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/docs/guides/MULTI-MODEL-ROUTER.md?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (Quick Start exporta 4 claves de API; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/cli/claude-code-wrapper.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (spawn('claude') con ANTHROPIC_BASE_URL del proxy; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/README.md?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (213 MCP tools; 0 menciones de 'uninstall'; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/issues?state=open&per_page=10 (#226 descarga ONNX de 4.6 GB en cwd; medido 2026-11-02)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 20,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Necesidad A (elegir clase y modelo por perfil, riesgo y costo al despachar subtareas): el candidato enruta por proveedor o modelo en cada llamada a API, de forma manual, por reglas, por costo (un stub con orden fijo) o 'cost-optimal'. Este último modo es un k-NN entrenado con un dataset propio de embeddings y calidad por modelo. No opera sobre el despacho de subagentes de Claude Code (sonnet/opus/haiku/fable) ni ofrece perfiles de tarea, pisos por riesgo, motivos de elevación ni un acta. Esas capacidades ya están en el resolver existente: 16 perfiles, clases economy/balanced/frontier y acta JSONL. Necesidad B (tokens por rama y sesión): solo acumula totalTokens y totalCost por instancia de ModelRouter, sin relación con ramas ni transcripts.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/router/router.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (modos manual/rule-based/cost-optimized/cost-optimal/performance-optimized; metrics.totalTokens; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/router/cost-optimal-router.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (CostOptimalRouter.fromDataset requiere filas embedding→calidad; medido 2026-11-02)",
+          "local:/Users/denis/VibeCoding/blends/vc/tools/resolve-model.mjs (resolver con política, acta JSONL; medido 2026-11-02)",
+          "local:/Users/denis/VibeCoding/blends/vc/tooling/lifecycle/model-routing-policy.json (taskProfiles, floors, allowPayPerToken=false; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 15,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Si no se configura otro proveedor, createConfigFromEnv usa 'anthropic', y claude-code-wrapper.ts aborta con 'Missing ANTHROPIC_API_KEY'. Las claves de Anthropic, OpenRouter y Gemini son de API (OpenRouter y Anthropic se pagan por token; Gemini y OpenRouter tienen tramos gratuitos con clave). El wrapper reemplaza ANTHROPIC_BASE_URL y ANTHROPIC_API_KEY de Claude Code por un proxy propio, por lo que no consume las suscripciones Claude Max ni ChatGPT; esto choca con allowPayPerToken=false. Los únicos caminos sin pago por token son los locales: Ollama, u ONNX con descarga de 4,6 GB. La herramienta interna de despacho del host no acepta un enrutador externo. engines de Node >=20 es compatible en papel con Node 26, pero la CI solo prueba 20.x y 22.x.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/router/router.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (defaultProvider=process.env.PROVIDER||'anthropic'; claves desde env; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/cli/claude-code-wrapper.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (ANTHROPIC_API_KEY Required for --provider anthropic (default); medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/package.json?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (engines.node >=20.0.0; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/.github/workflows/test.yml?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (matrix node 20.x, 22.x; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 10,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Frente al resolver propio (gratuito, con política versionada, pisos por riesgo y acta) y a 'claude -p --max-budget-usd' (tope de gasto aplicado por el CLI), el aporte neto se reduce al enrutamiento 'cost-optimal' aprendido. Para funcionar necesita un dataset etiquetado y proveedores pagados por token, ambos ajenos a la política del Owner. El control de presupuesto que motivaría la adopción (budget.total, fallbackToFree, dailyLimit, hardStop) está documentado pero no implementado en src/router. Para obtenerlo habría que sumar 26 dependencias de runtime, un proxy y claves de API.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/docs/guides/MULTI-MODEL-ROUTER.md?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (líneas 332-338 y 403-422: budget documentado; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/router/types.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (costOptimization.maxCostPerRequest/budgetAlerts declarados; router.ts no los lee; medido 2026-11-02)",
+          "local:/Users/denis/VibeCoding/blends/vc/tools/resolve-model.mjs (280 líneas; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No hay registros de uso de este candidato en el workspace. No se ejecutó el candidato, conforme a las reglas de la evaluación.",
+        "evidenceRefs": [
+          "workspace:/Users/denis/VibeCoding/vcx (sin registros de uso de agentic-flow; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La instalación es 'npm install -g agentic-flow', con 26 dependencias de runtime y 7 opcionales, varias nativas (onnxruntime-node, sharp, better-sqlite3), y un postinstall que parchea otro paquete. Después hay que exportar claves por proveedor, escribir un router.config y, para el modo cost-optimal, construir un dataset de evaluación con embeddings. Hay issues abiertos de instalación: #231 (crash de 'npm audit fix' o de una instalación limpia) y #229 (resolución de dependencias inconsistente). La guía describe 'npx agentic-flow router init/test', pero agentic-flow/src/cli-proxy.ts no tiene un modo 'router': sus modos son init, list, config, proxy, quic, claude-code, mcp, reasoningbank, federation, hooks, workers y embeddings, y 'router' solo aparece como parte de OpenRouter.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/package.json?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (dependencies=26; optionalDependencies=7; postinstall; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/issues?state=open&per_page=10 (#231 y #229 abiertos; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/git/trees/2c86073bf55a105282bbdd4476fc18f5b7e6f97d?recursive=1 (agentic-flow/src/cli/commands: embeddings, hooks, init, sona, sona-train, swarm, workers; sin router; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/cli-proxy.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (1489 líneas; sin options.mode === 'router'; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No hay registros de adopción de este candidato en el workspace. Las lecturas hechas para esta evaluación no constituyen adopción.",
+        "evidenceRefs": [
+          "workspace:/Users/denis/VibeCoding/vcx (sin registros de uso de agentic-flow; medido 2026-11-02)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 50,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La API lista 10 workflows activos; en el árbol hay 9 .yml y test-agentdb-attention.yml.disabled. El 'Agentic Flow Quality Gate' pasó sobre el HEAD 2c86073 (2026-10-31 y 2026-11-01). Corre typecheck, test:governance, 'npm test' (que solo es test:retry y test:logging) en Node 20.x y 22.x, build y 'npm pack --dry-run'. 'Performance Benchmarks' falla en todas las corridas de main entre las 30 más recientes, y 'Docker Build and Publish' también falla. Hay 155 archivos *.test/*.spec en el árbol, incluidos tests/router/*.test.ts, pero el script de test del gate no los ejecuta.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/actions/workflows (total_count=10; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/actions/runs?branch=main&per_page=30 (Quality Gate success en 2c86073; Benchmarks y Docker failure; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/package.json?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (scripts.test='npm run test:retry && npm run test:logging'; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/git/trees/2c86073bf55a105282bbdd4476fc18f5b7e6f97d?recursive=1 (155 archivos .test/.spec; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 15,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Hay mucho volumen (555 archivos bajo docs/, más agentic-flow/docs y un README de 2.238 líneas) y poca fidelidad. La guía MULTI-MODEL-ROUTER documenta APIs y comandos ausentes del código: RouterOptimizedAgent, budget.total y perDocument, fallbackToFree, budget.dailyLimit y hardStop, y 'router init'. Las cifras de ahorro se contradicen entre documentos: 99% y 87% en la guía, 60% y 28,5% en el README. El README raíz dice v2.0.0-alpha y Node 18+, mientras que el paquete es 3.1.0 con engines >=20. El enlace a LICENSE está roto y un benchmark sintético se presenta como 'Measured'.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/docs/guides/MULTI-MODEL-ROUTER.md?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (702 líneas; RouterOptimizedAgent/fallbackToFree; medido 2026-11-02)",
+          "github-api:search/code?q=fallbackToFree+repo:ruvnet/agentic-flow (solo en guías; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/README.md?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (v2.0.0-alpha; badge Node 18+; enlace LICENSE; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/README.md?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (60% Cost Savings; tabla 'Measured' 28.5%; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 20,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Dos package.json comparten el nombre 'agentic-flow': la raíz en 2.0.2-alpha y agentic-flow/ en 3.1.0. La numeración retrocede: los tags v2.3.x son de noviembre de 2025, pero en 2026 se publicaron 2.1.x y el CVE de junio se parcheó en 2.0.14. Las versiones 2.1.4, 2.1.5, 3.0.0 y 3.1.0 salen en PR sin tag. Existe un tag v3.0.0-alpha.2 sin release. Hay un agentic-flow/CHANGELOG.md, pero la semántica de versiones no es confiable para fijar dependencias.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/package.json?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (version=2.0.2-alpha; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/package.json?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (version=3.1.0; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/tags?per_page=100 (v2.3.6..v2.0.0 en 2025-11; v3.0.0-alpha.2; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/security-advisories (patched_versions=2.0.14 (2026-06); medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La CI cubre solo Ubuntu con Node 20.x y 22.x; no hay evidencia con Node 26. El PR #230 corrigió un crash en Windows por onnxruntime-node (2026-09-16), y siguen abiertos issues de instalación (#231 y #229) y de rutas del proveedor ONNX (#227). Lo más relevante para este encaje: las funciones de presupuesto que documenta la guía no existen en src/, así que no hay compatibilidad demostrable entre el contrato documentado y el código.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/.github/workflows/test.yml?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (ubuntu-latest; node 20.x/22.x; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/issues?state=closed&per_page=30 (#230 fix Windows onnxruntime; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/issues?state=open&per_page=10 (#231, #229, #227 abiertos; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/router/router.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (sin budget/fallbackToFree; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 15,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El paquete publicable (agentic-flow/package.json) tiene 26 dependencias de runtime y 7 opcionales. Relacionadas con el enrutamiento de modelos hay 11: @anthropic-ai/claude-agent-sdk, @anthropic-ai/sdk, @google/genai, @metaharness/router, @ruvector/router, @ruvector/tiny-dancer, @ruvector/ruvllm, axios, express, http-proxy-middleware y tiktoken; a ellas se suma la opcional onnxruntime-node. Las otras 15 son ajenas: memoria vectorial (agentdb, ruvector, @ruvector/core y edge-full, ruvector-onnx-embeddings-wasm, @huggingface/transformers), MCP (fastmcp), P2P (gun), nube (@supabase/supabase-js) y utilidades (dotenv, glob, ulid, ws, yaml, zod). Hay opcionales nativas: better-sqlite3, sharp, onnxruntime-node y @rollup/rollup-darwin-arm64. El package.json raíz suma 38, 4 y 2 (claude-flow y flow-nexus como peers, React, Vite y Tailwind en runtime).",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/package.json?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (dependencies=26; optionalDependencies=7; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/package.json?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (dependencies=38; optionalDependencies=4; peerDependencies=2; medido 2026-11-02)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 20,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El software es gratuito y declara MIT en package.json, aunque no hay LICENSE en la raíz. El costo de operación depende de proveedores con pago por token, y el control de gasto documentado no está implementado: selectByCost es un stub y costOptimization.maxCostPerRequest y budgetAlerts no se leen en router.ts. El issue #234 informa que los acumulados de costo usan una tarifa promedio fija. Bajo allowPayPerToken=false, solo los proveedores locales (Ollama u ONNX) tienen costo predecible, pero no son los modelos contratados.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/router/router.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (selectByCost TODO; metrics.totalCost; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/router/types.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (costOptimization declarado; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/issues?state=open&per_page=10 (#234 tarifa promedio fija; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Es una CLI y biblioteca Node con proveedores intercambiables (Anthropic, OpenRouter, Gemini, Ollama, ONNX) y una interfaz compatible con la API de Anthropic. La configuración y el dataset de cost-optimal tienen formato propio. Hay problemas documentados en Windows (#230) y dependencias nativas opcionales por plataforma. No existe una ruta de uso dentro del despacho de subagentes del host.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/router/types.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (ProviderType y RouterConfig; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/issues?state=closed&per_page=30 (#230 Windows; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se desinstala con 'npm uninstall -g', pero deja rastros: el postinstall modifica archivos de agentdb, el proveedor ONNX descarga 4,6 GB en el directorio actual (#226) y hay estado local en .agentic-flow/intelligence.db*, que aparece versionado en el propio repositorio. No hay instrucciones de desinstalación ni de limpieza. El wrapper de Claude Code altera variables solo en el proceso hijo, así que no deja configuración persistente en el host.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/scripts/postinstall.js?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (writeFileSync en agentdb; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/issues?state=open&per_page=10 (#226 descarga en cwd; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/git/trees/2c86073bf55a105282bbdd4476fc18f5b7e6f97d?recursive=1 (.agentic-flow/intelligence.db-shm versionado; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/cli/claude-code-wrapper.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (env del proceso hijo; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Para operar exige claves por proveedor, un proxy HTTP local (express y http-proxy-middleware) cuando se usa con Claude Code, la configuración del router y, en el modo cost-optimal, mantener un dataset de evaluación y una función de embeddings. Los modos locales suman modelos de varios GB o un servidor Ollama. Para el enrutamiento no es obligatorio un daemon persistente, pero sí lo es una pieza de red en marcha durante la sesión.",
+        "evidenceRefs": [
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/cli/claude-code-wrapper.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (proxy + spawn claude; medido 2026-11-02)",
+          "github-api:repos/ruvnet/agentic-flow/contents/agentic-flow/src/router/cost-optimal-router.ts?ref=2c86073bf55a105282bbdd4476fc18f5b7e6f97d (dataset y embed requeridos; medido 2026-11-02)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": true,
+    "networkAccess": true,
+    "credentialsAccess": true,
+    "sensitiveDataAccess": true,
+    "remoteWrite": false,
+    "broadScope": true,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  },
+  "communitySnapshot": {
+    "state": "available",
+    "counts": {
+      "stars": 835,
+      "forks": 178,
+      "contributors": 9
+    },
+    "contributorsState": "available",
+    "raw": {
+      "fullName": "ruvnet/agentic-flow",
+      "stars": 835,
+      "forks": 178,
+      "openIssues": 115,
+      "createdAt": "2024-09-02T21:15:00Z",
+      "pushedAt": "2026-10-31T23:30:51Z",
+      "license": null,
+      "archived": false,
+      "defaultBranch": "main"
+    },
+    "sourceUrl": "https://github.com/ruvnet/agentic-flow",
+    "observedAt": "2026-11-03T01:37:33.000Z"
+  }
+}
