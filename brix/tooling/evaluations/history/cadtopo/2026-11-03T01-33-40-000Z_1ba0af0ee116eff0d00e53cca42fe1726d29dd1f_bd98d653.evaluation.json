@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "cadtopo",
+    "type": "technology",
+    "sourceUrl": "https://github.com/code0-tech/cadtopo",
+    "evaluatedRef": "1ba0af0ee116eff0d00e53cca42fe1726d29dd1f"
+  },
+  "observedAt": "2026-11-03T01:33:40.000Z",
+  "overallScore": 36.268866846384874,
+  "evidenceCoverage": 92.75,
+  "factorScores": {
+    "community": 8.829628349571422,
+    "maintenance": 42.35294117647059,
+    "security": 59.00000000000001,
+    "fit": 23,
+    "engineering": 46,
+    "sustainability": 48.5
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 92.98750000000001,
+  "confidence": "high",
+  "riskLevel": "high",
+  "baselineRecommendation": "do_not_advance",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#cadtopo",
+  "evidenceInputRef": "brix/tooling/evaluations/cadtopo.evidence.json",
+  "expiresAt": "2027-02-01T01:33:40.000Z",
+  "communityEvidenceNote": null
+}
