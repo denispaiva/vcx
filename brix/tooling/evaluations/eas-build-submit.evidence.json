@@ -1,0 +1,405 @@
+{
+  "candidate": {
+    "id": "eas-build-submit",
+    "type": "technology",
+    "sourceUrl": "https://github.com/expo/eas-cli",
+    "evaluatedRef": "eas-cli@27.2.0"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 95,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "pushed_at 2026-11-02T20:45:48Z según la API de GitHub, el mismo día de esta evaluación.",
+        "evidenceRefs": [
+          "github-api:repos/expo/eas-cli (consultado 2026-11-02) pushed_at=2026-11-02T20:45:48Z"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 88,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "27.2.0 publicada el 2026-10-29; doce versiones entre el 2026-10-05 y el 2026-10-29 según los tiempos de npm, con releases de GitHub coincidentes (v27.2.0 el 2026-10-30T00:41Z). Cadencia continua.",
+        "evidenceRefs": [
+          "registry.npmjs.org/eas-cli (consultado 2026-11-02) time[27.2.0]=2026-10-29T23:56:52Z",
+          "github-api:repos/expo/eas-cli/releases?per_page=5 (consultado 2026-11-02)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Mantenida por Expo como parte de su producto principal; corridas de tests en main varias veces por día el 2026-11-02.",
+        "evidenceRefs": [
+          "github-api:repos/expo/eas-cli (consultado 2026-11-02)",
+          "github-api:repos/expo/eas-cli/actions/workflows/test.yml/runs?branch=main (5 éxitos el 2026-11-02)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 52,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "487 issues abiertas sobre 1377 estrellas, cerca del 35 %, algo peor que en agosto (436/1343). No se midieron tiempos de respuesta; el conteo solo no prueba mal soporte, pero tampoco salud.",
+        "evidenceRefs": [
+          "github-api:repos/expo/eas-cli (consultado 2026-11-02) open_issues_count=487, stargazers_count=1377"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La API de security advisories del repositorio devuelve una lista vacía. No se corrió npm audit sobre las 93 dependencias de 27.2.0: queda fuera de esta medición.",
+        "evidenceRefs": [
+          "github-api:repos/expo/eas-cli/security-advisories (length=0, 2026-11-02)",
+          "registry.npmjs.org/eas-cli (consultado 2026-11-02) versions[27.2.0].dependencies (93)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 92,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Publicada por Expo (650 Industries), proveedor del framework que Teyst ya usa; licencia MIT; 27.2.0 tiene attestations de procedencia npm y dos firmas de registro.",
+        "evidenceRefs": [
+          "registry.npmjs.org/eas-cli/27.2.0 dist.attestations presente, dist.signatures=2 (2026-11-02)",
+          "github-api:repos/expo/eas-cli (consultado 2026-11-02) license=MIT"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SECURITY.md presente con canal privado; sin advisories abiertos; CI de tests activo en main.",
+        "evidenceRefs": [
+          "github-api:repos/expo/eas-cli/contents/SECURITY.md (existe, 2026-11-02)",
+          "github-api:repos/expo/eas-cli/contents/.github/workflows (20 workflows)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 62,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Baja respecto de agosto (78) por dos hallazgos leídos en el código. (1) eas submit con una clave local la lee y la envía al backend de Expo dentro de la mutación GraphQL de submit (googleServiceAccountKeyJson, keyP8), en 22.0.0 y en 27.2.0; la doc de submit dice que Expo guarda las claves subidas, pero no aclara que una ruta local también se transmite. (2) La analítica está activa por defecto y envía a cdp.expo.dev; se apaga con `eas analytics off` o DISABLE_EAS_ANALYTICS. Sentry solo se activa con EAS_CLI_SENTRY_DSN. EAS Build en la nube sube el código fuente, y eso sí está documentado.",
+        "evidenceRefs": [
+          "npm:eas-cli@22.0.0 build/submit/android/ServiceAccountSource.js:35, build/submit/ios/IosSubmitter.js:87 (leído sin ejecutar, 2026-11-02)",
+          "npm:eas-cli@27.2.0 build/submit/android/ServiceAccountSource.js:35, build/submit/ios/IosSubmitter.js:87, build/analytics/AnalyticsManager.js:112-139, build/sentry.js:7-8 (leído sin ejecutar, 2026-11-02)",
+          "docs.expo.dev/submit/android/ (consultado 2026-11-02)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 82,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Teyst necesita builds nativos firmados y el diseño de arquitectura nativa del 2026-11-02 recomienda EAS Build en la nube como vía normal. Para submit recomienda las herramientas de las tiendas mientras rija la restricción de credenciales, así que esa parte del candidato no cubre un hueco hoy.",
+        "evidenceRefs": [
+          "vcx:docs/superpowers/specs/2026-11-02-teyst-native-architecture-design.md (secciones 2.1 y 2.2)",
+          "blends:ideas/teyst/transition-plan-draft.md (Fase 5, decisión de empaquetado)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 88,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Herramienta oficial de Expo. Teyst usa Expo ~57 y su eas.json exige cli >= 22.0.0; 27.2.0 lo cumple y declara engines node ^20.18.3 || >=22.0.0. No se ejecutó un build de Teyst: es compatibilidad declarada, no medida.",
+        "evidenceRefs": [
+          "registry.npmjs.org/eas-cli (consultado 2026-11-02) versions[27.2.0].engines",
+          "blends:vc/teyst/eas.json (cli.version >= 22.0.0)",
+          "blends:vc/teyst/package.json (expo ~57.0.16)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin builds nativos no hay app en tiendas; es prerrequisito de la Fase 5, no una mejora incremental.",
+        "evidenceRefs": [
+          "vcx:docs/superpowers/specs/2026-11-02-teyst-native-architecture-design.md (secciones 2.1 y 2.2)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "CLI global con cuenta en expo.dev y eas.json ya configurado en Teyst. Agrega pasos: variantes de app (app.config.ts), credenciales de firma y, si se quiere privacidad, desactivar la analítica.",
+        "evidenceRefs": [
+          "vcx:docs/superpowers/specs/2026-11-02-teyst-native-architecture-design.md (secciones 2.1 y 2.2)",
+          "blends:vc/teyst/eas.json"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "rationale": "Teyst no ejecutó ningún build de EAS hasta el 2026-11-02; no hay adopción observada.",
+        "evidenceRefs": [
+          "blends:vc/teyst/finops/billing-ledger.json (línea expo-eas-build, sin builds registrados)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "rationale": "Sin builds ejecutados, no hay resultado observado que declarar.",
+        "evidenceRefs": [
+          "blends:vc/teyst/finops/billing-ledger.json (línea expo-eas-build)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 82,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Medido, no presunto: el workflow test.yml corre en main y sus cinco últimas corridas del 2026-11-02 terminaron con éxito; hay workflows de tests de GraphQL, scripts y worker.",
+        "evidenceRefs": [
+          "github-api:repos/expo/eas-cli/actions/workflows/test.yml/runs?branch=main&per_page=5 (5 success, 2026-11-02)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "docs.expo.dev cubre planes, builds locales, submit y credenciales con detalle y fecha de actualización. Baja de 85 porque no documenta que eas submit transmite a Expo una clave local, un dato material para decidir dónde viven las credenciales.",
+        "evidenceRefs": [
+          "docs.expo.dev/billing/plans/, /build-reference/local-builds/, /submit/introduction/, /submit/android/ (consultados 2026-11-02)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 70,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Semver honesto: cada major del 23 al 27 documenta su cambio incompatible en el CHANGELOG, y todos son acotados (salidas --json, simulator, stderr, artefactos de workflow). Pero hubo cinco majors en once semanas (22.0.0 el 2026-08-14, 27.2.0 el 2026-10-29), lo que vuelve frágil fijar una versión evaluada.",
+        "evidenceRefs": [
+          "raw.githubusercontent.com/expo/eas-cli/main/CHANGELOG.md (secciones 22.0.0 a 27.0.0, 2026-11-02)",
+          "registry.npmjs.org/eas-cli (consultado 2026-11-02) time"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Vía de build oficial del framework para iOS y Android. No se verificó una matriz de soporte por SDK de Expo para 27.2.0.",
+        "evidenceRefs": [
+          "docs.expo.dev/build-reference/local-builds/ (consultado 2026-11-02)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 65,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "93 dependencias de runtime en 27.2.0. Es herramienta de desarrollo y no entra en el bundle de la app, pero su árbol corre con acceso a credenciales de firma.",
+        "evidenceRefs": [
+          "registry.npmjs.org/eas-cli (consultado 2026-11-02) versions[27.2.0].dependencies (93)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 75,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sube de 55: el plan Free no puede generar cargos por excedente («Free plan accounts cannot incur overage charges»); incluye 15 builds Android y 15 iOS por mes y EAS Update hasta 1.000 MAU; al agotar la cuota se espera al mes siguiente o se compila en local. Sin verificar si --local consume cuota.",
+        "evidenceRefs": [
+          "docs.expo.dev/billing/plans/ (releído 2026-11-02)",
+          "expo.dev/pricing y docs.expo.dev/billing/faq/ (consultados 2026-11-02)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "eas build --local y expo prebuild permiten compilar fuera de la nube de Expo; EAS Update es la parte más atada al proveedor.",
+        "evidenceRefs": [
+          "docs.expo.dev/build-reference/local-builds/ (consultado 2026-11-02)",
+          "vcx:docs/superpowers/specs/2026-11-02-teyst-native-architecture-design.md (secciones 2.1 y 2.2)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Desinstalar el CLI es trivial y migrar a builds locales es viable. Las claves de firma custodiadas en EAS se pueden descargar; con Play App Signing la clave de release la guarda Google. Una publicación en tienda no se revierte.",
+        "evidenceRefs": [
+          "vcx:docs/superpowers/specs/2026-11-02-teyst-native-architecture-design.md (secciones 2.1 y 2.2)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 72,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin servicio local; se invoca por release. Cola de baja prioridad en Free, con esperas de más de 90 minutos en hora pico según la documentación de precios, y configuración de opt-out de analítica.",
+        "evidenceRefs": [
+          "expo.dev/pricing (consultado 2026-11-02)",
+          "npm:eas-cli@27.2.0 build/submit/android/ServiceAccountSource.js:35, build/submit/ios/IosSubmitter.js:87, build/analytics/AnalyticsManager.js:112-139, build/sentry.js:7-8 (leído sin ejecutar, 2026-11-02)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 88
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": true,
+    "networkAccess": true,
+    "credentialsAccess": true,
+    "sensitiveDataAccess": true,
+    "remoteWrite": true,
+    "broadScope": true,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": true,
+    "knownCriticalVulnerability": false
+  },
+  "communitySnapshot": {
+    "state": "available",
+    "counts": {
+      "stars": 1377,
+      "forks": 259,
+      "contributors": 114
+    },
+    "contributorsState": "available",
+    "raw": {
+      "fullName": "expo/eas-cli",
+      "stars": 1377,
+      "forks": 259,
+      "openIssues": 487,
+      "createdAt": "2020-08-12T17:05:04Z",
+      "pushedAt": "2026-11-02T20:45:48Z",
+      "license": "MIT",
+      "archived": false,
+      "defaultBranch": "main"
+    },
+    "sourceUrl": "https://github.com/expo/eas-cli",
+    "observedAt": "2026-11-02T21:10:00.000Z"
+  }
+}
