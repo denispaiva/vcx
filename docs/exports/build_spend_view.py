@@ -26,6 +26,11 @@ queda «sin asignar» con su ruta, sin inferir identidades (VCX-P9).
 Agregar los ledgers replica la capacidad `finops-ledger`, que es de Brix: deuda
 declarada, como en el tablero del portfolio (VCX-D039).
 
+Los pagos reales con comprobante se leen del ledger privado de VCX-D042
+(`~/finops-private/payments.csv` por defecto, o --payments), fuera de todo
+repositorio. Se informan por fecha de pago, en la moneda del comprobante, sin
+número de comprobante ni notas; si el archivo falta, la fuente queda «sin datos».
+
 La salida trae importes y datos de proyectos privados (VCX-D032). Este
 repositorio es público: el generador se niega a escribir dentro de él o dentro
 del precursor.
@@ -33,7 +38,7 @@ del precursor.
 Uso, desde la raíz de vcx:
   python3 -I docs/exports/build_spend_view.py --out <carpeta fuera de vcx>
 """
-import argparse, collections, datetime, json, subprocess, sys
+import argparse, collections, csv, datetime, json, subprocess, sys
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[2]
@@ -46,6 +51,8 @@ ap.add_argument("--claude-dir", default=str(home / ".claude/projects"), help="re
 ap.add_argument("--codex-dir", default=str(home / ".codex"), help="registros de Codex (sessions y archived_sessions)")
 ap.add_argument("--map", action="append", default=[], metavar="CARPETA=PROYECTO",
                 help="asigna una carpeta de trabajo, y lo que cuelga de ella, a un ID de proyecto")
+ap.add_argument("--payments", default=str(home / "finops-private/payments.csv"),
+                help="ledger privado de pagos con comprobante (VCX-D042), solo lectura")
 ap.add_argument("--out", required=True, help="carpeta de salida, fuera de vcx y del precursor")
 args = ap.parse_args()
 
@@ -120,6 +127,19 @@ for path in (p for p in files if p.endswith("finops/billing-ledger.json")):
         warnings.append(f"{path}: no se pudo leer ({exc})")
 for pid in sorted({r["project"] for r in ledger} - board_ids):
     projects.append(dict(project=pid, title=pid, kind="ledger", inBoard=False))
+
+# Pagos con comprobante: un renglón por comprobante, sin su número ni notas.
+payments, payments_path = [], Path(args.payments).expanduser()
+if payments_path.is_file():
+    seen = collections.Counter()
+    for p in csv.DictReader(payments_path.open(encoding="utf-8")):
+        base = f"{p['fecha']}|{p['proveedor']}|{p['concepto']}"
+        seen[base] += 1
+        payments.append(dict(
+            key=base if seen[base] == 1 else f"{base}|{seen[base]}", date=p["fecha"], month=p["fecha"][:7],
+            mailbox=p["buzon"], provider=p["proveedor"], concept=p["concepto"], period=p["periodo"] or None,
+            currency=p["moneda"] or None, amount=float(p["importe"]) if p["importe"] else None,
+            status=p["estado"], inPrecursorLedger=bool(p["ref_precursor"])))
 
 
 def project_of(cwd):
@@ -262,6 +282,11 @@ sources = [
          detail=f"Períodos {', '.join(periods)}; {len({r['item'] for r in ledger})} ítems en "
                 f"{len({r['ledger'] for r in ledger})} ledgers; ref {args.ref} {rev_sha} del {rev_date[:10]}. "
                 "Se actualiza en el precursor, no aquí"),
+    dict(source="Ledger privado de pagos", status="ok" if payments else "sin datos",
+         detail=f"{len(payments)} comprobantes del {payments[0]['date']} al {payments[-1]['date']}; "
+                f"{sum(p['inPrecursorLedger'] for p in payments)} también citados en el ledger del precursor. "
+                "Se actualiza a mano en el ledger privado (VCX-D042)" if payments else
+                "No se encontró el ledger privado de VCX-D042; se pasa con --payments"),
     dict(source="Roadmaps del Board", status="ok",
          detail=f"{len(board_ids)} proyectos y {len(sprints)} sprints; ref {args.ref} {rev_sha}"),
     dict(source="Claude Code en esta máquina", status="ok" if cc["records"] else "sin datos",
@@ -281,7 +306,7 @@ sources = [
          detail="El costo real exige exportar la facturación a BigQuery; hoy solo figuran los ítems por uso del ledger"),
 ]
 
-datasets = dict(projects=projects, sprints=sprints, ledger=ledger, tokens=token_rows,
+datasets = dict(projects=projects, sprints=sprints, ledger=ledger, payments=payments, tokens=token_rows,
                 codex_quota=quota_rows, github_usage=github_rows, sources=sources)
 out.mkdir(parents=True, exist_ok=True)
 for name, rows in datasets.items():
@@ -289,5 +314,6 @@ for name, rows in datasets.items():
 for w in warnings:
     print("aviso:", w, file=sys.stderr)
 print(f"{out} · {len(projects)} proyectos · {len(sprints)} sprints · {len(ledger)} renglones de ledger · "
+      f"{len(payments)} pagos · "
       f"{len(token_rows)} renglones de tokens · {len(quota_rows)} de cupo · {len(github_rows)} de GitHub · "
       f"{len(warnings)} avisos")
