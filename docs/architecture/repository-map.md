@@ -109,7 +109,7 @@ Estado: VCX-D030 del 2026-11-01, ratificada como decisión documental el mismo d
 | Clase de decisión | Destino | Mientras no exista el clon |
 |---|---|---|
 | Conjunto: topología, principios, nombres, reparto | Este registro, `VCX-Dxxx` | Igual |
-| Método, kernel, proceso, gobierno, estándares | Repositorio público `blends`, checkout `vcx/blends/`; antes de su creación, rutas del kernel en el clon de la instancia, que viajan con el export | Raíz con clasificación «Blends», a trasladar |
+| Método, proceso, gobierno, estándares y su verificación | Repositorio público `blends`, checkout `vcx/blends/`; antes de su creación, rutas de la superficie publicable de Blends (VCX-D045) en el clon de la instancia, que viajan con el export | Raíz con clasificación «Blends», a trasladar |
 | `queue` y trenes del portfolio | Instancia privada `solera`, checkout `vcx/cellars/` | Operador vigente `../blends` |
 | Capacidades de Brix | `vc/brix/docs/decisions` en la instancia hasta la extracción a `brix` público | Igual que Blends |
 | Cellar producto | Repositorio propio del paso 3 | `vcx/cellar/`, rastreado por la raíz |

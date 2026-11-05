@@ -38,9 +38,9 @@ Las ubicaciones siguientes son relativas al repositorio de referencia, no rutas 
 | Decisión o control de origen | Conciliación propuesta en VCX | Qué no se decide aquí |
 |---|---|---|
 | Renombre visible a Blends Kernel; conservación de `framework`, `frameworkVersion`, `framework#…` y `blends-framework` | Preservar identidades y entender el kernel como gobierno de Blends | No renombrar IDs ni asignar ese kernel a Brix |
-| Movimiento aprobado `vc/framework/` → `vc/kernel/` bajo disparadores | Reconocer la aprobación; evaluar más adelante si VCX propone otro destino final | No cancelar el movimiento aprobado ni ejecutar una mudanza intermedia |
-| D-1: documentar y separar configuración del kernel de `tooling/` | Conservar la separación semántica entre código, política, configuración y datos | No reemplazar el destino aprobado por nuevas carpetas sin decisión explícita |
-| D-2: fases 1 y 2 en trenes separados, con una semana entre ambas | Respetar esa condición en cualquier ejecución que siga aquel plan | No trasladar automáticamente ese calendario al diseño documental de VCX |
+| Movimiento aprobado `vc/framework/` → `vc/kernel/` bajo disparadores | Revocado por VCX-D045, junto con su Fase 2 de configuración | No editar la spec del precursor; la `queue` se actualiza cuando lo ordene el PO |
+| D-1: documentar y separar configuración del kernel de `tooling/` | Conservar la separación semántica entre código, política, configuración y datos | El destino de cada archivo sale del reparto de VCX-D045 |
+| D-2: fases 1 y 2 en trenes separados, con una semana entre ambas | Pierde objeto con la revocación de VCX-D045 | No trasladar ese calendario al diseño documental de VCX |
 | D-3: inventario de backends antes de crear el entorno de Salmanazar | Preservar dueño graduado, inventario y conciliación | No provisionar, renombrar o auditar recursos de nube desde esta tarea |
 
 La comprobación actual encuentra inventario `schemaVersion=1.1.0`, listas y estados de backends, `vc/tools/reconcile-backends.mjs` y el runbook `vc/docs/tooling/backend-inventory.md` en `main`. A la vez, la entrada `BL-20261024-fase-s-inventario-de-backends-conciliado` sigue `open` en la foto local de `queue`. La presencia de implementación y el estado administrativo no se confunden: esta entrega no declara la Fase S pendiente de construir ni la cierra por inferencia.
