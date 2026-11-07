@@ -36,7 +36,7 @@ El [modelo mínimo de iniciativa](docs/initiative-model.md) precisa la informaci
 
 La propuesta de idea usa su plantilla específica durante el [ingreso](../blends/docs/idea-intake.md). El registro en Cellar ocurre después de revisar el reporte del consejo y recibir la confirmación humana; un borrador aún no aceptado no figura como iniciativa activa, aunque se custodie, y puede prepararse sin haber elegido todavía la instancia de destino.
 
-Esta carpeta contiene la definición del producto y las plantillas; [cellars/](../cellars/README.md) es el punto de entrada de sus futuras instancias. Aún no se creó una instancia ni se eligió su nombre.
+Esta carpeta contiene la definición del producto y las plantillas; [solera/](../solera/README.md) es la instancia de este workspace, todavía sin repositorio propio; VCX-D009 y VCX-D053 fijan su nombre, propietario y ubicación.
 
 Para trabajar: leer este documento y [AGENTS.md](AGENTS.md). Consultar [interoperabilidad](../docs/architecture/interoperability.md), [matriz](../docs/architecture/responsibility-matrix.md) y [decisiones](../docs/decisions/README.md) según la tarea.
 

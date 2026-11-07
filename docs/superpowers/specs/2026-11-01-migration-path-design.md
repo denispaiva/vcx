@@ -4,6 +4,8 @@ Fecha: 2026-11-01. Estado: propuesta del asistente, registrada como VCX-D030 en 
 
 Enmienda por VCX-D045, 2026-11-05: Blends Kernel deja de ser entidad objetivo; donde este documento dice «rutas del kernel» como destino rige la superficie publicable de Blends, según el [diseño del retiro](2026-11-05-kernel-retirement-design.md). El texto siguiente se conserva como historia.
 
+Enmienda por VCX-D053, 2026-11-05: la carpeta local de la instancia pasa de `vcx/cellars/` a `vcx/solera/`; las menciones siguientes se conservan como historia.
+
 Etiquetas: [U] definición o respuesta del usuario; [H] hecho comprobado con referencia; [I] interpretación del asistente; [P] propuesta pendiente de revisión.
 
 ## Hechos comprobados el 2026-11-01
