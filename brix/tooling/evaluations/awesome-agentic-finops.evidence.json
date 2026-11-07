@@ -1,0 +1,415 @@
+{
+  "candidate": {
+    "id": "awesome-agentic-finops",
+    "type": "practice",
+    "sourceUrl": "https://github.com/gregoire-costory/awesome-agentic-finops",
+    "evaluatedRef": "2da98df4542f47b49e15fb24536bab9d8bab66bf"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 88,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Ultimo push 2026-10-21T09:46Z (11 dias antes de la medicion); ultimo commit 2026-10-15 (17 dias). Repo creado 2026-06-09, no archivado. Actividad reciente, aunque el repo tiene menos de 5 meses de vida.",
+        "evidenceRefs": [
+          "github-api:repos/gregoire-costory/awesome-agentic-finops (pushed_at=2026-10-21; archived=false; medido 2026-11-01)",
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/commits?per_page=100 (ultimo commit=2026-10-15T08:06:30Z; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 25,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 releases y sin tags (releases devuelve lista vacia). Es una lista curada y las releases no son su medio natural, pero no existe ningun marcador de version ni changelog; la continuidad solo se lee del historial de commits.",
+        "evidenceRefs": [
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/releases (cantidad=0; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 60,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "16 commits desde 2026-06-09. Ultimos 90 dias (desde 2026-08-03): 6 commits en 3 rachas (2026-08-03 merge, 2026-08-13 x2, 2026-10-08, 2026-10-12, 2026-10-15) con hueco de 56 dias entre 08-13 y 10-08. 15 de 16 commits son del autor; 1 externo (sartya, NudgeBee, 2026-07-28). Factor de bus 1.",
+        "evidenceRefs": [
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/commits?per_page=100 (16 commits; 6 en 90 dias; hueco max 56 dias; medido 2026-11-01)",
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/contributors (gregoire-costory=15, sartya=1; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 35,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "23 issues+PRs: 8 cerrados, 15 abiertos. Los cierres del propio autor son del mismo dia (#11,#18,#19). Entre los externos, solo #8 (1 dia) y #9 (6 dias) se resolvieron; 14 items externos abiertos con 0-1 comentarios, el mas antiguo (#1) desde 2026-06-24 (130 dias) y #7 (consulta de alcance sobre trazado de costo LLM) sin respuesta desde 2026-07-10. #20 (PR del propio autor sobre su entrada) tambien abierto.",
+        "evidenceRefs": [
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/issues?state=all&per_page=30 (cerrados=8; abiertos=15; comentarios=0 en 13 de 15 abiertos; medido 2026-11-01)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin software ejecutable: 3 archivos (README.md, CONTRIBUTING.md, LICENSE). security-advisories devuelve 0. La superficie es solo de enlaces a terceros; no se escaneo el contenido de las ~100 herramientas listadas. Puntaje por ausencia de codigo, no por auditoria de lo enlazado.",
+        "evidenceRefs": [
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/security-advisories (cantidad=0; medido 2026-11-01)",
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/git/trees/main?recursive=1 (archivos=3; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cuenta personal (User, no organizacion) creada 2024-04-24, anterior al repo (2026-06-09); 12 repos publicos, 2 seguidores. El README declara que la mantiene el equipo de Costory (vendor) pero el repo no esta en una organizacion de Costory. Conflicto de interes declarado y mitigado por una etiqueta vendor y criterios, pero el autor figura primero en la tabla comparativa y en la seccion de skills.",
+        "evidenceRefs": [
+          "github-api:repos/gregoire-costory/awesome-agentic-finops (owner.type=User; created_at=2026-06-09; medido 2026-11-01)",
+          "github-api:users/gregoire-costory (created_at=2024-04-24; public_repos=12; followers=2; medido 2026-11-01)",
+          "github-raw:gregoire-costory/awesome-agentic-finops/README.md (223 lineas, 22317 bytes; leido; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 40,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin SECURITY.md, sin workflows de CI (total_count=0), sin escaneo. Perfil de comunidad 57%: tiene codigo de conducta, plantillas de issue y PR, contributing y licencia. Poco relevante para un repo de solo markdown, pero no hay verificacion automatica de enlaces ni de la regla de actividad de 12 meses. El README no pide ejecutar comandos ni revelar secretos.",
+        "evidenceRefs": [
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/actions/workflows (total_count=0; medido 2026-11-01)",
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/community/profile (health_percentage=57; sin security policy; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El candidato no pide permisos. La tabla comparativa declara por herramienta fuente de costos, entrega (hosted/self-host/OAuth) y si actua (Read/Yes/Chat), pero solo cubre 9 de 101 entradas unicas; el resto lleva una descripcion libre sin declaracion consistente de red, credenciales o alcance.",
+        "evidenceRefs": [
+          "github-raw:gregoire-costory/awesome-agentic-finops/README.md (223 lineas, 22317 bytes; leido; medido 2026-11-01)",
+          "github-raw:gregoire-costory/awesome-agentic-finops/CONTRIBUTING.md (2152 bytes; leido; medido 2026-11-01)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 12,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Lista centrada en costo de nube (AWS, Azure, GCP, Kubernetes, SaaS): de 101 entradas unicas, unas 5 tocan gasto de LLM/IA: aws-cost-explorer-mcp-server (Bedrock invocation logs), Costory (fuentes OpenAI/Anthropic/Cursor; vendor), Atmoz (eficiencia cloud y AI; vendor), FOCUS_Spec (unidades no monetarias como tokens) y finopsfoundation (nota FinOps for AI). Necesidad A (clase/modelo por tarea): ninguna entrada. Necesidad B (tokens por rama/sesion en Claude Code): ninguna entrada la cubre. Mas cercanas: costory-io/costory-finops-mcp-skills (plugin para Claude Code, pero MCP hosted y comercial que consulta gasto agregado, sin rama ni sesion), aws-cost-explorer-mcp-server (solo Bedrock) y FOCUS_Spec como vocabulario. Las 5 skills de Claude Code listadas auditan facturas de nube, no consumo de Claude.",
+        "evidenceRefs": [
+          "github-raw:gregoire-costory/awesome-agentic-finops/README.md (223 lineas, 22317 bytes; leido; medido 2026-11-01)",
+          "local-read:/Users/denis/VibeCoding/blends/vc/tooling/lifecycle/model-routing-policy.json (allowPayPerToken=false; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Como documento no exige integracion, pero su contenido apunta a herramientas incompatibles con las politicas: las entradas mas relevantes a IA son hosted/OAuth comerciales (Costory, 30 dias de prueba y plan Starter pendiente en PR #20) o dependen de AWS/Bedrock. Nada mide ventanas de contexto o transcripts de Claude Code, que es lo que ya hace el instrumento context-window-per-branch del precursor.",
+        "evidenceRefs": [
+          "github-raw:gregoire-costory/awesome-agentic-finops/README.md (223 lineas, 22317 bytes; leido; medido 2026-11-01)",
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/issues/20 (Starter USD 300/mes en PR abierto; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 15,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El resolver de modelos y la politica de enrutamiento existentes, gratuitos, ya cubren A; B se cubre con el instrumento por rama. La lista no aporta herramienta adicional. Unico valor residual: punteros de vocabulario (FOCUS 1.2+ con tokens como unidad, distincion FinOps for AI frente a AI for FinOps). Nota: el PR #8 (awesome-ai-tokenomics, adyacente a la necesidad B) se cerro sin incorporarse.",
+        "evidenceRefs": [
+          "github-raw:gregoire-costory/awesome-agentic-finops/README.md (223 lineas, 22317 bytes; leido; medido 2026-11-01)",
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/issues/8 (state=closed; no figura en README; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de uso de este candidato en el workspace.",
+        "evidenceRefs": [
+          "sin uso del candidato en el workspace: no hay resultado observable (consultado 2026-11-02)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No hay nada que instalar: se consulta el README. El costo de adopcion es solo leer 223 lineas y filtrar lo relevante.",
+        "evidenceRefs": [
+          "github-raw:gregoire-costory/awesome-agentic-finops/README.md (223 lineas, 22317 bytes; leido; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de uso de este candidato en el workspace.",
+        "evidenceRefs": [
+          "vc/tooling/usage/records/ del precursor: sin registro del candidato (consultado 2026-11-02)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 10,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 workflows, sin verificador de enlaces ni lint de formato awesome. Los criterios de admision (relevancia, actividad en ~12 meses, disponibilidad honesta) se aplican a mano.",
+        "evidenceRefs": [
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/actions/workflows (total_count=0; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 72,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "README con escalera de madurez L0-L3, tabla comparativa de columnas verificables, indice y secciones; CONTRIBUTING.md con 3 criterios de admision, etiqueta vendor y estilo de anotacion sin editorializar. Debilidades: criterios aplicados de forma desigual (entradas como greenbot o la seccion Evals vacia), hechos comerciales inestables (duracion de prueba de Costory cambio 14 -> 30 dias en 3 commits entre 2026-10-12 y 2026-10-15).",
+        "evidenceRefs": [
+          "github-raw:gregoire-costory/awesome-agentic-finops/README.md (223 lineas, 22317 bytes; leido; medido 2026-11-01)",
+          "github-raw:gregoire-costory/awesome-agentic-finops/CONTRIBUTING.md (2152 bytes; leido; medido 2026-11-01)",
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/commits?per_page=100 (commits 2026-10-12 y 2026-10-15 sobre trial de Costory; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 15,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin tags, releases ni changelog; historial de 16 commits con mensajes descriptivos pero sin esquema de versionado.",
+        "evidenceRefs": [
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/releases (cantidad=0; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin matriz de compatibilidad propia. La tabla comparativa de 9 filas informa nubes, licencia y entrega por herramienta, pero son afirmaciones del autor sin verificar; la regla de actividad de 12 meses no deja evidencia revisable.",
+        "evidenceRefs": [
+          "github-raw:gregoire-costory/awesome-agentic-finops/README.md (223 lineas, 22317 bytes; leido; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 98,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cero dependencias: 3 archivos de texto (README.md 22317 B, CONTRIBUTING.md 2152 B, LICENSE 374 B).",
+        "evidenceRefs": [
+          "github-api:repos/gregoire-costory/awesome-agentic-finops/git/trees/main?recursive=1 (archivos=3; medido 2026-11-01)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El candidato es gratuito (CC0). Descuento por contenido: 15 menciones de la etiqueta vendor y las entradas de IA mas visibles son comerciales o por consumo, lo que no es costo del candidato pero sesga hacia opciones de pago.",
+        "evidenceRefs": [
+          "github-raw:gregoire-costory/awesome-agentic-finops/README.md (223 lineas, 22317 bytes; leido; medido 2026-11-01)",
+          "github-raw:gregoire-costory/awesome-agentic-finops/LICENSE (CC0 1.0; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 95,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Markdown plano bajo CC0 1.0, sin formato propietario ni servicio. La API de GitHub reporta licencia NOASSERTION/other porque no es una licencia de software reconocida, pero el texto de LICENSE es CC0.",
+        "evidenceRefs": [
+          "github-api:repos/gregoire-costory/awesome-agentic-finops (license.spdx_id=NOASSERTION; LICENSE texto CC0 1.0; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 98,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Nada se instala ni se modifica en el workspace; abandonarla no deja residuo.",
+        "evidenceRefs": [
+          "github-raw:gregoire-costory/awesome-agentic-finops/README.md (223 lineas, 22317 bytes; leido; medido 2026-11-01)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 92,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin servicios, claves ni daemons. Costo operativo solo si se quisiera seguir la lista (vigilar PRs y cambios), sin automatizacion.",
+        "evidenceRefs": [
+          "github-raw:gregoire-costory/awesome-agentic-finops/README.md (223 lineas, 22317 bytes; leido; medido 2026-11-01)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 88
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": false,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  },
+  "communitySnapshot": {
+    "state": "available",
+    "counts": {
+      "stars": 30,
+      "forks": 14,
+      "contributors": 2
+    },
+    "contributorsState": "available",
+    "raw": {
+      "fullName": "gregoire-costory/awesome-agentic-finops",
+      "stars": 30,
+      "forks": 14,
+      "openIssues": 15,
+      "createdAt": "2026-06-09T16:48:02Z",
+      "pushedAt": "2026-10-21T09:46:00Z",
+      "license": "NOASSERTION",
+      "archived": false,
+      "defaultBranch": "main"
+    },
+    "sourceUrl": "https://github.com/gregoire-costory/awesome-agentic-finops",
+    "observedAt": "2026-11-03T01:41:16.000Z"
+  }
+}

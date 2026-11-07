@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-01. Estado: propuesta del asistente, registrada como VCX-D032 en el [registro de decisiones](../../decisions/README.md) y ratificada por el usuario como decisión documental el 2026-11-01, con la opción B y la salida B'; ningún paso de la secuencia queda autorizado para ejecutar. El usuario pidió en el chat con Claude: «Algo que quisiera cambiar es que VCX, BLENDS, BRIX y CELLAR, quisiera hacerlos públicos en Github y no consumir quota de actions en el proceso CI. Si dejaría en private a los proyectos vivos bajo cellars, ej. teyst». Este documento evalúa el pedido, verifica sus supuestos y propone cómo cumplirlo sin romper el precursor. No cambia la visibilidad de ningún repositorio ni crea repositorios.
 
+Enmienda por VCX-D045, 2026-11-05: Blends Kernel deja de ser entidad objetivo; donde este documento dice «rutas del kernel» como destino rige la superficie publicable de Blends, según el [diseño del retiro](2026-11-05-kernel-retirement-design.md). El texto siguiente se conserva como historia.
+
+Enmienda por VCX-D053, 2026-11-05: la carpeta local de la instancia pasa de `vcx/cellars/` a `vcx/solera/`; las menciones siguientes se conservan como historia.
+
 Etiquetas: [U] pedido del usuario; [H] hecho verificado con referencia; [I] interpretación; [P] propuesta.
 
 ## Hechos verificados el 2026-11-01

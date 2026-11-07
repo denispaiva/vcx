@@ -28,7 +28,7 @@ La [entrada de propuestas](docs/idea-intake.md) incorpora la preparación en Bri
 
 Después del ingreso, la [etapa de arquitectura de referencia y FinOps](docs/architecture-and-finops.md) prepara el modelo y los escenarios para decidir el presupuesto de exploración, sin autorizar por ello construcción u operación.
 
-Aquí se documenta el producto objetivo; no se trasladó su implementación. El núcleo de gobierno del sistema existente mantiene su identidad Blends Kernel y su seguimiento canónico actual, y allí sigue conduciendo proyectos hasta conciliar por VCX-D011. No hay un roadmap nuevo o paralelo en esta carpeta.
+Aquí se documenta el producto objetivo; no se trasladó su implementación. El núcleo de gobierno del sistema existente mantiene su identidad Blends Kernel y su seguimiento canónico actual, y allí sigue conduciendo proyectos hasta conciliar por VCX-D011. VCX-D045 lo retira como entidad objetivo: Blends recibirá estándares, validadores y dashboard, no un kernel. No hay un roadmap nuevo o paralelo en esta carpeta.
 
 Para trabajar: leer este documento y [AGENTS.md](AGENTS.md). Consultar después la [matriz](../docs/architecture/responsibility-matrix.md), [interoperabilidad](../docs/architecture/interoperability.md) o [decisiones](../docs/decisions/README.md), según la tarea. La [procedencia histórica](../docs/sources.md) es referencia, no un requisito de instalación.
 

@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "id": "verification-before-completion",
+    "type": "skill",
+    "sourceUrl": "https://github.com/obra/superpowers",
+    "evaluatedRef": "openai-curated-remote/superpowers@7.0.1"
+  },
+  "observedAt": "2026-11-02T15:30:00.000Z",
+  "overallScore": 76.5843994974129,
+  "evidenceCoverage": 97,
+  "factorScores": {
+    "community": 82.03964454588807,
+    "maintenance": 81.8,
+    "security": 76.25000000000001,
+    "fit": 68.88235294117646,
+    "engineering": 63.599999999999994,
+    "sustainability": 93.39999999999999
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.9,
+  "confidence": "high",
+  "riskLevel": "low",
+  "baselineRecommendation": "advance",
+  "status": "approved",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#verification-before-completion",
+  "evidenceInputRef": "brix/tooling/evaluations/verification-before-completion.evidence.json",
+  "expiresAt": "2027-01-31T15:30:00.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "approved",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-02T16:19:26.132Z",
+    "rationale": "Renovación del 2026-11-02 sobre superpowers 7.0.1 (plan de renovación de tooling, triage): 76,6 con advance, confianza high y riesgo low. Uso medido en VCX: 4 lecturas en sesiones de Codex. Se solapa con VCX-P5 (incrementalValue 45); se conserva como guía operativa del cierre."
+  }
+}

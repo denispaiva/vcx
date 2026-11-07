@@ -31,7 +31,7 @@ El diagrama expresa organización documental y pertenencia lógica; sus flechas 
 
 Blends es dueño del método y coordina el tramo de idea; incluye lógica de proceso además de interfaz. Brix ofrece motores e instrumentos reutilizables. Cellar ofrece estructura, configuración, custodia y portabilidad del portfolio, y conduce los proyectos graduados bajo ese método. La [matriz](responsibility-matrix.md#1-método-y-conducción) es la fuente de esa frontera, derivada de VCX-D029; el reparto no rige en el sistema existente hasta conciliar por VCX-D011.
 
-Brix es el núcleo de capacidades técnicas. La denominación histórica **Blends Kernel** pertenece al núcleo de gobierno del sistema existente; esta documentación no la reasigna.
+Brix es el núcleo de capacidades técnicas. La denominación histórica **Blends Kernel** pertenece al núcleo de gobierno del sistema existente; esta documentación no la reasigna, y VCX-D045 la retira como entidad objetivo.
 
 La entrada de cada contexto es su README y sus instrucciones locales. El contexto adicional se carga según la tarea y sus dependencias, no por compartir repositorio. La [matriz](responsibility-matrix.md) detalla responsabilidades y la [interoperabilidad](interoperability.md) delimita las interfaces.
 

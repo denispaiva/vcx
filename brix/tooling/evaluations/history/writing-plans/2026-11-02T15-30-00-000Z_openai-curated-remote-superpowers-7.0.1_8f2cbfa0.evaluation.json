@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "writing-plans",
+    "type": "skill",
+    "sourceUrl": "https://github.com/obra/superpowers",
+    "evaluatedRef": "openai-curated-remote/superpowers@7.0.1"
+  },
+  "observedAt": "2026-11-02T15:30:00.000Z",
+  "overallScore": 74.55454655623645,
+  "evidenceCoverage": 97,
+  "factorScores": {
+    "community": 82.03964454588807,
+    "maintenance": 81.8,
+    "security": 75.65000000000002,
+    "fit": 63.47058823529412,
+    "engineering": 64.55,
+    "sustainability": 83.7
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.9,
+  "confidence": "high",
+  "riskLevel": "medium",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#writing-plans",
+  "evidenceInputRef": "brix/tooling/evaluations/writing-plans.evidence.json",
+  "expiresAt": "2027-01-31T15:30:00.000Z",
+  "communityEvidenceNote": null
+}

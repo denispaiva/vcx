@@ -38,6 +38,7 @@ Los significados agregados se redactaron en esta sesión; su verificación en fu
 - Los términos enológicos pueden inspirar nombres de productos o iniciativas. Para actividades genéricas, se conserva una denominación técnica clara y puede añadirse una etiqueta visible en español.
 - La forma visible de un nombre y su identificador técnico se definen explícitamente al aprobarlo. No se generan identificadores nuevos traduciendo o eliminando tildes de manera automática.
 - Una skill o herramienta propia de un producto lleva como prefijo el nombre de ese producto, en minúsculas y sin el tipo como sufijo: `brix-llm-council`, no `brix-llm-council-skill`. El prefijo indica el origen y la distingue de candidatas externas. Si el producto se distribuye como plugin con espacio de nombres propio, revisar esta regla para no repetir el prefijo.
+- Una capacidad se presenta con un nombre sencillo que dice qué logra, no cómo se implementa: Council, no `brix-llm-council`. Comandos, skills, motores y claves del registro quedan como instrumentación de ese nombre y conservan sus identificadores (VCX-D051). La regla aplica a vistas y comunicación; no autoriza renombrar identidades técnicas.
 - El glosario puede ampliarse: su selección de palabras no obliga a renombrar Blends, Brix, Cellar u otras identidades establecidas.
 
 ## Selección propuesta

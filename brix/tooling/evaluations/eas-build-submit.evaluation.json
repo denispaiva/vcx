@@ -1,0 +1,37 @@
+{
+  "candidate": {
+    "id": "eas-build-submit",
+    "type": "technology",
+    "sourceUrl": "https://github.com/expo/eas-cli",
+    "evaluatedRef": "eas-cli@27.2.0"
+  },
+  "observedAt": "2026-11-02T21:10:00.000Z",
+  "overallScore": 77.3404740906708,
+  "evidenceCoverage": 95,
+  "factorScores": {
+    "community": 64.66070378668732,
+    "maintenance": 83.95,
+    "security": 82.65,
+    "fit": 81.46666666666667,
+    "engineering": 77.85,
+    "sustainability": 73.15
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.75,
+  "confidence": "high",
+  "riskLevel": "critical",
+  "baselineRecommendation": "advance",
+  "status": "approved_with_exception",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#eas-build-submit",
+  "evidenceInputRef": "brix/tooling/evaluations/eas-build-submit.evidence.json",
+  "expiresAt": "2027-01-31T21:10:00.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "approved_with_exception",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-03T01:15:10.469Z",
+    "rationale": "Score 77.3/100, confianza high (95), riesgo critical, recomendación base advance, sobre eas-cli@27.2.0 (reevaluación del 2026-11-02, reemplaza como fuente vigente la admisión del precursor sobre 22.0.0). Decisión del usuario en el chat con Claude del 2026-11-02: «Aprobar con excepción», ante «¿Registro approved_with_exception con las condiciones propuestas?». Condiciones: (1) alcance eas build y eas update; la publicación de eas update al canal production solo manual y con confirmación explícita; eas submit excluido mientras rija «sin credenciales de submit en CI ni en EAS», porque transmite la clave local al backend de Expo (verificado en el código de 22.0.0 y 27.2.0); la publicación en tiendas se hace con Transporter, Xcode y Play Console. (2) Versión eas-cli 27.x; una nueva versión mayor exige reevaluar. (3) Analítica desactivada (eas analytics off o DISABLE_EAS_ANALYTICS) en toda máquina que corra el CLI. (4) Se acepta la custodia de credenciales de firma en Expo, con 2FA en la cuenta de Expo y Play App Signing en Android. (5) Revisión el 2026-12-02, o con el primer build si ocurre antes. Fuente del diseño: docs/superpowers/specs/2026-11-02-teyst-native-architecture-design.md.",
+    "reviewAt": "2026-12-02",
+    "acceptedRisk": true
+  }
+}

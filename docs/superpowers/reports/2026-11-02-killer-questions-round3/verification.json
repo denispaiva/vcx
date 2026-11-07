@@ -1,0 +1,53 @@
+{
+  "verified_at_utc": "2026-11-02T15:43:59.876909+00:00",
+  "criteria_hash_matches_freeze": true,
+  "evaluated_skill_hash_matches_freeze": true,
+  "empty_input_bytes": 0,
+  "executions": 6,
+  "retries": 0,
+  "decisive_sheets_by_case": {
+    "d": 0,
+    "e": 3,
+    "f": 0,
+    "g": 0,
+    "h": 5,
+    "i": 2
+  },
+  "interpretability": {
+    "M": 3,
+    "U": 7,
+    "A": 0,
+    "classification": "manual; no independent review"
+  },
+  "local_links_checked": 31,
+  "local_links_missing": [],
+  "archived_skill_relative_links_not_resolving_from_copy": [
+    "PROVENANCE.md",
+    "UPSTREAM-SKILL.md"
+  ],
+  "raw_output_integrity_limit": "Final messages transcribed by integrator; terminal newline normalized; no independent byte comparison to harness export.",
+  "scope_evidence": "All write operations in this task targeted this report directory; concurrent external changes prevent attribution from git status alone.",
+  "files_sha256": {
+    "2026-11-02-killer-questions-round3.md": "d0e757ba16f12208d5686568fcf50976cfcfa16dc0072f50b1cf9f295341d920",
+    "2026-11-02-killer-questions-round3/author-h.md": "d0c43d82b09c92d15c68a3685601d46de6c643a2627410d49fbfa43fe933528b",
+    "2026-11-02-killer-questions-round3/criteria.md": "7493432f410e212e914e2644ca66b79a98cefbb2ef394ed580b7d965abad83ed",
+    "2026-11-02-killer-questions-round3/execution-log.md": "443a423d93fdd1e0126c58ae0ed803f5a62315a5699dedf00255c282a322947e",
+    "2026-11-02-killer-questions-round3/freeze.json": "6a6b58c614bf20cf3d148be8598740034c3dfedc9ab2a56c7fe2339b0829b819",
+    "2026-11-02-killer-questions-round3/input-d.md": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "2026-11-02-killer-questions-round3/input-e.md": "97a0223f7fe0a6585e0cc54f82be49fac45ebdd6106f4af52be1ac5a303331ef",
+    "2026-11-02-killer-questions-round3/input-f.md": "abe40bced8c93f8d3b9b441d45da1722c268ba17d39d2c55f5b4297063dfafa8",
+    "2026-11-02-killer-questions-round3/input-g.md": "f31ebd48cb5f289a1dd1efea827716e51ad792c4ab0b2a52041ab2d3a8198c3d",
+    "2026-11-02-killer-questions-round3/input-h.md": "8025ca03fc2699619f25e9e4497559c917af63188abc56c39ca448fcc7bbf115",
+    "2026-11-02-killer-questions-round3/input-i.md": "5b22a1c0496c97510fdb239f7ef15106a4f7427ead80e083c514b0608af6d777",
+    "2026-11-02-killer-questions-round3/output-d.md": "09a872bf98c74eb538391d056589a4b3a954296a46bbb85938171366794a8803",
+    "2026-11-02-killer-questions-round3/output-e.md": "12eafe130a7ca24a9a9b67eacba7bd2d1360fd566a802f7c4788a13c87bcb5a8",
+    "2026-11-02-killer-questions-round3/output-f.md": "1aa42ef3116cf803cab039621664490fd23102babfe1b1c303f31c58710f6b9a",
+    "2026-11-02-killer-questions-round3/output-g.md": "3d40b70fa30ce60edebae3adf10ca85c75b8ce603517df5a5bcbc608b314f540",
+    "2026-11-02-killer-questions-round3/output-h.md": "620c310df749a697fe1b2f83d0d09bb21ba9829605173b285bb86af89e4c4255",
+    "2026-11-02-killer-questions-round3/output-i.md": "cdf8d3bec8f826e2abaf20e34944c9edc66e4296ea0fded3942d9cce164b7ad2",
+    "2026-11-02-killer-questions-round3/runner-prompt.md": "1fbf080253e0d152352ff5aba4f59f6793db346b4e06ea677a5ce38ac7a3c9dc",
+    "2026-11-02-killer-questions-round3/skill-under-test.md": "00a5820e20f4451f4764730e0e5b35153671d0eff0b2b4a103b35ee81e7ebc43",
+    "2026-11-02-killer-questions-round3/source-g.md": "955a1f24e03448f2042d53c3e7b0b85fb6858cde190a395c2a3c10753a7842aa",
+    "2026-11-02-killer-questions-round3/suggested-diffs.md": "4e890aaa8c42f624261ea3aeea4aab919b162b15403b5faaa3b7de0eaa2505de"
+  }
+}

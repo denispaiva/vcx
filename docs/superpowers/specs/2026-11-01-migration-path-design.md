@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-01. Estado: propuesta del asistente, registrada como VCX-D030 en el [registro de decisiones](../../decisions/README.md) y ratificada por el usuario como decisión documental el 2026-11-01, con la colocación del clon que fija el [ajuste por la visibilidad pública](#ajuste-por-la-visibilidad-pública); la ejecución sigue requiriendo autorización. El usuario preguntó en el chat con Claude cómo se imagina la migración desde `../blends` hacia `vcx/` y fijó una restricción: «es importante que las nuevas decisiones se vayan construyendo en el destino final». Aprobó registrar esta propuesta y cerrar la verificación del commit base; no autorizó clonar, mover carpetas, inicializar Git en productos ni escribir en el precursor. No sustituye VCX-D025 ni VCX-D026 ni el [mapa](../../architecture/repository-map.md); propone un reordenamiento y una regla, para que el usuario decida.
 
+Enmienda por VCX-D045, 2026-11-05: Blends Kernel deja de ser entidad objetivo; donde este documento dice «rutas del kernel» como destino rige la superficie publicable de Blends, según el [diseño del retiro](2026-11-05-kernel-retirement-design.md). El texto siguiente se conserva como historia.
+
+Enmienda por VCX-D053, 2026-11-05: la carpeta local de la instancia pasa de `vcx/cellars/` a `vcx/solera/`; las menciones siguientes se conservan como historia.
+
 Etiquetas: [U] definición o respuesta del usuario; [H] hecho comprobado con referencia; [I] interpretación del asistente; [P] propuesta pendiente de revisión.
 
 ## Hechos comprobados el 2026-11-01

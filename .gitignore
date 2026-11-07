@@ -1,0 +1,5 @@
+# Código y datos privados de la instancia: nunca entran a este repositorio público.
+# VCX-D043. Las exclusiones de productos se activan por producto, según docs/architecture/repository-map.md.
+/solera/*
+!/solera/README.md
+.DS_Store

@@ -28,7 +28,7 @@ Después de esta aceptación se prepara el [modelo de arquitectura de referencia
 
 Antes del envío al consejo se debe comunicar: qué documento y revisión se enviarán, qué preguntas se consultarán, que se obtendrá un reporte de asesoría y que la decisión final seguirá siendo humana. Se informa también el consumo previsto, el presupuesto autorizado y cualquier límite de ejecución; no se contrata gasto por inferencia.
 
-El OK del documento autoriza ese envío si el paso siguiente fue comunicado y está dentro del alcance y presupuesto aprobados. No se añade otra confirmación redundante para la misma ejecución. Sin esa autorización o presupuesto, se conserva pendiente y se explica lo que falta.
+El [control de madurez](../../brix/docs/idea-intake.md#control-de-madurez) de `/idea`, según VCX-D054, determina cuándo se presenta ese contrato: con la propuesta madura, un resumen pide la aprobación humana. El OK del documento autoriza ese envío si el paso siguiente fue comunicado y está dentro del alcance y presupuesto aprobados. No se añade otra confirmación redundante para la misma ejecución. Sin esa autorización o presupuesto, se conserva pendiente y se explica lo que falta.
 
 Al entregar el reporte se informa: «Este reporte corresponde a esta revisión de tu propuesta. Todavía no está registrada como idea. Confirmá su ingreso, pedí cambios o descartá la propuesta». La interfaz final podrá adaptar el texto manteniendo ese significado.
 

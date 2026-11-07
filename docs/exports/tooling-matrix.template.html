@@ -112,6 +112,7 @@ mark{background:var(--mark);color:var(--mark-ink);border-radius:3px;padding:0 1p
   <div class="bar" id="prodbar"><span class="lbl">Consumido por</span></div>
   <div class="bar" id="statebar"><span class="lbl">Estado</span></div>
   <div class="bar" id="revbar"><span class="lbl">Revisión</span></div>
+  <div class="bar" id="ownbar"><span class="lbl">Origen</span></div>
   <div id="swaps"></div>
   <div id="homes"></div>
   <div class="legend">
@@ -121,7 +122,7 @@ mark{background:var(--mark);color:var(--mark-ink);border-radius:3px;padding:0 1p
     <div><span class="dot d-Brecha"></span><b>Brecha</b><br>Necesidad sin herramienta o sin capacidad.</div>
     <div><span class="dot d-Sin"></span><b>Sin herramienta</b><br>La capacidad o la persona no necesitan skill ni MCP.</div>
     <div><span class="dot d-Rechazado"></span><b>Rechazado</b><br>Decisión humana de no usarla; se muestra junto a su reemplazo.</div>
-    <div><span class="vcx">powered by VCX</span><br>Construida o adaptada por VCX; no viene de terceros ni del precursor.</div>
+    <div><span class="vcx">powered by VCX</span><br>Propia de VCX: construida, adaptada o adoptada con nombre propio, aunque su código venga del precursor; no es de terceros.</div>
   </div>
 </main>
 <dialog id="dlg" aria-labelledby="dlg-title">
@@ -137,7 +138,7 @@ const cls = s => s.split(" ")[0];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const md = s => esc(s).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`([^`]+)`/g, "<code>$1</code>");
 const rank = s => STATES.indexOf(s);
-let prod = null, state = null, review = null, tokens = [];
+let prod = null, state = null, review = null, own = false, tokens = [];
 const DECISION = {approved: "Aprobada", approved_with_exception: "Aprobada con excepción", deferred: "Diferida",
   rejected: "Rechazada", decision_pending: "Decisión pendiente"};
 const ADMITS = ["approved", "approved_with_exception"];
@@ -209,7 +210,7 @@ document.getElementById("meta").innerHTML =
       `el vencimiento se calcula con la fecha en que se abre la vista y una aprobación vencida no cuenta como admisión.`
     : `Sin datos de evaluación: ni <code>brix/tooling/evaluations/</code> ni el precursor estaban disponibles al generar.`);
 
-const visible = it => hits(it.idx) && (!review || (it.review && it.review.key === review)) && it.uses.some(u => (!prod || u.product === prod) && (!state || u.state === state));
+const visible = it => hits(it.idx) && (!own || it.own) && (!review || (it.review && it.review.key === review)) && it.uses.some(u => (!prod || u.product === prod) && (!state || u.state === state));
 const consumers = it => [...new Set(it.uses.map(u => u.product))];
 
 function chip(bar, label, pressed, onClick, dotCls){
@@ -219,8 +220,8 @@ function chip(bar, label, pressed, onClick, dotCls){
   b.onclick = onClick; bar.appendChild(b);
 }
 function bars(){
-  const pb = document.getElementById("prodbar"), sb = document.getElementById("statebar"), rb = document.getElementById("revbar");
-  [pb, sb, rb].forEach(b => b.querySelectorAll("button").forEach(x => x.remove()));
+  const pb = document.getElementById("prodbar"), sb = document.getElementById("statebar"), rb = document.getElementById("revbar"), ob = document.getElementById("ownbar");
+  [pb, sb, rb, ob].forEach(b => b.querySelectorAll("button").forEach(x => x.remove()));
   chip(pb, "Todos", !prod, () => { prod = null; render(); });
   PRODUCTS.forEach(p => chip(pb, p, prod === p, () => { prod = prod === p ? null : p; render(); }));
   STATES.forEach(s => chip(sb, s, state === s, () => { state = state === s ? null : s; render(); }, cls(s)));
@@ -229,6 +230,9 @@ function bars(){
     if (n) chip(rb, `${l} · ${n}`, review === k, () => { review = review === k ? null : k; render(); });
   });
   rb.style.display = DATA.vcxEvalsRev || DATA.evalsRev ? "" : "none";
+  const nOwn = DATA.items.filter(it => it.own).length;
+  if (nOwn) chip(ob, `powered by VCX · ${nOwn}`, own, () => { own = !own; render(); });
+  ob.style.display = nOwn ? "" : "none";
 }
 function useHtml(u, it){
   const other = it && it.kind.startsWith("Capacidad") ? `Herramienta: ${md(u.tool)}` : `Capacidad: ${md(u.cap)}`;
@@ -334,7 +338,7 @@ function render(){
     if (!shown.length) sec.insertAdjacentHTML("beforeend", `<p class="empty">Ningún elemento con ese filtro.</p>`);
     host.appendChild(sec);
   });
-  const loose = DATA.loose.filter(u => hits(u.idx) && (!prod || u.product === prod) && (!state || u.state === state));
+  const loose = DATA.loose.filter(u => !own && hits(u.idx) && (!prod || u.product === prod) && (!state || u.state === state));
   if (DATA.loose.length) {
     const sec = document.createElement("section"); sec.className = "home";
     sec.innerHTML = `<div class="hhead"><h2>Necesidades sin elemento</h2><p>Decisiones humanas y brechas sin capacidad ni herramienta</p></div>` +

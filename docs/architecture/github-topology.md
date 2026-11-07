@@ -15,7 +15,7 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 | `blends` | Precursor completo: kernel de Blends, Brix, iniciativas, ideas, FinOps, instrucciones y skills | `main` | 2026-11-01 | Única fuente de verdad del portfolio; 29 ramas remotas, 22 tags, un PR abierto (`tren/2026-10-29`, 11 vagones), ocho workflows activos |
 | `brix` | Espejo de solo lectura de `vc/brix` | `main` | 2026-09-14 | Su descripción dice que la fuente es `vc/brix` en `blends` y que no se commitea ahí; `brix.config.json` del precursor lo declara como `graduate.remote` |
 | `pinot-index` | Espejo de `vc/pinot-index`, resguardo del código de producción | `main` | 2026-09-12 | Detenido desde septiembre |
-| `teyst-blends` | Espejo de `vc/teyst`, resguardo del código de producción | `main` | 2026-09-12 | Detenido desde septiembre; es distinto del `Teyst` heredado |
+| `teyst-blends` | Repositorio canónico de Teyst desde el 2026-11-05, según VCX-D049; antes, espejo de `vc/teyst` | `main` | 2026-11-05 | Migración en curso; el deploy sigue en `blends`. Es distinto del `Teyst` heredado |
 | `Teyst` | Repositorio heredado, anterior a `vc/teyst` | `main` | 2026-08-20 | Bajo el estándar de mantenimiento mínimo del precursor |
 | `syrah` | Repositorio heredado, deprecado | `pilot` | 2026-10-31 | Recibe commits automáticos de «baseline diario»: hay un escritor activo fuera de `blends` |
 | `merlot` | Repositorio heredado, deprecado | `main` | 2026-02-18 | Sin actividad |
@@ -38,15 +38,17 @@ Un repositorio por producto y por proyecto, organizados localmente bajo `vcx/` y
 | Repositorio objetivo | Contenido | De dónde sale | Cómo nace | Fase |
 |---|---|---|---|---|
 | `vcx` | Repositorio documental raíz: principios, visión, arquitectura, decisiones, nombres | `vcx/` local, ya con historia desde `f47c71f` | Crear vacío y hacer push de `main`. Público, elegido por el usuario el 2026-11-01 conforme a VCX-D032, tras la [revisión del historial](../superpowers/reports/2026-11-01-vcx-public-history-review.md); falta decidir si el correo del autor se reescribe antes del primer push. No afecta a ningún otro repositorio | A o B, con autorización propia |
-| `blends` | Producto Blends: método, kernel, estándares, biblioteca de CI | Export revisado de las rutas del kernel del precursor, con historial filtrado por rutas (VCX-D032, opción B) | Repositorio público nuevo, con historial nuevo si el scan encuentra un hallazgo real (B'). El nombre se libera al renombrar el precursor a `solera` (VCX-D009). Checkout `vcx/blends/` | Paso 3 de la secuencia de VCX-D032 |
+| `blends` | Producto Blends: método, estándares, validadores, dashboard, biblioteca de CI | Export revisado de la superficie publicable de Blends (VCX-D045), con historial filtrado por rutas (VCX-D032, opción B) | Repositorio público nuevo, con historial nuevo si el scan encuentra un hallazgo real (B'). El nombre se libera al renombrar el precursor a `solera` (VCX-D009). Checkout `vcx/blends/` | Paso 3 de la secuencia de VCX-D032 |
 | `brix` | Producto Brix: núcleo de capacidades | `vc/brix/` de `blends`, con la historia del subárbol | El espejo actual es candidato a convertirse en canónico en la extracción; se decide entonces si se reutiliza o se crea uno nuevo. Hasta ese día sigue siendo espejo y conserva su descripción | D |
 | `cellar` | Producto Cellar: modelo de iniciativa, plantillas, contrato de conducción | `vcx/cellar/`, documentación nueva | Crear vacío y público cuando el paso 3 del mapa se autorice | D, adelantable |
 | Un repositorio por proyecto: Teyst, Melquisedec, Pinot Index, Salmanazar | Código de cada proyecto | `vc/<proyecto>/` de `blends`, con historia del subárbol | `teyst-blends` y `pinot-index` son candidatos a canónicos por el mismo criterio que `brix`; Melquisedec y Salmanazar nacen nuevos. Cada uno lleva sus workflows de despliegue | D, por proyecto |
-| Un repositorio por instancia de Cellar | Custodia del portfolio: proyectos vivos, iniciativas, decisiones, evidencia, FinOps, `queue` del portfolio, despliegues | La primera es el precursor `blends`, continuado y renombrado con su historial íntegro (VCX-D026 enmendada) | Privado; no nace, se renombra en el paso 2 de la secuencia de VCX-D032. Nombre `solera` por VCX-D009, elegido el 2026-11-01; checkout `vcx/cellars/`, por VCX-D036; A desde el renombre, el responsable del portfolio por VCX-D034 | B, renombre en el paso 2 |
+| Un repositorio por instancia de Cellar | Custodia del portfolio: proyectos vivos, iniciativas, decisiones, evidencia, FinOps, `queue` del portfolio, despliegues | La primera es el precursor `blends`, continuado y renombrado con su historial íntegro (VCX-D026 enmendada) | Privado; no nace, se renombra en el paso 2 de la secuencia de VCX-D032. Nombre `solera` por VCX-D009, elegido el 2026-11-01; checkout `vcx/solera/`, por VCX-D036; A desde el renombre, el responsable del portfolio por VCX-D034 | B, renombre en el paso 2 |
 | `Teyst`, `syrah`, `merlot` | Heredados | Sin cambio | No se tocan; el estándar de mantenimiento mínimo sigue rigiendo desde Blends | Ninguna |
 | `TintumHero` | Fuera del portfolio | Sin cambio | No se toca | Ninguna |
 
 [I] Los espejos existentes ya materializan en GitHub la frontera que VCX-D025 pide: una subcarpeta de `blends`, exportada con historia propia, en un repositorio separado. La extracción canónica repite ese mecanismo con dos diferencias: el repositorio destino pasa a ser fuente editable y `blends` deja de contener la carpeta, dejando un puntero.
+
+[I] VCX-D043, del 2026-11-05, adelanta la extracción de Teyst respecto de la colocación de la instancia y resuelve VCX-D010 solo para ese proyecto. La tabla anterior conserva el destino de cada repositorio; el orden de Teyst se rige por esa decisión.
 
 ## Visibilidad objetivo
 
@@ -59,9 +61,9 @@ VCX-D032, ratificada como decisión documental el 2026-11-01; fuente en el [dise
 | Repositorios de proyecto | Privado | Extracción desde la instancia cuando VCX-D010 lo decida; nunca se vuelven públicos |
 | Heredados y ajenos | Sin cambio | Sin cambio |
 
-[H] Los runners estándar de GitHub en repositorios públicos no consumen la cuota de Actions; los grandes se facturan también en público. La CI del kernel y de Brix deja de consumir cuota al publicarse; los despliegues de proyectos siguen en privado y consumen como hoy.
+[H] Los runners estándar de GitHub en repositorios públicos no consumen la cuota de Actions; los grandes se facturan también en público. La CI de Blends y Brix deja de consumir cuota al publicarse; la del tren sigue en la instancia (VCX-D045); los despliegues de proyectos siguen en privado y consumen como hoy.
 
-[I] Por esta decisión el precursor no se reubica como `vcx/blends/` sino como `vcx/cellars/`, por VCX-D036, y `blends` público es un repositorio nuevo cuyo checkout ocupa `vcx/blends/`; la tabla de objetivo ya lo refleja. VCX-D036, ratificada el 2026-11-02, hace que la estructura local replique la de GitHub repositorio por repositorio: `vcx/cellars/` es la instancia y cada proyecto vive en `vcx/cellars/<proyecto>/` con repositorio propio.
+[I] Por esta decisión el precursor no se reubica como `vcx/blends/` sino como `vcx/solera/`, por VCX-D036 y VCX-D053, y `blends` público es un repositorio nuevo cuyo checkout ocupa `vcx/blends/`; la tabla de objetivo ya lo refleja. VCX-D036, ratificada el 2026-11-02, hace que la estructura local replique la de GitHub repositorio por repositorio: `vcx/solera/` es la instancia y cada proyecto vive en `vcx/solera/<proyecto>/` con repositorio propio.
 
 ## Qué no se rompe
 

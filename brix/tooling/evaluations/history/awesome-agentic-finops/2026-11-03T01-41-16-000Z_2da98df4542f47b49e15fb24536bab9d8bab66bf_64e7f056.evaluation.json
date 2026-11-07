@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "awesome-agentic-finops",
+    "type": "practice",
+    "sourceUrl": "https://github.com/gregoire-costory/awesome-agentic-finops",
+    "evaluatedRef": "2da98df4542f47b49e15fb24536bab9d8bab66bf"
+  },
+  "observedAt": "2026-11-03T01:41:16.000Z",
+  "overallScore": 46.32106107170485,
+  "evidenceCoverage": 95,
+  "factorScores": {
+    "community": 24.17197202519088,
+    "maintenance": 54.15,
+    "security": 63.25000000000001,
+    "fit": 29.333333333333332,
+    "engineering": 37.55,
+    "sustainability": 92.15
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.75,
+  "confidence": "high",
+  "riskLevel": "low",
+  "baselineRecommendation": "do_not_advance",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#awesome-agentic-finops",
+  "evidenceInputRef": "brix/tooling/evaluations/awesome-agentic-finops.evidence.json",
+  "expiresAt": "2027-02-01T01:41:16.000Z",
+  "communityEvidenceNote": null
+}

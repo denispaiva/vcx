@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "id": "cadtopo",
+    "type": "technology",
+    "sourceUrl": "https://github.com/code0-tech/cadtopo",
+    "evaluatedRef": "1ba0af0ee116eff0d00e53cca42fe1726d29dd1f"
+  },
+  "observedAt": "2026-11-03T01:33:40.000Z",
+  "overallScore": 36.268866846384874,
+  "evidenceCoverage": 92.75,
+  "factorScores": {
+    "community": 8.829628349571422,
+    "maintenance": 42.35294117647059,
+    "security": 59.00000000000001,
+    "fit": 23,
+    "engineering": 46,
+    "sustainability": 48.5
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 92.98750000000001,
+  "confidence": "high",
+  "riskLevel": "high",
+  "baselineRecommendation": "do_not_advance",
+  "status": "rejected",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#cadtopo",
+  "evidenceInputRef": "brix/tooling/evaluations/cadtopo.evidence.json",
+  "expiresAt": "2027-02-01T01:33:40.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "rejected",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-03T01:33:42.062Z",
+    "rationale": "Rechazo confirmado por puntaje: 36,3/100, confianza high (93), riesgo high, recomendación base do_not_advance, sobre 1ba0af0 (HEAD sin cambios desde 2026-09-10). Decisión del usuario en el chat con Claude del 2026-11-02: «rechazar y registrar el motivo». Ratifica el rechazo del 2026-11-01 registrado en la matriz de tooling. Motivos: (1) toda llamada pasa por LiteLLM con claves de pago por token, contra Free Tier first y allowPayPerToken=false; la única vía sin pago es un modelo local que el repo no documenta. (2) No puede gobernar el despacho de subagentes de Claude Code y cubre menos que el resolver del precursor (perfiles, pisos por riesgo, acta). (3) Efectos no declarados: descarga un modelo de HuggingFace al primer uso y escribe prompts completos en runs/. (4) Un autor, 7 commits en 3 días, sin actividad desde 2026-09-10; tag prerelease 0.0.1 frente a pyproject 0.1.0. (5) 108 paquetes con torch para un selector cuyo núcleo solo usa math. Valor residual: referencia de diseño (eje log-costo, urgencia por rondas restantes). Reabrir solo si admite modelos por suscripción sin claves de pago por token."
+  }
+}

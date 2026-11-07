@@ -57,6 +57,6 @@ Los contratos de resultado de preparación se detallan en [preparación de ideas
 
 ## Compatibilidad con el sistema actual
 
-El CLI existente `brix idea <archivo.md>` genera `SPEC.md` ejecutable. La interfaz objetivo reutiliza el nombre con otra semántica: preparar una propuesta de idea con plantilla y preguntas asesinas. Antes de implementar se deberá resolver explícitamente la compatibilidad, deprecación o ubicación de la capacidad de generar specs; no se cambia su comportamiento en el sistema activo por documentar esta decisión.
+El CLI existente `brix idea <archivo.md>` genera `SPEC.md` ejecutable. La interfaz objetivo reutiliza el nombre con otra semántica: preparar una propuesta de idea con plantilla y preguntas asesinas. El generador conservará su función como `brix spec`, según VCX-D055. Antes de implementar se deberá resolver explícitamente la compatibilidad y ubicación de la capacidad de generar specs; no se cambia su comportamiento en el sistema activo por documentar esta decisión.
 
 El `/council <slug>` actual pertenece a Blends y presupone una idea registrada. En VCX se decide ofrecer el instrumento mediante Brix con entrada por archivo, manteniendo la coordinación del recorrido en Blends. Su extracción o adaptación requiere un trabajo posterior; no se mueve código ahora.

@@ -2,6 +2,10 @@
 
 Fecha: 2026-11-01. Estado: propuesta del asistente, registrada como VCX-D031 en el [registro de decisiones](../../decisions/README.md) y ratificada por el usuario como decisión documental el 2026-11-01 en la revisión `6934489`; la ejecución de cada tratamiento sigue requiriendo su autorización. Complementa el [camino de migración](2026-11-01-migration-path-design.md) de VCX-D030. El usuario pidió en el chat con Claude: «Se debe aprovechar el momento para ordenar aquella deuda técnica heredada. Desacoples, conflictos de nombres de carpetas, orden de git, jerarquías de carpetas, etc.».
 
+Enmienda por VCX-D045, 2026-11-05: Blends Kernel deja de ser entidad objetivo; donde este documento dice «rutas del kernel» como destino rige la superficie publicable de Blends, según el [diseño del retiro](2026-11-05-kernel-retirement-design.md). Revoca además el movimiento de DH-10. El texto siguiente se conserva como historia.
+
+Enmienda por VCX-D053, 2026-11-05: la carpeta local de la instancia pasa de `vcx/cellars/` a `vcx/solera/`; las menciones siguientes se conservan como historia.
+
 Revisión del 2026-11-01, autorizada por el usuario con «Sí, revisar D031»: incorpora los hallazgos del [consejo de `brix-llm-council`](../reports/2026-11-01-council-inherited-debt-design.md) sobre la revisión `7cf7b0b` de este documento, la deuda que declara VCX-D033 y la autoridad que propone VCX-D034. El consejo es insumo de asesoramiento, no autoridad: cada hallazgo se aceptó o descartó contra las fuentes, y las cifras se volvieron a medir en solo lectura. Lo que cambia: dónde se ejecutan los T2 antes del corte operativo, la condición de hooks activos para toda escritura en el precursor, el destino de los tags bajo VCX-D032, la conciliación de las cifras de ramas, la reversibilidad por tratamiento, la autoridad por repositorio y el responsable de los T0.
 
 Etiquetas: [U] pedido o respuesta del usuario; [H] hecho medido con referencia; [I] interpretación del asistente; [P] propuesta pendiente de revisión.

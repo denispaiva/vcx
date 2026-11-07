@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "eas-build-submit",
+    "type": "technology",
+    "sourceUrl": "https://github.com/expo/eas-cli",
+    "evaluatedRef": "eas-cli@27.2.0"
+  },
+  "observedAt": "2026-11-02T21:10:00.000Z",
+  "overallScore": 77.3404740906708,
+  "evidenceCoverage": 95,
+  "factorScores": {
+    "community": 64.66070378668732,
+    "maintenance": 83.95,
+    "security": 82.65,
+    "fit": 81.46666666666667,
+    "engineering": 77.85,
+    "sustainability": 73.15
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.75,
+  "confidence": "high",
+  "riskLevel": "critical",
+  "baselineRecommendation": "advance",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#eas-build-submit",
+  "evidenceInputRef": "brix/tooling/evaluations/eas-build-submit.evidence.json",
+  "expiresAt": "2027-01-31T21:10:00.000Z",
+  "communityEvidenceNote": null
+}

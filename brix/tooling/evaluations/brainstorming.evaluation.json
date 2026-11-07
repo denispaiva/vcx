@@ -1,0 +1,37 @@
+{
+  "candidate": {
+    "id": "brainstorming",
+    "type": "skill",
+    "sourceUrl": "https://github.com/obra/superpowers",
+    "evaluatedRef": "openai-curated-remote/superpowers@7.0.1"
+  },
+  "observedAt": "2026-11-02T15:30:00.000Z",
+  "overallScore": 76.36542890917761,
+  "evidenceCoverage": 97,
+  "factorScores": {
+    "community": 82.03964454588807,
+    "maintenance": 81.8,
+    "security": 73.25000000000001,
+    "fit": 70,
+    "engineering": 73.35,
+    "sustainability": 80.35000000000001
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.9,
+  "confidence": "high",
+  "riskLevel": "high",
+  "baselineRecommendation": "advance",
+  "status": "approved_with_exception",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#brainstorming",
+  "evidenceInputRef": "brix/tooling/evaluations/brainstorming.evidence.json",
+  "expiresAt": "2027-01-31T15:30:00.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "approved_with_exception",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-02T16:19:26.689Z",
+    "rationale": "Renovación del 2026-11-02 sobre superpowers 7.0.1 (plan de renovación de tooling, triage): 76,4 con advance y confianza high; riesgo high por networkAccess. Reserva: el companion visual carga por defecto un logo de primeradiant.com con la versión en la URL; usarlo con SUPERPOWERS_DISABLE_TELEMETRY=1. Uso medido en VCX: 8 lecturas en sesiones de Codex.",
+    "reviewAt": "2026-12-02",
+    "acceptedRisk": true
+  }
+}

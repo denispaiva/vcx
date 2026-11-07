@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "id": "awesome-agentic-finops",
+    "type": "practice",
+    "sourceUrl": "https://github.com/gregoire-costory/awesome-agentic-finops",
+    "evaluatedRef": "2da98df4542f47b49e15fb24536bab9d8bab66bf"
+  },
+  "observedAt": "2026-11-03T01:41:16.000Z",
+  "overallScore": 46.32106107170485,
+  "evidenceCoverage": 95,
+  "factorScores": {
+    "community": 24.17197202519088,
+    "maintenance": 54.15,
+    "security": 63.25000000000001,
+    "fit": 29.333333333333332,
+    "engineering": 37.55,
+    "sustainability": 92.15
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.75,
+  "confidence": "high",
+  "riskLevel": "low",
+  "baselineRecommendation": "do_not_advance",
+  "status": "rejected",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#awesome-agentic-finops",
+  "evidenceInputRef": "brix/tooling/evaluations/awesome-agentic-finops.evidence.json",
+  "expiresAt": "2027-02-01T01:41:16.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "rejected",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-03T01:41:18.378Z",
+    "rationale": "Rechazo confirmado por puntaje: 46,3/100, confianza high (95), riesgo low, recomendación base do_not_advance, sobre 2da98df (HEAD sin cambios desde 2026-10-15). Decisión del usuario en el chat con Claude del 2026-11-02: «Sí, rechazar y commitear», ante «¿Registro el rechazo de awesome-agentic-finops igual que las otras dos?». Ratifica el rechazo del 2026-11-01 registrado en la matriz de tooling. Motivos: (1) es una lista de FinOps de nube (AWS, Azure, GCP, Kubernetes): de 101 entradas, unas 5 tocan gasto de LLM y ninguna elige modelo por tarea ni mide tokens por rama o sesión en Claude Code. (2) La mantiene Costory, que figura como vendor en su propia lista; las entradas de IA más visibles son comerciales o alojadas. (3) 14 ítems externos abiertos sin respuesta, el más antiguo desde 2026-06-24; sin releases, tags, CI ni verificador de enlaces. El riesgo low refleja que la lista no ejecuta nada; adoptar un servidor que enlaza exige su propia evaluación. Valor residual: punteros de vocabulario (FOCUS 1.2 con tokens como unidad; FinOps for AI frente a AI for FinOps). Reabrir solo si incorpora herramientas que midan consumo de inferencia en agentes locales."
+  }
+}

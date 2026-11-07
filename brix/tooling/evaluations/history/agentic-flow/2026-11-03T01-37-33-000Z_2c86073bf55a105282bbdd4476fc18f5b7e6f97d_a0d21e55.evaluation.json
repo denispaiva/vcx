@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "agentic-flow",
+    "type": "technology",
+    "sourceUrl": "https://github.com/ruvnet/agentic-flow",
+    "evaluatedRef": "2c86073bf55a105282bbdd4476fc18f5b7e6f97d"
+  },
+  "observedAt": "2026-11-03T01:37:33.000Z",
+  "overallScore": 38.377968764412586,
+  "evidenceCoverage": 95,
+  "factorScores": {
+    "community": 47.973177155396215,
+    "maintenance": 61.5,
+    "security": 42.75000000000001,
+    "fit": 16.666666666666668,
+    "engineering": 28,
+    "sustainability": 34.75
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94,
+  "confidence": "high",
+  "riskLevel": "high",
+  "baselineRecommendation": "do_not_advance",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#agentic-flow",
+  "evidenceInputRef": "brix/tooling/evaluations/agentic-flow.evidence.json",
+  "expiresAt": "2027-02-01T01:37:33.000Z",
+  "communityEvidenceNote": null
+}

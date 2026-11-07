@@ -1,0 +1,7 @@
+En la asociación barrial donde trabajo somos siete personas y organizamos talleres para unas ochenta familias. Las inscripciones llegan por WhatsApp, por un formulario y en papel durante las actividades. Una compañera reúne todo en una planilla, pero suele haber nombres repetidos, teléfonos incompletos y personas que aparecen en dos horarios. Cuando alguien cancela, a veces no avisamos a tiempo a quienes estaban esperando.
+
+Se me ocurre tener una página sencilla donde cada familia pueda consultar los talleres, pedir un lugar y cancelar su inscripción mediante un enlace. Quienes prefieran anotarse presencialmente seguirían pudiendo hacerlo: nosotros cargaríamos esos pedidos desde la misma página. Me gustaría que se viera cuántos lugares quedan y que la lista de espera avanzara cuando se libera uno.
+
+Tenemos una computadora compartida, conexión a internet que funciona casi siempre y cuentas gratuitas de Google. Una voluntaria sabe armar formularios y otra puede dedicar dos horas semanales al mantenimiento. No contamos con presupuesto fijo para software.
+
+No sé si conviene adaptar lo que ya usamos o encargar algo pequeño. También me preocupa quién corregiría una inscripción equivocada, cómo evitar que alguien cancele por otra persona y qué haríamos si la página deja de funcionar justo antes de un taller.

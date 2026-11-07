@@ -1,0 +1,434 @@
+{
+  "candidate": {
+    "id": "brainstorming",
+    "type": "skill",
+    "sourceUrl": "https://github.com/obra/superpowers",
+    "evaluatedRef": "openai-curated-remote/superpowers@7.0.1"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 95,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Muy activo: pushed_at 2026-10-29 (hace 4 días), último commit en main 2026-10-21 (hace 12 días) y release v7.0.1 el 2026-10-21. El pushed_at incluye ramas de trabajo; en main la actividad es más espaciada (ver commitContinuity).",
+        "evidenceRefs": [
+          "github-api:repos/obra/superpowers (pushed_at=2026-10-29T23:35:34Z; archived=false; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/commits?per_page=100 (último commit en main 2026-10-21, 'Release v7.0.1'; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 92,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "16 releases con tag, 12 de ellos inmutables, desde v5.0.4 (2026-03-17) hasta v7.0.1 (2026-10-21). En 90 días (desde 2026-08-04): 5 releases (v6.3.0 08-12, v6.4.1 09-19, v6.4.2 09-25, v7.0.0 10-10, v7.0.1 10-21). Brecha máxima en ese tramo: 38 días (08-12 a 09-19). Cada release trae notas.",
+        "evidenceRefs": [
+          "github-api:repos/obra/superpowers/releases?per_page=30 (16 releases; v7.0.1 publicado 2026-10-21T21:05:11Z, immutable=true; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/tags?per_page=30 (v7.0.1 -> 2ce8aa15d05bd57213e6f746f953aafb7ded7a8b; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 68,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cadencia en main muy desigual: 32 commits en junio y 62 en julio de 2026, pero 1 en agosto, 2 en septiembre y 3 en octubre. En 30 días: 3 commits; en 90 días: 6, casi todos de release. Hay 6 autores en los últimos 100 commits. Las ramas de trabajo (al menos 30) muestran actividad que no llega a main. Es continuidad real pero baja frente a la de verano.",
+        "evidenceRefs": [
+          "github-api:repos/obra/superpowers/commits?per_page=100 (commits en main: 3 en 30 días, 6 en 90 días; jun=32, jul=62, ago=1, sep=2, oct=3; 6 autores; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/branches?per_page=30 (al menos 30 ramas de trabajo; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 58,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Muestra de los 40 issues cerrados más recientes (creados entre 2026-09-27 y 2026-10-22): mediana de cierre 8,2 días, p90 22,5 días, 18 de 40 cerrados en 7 días o menos. Pero 26 se cerraron como not_planned, 6 como duplicate y solo 8 como completed. Acumulado: 877 issues cerrados, 196 abiertos y 181 PRs abiertos (377 en total). El cierre es rápido pero rara vez significa resolución; la cola abierta es grande.",
+        "evidenceRefs": [
+          "github-api:search/issues?q=repo:obra/superpowers+is:issue+is:closed (total_count=877; muestra de 40: mediana=8,2 d, p90=22,5 d, not_planned=26, duplicate=6, completed=8; medido 2026-11-02)",
+          "github-api:search/issues?q=repo:obra/superpowers+is:issue+is:open (total_count=196; medido 2026-11-02)",
+          "github-api:search/issues?q=repo:obra/superpowers+is:pr+is:open (total_count=181; medido 2026-11-02)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El listado de security advisories del repositorio está vacío y el repo no declara SECURITY.md ni canal de reporte privado, por lo que la ausencia de avisos es evidencia débil. No consulté bases externas (OSV, NVD): no estaban en el presupuesto de fuentes. El único código ejecutable de las tres skills (servidor del companion de brainstorming) usa solo módulos integrados de Node, con autenticación por clave de sesión y pruebas de autenticación en el repo; eso reduce la superficie pero no reemplaza un escaneo. Sin vulnerabilidad conocida; cobertura limitada.",
+        "evidenceRefs": [
+          "github-api:repos/obra/superpowers/security-advisories (respuesta=[], 0 avisos publicados; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/git/trees/v7.0.1?recursive=1 (sin SECURITY.md en la raíz ni en .github; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Autor obra (Jesse Vincent, Prime Radiant): cuenta desde 2009-01-09, 229 repos públicos, 9333 seguidores; repo creado el 2025-10-09 con 311033 estrellas y 27677 forks. Tag v7.0.1 existe (commit 2ce8aa1, release inmutable) y es la punta de main. La copia instalada en Codex NO es idéntica al tag: los 90 archivos de ese plugin que existen upstream coinciden byte a byte (SHA-1 de blob git) salvo .codex-plugin/plugin.json, y el marketplace añade un agents/openai.yaml por skill que no está en el tag. Los SKILL.md y todos los archivos auxiliares de las tres skills coinciden con v7.0.1. Por eso evaluatedRef es 'openai-curated-remote/superpowers@7.0.1'. Descuento: la diferencia la introduce el marketplace de Codex, sin firma verificable por mí; 94 de los últimos 100 commits de main no están firmados.",
+        "evidenceRefs": [
+          "github-api:users/obra (created_at=2009-01-09; public_repos=229; followers=9333; company=Prime Radiant; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers (created_at=2025-10-09; stargazers_count=311033; forks_count=27677; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/releases (v7.0.1 immutable=true; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/commits?per_page=100 (verification: 94 unsigned, 6 valid; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/git/trees/v7.0.1?recursive=1 vs SHA-1 de blob de los 106 archivos de ~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1 (90 coinciden; difieren .codex-plugin/plugin.json; 15 agents/openai.yaml solo en la copia instalada; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 58,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin SECURITY.md y sin workflows de CI en el repo (la API solo lista los dos workflows dinámicos de Copilot); no hay escaneo de dependencias ni de secretos visible. Hay .pre-commit-config.yaml, prueba de shell-lint y plantillas de issue y PR que desde 7.0.1 exigen resumen escrito por un humano. En la parte ejecutable, el servidor del companion está endurecido: escucha en 127.0.0.1 por defecto, clave de sesión de 256 bits comparada en tiempo constante, comprobación de Origin en WebSocket, rechazo de symlinks y hardlinks, archivos con modo 0600 y cabeceras de seguridad. Descuento por la baliza de telemetría activada por defecto (ver permissionTransparency de brainstorming).",
+        "evidenceRefs": [
+          "github-api:repos/obra/superpowers/actions/workflows (2 workflows, ambos dinámicos de Copilot; sin workflows del proyecto; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/git/trees/v7.0.1?recursive=1 (.github contiene solo FUNDING.yml, plantillas de issue y PR; existen .pre-commit-config.yaml y tests/shell-lint; medido 2026-11-02)",
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/scripts/server.cjs (sha256=763abf96510e0b892a1141397b31aa82ef900cf87ed34dde94bc8782baf4a7ca; HOST=127.0.0.1 por defecto, timingSafeEqual, isAllowedWebSocketOrigin; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 66,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El SKILL.md no declara permisos; la información está dispersa. visual-companion.md y la cabecera de start-server.sh documentan que levanta un servidor HTTP/WebSocket local (127.0.0.1, puerto alto aleatorio), escribe en /tmp o en .superpowers/brainstorm/ del proyecto, abre el navegador solo con --open tras aceptar la oferta, y que --host 0.0.0.0 expone el servidor fuera de loopback (protegido por clave). El README declara la telemetría: el logo del companion se carga desde primeradiant.com con la versión en la URL, activada por defecto y desactivable con SUPERPOWERS_DISABLE_TELEMETRY, DISABLE_TELEMETRY o CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC. Esa divulgación está en el README y no en la skill. El manifiesto de Codex declara las capacidades genéricas Interactive, Read, Write, sin red.",
+        "evidenceRefs": [
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/SKILL.md (sha256=61a7ef918652108c76a3fd01e02dd92d39996c6b46d4cb2819cbd03f6c45e46a; 13602 bytes; sin sección de permisos; medido 2026-11-02)",
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/scripts/server.cjs (SUPERPOWERS_BRAND_IMAGE_URL=https://primeradiant.com/brand/superpowers-visual-brainstorming-logo.png; HOST por defecto 127.0.0.1; medido 2026-11-02)",
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/README.md (sección 'Visual companion telemetry'; medido 2026-11-02)",
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/visual-companion.md (--project-dir, --open, --host 0.0.0.0; medido 2026-11-02)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 72,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cubre la fila Blends · ingreso, encuadre ('Extraer de la idea su problema esencial (prensado)', capacidad idea-to-spec): explora intención y por qué, objetivos, no objetivos y antecedentes antes de proponer, y devuelve la idea con sus palabras para corregirla. Es la única herramienta asignada a esa fila. Descuento: está pensada para software (spec en docs/superpowers/specs, commit, enlace a writing-plans), y el 'prensado' de Blends es un procedimiento propio que la skill no conoce; la cobertura es del encuadre, no de la destilación completa.",
+        "evidenceRefs": [
+          "vcx:docs/architecture/tooling-matrix.md (fila 'Blends · ingreso, encuadre' = brainstorming, estado Asignado; medido 2026-11-02)",
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/SKILL.md (secciones 'Ground to cover', 'Play It Back', 'Size the Work'; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 78,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Funciona en Codex (instalada, 7.0.1) y se distribuye para Claude Code por claude-plugins-official; no está instalada en Claude Code. El flujo no requiere ejecutables propios de VCX; escribe el diseño en docs/superpowers/specs, carpeta que VCX ya usa para planes y especificaciones. El companion visual necesita node y bash (VCX ya usa .mjs en brix/tooling) y es opcional. El SKILL.md encadena obligatoriamente con superpowers:writing-plans, lo que acopla las dos skills.",
+        "evidenceRefs": [
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/SKILL.md ('invoke superpowers:writing-plans and no other skill'; medido 2026-11-02)",
+          "vcx:docs/superpowers (existe docs/superpowers/plans y docs/superpowers/specs; medido 2026-11-02)",
+          "transcripts-claude-code:~/.claude/projects (superpowers no instalado en Claude Code; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 62,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "VCX ya exige por VCX-P2 y VCX-P3 cuestionar supuestos y aclarar ante ambigüedad material, así que la parte socrática no es nueva. Lo que añade es un procedimiento concreto: playback por tramos, alternativas con recomendación en un mensaje propio, tamaño del trabajo, documento de diseño, revisión de un 'constructor' independiente y compuerta de aprobación antes de construir. Esa compuerta es valiosa, aunque en un workspace documental el costo en turnos puede exceder lo que ahorra en tareas pequeñas; la propia skill permite hacerlas directo.",
+        "evidenceRefs": [
+          "vcx:AGENTS.md (VCX-P2 crítica socrática; VCX-P3 'Ante ambigüedad material, aclarar'; medido 2026-11-02)",
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/SKILL.md (HARD-GATE, builder check; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No se midió qué resultados aceptados produjo cada invocación; la cuenta de lecturas del SKILL.md mide uso, no resultado. Sin dato, no se puntúa.",
+        "evidenceRefs": [
+          "transcripts-codex:~/.codex/sessions (se buscó resultado aceptado por invocación; no medido; 2026-11-02)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "En Codex ya está instalada, sin trabajo adicional. En Claude Code requiere un comando de plugin (/plugin install superpowers@claude-plugins-official), pero se instala el plugin completo (15 skills) y no solo esta. El companion visual agrega node y un servidor local, aunque es opcional y se ofrece solo si ayuda.",
+        "evidenceRefs": [
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/README.md (instalación por arnés; medido 2026-11-02)",
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1 (15 directorios de skills en el plugin; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "available",
+        "score": 60,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "8 lecturas del SKILL.md en 16 sesiones de Codex que tocan VibeCoding/vcx, repartidas en 3 días distintos (2026-10-30, 2026-11-01, 2026-11-02): la más usada de las tres y sostenida hasta hoy. 0 invocaciones en los 17 transcripts de Claude Code desde 2026-10-31, así que el uso depende de un solo arnés. Puntaje por frecuencia y recurrencia, sin escala externa.",
+        "evidenceRefs": [
+          "transcripts-codex:~/.codex/sessions (lecturas de SKILL.md=8; 3 días; 16 sesiones desde 2026-10-30; medido 2026-11-02)",
+          "transcripts-claude-code:~/.claude/projects (invocaciones=0; 17 transcripts desde 2026-10-31; medido 2026-11-02)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 62,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Es la única de las tres con pruebas propias: tests/brainstorm-server tiene 12 archivos (autenticación, branding, lanzador de navegador, helper, ciclo de vida, protocolo WebSocket, scripts start/stop, Windows) con 'npm test' que encadena nueve, más tests/skill-size (falla si un SKILL.md llega a 20000 bytes) y un prompt en explicit-skill-requests. Las notas de 7.0.1 citan un escenario de evaluación (omitir el documento: 24 de 24 antes, 3 de 24 después). Descuento fuerte: no hay CI que las ejecute, el comportamiento conversacional no tiene prueba en el repo y la copia instalada no incluye las pruebas.",
+        "evidenceRefs": [
+          "github-api:repos/obra/superpowers/git/trees/v7.0.1?recursive=1 (tests/brainstorm-server=12 archivos; tests/skill-size=1; tests/explicit-skill-requests/prompts/please-use-brainstorming.txt; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/contents/tests/brainstorm-server/package.json?ref=v7.0.1 (script test con nueve comandos; dependencia ws ^8.21.0; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/actions/workflows (sin CI del proyecto; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SKILL.md de 13602 bytes con propósito, orden obligatorio, mensaje inicial, tabla de señales de alerta y compuerta explícita; visual-companion.md (13413 bytes) con flujo, plataformas y bucle; builder-check-prompt.md con el prompt exacto. README con instalación por arnés y divulgación de telemetría, y notas de release que explican el porqué. Descuento: permisos y red no figuran en la skill, y es extensa para recuperarla tras una compactación.",
+        "evidenceRefs": [
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming (SKILL.md 13602 bytes, visual-companion.md 13413 bytes, builder-check-prompt.md 881 bytes; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/contents/RELEASE-NOTES.md?ref=v7.0.1 (explica el cambio de brainstorming; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Versionado semántico con tag por release, versión del manifiesto (7.0.1) igual al tag, .version-bump.json con prueba en tests/version-bump y RELEASE-NOTES con motivo de cada cambio. Descuento: 7.0.1 es un parche que retoca de forma sustancial el comportamiento de brainstorming (las notas dicen que seguirán afinándolo) y 6.4.2 ya cambió writing-plans; en skills de texto el comportamiento es la API y no hay garantía de estabilidad entre parches.",
+        "evidenceRefs": [
+          "github-api:repos/obra/superpowers/releases (16 releases con tag, notas por versión; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/contents/RELEASE-NOTES.md?ref=v7.0.1 (v7.0.1 'retunes brainstorming'; 'We expect to keep tuning it'; medido 2026-11-02)",
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/.codex-plugin/plugin.json (version=7.0.1; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 62,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El repo trae pruebas por arnés: tests/claude-code (10 archivos), tests/codex (2), opencode (11), hermes, kimi, devin, antigravity y tests/explicit-skill-requests (14, con un prompt de brainstorming). No hay matriz de compatibilidad por versión ni CI que las ejecute en cada cambio, de modo que la evidencia es de existencia de pruebas, no de resultados recientes. El README documenta la instalación por arnés. Las pruebas no cubren la copia modificada del marketplace de Codex.",
+        "evidenceRefs": [
+          "github-api:repos/obra/superpowers/git/trees/v7.0.1?recursive=1 (tests/claude-code=10, tests/codex=2, tests/opencode=11, tests/explicit-skill-requests=14 archivos; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/actions/workflows (sin CI del proyecto; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 82,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El SKILL.md no depende de paquetes. El companion visual es opcional y usa solo módulos integrados de Node (crypto, http, fs, path, os, child_process) sin dependencias npm; requiere node y bash instalados. La dependencia npm 'ws' existe solo en las pruebas del repo. Encadena con writing-plans del mismo plugin.",
+        "evidenceRefs": [
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/scripts/server.cjs (require: crypto, http, fs, path, os, child_process; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/contents/tests/brainstorm-server/package.json?ref=v7.0.1 (ws solo en pruebas; medido 2026-11-02)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 78,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Licencia MIT, gratis, sin claves ni servicio de pago, conforme a la política de herramientas gratuitas. Costo en tokens por invocación: SKILL.md de 13602 bytes más el visual-companion.md de 13413 si se acepta. Variable: la verificación del 'constructor' despacha un subagente por proyecto, y el diálogo es de longitud abierta. El gasto corre por la suscripción, sin cargo por token adicional visible.",
+        "evidenceRefs": [
+          "github-api:repos/obra/superpowers (license=MIT; medido 2026-11-02)",
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/builder-check-prompt.md ('Dispatch a fresh general-purpose subagent'; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 82,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El plugin trae manifiestos para Claude, Codex, Cursor, OpenCode, Gemini, Hermes, Kimi, Devin y Antigravity, y las skills son Markdown. El companion exige node y bash, con ramas para Windows, WSL y entornos remotos (--host); la baliza de red es la única dependencia externa y es desactivable.",
+        "evidenceRefs": [
+          "github-api:repos/obra/superpowers/git/trees/v7.0.1?recursive=1 (directorios .claude-plugin, .codex-plugin, .cursor-plugin, .opencode, .hermes-plugin, .kimi-plugin, .devin-plugin, .antigravity-plugin, gemini-extension.json; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se desinstala quitando el plugin; no deja estado global. Escribe sesiones del companion en /tmp (stop-server.sh las borra) o, con --project-dir, en .superpowers/brainstorm/ del proyecto, que persiste y pide agregar a .gitignore, junto con .last-port y .last-token (0600). El documento de diseño queda committeado en el repo y se revierte con git. El script de parada verifica el id de instancia antes de matar un PID.",
+        "evidenceRefs": [
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/scripts/stop-server.sh (verifica server-instance-id; borra solo bajo /tmp; medido 2026-11-02)",
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/visual-companion.md ('.superpowers/' en .gitignore; medido 2026-11-02)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 76,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-sonnet-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin servicios ni claves en operación salvo el servidor local del companion, que se levanta solo si el usuario acepta, se apaga por inactividad (240 min por defecto) o al morir el proceso dueño, y hay que verificar que siga vivo entre turnos. Sobrecarga de mantenimiento: brainstorming cambió de forma sustancial en 7.0.0 y 7.0.1 y el mantenedor anticipa más ajustes, de modo que cada actualización exige revisar de nuevo su comportamiento.",
+        "evidenceRefs": [
+          "local-file:~/.codex/plugins/cache/openai-curated-remote/superpowers/7.0.1/skills/brainstorming/scripts/start-server.sh (--idle-timeout-minutes default 240; BRAINSTORM_OWNER_PID; medido 2026-11-02)",
+          "github-api:repos/obra/superpowers/compare/v6.2.0...v7.0.1 (brainstorming/SKILL.md +277 -134; medido 2026-11-02)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": false,
+    "networkAccess": true,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  },
+  "communitySnapshot": {
+    "state": "available",
+    "counts": {
+      "stars": 311049,
+      "forks": 27679,
+      "contributors": 44
+    },
+    "contributorsState": "available",
+    "raw": {
+      "fullName": "obra/superpowers",
+      "stars": 311049,
+      "forks": 27679,
+      "openIssues": 377,
+      "createdAt": "2025-10-09T19:45:18Z",
+      "pushedAt": "2026-10-29T23:35:34Z",
+      "license": "MIT",
+      "archived": false,
+      "defaultBranch": "main"
+    },
+    "sourceUrl": "https://github.com/obra/superpowers",
+    "observedAt": "2026-11-02T15:30:00.000Z"
+  }
+}
