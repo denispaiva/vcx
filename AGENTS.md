@@ -44,6 +44,8 @@ Antes del primer clon independiente de cada producto, resolver los [requisitos d
 
 ## Convenciones
 
+- Antes de usar herramientas, aplicar la [política Free Tier first y eficiencia de suscripciones](finops-policy.md#free-tier-first-y-eficiencia-de-suscripciones), fijada por el usuario el 2026-11-01; esa sección conserva la definición editable y distingue uso gratuito, cupo incluido y gasto adicional autorizado por el Owner.
+
 - Inglés para código, identificadores, claves, estados, comandos, archivos y carpetas. Español para documentación, interfaz, comentarios y comunicación. Los nombres propios conservan su forma oficial.
 - Usar los términos del [vocabulario](docs/vocabulary.md) con el sentido allí definido; ante una diferencia, rige la fuente que cada entrada enlaza.
 - Consultar el [criterio de nombres](docs/naming.md) al proponer nombres. El glosario es un banco de candidatos sin curar; no asigna identidades ni autoriza renombrar proyectos.
