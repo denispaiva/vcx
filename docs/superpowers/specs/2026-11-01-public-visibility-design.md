@@ -77,7 +77,7 @@ VCX-D036, ratificada el 2026-11-02 en el [registro](../../decisions/README.md), 
 
 ## Secuencia
 
-[P] Ajusta las fases de VCX-D030; cada paso requiere su autorización.
+[P] Ajusta las fases de VCX-D030; cada paso requiere su autorización. VCX-D056, ratificada el 2026-11-07, enmienda el paso 4: Brix se extrae antes de los pasos 2 y 3, según el [diseño de la extracción](2026-11-07-brix-extraction-design.md). El texto siguiente se conserva como antecedente.
 
 0. Ratificar VCX-D032 y elegir B o B': hecho el 2026-11-01, B con salida B'. Resolver VCX-D009, el nombre de la instancia, bloqueante del paso 3: resuelto el 2026-11-01 con `solera`.
 1. `vcx` público: revisar la dirección de correo y las rutas locales en el historial, crear el repositorio público vacío y subir `main`. No depende de nada más y no toca el precursor.
