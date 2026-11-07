@@ -1,0 +1,1 @@
+Autor: /root/blind_idea; modelo solicitado gpt-6.1-sol; contexto aislado. Declaración literal: «No leí archivos ni criterios de evaluación.» La entrada H conserva íntegro el texto de idea, excluyendo solo esa declaración metodológica. No es una idea real.

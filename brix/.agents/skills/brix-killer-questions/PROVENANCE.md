@@ -28,6 +28,7 @@ Límites del original frente al instrumento de VCX: pide 8 categorías de riesgo
 | Estructura en pasos y salida en Markdown | Original, reescrita |
 | Prueba de decisividad (decisión afectada y consecuencia), ficha con evidencia, procedencia, límites y criterio observable | **Local** |
 | Eliminación de «califica la confianza» | **Local**: la confianza del modelo no es evidencia |
+| Regla de que el criterio cubra cada condición de la pregunta o declare cuál queda sin evaluar | **Local**: propuesta P2 de la [adenda de la tercera ronda](../../../../docs/superpowers/reports/2026-11-02-killer-questions-round3-addendum.md), aplicada el 2026-11-05 por decisión del usuario |
 | Reglas de no inventar cifras, tratar afirmaciones sin fuente como del autor, no aplicar semáforo ni clasificación bloqueante, no exigir MVP ni plan | **Local**, desde el [diseño de maduración](../../../../docs/superpowers/specs/2026-10-31-idea-maturation-design.md) y la [capacidad de Brix](../../../docs/idea-intake.md) |
 | Idioma de las instrucciones | **Local**: español; identificadores en inglés |
 
