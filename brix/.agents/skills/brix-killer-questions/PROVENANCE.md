@@ -29,6 +29,7 @@ Límites del original frente al instrumento de VCX: pide 8 categorías de riesgo
 | Prueba de decisividad (decisión afectada y consecuencia), ficha con evidencia, procedencia, límites y criterio observable | **Local** |
 | Eliminación de «califica la confianza» | **Local**: la confianza del modelo no es evidencia |
 | Regla de que el criterio cubra cada condición de la pregunta o declare cuál queda sin evaluar | **Local**: propuesta P2 de la [adenda de la tercera ronda](../../../../docs/superpowers/reports/2026-11-02-killer-questions-round3-addendum.md), aplicada el 2026-11-05 por decisión del usuario |
+| Señal temprana en la ficha | **Local**: adaptación de la cláusula de «equipo rojo» (qué tendría que pasar para que quien apuesta en contra tenga razón) de un prompt aportado por el usuario el 2026-11-08, derivado del tutorial de ambición de Felix Rieseberg; evaluación y procedencia en [fuentes](../../../../docs/sources.md#antecedentes-externos-puntuales); aplicada el 2026-11-08 por decisión del usuario |
 | Reglas de no inventar cifras, tratar afirmaciones sin fuente como del autor, no aplicar semáforo ni clasificación bloqueante, no exigir MVP ni plan | **Local**, desde el [diseño de maduración](../../../../docs/superpowers/specs/2026-10-31-idea-maturation-design.md) y la [capacidad de Brix](../../../docs/idea-intake.md) |
 | Idioma de las instrucciones | **Local**: español; identificadores en inglés |
 
