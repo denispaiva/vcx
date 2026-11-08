@@ -1,0 +1,4 @@
+decide: "react-native-tools-2026" → rejected (vence 2027-02-06T23:42:20.000Z).
+
+score-run: línea agregada a brix/tooling/score-runs.jsonl:
+{"candidate": "react-native-tools-2026", "command": "node ../blends/vc/brix/packages/cli/bin/brix.js tool score decide --id react-native-tools-2026 --status rejected --by \"Denis Paiva\" --rationale <ver humanDecision.rationale> --policy ../blends/vc/tooling/scoring-policy.json --output-dir brix/tooling --now 2026-11-08T23:42:20Z", "now": "2026-11-08T23:42:20Z", "precursorHead": "f86a2a7df72e55bbb97451c1a35ef3c03b961fc3", "cliTree": "889332c5d1065a3a39e25889587f503caad40195", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": "1.6.0", "evaluationSha256": "d90e69edc20f932efe2d3c4e2f1e2ee159903f046ae8fd08e0df017c2a95b29b", "previousStatus": "decision_pending", "operator": "Claude Fable 5.1 (Claude Code), autorizado por Denis Paiva el 2026-11-08"}

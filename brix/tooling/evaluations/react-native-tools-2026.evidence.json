@@ -1,0 +1,414 @@
+{
+  "candidate": {
+    "id": "react-native-tools-2026",
+    "type": "practice",
+    "sourceUrl": "https://github.com/alexbecerradev/react-native-tools-2026",
+    "evaluatedRef": "aeaa2c85bc9869eb7146f232f838d1fc678f9441"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 22,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Ultimo push 2026-03-27T12:46:56Z, 226 dias antes de la medicion; coincide con la fecha de creacion del repo (2026-03-27T12:46:37Z). No archivado, pero sin ninguna actividad posterior al dia de creacion. Segun la guia de lectura, 30 a los 180 dias; aqui se supera ese plazo.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026 (created_at=2026-03-27T12:46:37Z; pushed_at=2026-03-27T12:46:56Z; archived=false; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 0,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 releases y 0 tags. El titulo promete una guia para 2026 pero no hay ningun marcador de version ni fecha de revision dentro del documento.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026/releases (cantidad=0; medido 2026-11-08)",
+          "github-api:repos/alexbecerradev/react-native-tools-2026/tags (cantidad=0; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 3,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "2 commits en total, ambos el 2026-03-27 con 17 segundos de diferencia (12:46:39Z inicial y 12:46:56Z revision del README). 0 commits en los ultimos 90 dias y 0 desde el dia de creacion. Un solo autor; factor de bus 1.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026/commits (2 commits: 51922c9f 2026-03-27T12:46:39Z, aeaa2c85 2026-03-27T12:46:56Z; medido 2026-11-08)",
+          "github-api:repos/alexbecerradev/react-native-tools-2026/contributors (alexbecerradev unico; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "unavailable",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin issues ni pull requests, abiertos o cerrados; no hay interaccion que permita medir tiempos de respuesta.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026/issues?state=all (cantidad=0; medido 2026-11-08)",
+          "github-api:repos/alexbecerradev/react-native-tools-2026/pulls?state=all (cantidad=0; medido 2026-11-08)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin software ejecutable: el arbol tiene un solo archivo (README.md, 2811 bytes). security-advisories devuelve 0. El puntaje refleja ausencia de codigo, no una auditoria de las ~30 herramientas que el documento nombra.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026/security-advisories (cantidad=0; medido 2026-11-08)",
+          "github-api:repos/alexbecerradev/react-native-tools-2026/git/trees/main?recursive=1 (archivos=1; truncated=false; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cuenta personal (User) creada el 2021-01-26, anterior al repo; 38 repos publicos, 0 seguidores. El repo tiene 0 estrellas y 0 forks. El documento no cita fuentes para sus recomendaciones salvo cinco enlaces a sitios oficiales de productos; ninguna afirmacion de rendimiento (por ejemplo MMKV «ultra rapido») lleva comparacion ni medicion. Sin licencia: la API devuelve license=null, asi que la reutilizacion del texto no esta autorizada.",
+        "evidenceRefs": [
+          "github-api:users/alexbecerradev (type=User; created_at=2021-01-26; public_repos=38; followers=0; medido 2026-11-08)",
+          "github-api:repos/alexbecerradev/react-native-tools-2026 (stargazers=0; forks=0; license=null; medido 2026-11-08)",
+          "github-raw:alexbecerradev/react-native-tools-2026/README.md (167 lineas, 2811 bytes; leido; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 25,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin SECURITY.md, sin CI (total_count=0), sin licencia, sin CONTRIBUTING ni codigo de conducta; perfil de comunidad 28 %, solo el README cuenta. El README no pide ejecutar comandos ni revelar secretos: el unico bloque bash es una lista de nombres, no comandos. Poco relevante para un repo de solo markdown, pero no hay verificacion de enlaces ni fecha de revision.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026/actions/workflows (total_count=0; medido 2026-11-08)",
+          "github-api:repos/alexbecerradev/react-native-tools-2026/community/profile (health_percentage=28; license=null; contributing=null; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El documento no pide permisos. Recomienda servicios alojados que reciben datos de usuarios finales (Supabase Auth, Clerk, Sentry, PostHog, Firebase Analytics, InstantDB) e IDE con IA (Cursor, Copilot) sin ninguna nota sobre red, credenciales, datos enviados a terceros ni alcance. Tampoco distingue librerias locales de servicios externos.",
+        "evidenceRefs": [
+          "github-raw:alexbecerradev/react-native-tools-2026/README.md (167 lineas, 2811 bytes; leido; medido 2026-11-08)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 15,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Consumidor: Teyst, la unica app React Native del workspace. Ya usa Expo ~57.0.16, expo-router, TypeScript, Reanimated 4.5.1, Gesture Handler 2.32, @expo/ui y EAS (aprobado con excepcion el 2026-11-03), es decir el «core» y la infraestructura del documento ya estan adoptados. Las decisiones abiertas del diseno nativo del 2026-11-02 son SDK de Google Sign-In nativo, App Check, expo-updates, persistencia de Firebase en RN y variantes de app; el documento no menciona ninguna. Donde opina (Supabase o InstantDB como backend, Zustand, TanStack Query, MMKV, SQLite+Drizzle, Uniwind+UniStyles) contradice o ignora el default Firebase fijado por el usuario y no aporta criterio de eleccion mas alla de una linea.",
+        "evidenceRefs": [
+          "github-raw:alexbecerradev/react-native-tools-2026/README.md (167 lineas, 2811 bytes; leido; medido 2026-11-08)",
+          "local-read:solera/teyst/package.json (expo ~57.0.16; react-native 0.86.2; firebase 13.2.0; react-native-reanimated 4.5.1; @react-native-async-storage/async-storage 2.2.0; medido 2026-11-08)",
+          "local-read:docs/superpowers/specs/2026-11-02-teyst-native-architecture-design.md (Firebase como default; decisiones abiertas: Google Sign-In nativo, App Check, expo-updates, variantes; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Como documento no exige integracion. Su contenido no declara versiones de ninguna herramienta ni de Expo o React Native, asi que no se puede verificar compatibilidad con Expo 57 / RN 0.86 y la nueva arquitectura. Las recomendaciones de backend (Supabase, InstantDB, Expo API Routes) chocan con el default Firebase del consumidor y con el backend ya desplegado en Functions; AsyncStorage, que Teyst usa, no aparece.",
+        "evidenceRefs": [
+          "github-raw:alexbecerradev/react-native-tools-2026/README.md (167 lineas, 2811 bytes; sin versiones; leido; medido 2026-11-08)",
+          "local-read:solera/teyst/functions/package.json (firebase-functions ^7.2.5; firebase-admin ^13.8.0; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 8,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Lista de nombres por categoria con una recomendacion de una linea cada una, sin comparacion, condiciones ni evidencia. Todo lo que nombra es localizable en la documentacion oficial de Expo, que ademas trae versiones y guias de integracion. Lo unico que el documento agrega frente a esa fuente es la opinion del autor, sin fundamento verificable.",
+        "evidenceRefs": [
+          "github-raw:alexbecerradev/react-native-tools-2026/README.md (167 lineas, 2811 bytes; 5 enlaces externos, todos a sitios de producto; leido; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin uso del candidato en el workspace; no hay resultado observable.",
+        "evidenceRefs": [
+          "sin uso del candidato en el workspace: no hay resultado observable (consultado 2026-11-08)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 95,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No hay nada que instalar: se lee un README de 2811 bytes.",
+        "evidenceRefs": [
+          "github-raw:alexbecerradev/react-native-tools-2026/README.md (167 lineas, 2811 bytes; leido; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de uso de este candidato en el workspace.",
+        "evidenceRefs": [
+          "vc/tooling/usage/records/ del precursor y brix/tooling/evaluations/ de VCX: sin registro del candidato (consultado 2026-11-08)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 3,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 workflows; sin verificacion de enlaces ni lint. No hay criterio de admision que automatizar.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026/actions/workflows (total_count=0; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 28,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "README ordenado por categorias (core, IDE, estado, almacenamiento, UI, estilos, infraestructura, produccion, backend) y un stack recomendado final, legible en minutos. Debilidades: ~30 herramientas nombradas y solo 5 enlazadas; sin versiones, fechas, criterios de eleccion ni alternativas descartadas; afirmaciones de rendimiento sin respaldo; sin indicar como mantenerlo vigente pese a titularse guia 2026.",
+        "evidenceRefs": [
+          "github-raw:alexbecerradev/react-native-tools-2026/README.md (167 lineas, 2811 bytes; 5 enlaces; leido; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 3,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin tags, releases ni changelog; 2 commits el mismo minuto. El contenido no tiene fecha de revision ni version.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026/tags (cantidad=0; medido 2026-11-08)",
+          "github-api:repos/alexbecerradev/react-native-tools-2026/commits (2 commits, ambos 2026-03-27; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 5,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Ninguna version de Expo, React Native ni de las librerias; sin matriz de compatibilidad ni mencion a la nueva arquitectura. No se puede saber si las combinaciones propuestas (por ejemplo Uniwind + UniStyles) fueron probadas juntas.",
+        "evidenceRefs": [
+          "github-raw:alexbecerradev/react-native-tools-2026/README.md (167 lineas, 2811 bytes; sin versiones; leido; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 98,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cero dependencias: un archivo de texto de 2811 bytes.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026/git/trees/main?recursive=1 (archivos=1; medido 2026-11-08)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Leerlo es gratuito. Descuentos: sin licencia, el texto no puede copiarse ni redistribuirse; y el contenido recomienda productos de pago o con tier gratuito limitado (Cursor, WebStorm, Clerk, Supabase, Sentry, PostHog, InstantDB) sin mencionar precio, cupos ni la alternativa gratuita en cada caso, lo que contradice la politica Free Tier first del Owner.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026 (license=null; medido 2026-11-08)",
+          "github-raw:alexbecerradev/react-native-tools-2026/README.md (167 lineas, 2811 bytes; leido; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Markdown plano, sin formato propietario ni servicio. Sin licencia declarada: por defecto todos los derechos reservados, asi que solo se puede consultar, no incorporar al workspace.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026 (license=null; medido 2026-11-08)",
+          "github-api:repos/alexbecerradev/react-native-tools-2026/community/profile (files.license=null; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 98,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Nada se instala ni se modifica en el workspace; abandonarlo no deja residuo.",
+        "evidenceRefs": [
+          "github-raw:alexbecerradev/react-native-tools-2026/README.md (167 lineas, 2811 bytes; leido; medido 2026-11-08)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 95,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-fable-5-1",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin servicios, claves ni daemons. No hay nada que seguir: el repo no ha cambiado desde su creacion.",
+        "evidenceRefs": [
+          "github-api:repos/alexbecerradev/react-native-tools-2026 (pushed_at=2026-03-27; medido 2026-11-08)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 92
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": false,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  },
+  "communitySnapshot": {
+    "state": "available",
+    "counts": {
+      "stars": 0,
+      "forks": 0,
+      "contributors": 1
+    },
+    "contributorsState": "available",
+    "raw": {
+      "fullName": "alexbecerradev/react-native-tools-2026",
+      "stars": 0,
+      "forks": 0,
+      "openIssues": 0,
+      "createdAt": "2026-03-27T12:46:37Z",
+      "pushedAt": "2026-03-27T12:46:56Z",
+      "license": null,
+      "archived": false,
+      "defaultBranch": "main"
+    },
+    "sourceUrl": "https://github.com/alexbecerradev/react-native-tools-2026",
+    "observedAt": "2026-11-08T23:42:20.000Z"
+  }
+}
