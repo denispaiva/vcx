@@ -28,6 +28,8 @@ Conservar las palabras del autor y su procedencia. No atribuirle las interpretac
 - Visión propuesta: {{proposed_vision}}
 - Alcance y límites iniciales: {{initial_scope}}
 - Alternativas conocidas: {{known_alternatives}}
+- Costo del error: {{failure_cost}} (qué se pierde si la idea avanza y resulta equivocada: dinero, personas afectadas, tiempo; «sin estimar» si no se sabe)
+- Datos crudos disponibles hoy: {{raw_data_available}} (registros, mediciones o documentos existentes que permitirían verificar el problema, con ubicación y límites; «ninguno» si no hay)
 - Primera validación posible: {{first_validation}}
 
 Las formulaciones añadidas por el instrumento se marcan como propuestas. Se puede declarar que una sección no tiene respuesta todavía; no se inventa precisión para completar el formato.
@@ -36,7 +38,7 @@ Las formulaciones añadidas por el instrumento se marcan como propuestas. Se pue
 
 {{killer_questions}}
 
-Para cada pregunta: qué supuesto pone a prueba, por qué una respuesta negativa podría invalidar la idea, qué se sabe, qué falta y qué evidencia permitiría responder. Distinguir preguntas candidatas de las confirmadas por el humano.
+Para cada pregunta: qué supuesto pone a prueba, por qué una respuesta negativa podría invalidar la idea, qué se sabe, qué falta, qué evidencia permitiría responder y qué señal temprana avisaría de que el supuesto falla. Distinguir preguntas candidatas de las confirmadas por el humano.
 
 ## Supuestos, preguntas abiertas y evidencia disponible
 
