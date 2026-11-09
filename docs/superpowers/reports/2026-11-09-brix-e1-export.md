@@ -31,7 +31,7 @@ Resultado: 138 commits, punta `6960cb00`, 82 archivos.
 | Hallazgo | Dónde | Lectura | Propuesta |
 |---|---|---|---|
 | Ruta local `/Users/denispaiva/blends` | Fixture de `scripts/tests/context-window.test.mjs` | [I] Es el usuario de GitHub y una ruta ya inexistente | [P] Conservar |
-| «USD 13,82» de consumo de Actions | `docs/decisions/0001-graduation.md:61`, contexto del Gate | [H] Es el único importe que parece un gasto real; el resto son precios públicos de listas o fixtures | Decide el usuario |
+| «USD 13,82» de consumo de Actions | `docs/decisions/0001-graduation.md:61`, contexto del Gate | [H] Es el único importe que parece un gasto real; el resto son precios públicos de listas o fixtures | Conservar: lo decidió el usuario el 2026-11-09 («Conservarlo») |
 | `dev-teyst`, `prod-teyst` | `docs/decisions/0007-seeding-motor.md` | [I] Son IDs de proyecto Firebase, ya visibles en la configuración web de Teyst | [P] Conservar |
 | Menciones a proyectos | Líneas agregadas: 54 a Teyst, 14 a Pinot, 8 a Melquisedec | [I] `vcx` público ya los nombra | [P] Conservar |
 | Plan y research de la Fase 0, matriz de roles | 2 planes, 4 investigaciones y `docs/governance/role-matrix.json` | [H] No hay importes, correos ni rutas sensibles. Son la historia de desarrollo de Brix, con tareas y decisiones del PO | [P] Exportar: el filtrado no ganaría privacidad y quitarlos rompería 0001 y 0002 |
