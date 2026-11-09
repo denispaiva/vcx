@@ -4,11 +4,11 @@ Fecha: 2026-10-30. Estado: propuesta de diseño del primer recorrido Cellar–Bl
 
 ## Propósito y fuente
 
-Conservar el contexto desde la preparación de una propuesta hasta su ingreso como idea y eventual preparación como proyecto, con procedencia explícita, identidad estable desde el registro y una fuente canónica por dato. Este documento define la información; [el recorrido de Blends](../../blends/docs/idea-to-project.md) define el proceso del tramo de idea y la [matriz](../../docs/architecture/responsibility-matrix.md#1-método-y-conducción) el reparto entre método y conducción.
+Conservar el contexto desde la preparación de una propuesta hasta su ingreso como idea y eventual preparación como proyecto, con procedencia explícita, identidad estable desde el registro y una fuente canónica por dato. Este documento define la información; [el recorrido de Blends](https://github.com/denispaiva/vcx/blob/main/blends/docs/idea-to-project.md) define el proceso del tramo de idea y la [matriz](https://github.com/denispaiva/vcx/blob/main/docs/architecture/responsibility-matrix.md#1-método-y-conducción) el reparto entre método y conducción.
 
 ## Antes de ser una idea registrada
 
-El [ingreso previo](../../blends/docs/idea-intake.md) prepara una propuesta con `/idea`, preguntas asesinas, un documento Markdown revisado por el humano y un reporte del consejo. Solo la confirmación humana posterior al reporte habilita su registro como idea. Es un requisito expresado por el usuario, no un cambio aplicado al sistema existente.
+El [ingreso previo](https://github.com/denispaiva/vcx/blob/main/blends/docs/idea-intake.md) prepara una propuesta con `/idea`, preguntas asesinas, un documento Markdown revisado por el humano y un reporte del consejo. Solo la confirmación humana posterior al reporte habilita su registro como idea. Es un requisito expresado por el usuario, no un cambio aplicado al sistema existente.
 
 El ámbito de preparación conserva `submissionId`, fuentes, revisiones del documento, OK de envío, reporte y decisión de ingreso. No es una entrada activa del portfolio y no tiene todavía estado `registered`, `archived` o `deferred` del ciclo de iniciativas. Puede estar asociado a un destino propuesto, sin exigir que ya exista una instancia configurada para preparar el documento. Custodiar esa preparación no la admite.
 
@@ -78,6 +78,6 @@ Cada evidencia registra identidad, origen, fecha, autor o productor, ubicación,
 
 Cellar expone lectura por identidad y revisión, actualización autorizada y referencias verificables. Debe comprobar pertenencia al ámbito, permisos, integridad referencial y conflictos de revisión. Blends aplica el proceso y sus compuertas del tramo de idea a través de esa interfaz, y Cellar conduce el tramo de proyecto por la misma interfaz; el acceso directo a almacenamiento no debe convertirse en un canal alternativo que eluda la autoridad adoptada.
 
-La preparación de proyecto debe poder completarse o recuperarse sin publicar dos seguimientos activos: [el recorrido](../../blends/docs/idea-to-project.md) fija el resultado y el tratamiento de interrupciones. Este corte no selecciona backend, protocolo, librería o formato persistente.
+La preparación de proyecto debe poder completarse o recuperarse sin publicar dos seguimientos activos: [el recorrido](https://github.com/denispaiva/vcx/blob/main/blends/docs/idea-to-project.md) fija el resultado y el tratamiento de interrupciones. Este corte no selecciona backend, protocolo, librería o formato persistente.
 
 El respaldo de un Cellar real deberá incluir sus almacenamientos declarados, incluso otras ramas o servicios. Este modelo no descarga bases operativas ni conserva secretos o locks de procesos como memoria del portfolio.
