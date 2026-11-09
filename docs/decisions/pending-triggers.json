@@ -34,6 +34,17 @@
         "docs/exports/build_spend_view.py"
       ],
       "reviewAt": "2026-12-09"
+    },
+    {
+      "id": "ux-checklist-consumer",
+      "decision": "VCX-D060",
+      "title": "Checklist de experiencia de uso: retomar con un consumidor o archivar",
+      "paths": [
+        "docs/superpowers/reports/2026-11-09-ux-checklist-pilot.md",
+        "docs/superpowers/reports/2026-11-09-ux-checklist-pilot/**",
+        "brix/.agents/skills/brix-ux-review/**"
+      ],
+      "reviewAt": "2027-02-09"
     }
   ]
 }
