@@ -63,7 +63,7 @@ Estado al 2026-11-09: E1, E2 y E3 hechos. `denispaiva/brix` es público con `v0.
 
 Necesita los trenes detenidos durante el renombre.
 
-Medición previa del 2026-11-09, en solo lectura. Su detalle incluye datos de infraestructura y se custodia fuera de este repositorio público. Encontró dos bloqueantes. El primero, la regla de no escribir en el precursor, queda resuelto por VCX-D061 solo para esta fase. El segundo: dos de las identidades de deploy en la nube autorizan por el nombre del repositorio y hay que migrarlas al ID antes del renombre.
+Medición previa del 2026-11-09, en solo lectura. Su detalle incluye datos de infraestructura y se custodia fuera de este repositorio público. Encontró dos bloqueantes. El primero, la regla de no escribir en el precursor, queda resuelto por VCX-D061 solo para esta fase. El segundo: dos de las identidades de deploy en la nube autorizaban por el nombre del repositorio. Se migraron al ID el mismo día, con autorización del usuario, y se verificaron con deploys a los entornos de desarrollo, con y sin la autorización por nombre.
 
 ### Fase 4 · Blends público
 
