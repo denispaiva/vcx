@@ -59,3 +59,14 @@ El comando original no se sincroniza solo. Para actualizar: leer la nueva revisi
 ## Reubicación
 
 El 2026-11-02 se movió de `brix/.claude/skills/` a `brix/.agents/skills/`, sin cambio de contenido, por decisión del usuario de unificar las skills de Brix en la carpeta del estándar abierto; `brix/.claude/skills` es desde entonces un symlink de directorio para Claude Code. Los registros de evaluación en `brix/tooling/evaluations/` conservan `evaluatedRef` `vcx@45f961a48236d51a42106ea153578f64900d84f3:brix/.claude/skills/brix-llm-council/` y `sourceUrl` con la ruta anterior: son evidencia fechada de esa revisión y no se reescriben. La próxima evaluación llevará la ruta nueva en su `evaluatedRef`. Los reportes y planes fechados anteriores conservan la ruta de entonces.
+
+## Activación solo explícita
+
+El 2026-11-09 el usuario autorizó en el chat con Claude («Sí, implementarla») impedir que los agentes activen esta skill por su cuenta, en coherencia con su descripción («Use only when the user explicitly asks»). La inspiración fue el uso de esa marca en los plugins de [ruflo](https://github.com/ruvnet/ruflo) (revisión `29be054`); la definición sale de la documentación oficial de cada host, no de ruflo:
+
+| Host | Mecanismo | Efecto documentado | Verificación del 2026-11-09 |
+|---|---|---|---|
+| Claude Code | `disable-model-invocation: true` en el frontmatter de `SKILL.md` | Claude no la invoca solo y su descripción sale del contexto; se invoca con `/brix-llm-council` ([skills](https://code.claude.com/docs/en/skills)) | Con Claude Code 2.1.311 (CLI instalado ese día con autorización del usuario) y haiku, desde `brix/`: `claude -p "/brix-llm-council"` cargó la skill y devolvió en un turno el diagnóstico de entrada faltante sin iniciar el consejo. Un pedido implícito («Corré un consejo de cinco asesores sobre README.md…») no invocó la herramienta Skill: el modelo buscó archivos y respondió sin el procedimiento. La skill sigue en la lista de comandos de barra del `init`, como corresponde a una invocación manual. Antes, la sesión de la app de escritorio había listado al modelo solo `brix-killer-questions` |
+| Codex | `policy.allow_implicit_invocation: false` en `agents/openai.yaml` | Codex no la invoca por coincidencia con el pedido; `$brix-llm-council` sigue funcionando ([build skills](https://learn.chatgpt.com/docs/build-skills)) | Con codex-cli 0.167.0-alpha.3.2, desde `brix/`: `codex debug prompt-input` dejó de incluir la descripción (antes sí la incluía), y `codex exec -s read-only '$brix-llm-council'` cargó la skill y devolvió el diagnóstico de entrada faltante sin iniciar el consejo |
+
+Codex cargó la skill con la clave de Claude Code en el frontmatter; Claude Code no documenta `agents/openai.yaml`. Una skill nueva que solo deba usarse a pedido lleva ambas.

@@ -1,6 +1,7 @@
 ---
 name: brix-llm-council
 description: "Run a documented council over a Markdown document with an explicit question: five independent advisors, five cross-reviews with rotated order and one synthesis, producing an advisory report with candidate questions, disagreements and blind spots. Use only when the user explicitly asks for a council on a given document and supplies the question and the run configuration. Does not recommend, approve or graduate anything. Not for quick opinions, factual lookups or decisions without a document."
+disable-model-invocation: true
 ---
 
 ## Reporte de consejo
