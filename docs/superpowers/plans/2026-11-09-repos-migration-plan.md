@@ -63,6 +63,8 @@ Estado al 2026-11-09: E1, E2 y E3 hechos. `denispaiva/brix` es público con `v0.
 
 Necesita los trenes detenidos durante el renombre.
 
+Medición previa del 2026-11-09, en solo lectura. Su detalle incluye datos de infraestructura y se custodia fuera de este repositorio público. Encontró dos bloqueantes. El primero, la regla de no escribir en el precursor, queda resuelto por VCX-D061 solo para esta fase. El segundo: dos de las identidades de deploy en la nube autorizan por el nombre del repositorio y hay que migrarlas al ID antes del renombre.
+
 ### Fase 4 · Blends público
 
 Paso 3 de VCX-D032. El repositorio nuevo termina la redirección del nombre viejo: todo lo de la fase 3 tiene que estar actualizado antes. Incorporación con el mismo mecanismo E4 sobre `vcx/blends/`.
