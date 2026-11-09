@@ -3,3 +3,6 @@
 /solera/*
 !/solera/README.md
 .DS_Store
+
+# Cellar es un repositorio propio (denispaiva/cellar) con checkout en cellar/; VCX-D059.
+/cellar/

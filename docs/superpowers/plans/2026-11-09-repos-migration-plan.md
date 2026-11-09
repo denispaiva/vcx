@@ -11,7 +11,7 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 | Raíz | `vcx/` | `vcx` público | Sí |
 | Brix | `vcx/brix/`, versionado por `vcx`, y `blends/vc/brix/` con el código | `brix` privado, espejo detenido desde septiembre | No |
 | Blends | `vcx/blends/`, versionado por `vcx`, y `~/VibeCoding/blends`, el precursor | `blends` privado, el precursor | No; el nombre está ocupado |
-| Cellar | `vcx/cellar/`, versionado por `vcx` | No existe | No |
+| Cellar | `vcx/cellar/`, versionado por `vcx` (situación inicial) | No existía; `denispaiva/cellar` público desde el 2026-11-09 | Sí, al cerrar E4 |
 | Teyst | `vcx/solera/teyst/` | `solera-teyst` | Sí; su descripción todavía dice que el deploy sigue en `blends` |
 
 Hallazgos del 2026-11-09:
@@ -39,13 +39,13 @@ El más simple: no tiene nada en el precursor, su contenido ya es público dentr
 | Etapa | Qué hace | Estado |
 |---|---|---|
 | E1 Export local | `git subtree split --prefix=cellar` desde `main` de `vcx` | Hecho el 2026-11-09 desde `b6a28d2`: 4 commits, autor y committer `noreply`, Betterleaks 2.0.0-rc.1 sin hallazgos sobre el historial exportado |
-| E2 Prueba aislada | Ningún enlace relativo sale del producto | Los 20 enlaces salientes pasan a URL absolutas de `vcx` en esta misma entrega; hay que volver a exportar después del merge |
-| E3 Publicación | Repositorio público `cellar`, push de `main`, protección | Requiere autorización |
-| E4 Incorporación | En `vcx`: sacar `cellar/` del índice sin borrarlo, ignorar `/cellar/` y colocar el clon | Requiere autorización |
+| E2 Prueba aislada | Ningún enlace relativo sale del producto | Hecho: 20 enlaces salientes pasaron a URL absolutas de `vcx` (PR 8); export repetido desde `638a1fd`, 5 commits, sin hallazgos |
+| E3 Publicación | Repositorio público `cellar`, push de `main`, protección | Hecho el 2026-11-09 con autorización del usuario: `denispaiva/cellar` público, `main` en `ca00822`, protegido (solo por PR, también para administradores; sin force-push ni borrado) |
+| E4 Incorporación | En `vcx`: sacar `cellar/` del índice sin borrarlo, ignorar `/cellar/` y colocar el clon | Autorizado el 2026-11-09. Principios adoptados y `CLAUDE.md` en `cellar` (PR 1), con prueba de carga en clon aislado; 32 enlaces de `vcx` hacia `cellar/` pasan a URL de `denispaiva/cellar` |
 
 [I] Los enlaces a `blends/docs/` apuntan a `vcx` mientras Blends viva ahí. Cuando Blends se extraiga en la fase 4, se actualizan en `cellar`.
 
-[P] Pendiente de E4: `cellar/AGENTS.md` remite a las instrucciones comunes de la raíz. En un clon aislado los agentes no las cargan solas; hay que incorporar una copia derivada de los principios, como hace Teyst.
+[H] Resuelto en E4: `cellar/AGENTS.md` remitía a las instrucciones comunes de la raíz. En un clon aislado los agentes no las cargan solas; hay que incorporar una copia derivada de los principios, como hace Teyst.
 
 ### Fase 2 · Brix
 

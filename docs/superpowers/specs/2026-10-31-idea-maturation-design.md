@@ -28,7 +28,7 @@ Se propone la tercera. La flexibilidad no permite llamar validación a cualquier
 
 En el lenguaje de trabajo se habla de ideas y, después de graduar, proyectos. No se exige crear una entidad de negocio adicional denominada iniciativa para explicar ese recorrido.
 
-Se conserva por ahora el identificador técnico `initiativeId` del [modelo de Cellar](../../../cellar/docs/initiative-model.md): una misma identidad desde el registro y durante la graduación. Cambiar el nombre visible o la clasificación no crea otro objeto activo ni duplica su seguimiento. Renombrar campos técnicos queda fuera de este diseño.
+Se conserva por ahora el identificador técnico `initiativeId` del [modelo de Cellar](https://github.com/denispaiva/cellar/blob/main/docs/initiative-model.md): una misma identidad desde el registro y durante la graduación. Cambiar el nombre visible o la clasificación no crea otro objeto activo ni duplica su seguimiento. Renombrar campos técnicos queda fuera de este diseño.
 
 La preparación previa mantiene `submissionId` y su relación con el registro posterior. Esto representa procedencia y admisión, no dos ideas editables en paralelo. No se cambia la confirmación humana posterior al reporte del consejo establecida en VCX-D017 del [registro](../../decisions/README.md).
 

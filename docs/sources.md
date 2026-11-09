@@ -11,15 +11,15 @@
 | Alcance propuesto del commit base raíz | [Preparación del commit base](superpowers/plans/2026-10-31-root-baseline-scope.md) |
 | Responsabilidades y RACI propuestas | [Matriz](architecture/responsibility-matrix.md) |
 | Propiedad de interfaces | [Interoperabilidad](architecture/interoperability.md) |
-| Modelo mínimo propuesto de iniciativa | [Modelo de Cellar](../cellar/docs/initiative-model.md) |
+| Modelo mínimo propuesto de iniciativa | [Modelo de Cellar](https://github.com/denispaiva/cellar/blob/main/docs/initiative-model.md) |
 | Proceso mínimo propuesto de idea a proyecto | [Recorrido de Blends](../blends/docs/idea-to-project.md) |
 | Ingreso mediante documento, consejo y confirmación | [Flujo de ingreso](../blends/docs/idea-intake.md) |
 | Capacidad requerida de preparación sobre Brix | [Preparación de ideas](../brix/docs/idea-intake.md) |
 | Comandos CLI, equivalencias de conversación y ayuda | [Comandos de Brix](../brix/docs/commands.md) |
-| Formato documental de la propuesta previa al ingreso | [Plantilla de ideas](../cellar/templates/idea/README.md) |
+| Formato documental de la propuesta previa al ingreso | [Plantilla de ideas](https://github.com/denispaiva/cellar/blob/main/templates/idea/README.md) |
 | Modelo propuesto para estimación técnica y económica | [Arquitectura de referencia en Brix](../brix/docs/reference-architecture.md) |
 | Secuencia de arquitectura, FinOps y revisión de presupuesto | [Etapa de Blends](../blends/docs/architecture-and-finops.md) |
-| Documento FinOps de la iniciativa | [Plantilla FinOps](../cellar/templates/finops/README.md) |
+| Documento FinOps de la iniciativa | [Plantilla FinOps](https://github.com/denispaiva/cellar/blob/main/templates/finops/README.md) |
 | Ejemplo y aceptación del primer recorrido | [Diseño conjunto](superpowers/specs/2026-10-30-cellar-blends-first-journey-design.md) |
 | Contraste acotado con el sistema activo | [Correspondencia](architecture/current-system-mapping.md) |
 | Decisiones, autoridad y pendientes | [Registro de decisiones](decisions/README.md) |
@@ -52,7 +52,7 @@ La curación prioritaria de Cellar y Blends se organiza en su [plan](superpowers
 
 ## Antecedentes externos puntuales
 
-El 2026-11-08 el usuario aportó, como capturas sin autor identificado, un prompt titulado «Modo ambición: de tareas a decisiones», que declara seguir el método de Felix Rieseberg (Anthropic). La atribución se verificó mediante resúmenes secundarios del tutorial «How to be more ambitious: A tutorial for humans with models» (13 de octubre de 2026; cuatro tipos de ambición: velocidad, altura, profundidad y alcance), por ejemplo [este resumen](https://www.besthub.dev/articles/anthropic-engineer-s-framework-for-ambitious-ai-usage-altitude-depth-range-54bb5e0625fd); el original no se leyó. La evaluación en el chat de ese día concluyó que el prompt es en su mayor parte redundante con VCX-P1, VCX-P2 y VCX-P5 y con `brix-killer-questions` y `brix-llm-council`, que su regla de no avanzar sin respuestas contradice P1 y P3, y que su revisión multiperspectiva en un solo modelo no es independiente. Por decisión del usuario se incorporaron solo dos piezas: los campos de costo del error y datos crudos disponibles en la [plantilla de ideas](../cellar/templates/idea/README.md), y la señal temprana en la ficha de [`brix-killer-questions`](../brix/.agents/skills/brix-killer-questions/PROVENANCE.md). El prompt no se copia al workspace y no se adopta como instrucción.
+El 2026-11-08 el usuario aportó, como capturas sin autor identificado, un prompt titulado «Modo ambición: de tareas a decisiones», que declara seguir el método de Felix Rieseberg (Anthropic). La atribución se verificó mediante resúmenes secundarios del tutorial «How to be more ambitious: A tutorial for humans with models» (13 de octubre de 2026; cuatro tipos de ambición: velocidad, altura, profundidad y alcance), por ejemplo [este resumen](https://www.besthub.dev/articles/anthropic-engineer-s-framework-for-ambitious-ai-usage-altitude-depth-range-54bb5e0625fd); el original no se leyó. La evaluación en el chat de ese día concluyó que el prompt es en su mayor parte redundante con VCX-P1, VCX-P2 y VCX-P5 y con `brix-killer-questions` y `brix-llm-council`, que su regla de no avanzar sin respuestas contradice P1 y P3, y que su revisión multiperspectiva en un solo modelo no es independiente. Por decisión del usuario se incorporaron solo dos piezas: los campos de costo del error y datos crudos disponibles en la [plantilla de ideas](https://github.com/denispaiva/cellar/blob/main/templates/idea/README.md), y la señal temprana en la ficha de [`brix-killer-questions`](../brix/.agents/skills/brix-killer-questions/PROVENANCE.md). El prompt no se copia al workspace y no se adopta como instrucción.
 
 ## Antecedentes de los principios transversales
 

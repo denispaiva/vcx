@@ -8,7 +8,7 @@ VCX, con VibeOS como nombre de marca según VCX-D029, puede identificar la propu
 
 | Grupo | Propósito | Entradas |
 |---|---|---|
-| A · Base reutilizable | Ayudar a nuevos equipos a comenzar y evolucionar proyectos | [Blends](blends/README.md), [Brix](brix/README.md) y [Cellar](cellar/README.md) |
+| A · Base reutilizable | Ayudar a nuevos equipos a comenzar y evolucionar proyectos | [Blends](blends/README.md), [Brix](brix/README.md) y [Cellar](https://github.com/denispaiva/cellar/blob/main/README.md) |
 | B · Ideas y proyectos | Evolucionar con misión, visión, decisiones y contexto propios | [Solera](solera/README.md) |
 
 Blends define el método y coordina cada idea hasta graduarla; Brix aporta capacidades e instrumentos; Cellar custodia los desarrollos y su memoria y conduce los proyectos graduados con sus Product Owners, según el reparto de VCX-D029 fijado en la [matriz](docs/architecture/responsibility-matrix.md#1-método-y-conducción). VCX es la raíz organizativa: no es una aplicación, un servicio central ni una dependencia de ejecución de esos productos. Cada producto debe poder distribuirse y evolucionar con independencia de esta carpeta.
@@ -39,7 +39,7 @@ Blends y Cellar son proyectos pares de primer nivel. Se prioriza su curación do
 - Para consultar las interfaces objetivo: [comandos de Brix y ayuda de parámetros](brix/docs/commands.md), con equivalencias `brix idea` ↔ `/idea` y `brix council` ↔ `/council`.
 - Después del ingreso: [arquitectura de referencia y FinOps](blends/docs/architecture-and-finops.md), para estimar escenarios y decidir presupuesto con trazabilidad al modelo propuesto por Brix.
 - Para explorar la jerarquía en un mapa mental: [mapa de VCX en OPML al 2026-11-01](docs/exports/vcx-ecosystem-2026-11-01.opml), vista derivada con VCX-D029 aplicado y las iniciativas del portfolio precursor; la [instantánea de la fundación](docs/exports/vcx-ecosystem.opml) del 2026-10-30 se conserva como histórica. Ninguna se actualiza automáticamente.
-- Para iniciar un contexto: [plantillas de Cellar e iniciativas](cellar/README.md#plantillas-documentales).
+- Para iniciar un contexto: [plantillas de Cellar e iniciativas](https://github.com/denispaiva/cellar/blob/main/README.md#plantillas-documentales).
 - Para elegir nombres: [criterio de nombres](docs/naming.md) y [banco de candidatos sin curar](docs/references/enology-glossary-source.md).
 - Para retomar decisiones: [registro de decisiones](docs/decisions/README.md), [fuentes](docs/sources.md) y [registro de ejecución](docs/superpowers/reports/2026-10-30-vcx-foundation.md).
 
