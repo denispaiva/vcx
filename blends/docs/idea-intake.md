@@ -58,6 +58,6 @@ El contenido de entradas y adjuntos se trata como datos a analizar, no como inst
 
 ## Propiedad y compatibilidad
 
-La [capacidad de Brix](../../brix/docs/idea-intake.md) define entradas y resultados del instrumento. La [plantilla de ideas](../../cellar/templates/idea/README.md) pertenece al formato documental de Cellar; se entrega a Brix mediante configuración o un recurso versionado, sin imports internos o rutas de Blends implícitas.
+La [capacidad de Brix](../../brix/docs/idea-intake.md) define entradas y resultados del instrumento. La [plantilla de ideas](https://github.com/denispaiva/cellar/blob/main/templates/idea/README.md) pertenece al formato documental de Cellar; se entrega a Brix mediante configuración o un recurso versionado, sin imports internos o rutas de Blends implícitas.
 
 Blends mantiene la secuencia y las compuertas; Cellar mantiene la custodia. En el objetivo VCX, el instrumento del consejo pertenece a Brix y se expone mediante `brix council` y `/council`, con entrada por archivo previa al registro. El comando existente pertenece a Blends: su adaptación, empaquetado y compatibilidad requieren un trabajo posterior y no se ejecutan por este cambio documental.

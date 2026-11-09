@@ -16,7 +16,7 @@ Etiquetas: [H] hecho medido el 2026-11-02 en solo lectura; [D] hecho documentado
 
 ## 2. Alcance
 
-[P] Aplica a la arquitectura vigente de un proyecto con `lifecycleState` `graduated` ([modelo de iniciativa](../../../cellar/docs/initiative-model.md#estados-y-relaciones)). El tramo de idea sigue rigiéndose por [arquitectura y FinOps](../../../blends/docs/architecture-and-finops.md); esta propuesta no lo modifica.
+[P] Aplica a la arquitectura vigente de un proyecto con `lifecycleState` `graduated` ([modelo de iniciativa](https://github.com/denispaiva/cellar/blob/main/docs/initiative-model.md#estados-y-relaciones)). El tramo de idea sigue rigiéndose por [arquitectura y FinOps](../../../blends/docs/architecture-and-finops.md); esta propuesta no lo modifica.
 
 Fuera de alcance: el formato de los ADR, la adopción de herramientas, la numeración heredada, las revisiones periódicas y su aplicación a los productos del grupo A (§7).
 

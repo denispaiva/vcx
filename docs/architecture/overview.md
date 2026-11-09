@@ -10,7 +10,7 @@ El desacople como producto es el objetivo acordado. Compartir carpeta no exige c
 
 ## Dos grupos y tres productos
 
-**A** reúne la base reutilizable: [Blends](../../blends/README.md), [Brix](../../brix/README.md) y [Cellar](../../cellar/README.md). **B** reúne las ideas y proyectos de cada portfolio, contenidos lógicamente en instancias de Cellar.
+**A** reúne la base reutilizable: [Blends](../../blends/README.md), [Brix](../../brix/README.md) y [Cellar](https://github.com/denispaiva/cellar/blob/main/README.md). **B** reúne las ideas y proyectos de cada portfolio, contenidos lógicamente en instancias de Cellar.
 
 Cellar como producto define organización y mecanismos de custodia. Un Cellar concreto conserva las iniciativas, configuración y memoria de un equipo o propietario. Cada iniciativa mantiene un contexto propio; sus relaciones se expresan mediante referencias explícitas.
 

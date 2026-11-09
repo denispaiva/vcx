@@ -8,7 +8,7 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 
 ### Repositorios de la cuenta
 
-[H] Ocho repositorios, todos privados, ninguno archivado, ninguno fork. No existen `vcx` ni `cellar`. Actualización del 2026-11-02: existe `denispaiva/vcx`, público, creado con autorización del usuario y con `main` en `4b01168`; `cellar` sigue sin existir.
+[H] Ocho repositorios, todos privados, ninguno archivado, ninguno fork. No existen `vcx` ni `cellar`. Actualización del 2026-11-02: existe `denispaiva/vcx`, público, creado con autorización del usuario y con `main` en `4b01168`; `cellar` sigue sin existir. Actualización del 2026-11-09: existe `denispaiva/cellar`, público, con `main` en `ca00822`, creado con autorización del usuario según VCX-D059; la raíz lo ignora y su checkout es `vcx/cellar/`.
 
 | Repositorio | Rol hoy | Rama por defecto | Último push | Observación |
 |---|---|---|---|---|

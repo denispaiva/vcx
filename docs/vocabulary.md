@@ -19,9 +19,9 @@ Cada entrada indica su estado:
 | **Producto** | Una de las tres piezas reutilizables: Blends, Brix o Cellar. Se versiona, distribuye y evoluciona por separado, en su propio repositorio | Lo que construye un proyecto; para eso ver *producto de un proyecto* | Vigente ([arquitectura](architecture/overview.md#dos-grupos-y-tres-productos), VCX-D025) |
 | **Producto de un proyecto** | Lo que un proyecto construye y entrega a sus usuarios, decidido por su PO | Blends, Brix o Cellar | D029 ([modelo de productos](superpowers/specs/2026-10-31-product-model-design.md)) |
 | **Cellar · producto** | Define la estructura y los mecanismos para custodiar y, desde D029, conducir | Un portfolio concreto | Vigente; conducción, D029 |
-| **Cellar · instancia** | Un portfolio concreto: conserva sus iniciativas, configuración, decisiones y memoria | El producto Cellar ni una carpeta cualquiera | Vigente ([modelo de iniciativa](../cellar/docs/initiative-model.md#qué-corresponde-a-cada-nivel)) |
+| **Cellar · instancia** | Un portfolio concreto: conserva sus iniciativas, configuración, decisiones y memoria | El producto Cellar ni una carpeta cualquiera | Vigente ([modelo de iniciativa](https://github.com/denispaiva/cellar/blob/main/docs/initiative-model.md#qué-corresponde-a-cada-nivel)) |
 | **Portfolio** | El conjunto de iniciativas que custodia una instancia de Cellar | Todo VCX | Vigente |
-| **Iniciativa** | Una idea o un proyecto, con una sola identidad durante todo su ciclo | Una propuesta todavía no admitida | Vigente ([modelo de iniciativa](../cellar/docs/initiative-model.md#estados-y-relaciones)) |
+| **Iniciativa** | Una idea o un proyecto, con una sola identidad durante todo su ciclo | Una propuesta todavía no admitida | Vigente ([modelo de iniciativa](https://github.com/denispaiva/cellar/blob/main/docs/initiative-model.md#estados-y-relaciones)) |
 | **Propuesta** | Lo que se prepara antes del ingreso; queda fuera del portfolio activo hasta la confirmación humana | Una idea registrada | Vigente (VCX-D017, [ingreso](../blends/docs/idea-intake.md)) |
 | **Idea** | Iniciativa registrada que todavía no se graduó | Un proyecto | Vigente |
 | **Proyecto** | Iniciativa graduada; conserva la misma identidad que tenía como idea | Una iniciativa nueva | Vigente; conducción por Cellar, D029 |

@@ -21,7 +21,7 @@ No se agrega por defecto un gate humano separado para aprobar la arquitectura an
 | Blends | Coordinar la secuencia, comprobar cobertura y presentar límites y decisiones necesarias |
 | Responsable del portfolio, autoridad humana en esta etapa | Aprobar el presupuesto y alcance habilitados; decidir ampliaciones o cambios de compromiso |
 
-Se usa la [plantilla FinOps](../../cellar/templates/finops/README.md). Sus valores pertenecen a la iniciativa; las reglas de cálculo pertenecen al instrumento que las aplique. Un resumen de portfolio deriva de esas fuentes, sin mantener otro presupuesto editable.
+Se usa la [plantilla FinOps](https://github.com/denispaiva/cellar/blob/main/templates/finops/README.md). Sus valores pertenecen a la iniciativa; las reglas de cálculo pertenecen al instrumento que las aplique. Un resumen de portfolio deriva de esas fuentes, sin mantener otro presupuesto editable.
 
 ## Qué debe poder explicar el documento
 
