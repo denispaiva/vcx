@@ -30,7 +30,7 @@ Resultado: 138 commits, punta `6960cb00`, 82 archivos.
 
 | Hallazgo | Dónde | Lectura | Propuesta |
 |---|---|---|---|
-| Ruta local `/Users/denispaiva/blends` | Fixture de `scripts/tests/context-window.test.mjs` | [I] Es el usuario de GitHub y una ruta ya inexistente | [P] Conservar |
+| Ruta local `/Users/denispaiva/blends` | Fixture de `scripts/tests/context-window.test.mjs` | [I] Es el usuario de GitHub y una ruta ya inexistente | Salió con `scripts/` (E2) |
 | «USD 13,82» de consumo de Actions | `docs/decisions/0001-graduation.md:61`, contexto del Gate | [H] Es el único importe que parece un gasto real; el resto son precios públicos de listas o fixtures | Conservar: lo decidió el usuario el 2026-11-09 («Conservarlo») |
 | `dev-teyst`, `prod-teyst` | `docs/decisions/0007-seeding-motor.md` | [I] Son IDs de proyecto Firebase, ya visibles en la configuración web de Teyst | [P] Conservar |
 | Menciones a proyectos | Líneas agregadas: 54 a Teyst, 14 a Pinot, 8 a Melquisedec | [I] `vcx` público ya los nombra | [P] Conservar |
@@ -71,7 +71,25 @@ Lo que esta compuerta no cubre:
 - La carga de instrucciones: el export no tiene `AGENTS.md` ni `CLAUDE.md` propios. Los de `vcx/brix/` se fusionan en E4, y ahí se repite la prueba de carga que se hizo con Cellar.
 - Instalación y backends reales, como ya advertía D056.
 
-Decisión pendiente: los 9 `scripts/` (instrumentos F1 y C5 de la Fase 0) miden el portfolio y escriben en `data/`, que ya no está en el export. `kpi-history.mjs` agrupa claves por el prefijo `vc/`. No forman parte del paquete y sus pruebas pasan. D056 deja la poda para después del corte.
+### Decisión sobre `scripts/`
+
+El 2026-11-09, ante «¿Qué hago con los 9 scripts/ de Brix?», el usuario respondió «Dejarlos a Solera». Los instrumentos F1 y C5 de la Fase 0 miden el portfolio y escriben en `data/`, así que son medición de la instancia y no capacidad del producto.
+
+- Se quitó `scripts/` de **todo** el historial, igual que `data/` y `finops/`. Con eso desaparece también la ruta local del fixture. La fuente sigue en el precursor.
+- El README explica dónde quedaron, la estructura refleja el árbol real y el origen describe el repositorio como fuente canónica. La CI corre solo `tests/`.
+- Resultado: 140 commits, punta `f89b1e6`.
+
+Compuerta repetida en un clon limpio, sin tokens:
+
+| Criterio | Resultado |
+|---|---|
+| Pruebas | [H] 101 de 101; las 59 que faltan respecto de las 160 eran de los instrumentos |
+| CLI | [H] Arranca con salida 0 |
+| `npm pack` | [H] 29 archivos, con `finops` y `seeding` |
+| Datos de instancia en el historial | [H] 0 rutas de `scripts/`, `data/`, `finops/` o `.roadmap.json` |
+| Correos | [H] Solo `noreply` del autor, `noreply@anthropic.com` y `git@github.com` |
+| Rutas locales en el historial | [H] 0 |
+| Secretos | [H] Betterleaks sin hallazgos |
 
 ## Recuperación
 
