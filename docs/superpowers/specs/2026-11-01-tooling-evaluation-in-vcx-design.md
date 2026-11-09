@@ -119,6 +119,6 @@ Criterios de aceptación:
 2. Omitir la narrativa.
 3. Cuándo hacer un envoltorio delgado en `brix/` que haga cumplir las precondiciones 2 y 3 y escriba `score-runs.jsonl`. La revisión mostró que los controles manuales se omiten sin que nada lo detecte. La propuesta es correr a mano solo la primera evaluación, que no tiene registro previo en VCX que pisar, y exigir el envoltorio antes de cualquier reevaluación o de un segundo candidato.
 
-   Estado al 2026-11-01: diseño del envoltorio aprobado por el usuario e implementado en [`brix/tooling/score-run.mjs`](../../../brix/tooling/score-run.mjs), con el uso en su cabecera y probado solo en seco. Además de las precondiciones 2 y 3, exige que el hash del registro vigente coincida con su última línea de `score-runs.jsonl`, y reemplazar una decisión humana requiere `--replace-decision`. Desde ahora, todo `evaluate` o `decide` persistido pasa por él.
+   Estado al 2026-11-01: diseño del envoltorio aprobado por el usuario e implementado en [`brix/tooling/score-run.mjs`](../../tooling/score-run.mjs), con el uso en su cabecera y probado solo en seco. Además de las precondiciones 2 y 3, exige que el hash del registro vigente coincida con su última línea de `score-runs.jsonl`, y reemplazar una decisión humana requiere `--replace-decision`. Desde ahora, todo `evaluate` o `decide` persistido pasa por él.
 
 Aprobar este documento no autoriza evaluar `brix-llm-council` ni cambiar el generador. Cada una de esas acciones se pide aparte.

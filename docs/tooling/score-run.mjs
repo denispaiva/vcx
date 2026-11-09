@@ -4,9 +4,9 @@
 // a score-runs.jsonl. Diseño: docs/superpowers/specs/2026-11-01-tooling-evaluation-in-vcx-design.md
 //
 // Uso, desde la raíz de VCX:
-//   node brix/tooling/score-run.mjs evaluate --input <evidencia> --now <ISO> --operator "<texto>"
+//   node docs/tooling/score-run.mjs evaluate --input <evidencia> --now <ISO> --operator "<texto>"
 //       [--offline] [--dry-run] [--replace-decision]
-//   node brix/tooling/score-run.mjs decide --id <id> --status <estado> --by "<nombre>"
+//   node docs/tooling/score-run.mjs decide --id <id> --status <estado> --by "<nombre>"
 //       [--rationale <texto>] [--review-at <fecha>] [--accepted-risk]
 //       --now <ISO> --operator "<texto>" [--dry-run] [--replace-decision]
 //
@@ -15,11 +15,11 @@
 // --dry-run en decide: en seco, decide solo corre los controles.
 //
 // Salidas: 0 éxito; 1 precondición o argumentos; 3 el precursor cambió durante la
-// corrida (no se agrega línea; revertir a mano lo que el motor escribió en brix/tooling).
+// corrida (no se agrega línea; revertir a mano lo que el motor escribió en docs/tooling).
 // Otro código distinto de 0 es el del motor.
 //
 // Límites: no bloquea corridas concurrentes ni verifica el estado de VCX fuera de
-// brix/tooling (paso 8 manual de D035). Si el motor escribe y falla agregar la línea,
+// docs/tooling (paso 8 manual de D035). Si el motor escribe y falla agregar la línea,
 // la corrida siguiente lo detecta por el hash del registro.
 
 import { spawnSync } from 'node:child_process';
@@ -31,7 +31,7 @@ const ROOT = path.resolve(import.meta.dirname, '../..');
 const PRECURSOR = path.resolve(ROOT, '../blends');
 const CLI = '../blends/vc/brix/packages/cli/bin/brix.js';
 const POLICY = '../blends/vc/tooling/scoring-policy.json';
-const OUTPUT_DIR = 'brix/tooling';
+const OUTPUT_DIR = 'docs/tooling';
 const RUNS_FILE = path.join(ROOT, OUTPUT_DIR, 'score-runs.jsonl');
 const GUARDED_PATHS = ['vc/brix/packages/cli', 'vc/tooling/scoring-policy.json'];
 const RESERVED_FLAGS = ['policy', 'output-dir', 'narrative-doc'];
@@ -124,7 +124,7 @@ function formatLine(line) {
 
 const [subcommand, ...rest] = process.argv.slice(2);
 if (subcommand !== 'evaluate' && subcommand !== 'decide') {
-  fail('falta el subcomando: evaluate o decide (ver el uso en la cabecera de brix/tooling/score-run.mjs)');
+  fail('falta el subcomando: evaluate o decide (ver el uso en la cabecera de docs/tooling/score-run.mjs)');
 }
 
 const pairs = parseArgs(rest);
@@ -256,7 +256,7 @@ const current = readRecord(candidateId);
 
 if (result.status !== 0) {
   if (current?.sha !== previous?.sha) {
-    console.error('score-run: el motor falló pero el registro cambió; revisar brix/tooling con git antes de reintentar');
+    console.error('score-run: el motor falló pero el registro cambió; revisar docs/tooling con git antes de reintentar');
   }
   fail(`el motor terminó con código ${result.status}; no se agregó línea`, result.status ?? 1);
 }
@@ -266,7 +266,7 @@ const changed = ['precursorHead', 'cliTree', 'policySha256'].filter((key) => bef
 if (after.dirty !== '' || changed.length > 0) {
   fail(
     `corrida inválida: el precursor cambió durante la corrida (${[...changed, after.dirty && 'cambios locales'].filter(Boolean).join(', ')}). ` +
-      'No se agregó línea; revertir a mano lo que el motor escribió en brix/tooling',
+      'No se agregó línea; revertir a mano lo que el motor escribió en docs/tooling',
     3,
   );
 }

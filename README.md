@@ -8,7 +8,7 @@ VCX, con VibeOS como nombre de marca según VCX-D029, puede identificar la propu
 
 | Grupo | Propósito | Entradas |
 |---|---|---|
-| A · Base reutilizable | Ayudar a nuevos equipos a comenzar y evolucionar proyectos | [Blends](blends/README.md), [Brix](brix/README.md) y [Cellar](https://github.com/denispaiva/cellar/blob/main/README.md) |
+| A · Base reutilizable | Ayudar a nuevos equipos a comenzar y evolucionar proyectos | [Blends](blends/README.md), [Brix](https://github.com/denispaiva/brix/blob/main/README.md) y [Cellar](https://github.com/denispaiva/cellar/blob/main/README.md) |
 | B · Ideas y proyectos | Evolucionar con misión, visión, decisiones y contexto propios | [Solera](solera/README.md) |
 
 Blends define el método y coordina cada idea hasta graduarla; Brix aporta capacidades e instrumentos; Cellar custodia los desarrollos y su memoria y conduce los proyectos graduados con sus Product Owners, según el reparto de VCX-D029 fijado en la [matriz](docs/architecture/responsibility-matrix.md#1-método-y-conducción). VCX es la raíz organizativa: no es una aplicación, un servicio central ni una dependencia de ejecución de esos productos. Cada producto debe poder distribuirse y evolucionar con independencia de esta carpeta.
@@ -36,7 +36,7 @@ Blends y Cellar son proyectos pares de primer nivel. Se prioriza su curación do
 - Para saber qué skills y MCP usa o propone cada fase: [matriz de tooling](docs/architecture/tooling-matrix.md), fuente transitoria según VCX-D028 que referencia el inventario del precursor sin copiarlo. Su [vista HTML por ubicación](docs/exports/tooling-matrix.html), con los consumidores de cada elemento en un popup, es una instantánea derivada con la revisión fuente indicada; no se edita a mano. Tras commitear la matriz, se regenera con `python3 -I docs/exports/build_tooling_matrix_view.py`, herramienta documental opcional sin dependencias externas.
 - Para continuar la curación gradual: [primer recorrido Cellar–Blends](docs/superpowers/specs/2026-10-30-cellar-blends-first-journey-design.md), diseño propuesto con ejemplo ficticio y correspondencia con el sistema actual.
 - Para preparar el ingreso de una idea: [flujo de documento, consejo y confirmación humana](blends/docs/idea-intake.md), con capacidad de Brix y plantilla de ideas; todavía sin comandos nuevos implementados.
-- Para consultar las interfaces objetivo: [comandos de Brix y ayuda de parámetros](brix/docs/commands.md), con equivalencias `brix idea` ↔ `/idea` y `brix council` ↔ `/council`.
+- Para consultar las interfaces objetivo: [comandos de Brix y ayuda de parámetros](https://github.com/denispaiva/brix/blob/main/docs/commands.md), con equivalencias `brix idea` ↔ `/idea` y `brix council` ↔ `/council`.
 - Después del ingreso: [arquitectura de referencia y FinOps](blends/docs/architecture-and-finops.md), para estimar escenarios y decidir presupuesto con trazabilidad al modelo propuesto por Brix.
 - Para explorar la jerarquía en un mapa mental: [mapa de VCX en OPML al 2026-11-01](docs/exports/vcx-ecosystem-2026-11-01.opml), vista derivada con VCX-D029 aplicado y las iniciativas del portfolio precursor; la [instantánea de la fundación](docs/exports/vcx-ecosystem.opml) del 2026-10-30 se conserva como histórica. Ninguna se actualiza automáticamente.
 - Para iniciar un contexto: [plantillas de Cellar e iniciativas](https://github.com/denispaiva/cellar/blob/main/README.md#plantillas-documentales).

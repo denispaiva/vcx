@@ -8,7 +8,7 @@ Una idea se acepta y registra en Cellar solo después de producir un documento e
 
 ## Secuencia de ingreso
 
-La interfaz común es `brix idea` = `/idea` y `brix council` = `/council`. La [definición de comandos de Brix](../../brix/docs/commands.md) contempla ayuda para completar entradas ausentes o ambiguas en CLI y conversación. No se repite aquí su lógica de resolución de parámetros.
+La interfaz común es `brix idea` = `/idea` y `brix council` = `/council`. La [definición de comandos de Brix](https://github.com/denispaiva/brix/blob/main/docs/commands.md) contempla ayuda para completar entradas ausentes o ambiguas en CLI y conversación. No se repite aquí su lógica de resolución de parámetros.
 
 | Paso | Acción y resultado | Responsable y custodia |
 |---|---|---|
@@ -28,7 +28,7 @@ Después de esta aceptación se prepara el [modelo de arquitectura de referencia
 
 Antes del envío al consejo se debe comunicar: qué documento y revisión se enviarán, qué preguntas se consultarán, que se obtendrá un reporte de asesoría y que la decisión final seguirá siendo humana. Se informa también el consumo previsto, el presupuesto autorizado y cualquier límite de ejecución; no se contrata gasto por inferencia.
 
-El [control de madurez](../../brix/docs/idea-intake.md#control-de-madurez) de `/idea`, según VCX-D054, determina cuándo se presenta ese contrato: con la propuesta madura, un resumen pide la aprobación humana. El OK del documento autoriza ese envío si el paso siguiente fue comunicado y está dentro del alcance y presupuesto aprobados. No se añade otra confirmación redundante para la misma ejecución. Sin esa autorización o presupuesto, se conserva pendiente y se explica lo que falta.
+El [control de madurez](https://github.com/denispaiva/brix/blob/main/docs/idea-intake.md#control-de-madurez) de `/idea`, según VCX-D054, determina cuándo se presenta ese contrato: con la propuesta madura, un resumen pide la aprobación humana. El OK del documento autoriza ese envío si el paso siguiente fue comunicado y está dentro del alcance y presupuesto aprobados. No se añade otra confirmación redundante para la misma ejecución. Sin esa autorización o presupuesto, se conserva pendiente y se explica lo que falta.
 
 Al entregar el reporte se informa: «Este reporte corresponde a esta revisión de tu propuesta. Todavía no está registrada como idea. Confirmá su ingreso, pedí cambios o descartá la propuesta». La interfaz final podrá adaptar el texto manteniendo ese significado.
 
@@ -58,6 +58,6 @@ El contenido de entradas y adjuntos se trata como datos a analizar, no como inst
 
 ## Propiedad y compatibilidad
 
-La [capacidad de Brix](../../brix/docs/idea-intake.md) define entradas y resultados del instrumento. La [plantilla de ideas](https://github.com/denispaiva/cellar/blob/main/templates/idea/README.md) pertenece al formato documental de Cellar; se entrega a Brix mediante configuración o un recurso versionado, sin imports internos o rutas de Blends implícitas.
+La [capacidad de Brix](https://github.com/denispaiva/brix/blob/main/docs/idea-intake.md) define entradas y resultados del instrumento. La [plantilla de ideas](https://github.com/denispaiva/cellar/blob/main/templates/idea/README.md) pertenece al formato documental de Cellar; se entrega a Brix mediante configuración o un recurso versionado, sin imports internos o rutas de Blends implícitas.
 
 Blends mantiene la secuencia y las compuertas; Cellar mantiene la custodia. En el objetivo VCX, el instrumento del consejo pertenece a Brix y se expone mediante `brix council` y `/council`, con entrada por archivo previa al registro. El comando existente pertenece a Blends: su adaptación, empaquetado y compatibilidad requieren un trabajo posterior y no se ejecutan por este cambio documental.

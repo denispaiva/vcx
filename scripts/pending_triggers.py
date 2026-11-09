@@ -3,7 +3,7 @@
 
 Lee dos fuentes, sin copiarlas:
 - docs/decisions/pending-triggers.json: pendientes con rutas disparadoras y fecha de revisión.
-- brix/tooling/evaluations/*.evaluation.json: humanDecision.reviewAt y expiresAt.
+- docs/tooling/evaluations/*.evaluation.json: humanDecision.reviewAt y expiresAt.
 
 Avisa cuando un cambio toca una ruta disparadora o cuando una fecha venció o vence
 dentro de la ventana. Diseño y decisión: VCX-D058 en docs/decisions/README.md.
@@ -21,7 +21,7 @@ import sys
 from pathlib import Path
 
 TRIGGERS = Path("docs/decisions/pending-triggers.json")
-EVALUATIONS = Path("brix/tooling/evaluations")
+EVALUATIONS = Path("docs/tooling/evaluations")
 
 
 class DataError(Exception):

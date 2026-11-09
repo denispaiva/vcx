@@ -40,7 +40,7 @@ Para trabajar: leer este documento y [AGENTS.md](AGENTS.md). Consultar después 
 | Exploración y graduación | [Recorrido mínimo](docs/idea-to-project.md), propuesto; conserva decisiones humanas y preparación reanudable |
 | Arquitectura y presupuesto | [Etapa FinOps](docs/architecture-and-finops.md), diseño requerido; estimar no autoriza gasto |
 | Información que consume | [Cellar](https://github.com/denispaiva/cellar/blob/main/README.md) y su modelo; contratos todavía propuestos |
-| Instrumentos que invoca | [Brix](../brix/README.md); interfaces objetivo y compatibilidad pendientes de implementación |
+| Instrumentos que invoca | [Brix](https://github.com/denispaiva/brix/blob/main/README.md); interfaces objetivo y compatibilidad pendientes de implementación |
 | Autoridad e interfaces compartidas | [Decisiones](../docs/decisions/README.md), [interoperabilidad](../docs/architecture/interoperability.md) y [matriz](../docs/architecture/responsibility-matrix.md) |
 | Trabajo documental de esta etapa | [Plan de curación](../docs/superpowers/plans/2026-10-30-blends-cellar-curation.md) y [reporte de ejecución](../docs/superpowers/reports/2026-10-30-blends-cellar-curation.md) |
 

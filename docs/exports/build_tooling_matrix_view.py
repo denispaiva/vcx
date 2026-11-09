@@ -6,7 +6,7 @@ para que la vista cite una revisión identificable, y que cada elemento que la
 matriz consume tenga ubicación en la tabla «Dónde vive cada elemento».
 
 Incorpora la decisión, las fechas y el riesgo de cada herramienta desde
-brix/tooling/evaluations/ y, si no tiene registro ahí, desde las evaluaciones de
+docs/tooling/evaluations/ y, si no tiene registro ahí, desde las evaluaciones de
 solo lectura del precursor (VCX-D035); exige que las de VCX estén commiteadas y
 anota de qué fuente viene cada una. La vista calcula al abrirse si la revisión
 venció y muestra una aprobación vencida como sin admisión. Sin ninguna de las
@@ -102,12 +102,12 @@ if missing:
     sys.exit("Sin ubicación en «Dónde vive cada elemento»: " + ", ".join(sorted(set(missing))))
 
 # Fuentes de evaluación en orden de prioridad (VCX-D035): prevalece la de VCX.
-eval_dirs = [("vcx", root / "brix/tooling/evaluations"), ("precursor", root.parent / "blends/vc/tooling/evaluations")]
+eval_dirs = [("vcx", root / "docs/tooling/evaluations"), ("precursor", root.parent / "blends/vc/tooling/evaluations")]
 eval_dirs = [(name, d) for name, d in eval_dirs if d.is_dir()]
 if any(name == "vcx" for name, _ in eval_dirs) and subprocess.run(
-        ["git", "-C", str(root), "status", "--porcelain", "--", str(root / "brix/tooling/evaluations")],
+        ["git", "-C", str(root), "status", "--porcelain", "--", str(root / "docs/tooling/evaluations")],
         capture_output=True, text=True).stdout.strip():
-    sys.exit("Las evaluaciones de brix/tooling tienen cambios sin commit; la vista debe citar una revisión identificable.")
+    sys.exit("Las evaluaciones de docs/tooling tienen cambios sin commit; la vista debe citar una revisión identificable.")
 evals_revs = {name: subprocess.run(["git", "-C", str(d), "log", "-1", "--format=%h %ad", "--date=short", "--", "."],
                                    capture_output=True, text=True).stdout.strip() or "sin revisión"
               for name, d in eval_dirs}

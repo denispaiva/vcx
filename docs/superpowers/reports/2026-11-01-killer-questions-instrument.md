@@ -1,6 +1,6 @@
 # Instrumento de preguntas asesinas: incorporación y prueba acotada
 
-Fecha: 2026-11-01. Autorización: pedido del usuario en este chat (alcance: revisar, incorporar con adaptación mínima, documentar y probar con un caso ficticio; sin commits). Este reporte es evidencia fechada; las fuentes editables son la [matriz de tooling](../../architecture/tooling-matrix.md) y la [procedencia de la skill](../../../brix/.claude/skills/killer-questions/PROVENANCE.md).
+Fecha: 2026-11-01. Autorización: pedido del usuario en este chat (alcance: revisar, incorporar con adaptación mínima, documentar y probar con un caso ficticio; sin commits). Este reporte es evidencia fechada; las fuentes editables son la [matriz de tooling](../../architecture/tooling-matrix.md) y la [procedencia de la skill](https://github.com/denispaiva/brix/blob/main/.agents/skills/killer-questions/PROVENANCE.md).
 
 Se separan tres cosas: **incorporación** (hecha), **prueba funcional** (una ejecución, ficticia) y **aprobación** (no existe; corresponde a la autoridad humana).
 

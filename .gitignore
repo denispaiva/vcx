@@ -6,3 +6,6 @@
 
 # Cellar es un repositorio propio (denispaiva/cellar) con checkout en cellar/; VCX-D059.
 /cellar/
+
+# Brix es un repositorio propio (denispaiva/brix) con checkout en brix/; VCX-D056.
+/brix/
