@@ -9,7 +9,7 @@ VCX, con VibeOS como nombre de marca según VCX-D029, puede identificar la propu
 | Grupo | Propósito | Entradas |
 |---|---|---|
 | A · Base reutilizable | Ayudar a nuevos equipos a comenzar y evolucionar proyectos | [Blends](blends/README.md), [Brix](https://github.com/denispaiva/brix/blob/main/README.md) y [Cellar](https://github.com/denispaiva/cellar/blob/main/README.md) |
-| B · Ideas y proyectos | Evolucionar con misión, visión, decisiones y contexto propios | [Solera](solera/README.md) |
+| B · Ideas y proyectos | Evolucionar con misión, visión, decisiones y contexto propios | [Solera](https://github.com/denispaiva/solera) |
 
 Blends define el método y coordina cada idea hasta graduarla; Brix aporta capacidades e instrumentos; Cellar custodia los desarrollos y su memoria y conduce los proyectos graduados con sus Product Owners, según el reparto de VCX-D029 fijado en la [matriz](docs/architecture/responsibility-matrix.md#1-método-y-conducción). VCX es la raíz organizativa: no es una aplicación, un servicio central ni una dependencia de ejecución de esos productos. Cada producto debe poder distribuirse y evolucionar con independencia de esta carpeta.
 
