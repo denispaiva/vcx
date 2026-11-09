@@ -1,4 +1,4 @@
-# Brix E1 y E2: export local y prueba aislada
+# Brix E1, E2 y E3: export, prueba aislada y publicación
 
 Fecha: 2026-11-09. Etapa E1 del [diseño de la extracción de Brix](../specs/2026-11-07-brix-extraction-design.md) (VCX-D056), dentro del [plan de migración](../plans/2026-11-09-repos-migration-plan.md) (VCX-D059). El usuario la autorizó en el chat con Claude («Sí, Brix E1»). El export es local y descartable: no se publicó nada y no se escribió en el precursor.
 
@@ -91,6 +91,26 @@ Compuerta repetida en un clon limpio, sin tokens:
 | Rutas locales en el historial | [H] 0 |
 | Secretos | [H] Betterleaks sin hallazgos |
 
+## E3: publicación
+
+El usuario la autorizó en el chat con Claude («Sí, Brix E3»). Es la etapa externa y difícil de revertir.
+
+| Paso | Resultado |
+|---|---|
+| Apartar el espejo | [H] `denispaiva/brix` pasó a llamarse `denispaiva/brix-espejo-2026-09`, sigue privado, quedó archivado y su descripción apunta a la fuente nueva. No se borró nada |
+| Scan antes del push | [H] Betterleaks sobre todo el historial: sin hallazgos |
+| Repositorio público | [H] `denispaiva/brix`, con `main` en `f89b1e6` (140 commits) |
+| Protección de `main` | [H] Solo por PR, check obligatorio `test`, también para administradores, sin force-push ni borrado |
+| Bloqueo de `graduation-export` | [H] Ruleset activo, sin excepciones: impide crear o actualizar esa rama. `brix.config.json` del precursor todavía la apunta a `denispaiva/brix`, así que un `brix graduate` publicaría el subárbol |
+| CI | [H] La primera corrida falló: Node 24 no acepta un directorio en `--test`, y la compuerta de E2 había corrido con Node 26. Se corrigió con un glob en el PR 1 de `brix`, que mergeó el usuario. En `main` `31b1c6d` pasan 101 de 101 pruebas, el CLI arranca y el paquete está completo |
+| Tag | [H] `v0.1.0`, anotado, sobre `31b1c6d` |
+
+### Corte
+
+Desde el 2026-11-09, la fuente canónica de Brix es `denispaiva/brix`. `vc/brix/` del precursor queda congelada en `4742bb99`. El control que fija D056 es correr `git diff --stat 4742bb99..origin/main -- vc/brix` en el precursor antes de cada versión de Brix. Línea base: `origin/main` en `4742bb99`, salida vacía.
+
+Siguen E4 (incorporación en `vcx`) y E5 (Teyst pasa al tarball del tag público), cada una con su propia autorización.
+
 ## Recuperación
 
-Borrar el export, que está en el scratchpad de la sesión. Ni el precursor ni GitHub cambiaron.
+Antes de E3: borrar el export. Desde E3, lo publicado se trata como visible aunque se borre. El espejo apartado se puede desarchivar y renombrar.
