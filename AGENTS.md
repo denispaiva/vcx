@@ -65,4 +65,6 @@ El sistema de la carpeta [hermana](../blends/) es el precursor de VCX, según ac
 
 En cambios documentales verificar enlaces, coherencia, procedencia y fuentes únicas. No incorporar dependencias o pruebas que solo reproduzcan el texto. En cambios ejecutables futuros aplicar las verificaciones acordes a su comportamiento.
 
+Apagar lo que se levantó cuando ya no se usa, regla del usuario del 2026-11-09. Al terminar una prueba o una tarea, el agente detiene los servidores de desarrollo, procesos en segundo plano y pestañas de navegador que abrió y ya no necesita; si dejó el resultado abierto para el usuario, apaga el resto después de abrirlo. Solo apaga lo propio: un servidor o proceso que levantó otra sesión se apaga solo cuando esa sesión ya terminó, comprobado por su identificador y nunca por inferencia. Lo que el agente abre en el navegador del usuario pasa a ser del usuario y no se cierra.
+
 Dejar resultado, evidencia de verificación y pendientes concretos al cerrar el trabajo. Los informes son evidencia fechada; no sustituyen las fuentes editables de decisiones o estado del producto.
