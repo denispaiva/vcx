@@ -1,4 +1,4 @@
-# Brix E1, E2 y E3: export, prueba aislada y publicación
+# Brix E1 a E4: export, prueba aislada, publicación e incorporación
 
 Fecha: 2026-11-09. Etapa E1 del [diseño de la extracción de Brix](../specs/2026-11-07-brix-extraction-design.md) (VCX-D056), dentro del [plan de migración](../plans/2026-11-09-repos-migration-plan.md) (VCX-D059). El usuario la autorizó en el chat con Claude («Sí, Brix E1»). El export es local y descartable: no se publicó nada y no se escribió en el precursor.
 
@@ -110,6 +110,33 @@ El usuario la autorizó en el chat con Claude («Sí, Brix E3»). Es la etapa ex
 Desde el 2026-11-09, la fuente canónica de Brix es `denispaiva/brix`. `vc/brix/` del precursor queda congelada en `4742bb99`. El control que fija D056 es correr `git diff --stat 4742bb99..origin/main -- vc/brix` en el precursor antes de cada versión de Brix. Línea base: `origin/main` en `4742bb99`, salida vacía.
 
 Siguen E4 (incorporación en `vcx`) y E5 (Teyst pasa al tarball del tag público), cada una con su propia autorización.
+
+## E4: incorporación
+
+El usuario la autorizó en el chat con Claude («Sí, Brix E4»). Se hizo en dos PR, que mergeó el usuario: el 2 de `brix` (`aa4441a`) y el 12 de `vcx` (`c000388`).
+
+| Paso | Resultado |
+|---|---|
+| Fuente registrada | [H] `vcx` en `56bd7e7`: 13 entradas de `brix/` (`.agents`, `.claude`, `docs`, `AGENTS.md` y `README.md`), con sus hashes de blob. El symlink `.claude/skills` conserva el blob `2b7a412` |
+| Fusión en `brix` | [H] El README incorpora misión, visión, alcance y capacidades objetivo, y retira el aviso de espejo, que desde E3 era falso. `AGENTS.md` lleva la copia derivada de VCX-P1 a VCX-P9 (revisión `56bd7e7`), y `CLAUDE.md` lo importa. Llegan `docs/commands.md`, `idea-intake.md` y `reference-architecture.md`, y las dos skills |
+| Decisiones | [H] Índice en `docs/decisions/README.md`. Conserva los dos `0007` sin renumerar. VCX-D019 se trasladó con su ID y la raíz lo registra |
+| Evaluaciones | [H] `brix/tooling/` pasó a `docs/tooling/` en la raíz. `score-run.mjs`, `pending_triggers.py` (fixtures 30 de 30) y la vista de la matriz usan la ruta nueva. Los registros y `score-runs.jsonl` no se editaron |
+| Raíz | [H] `brix/` está fuera del índice y en `.gitignore`. 43 enlaces apuntan al repositorio o a `docs/tooling`, sin enlaces rotos nuevos |
+| Clon colocado | [H] `vcx/brix/` es un clon de `denispaiva/brix` en `aa4441a`, sin gitlink. La raíz no lo ve |
+
+Compuerta, medida en un clon aislado de la rama de E4:
+
+| Criterio | Resultado |
+|---|---|
+| Enlaces resueltos | [H] 0 rotos |
+| Pruebas | [H] 101 de 101 en local; la CI del PR 2 pasó en verde |
+| Carga de instrucciones | [H] Claude Code cita VCX-P3. La carpeta de control, sin `CLAUDE.md`, responde `NO_CARGADO` |
+| Skills en Claude Code | [H] Lista `brix-killer-questions`. `brix-llm-council` no aparece en la lista por `disable-model-invocation` (VCX-D033), pero responde cuando se invoca como `/brix-llm-council` |
+| Skills en Codex | No verificado: Codex no está instalado en esta máquina |
+
+Observación: el pendiente `ux-checklist-consumer` de VCX-D060 vigila `brix/.agents/skills/brix-ux-review/**`, que ya no está en la raíz. Lo decide quien lleva esa línea de trabajo.
+
+Queda E5 (consumidores), con su propia autorización.
 
 ## Recuperación
 
