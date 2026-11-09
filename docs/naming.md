@@ -54,9 +54,11 @@ Los significados agregados se redactaron en esta sesión; su verificación en fu
 
 **Trasiego** fue propuesto por el usuario para la interoperabilidad y ya identifica una idea del portfolio existente. Continúa siendo un candidato para el nuevo uso, pendiente de resolver la coincidencia. El glosario no autoriza renombrar, fusionar o reutilizar esa identidad.
 
-## Nombre de marca registrado
+## Nombres de marca registrados
 
 **VibeOS**, «Vibe Coding for X projects», es el nombre de marca del conjunto de productos, registrado en VCX-D029 del [registro de decisiones](decisions/README.md) conforme a VCX-D024. Es marca, no identidad de producto ni dependencia ejecutable; no renombra Blends, Brix ni Cellar.
+
+**Tintum**, con dominio `tintum.app`, es la marca comercial de la empresa para sus proyectos, registrada en VCX-D061. Nombre visible `tintum`, en minúsculas; firma `powered by tintum`. Sus recursos visuales y su guía de uso están en [assets/tintum](../assets/tintum/README.md). Cada producto comercial muestra la firma; la [lista de productos](../assets/tintum/README.md#productos-comerciales) empieza por Teyst. Es la marca paraguas: VCX, con VibeOS, y todo lo que vive debajo forman parte de Tintum. No es un nombre del banco de candidatos ni de un producto, y no renombra VibeOS, VCX, sus productos, Solera ni Assemblage.
 
 ## Relación con la fundación documental
 
