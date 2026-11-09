@@ -51,6 +51,8 @@ El más simple: no tiene nada en el precursor, su contenido ya es público dentr
 
 Sigue las etapas E1 a E5 de VCX-D056 sin cambios: aparta el espejo, crea `brix` público con el historial filtrado de `vc/brix/` y lo fusiona con `vcx/brix/`. Desde E3, `vc/brix/` queda congelada en el SHA de corte.
 
+Estado al 2026-11-09: E1, E2 y E3 hechos. `denispaiva/brix` es público con `v0.1.0`; `scripts/` quedó en Solera por decisión del usuario; corte en `4742bb99`. Detalle en el [reporte](../reports/2026-11-09-brix-e1-export.md). Pendientes: E4 y E5.
+
 ### Fase 3 · Precursor → `solera`
 
 1. Llevar `vcx/solera/docs/` y `README.md` al repositorio de la instancia, y que `vcx` ignore `/solera/` entero (VCX-D059).
