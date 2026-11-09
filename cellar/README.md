@@ -1,6 +1,6 @@
 # Cellar · producto
 
-Proyecto de primer nivel de VCX, par de Blends. Primera curación documental: 2026-10-30, bajo el acuerdo VCX-D020 del [registro](../docs/decisions/README.md).
+Proyecto de primer nivel de VCX, par de Blends. Primera curación documental: 2026-10-30, bajo el acuerdo VCX-D020 del [registro](https://github.com/denispaiva/vcx/blob/main/docs/decisions/README.md).
 
 ## Misión
 
@@ -12,7 +12,7 @@ Que cada equipo pueda crear y conservar un portfolio propio, legible y recuperab
 
 ## Destinatarios y alcance
 
-Se dirige a propietarios y custodios de portfolios, equipos y consumidores autorizados de sus datos. El producto define organización, referencias, configuración y mecanismos de acceso y recuperación, y cómo se conduce un proyecto bajo el método adoptado; cada instancia conserva los datos concretos del portfolio y conduce sus proyectos. Custodia y conducción son dos responsabilidades distinguidas, no dos módulos ni servicios; su separación ejecutable no tiene necesidad demostrada. La [frontera con el método](../docs/architecture/responsibility-matrix.md#1-método-y-conducción) es la fuente de ese reparto, derivado de VCX-D029.
+Se dirige a propietarios y custodios de portfolios, equipos y consumidores autorizados de sus datos. El producto define organización, referencias, configuración y mecanismos de acceso y recuperación, y cómo se conduce un proyecto bajo el método adoptado; cada instancia conserva los datos concretos del portfolio y conduce sus proyectos. Custodia y conducción son dos responsabilidades distinguidas, no dos módulos ni servicios; su separación ejecutable no tiene necesidad demostrada. La [frontera con el método](https://github.com/denispaiva/vcx/blob/main/docs/architecture/responsibility-matrix.md#1-método-y-conducción) es la fuente de ese reparto, derivado de VCX-D029.
 
 **Entradas previstas:** identidad, configuración, perfiles adoptados, iniciativas, decisiones y declaraciones de almacenamiento.
 
@@ -32,13 +32,13 @@ Uso manual: copiar solo la plantilla requerida al destino que se haya acordado, 
 
 ## Estado y contexto
 
-El [modelo mínimo de iniciativa](docs/initiative-model.md) precisa la información del [primer recorrido Cellar–Blends](../docs/superpowers/specs/2026-10-30-cellar-blends-first-journey-design.md). Es una propuesta para revisar; las plantillas actuales aún no implementan todos esos campos o condiciones.
+El [modelo mínimo de iniciativa](docs/initiative-model.md) precisa la información del [primer recorrido Cellar–Blends](https://github.com/denispaiva/vcx/blob/main/docs/superpowers/specs/2026-10-30-cellar-blends-first-journey-design.md). Es una propuesta para revisar; las plantillas actuales aún no implementan todos esos campos o condiciones.
 
-La propuesta de idea usa su plantilla específica durante el [ingreso](../blends/docs/idea-intake.md). El registro en Cellar ocurre después de revisar el reporte del consejo y recibir la confirmación humana; un borrador aún no aceptado no figura como iniciativa activa, aunque se custodie, y puede prepararse sin haber elegido todavía la instancia de destino.
+La propuesta de idea usa su plantilla específica durante el [ingreso](https://github.com/denispaiva/vcx/blob/main/blends/docs/idea-intake.md). El registro en Cellar ocurre después de revisar el reporte del consejo y recibir la confirmación humana; un borrador aún no aceptado no figura como iniciativa activa, aunque se custodie, y puede prepararse sin haber elegido todavía la instancia de destino.
 
-Esta carpeta contiene la definición del producto y las plantillas; [solera/](../solera/README.md) es la instancia de este workspace, todavía sin repositorio propio; VCX-D009 y VCX-D053 fijan su nombre, propietario y ubicación.
+Esta carpeta contiene la definición del producto y las plantillas; [solera/](https://github.com/denispaiva/vcx/blob/main/solera/README.md) es la instancia de este workspace, todavía sin repositorio propio; VCX-D009 y VCX-D053 fijan su nombre, propietario y ubicación.
 
-Para trabajar: leer este documento y [AGENTS.md](AGENTS.md). Consultar [interoperabilidad](../docs/architecture/interoperability.md), [matriz](../docs/architecture/responsibility-matrix.md) y [decisiones](../docs/decisions/README.md) según la tarea.
+Para trabajar: leer este documento y [AGENTS.md](AGENTS.md). Consultar [interoperabilidad](https://github.com/denispaiva/vcx/blob/main/docs/architecture/interoperability.md), [matriz](https://github.com/denispaiva/vcx/blob/main/docs/architecture/responsibility-matrix.md) y [decisiones](https://github.com/denispaiva/vcx/blob/main/docs/decisions/README.md) según la tarea.
 
 ## Fuentes de trabajo y dependencias
 
@@ -46,9 +46,9 @@ Para trabajar: leer este documento y [AGENTS.md](AGENTS.md). Consultar [interope
 |---|---|
 | Identidad, ciclo y referencias de iniciativas | [Modelo mínimo](docs/initiative-model.md), propuesto; todavía no es un esquema ejecutable |
 | Material utilizable hoy | Plantillas manuales enlazadas arriba; la plantilla general de iniciativa todavía no representa todo el modelo mínimo |
-| Interfaces y responsabilidades | [Interoperabilidad](../docs/architecture/interoperability.md) y [matriz](../docs/architecture/responsibility-matrix.md), propuestas compartidas |
-| Autoridad y asuntos abiertos | [Decisiones](../docs/decisions/README.md); no hay todavía una instancia propietaria de su seguimiento |
-| Trabajo documental de esta etapa | [Plan de curación](../docs/superpowers/plans/2026-10-30-blends-cellar-curation.md); su evidencia se conserva en el [reporte](../docs/superpowers/reports/2026-10-30-blends-cellar-curation.md) |
+| Interfaces y responsabilidades | [Interoperabilidad](https://github.com/denispaiva/vcx/blob/main/docs/architecture/interoperability.md) y [matriz](https://github.com/denispaiva/vcx/blob/main/docs/architecture/responsibility-matrix.md), propuestas compartidas |
+| Autoridad y asuntos abiertos | [Decisiones](https://github.com/denispaiva/vcx/blob/main/docs/decisions/README.md); no hay todavía una instancia propietaria de su seguimiento |
+| Trabajo documental de esta etapa | [Plan de curación](https://github.com/denispaiva/vcx/blob/main/docs/superpowers/plans/2026-10-30-blends-cellar-curation.md); su evidencia se conserva en el [reporte](https://github.com/denispaiva/vcx/blob/main/docs/superpowers/reports/2026-10-30-blends-cellar-curation.md) |
 
 Blends será consumidor de la información de Cellar para coordinar el tramo de idea; no es un requisito para leer y conservar su contexto documental. Brix recibe entradas explícitas y produce instrumentos o resultados que la instancia puede custodiar. Cellar no redefine el método de Blends ni absorbe las capacidades internas de Brix. La independencia ejecutable y el aislamiento entre instancias siguen sin demostrarse.
 
