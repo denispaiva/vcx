@@ -45,6 +45,17 @@
         "brix/.agents/skills/brix-ux-review/**"
       ],
       "reviewAt": "2027-02-09"
+    },
+    {
+      "id": "tintum-brand-kit",
+      "decision": "VCX-D061",
+      "title": "Piezas separadas de Tintum: transparentes, SVG, favicons y legibilidad pequeña",
+      "paths": [
+        "assets/tintum/**/*.png",
+        "assets/tintum/**/*.svg",
+        "assets/tintum/**/*.ico"
+      ],
+      "reviewAt": "2027-02-09"
     }
   ]
 }

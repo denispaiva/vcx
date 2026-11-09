@@ -1,6 +1,6 @@
 # VCX · VibeOS, Vibe Coding for X projects
 
-VCX, con VibeOS como nombre de marca según VCX-D029, puede identificar la propuesta comercial de un conjunto de productos desacoplados que ayudan a convertir ideas en resultados verificables. En el workspace, `vcx/` es su carpeta raíz de organización. VCX no se desarrollará como producto.
+VCX, con VibeOS como nombre de marca según VCX-D029, puede identificar la propuesta comercial de un conjunto de productos desacoplados que ayudan a convertir ideas en resultados verificables. En el workspace, `vcx/` es su carpeta raíz de organización. VCX no se desarrollará como producto. VCX y todo lo que vive debajo forman parte de Tintum, dominio web y marca comercial paraguas según VCX-D061.
 
 **Estado:** fundación documental establecida el 2026-10-30. Esta carpeta reúne sobre todo definiciones y plantillas, además de las skills propias de Brix y el envoltorio de evaluación de tooling de VCX-D035; las capacidades ejecutables de los productos se implementarán en trabajos posteriores. El sistema existente no fue migrado.
 
@@ -40,6 +40,7 @@ Blends y Cellar son proyectos pares de primer nivel. Se prioriza su curación do
 - Después del ingreso: [arquitectura de referencia y FinOps](blends/docs/architecture-and-finops.md), para estimar escenarios y decidir presupuesto con trazabilidad al modelo propuesto por Brix.
 - Para explorar la jerarquía en un mapa mental: [mapa de VCX en OPML al 2026-11-01](docs/exports/vcx-ecosystem-2026-11-01.opml), vista derivada con VCX-D029 aplicado y las iniciativas del portfolio precursor; la [instantánea de la fundación](docs/exports/vcx-ecosystem.opml) del 2026-10-30 se conserva como histórica. Ninguna se actualiza automáticamente.
 - Para iniciar un contexto: [plantillas de Cellar e iniciativas](https://github.com/denispaiva/cellar/blob/main/README.md#plantillas-documentales).
+- Para firmar un proyecto con la marca comercial: [recursos de Tintum](assets/tintum/README.md), VCX-D061; cada proyecto incorpora su propia copia.
 - Para elegir nombres: [criterio de nombres](docs/naming.md) y [banco de candidatos sin curar](docs/references/enology-glossary-source.md).
 - Para retomar decisiones: [registro de decisiones](docs/decisions/README.md), [fuentes](docs/sources.md) y [registro de ejecución](docs/superpowers/reports/2026-10-30-vcx-foundation.md).
 
