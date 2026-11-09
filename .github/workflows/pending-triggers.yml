@@ -1,0 +1,27 @@
+name: pending-triggers
+
+# Recordatorio de pendientes con disparador (VCX-D058): anota el PR, no lo bloquea por un aviso.
+# Falla solo si una fuente de pendientes es inválida, para que un dato roto no pase como «sin avisos».
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  remind:
+    name: pending-triggers
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout con historial completo
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Pendientes disparados por el PR o con fecha cercana
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: python3 -I scripts/pending_triggers.py --range "$BASE_SHA...$HEAD_SHA" --window 14 --github

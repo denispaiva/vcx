@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "about": "Pendientes con disparador de VCX-D058. El texto, la autoridad y el criterio de descarte viven en docs/decisions/README.md; aquí solo lo que scripts/pending_triggers.py evalúa. Las evaluaciones de tooling se leen de brix/tooling/evaluations y no se copian. Al decidir un pendiente, registrar la decisión y quitar su entrada.",
+  "items": [
+    {
+      "id": "settings-static-review",
+      "decision": "VCX-D058 · SEC-25",
+      "title": "Revisión estática de configuración de agentes",
+      "paths": [
+        "**/.claude/settings*.json",
+        "**/.mcp.json",
+        "**/.codex/config.toml",
+        "**/agents/openai.yaml",
+        "**/hooks/hooks.json",
+        ".githooks/**"
+      ],
+      "reviewAt": "2026-12-09"
+    },
+    {
+      "id": "spend-cache-subagents",
+      "decision": "VCX-D058",
+      "title": "Caché por TTL y atribución de subagentes en la vista de gasto",
+      "paths": [
+        "docs/exports/build_spend_view.py",
+        "finops-policy.md"
+      ],
+      "reviewAt": "2026-12-09"
+    },
+    {
+      "id": "spend-session-anomalies",
+      "decision": "VCX-D058",
+      "title": "Anomalías de consumo por sesión (MAD), después de una vista ordenada",
+      "paths": [
+        "docs/exports/build_spend_view.py"
+      ],
+      "reviewAt": "2026-12-09"
+    }
+  ]
+}
