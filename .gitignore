@@ -1,7 +1,6 @@
-# Código y datos privados de la instancia: nunca entran a este repositorio público.
-# VCX-D043. Las exclusiones de productos se activan por producto, según docs/architecture/repository-map.md.
-/solera/*
-!/solera/README.md
+# Solera es la instancia privada, con repositorio propio (denispaiva/solera) y checkout en solera/;
+# VCX-D063. Nada de la instancia entra a este repositorio público.
+/solera/
 .DS_Store
 
 # Cellar es un repositorio propio (denispaiva/cellar) con checkout en cellar/; VCX-D059.
