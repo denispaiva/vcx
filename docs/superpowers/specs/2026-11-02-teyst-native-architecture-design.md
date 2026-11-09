@@ -6,7 +6,7 @@ Etiquetas: [U] dicho por el usuario; [H] hecho medido el 2026-11-02 en solo lect
 
 Estructura: los siete puntos de la [capacidad de arquitectura de referencia](https://github.com/denispaiva/brix/blob/main/docs/reference-architecture.md#modelo-de-salida-propuesto) de Brix (secciones 1 a 7), seguidos de las decisiones pendientes, la nota orientativa y la verificación. El documento FinOps que lo consuma usará la [plantilla FinOps](https://github.com/denispaiva/cellar/blob/main/templates/finops/README.md), según la [etapa de Blends](../../../blends/docs/architecture-and-finops.md). Este diseño no lo reemplaza.
 
-**Publicabilidad.** VCX-D032 hace público el repositorio `vcx` y deja privados los proyectos. Por eso este documento no copia importes del ledger, identificadores de facturación, números de proyecto ni cuentas personales. Cita esos datos por su fuente. Cuando exista la instancia Solera, el lugar natural de este diseño es el proyecto Teyst dentro de ella; hoy no existe ([solera](../../../solera/README.md)).
+**Publicabilidad.** VCX-D032 hace público el repositorio `vcx` y deja privados los proyectos. Por eso este documento no copia importes del ledger, identificadores de facturación, números de proyecto ni cuentas personales. Cita esos datos por su fuente. Cuando exista la instancia Solera, el lugar natural de este diseño es el proyecto Teyst dentro de ella; hoy no existe ([solera](https://github.com/denispaiva/solera)).
 
 ## 0. Pedido y aclaración
 
