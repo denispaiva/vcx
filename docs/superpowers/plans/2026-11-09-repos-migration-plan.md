@@ -51,7 +51,7 @@ El más simple: no tiene nada en el precursor, su contenido ya es público dentr
 
 Sigue las etapas E1 a E5 de VCX-D056 sin cambios: aparta el espejo, crea `brix` público con el historial filtrado de `vc/brix/` y lo fusiona con `vcx/brix/`. Desde E3, `vc/brix/` queda congelada en el SHA de corte.
 
-Estado al 2026-11-09: E1, E2 y E3 hechos. `denispaiva/brix` es público con `v0.1.0`; `scripts/` quedó en Solera por decisión del usuario; corte en `4742bb99`. Detalle en el [reporte](../reports/2026-11-09-brix-e1-export.md). E4 hecho el mismo día: el producto se fusionó en `denispaiva/brix`, las evaluaciones pasaron a `docs/tooling/` y `vcx/brix/` es un clon ignorado por la raíz. Pendiente: E5.
+Estado al 2026-11-09: E1, E2 y E3 hechos. `denispaiva/brix` es público con `v0.1.0`; `scripts/` quedó en Solera por decisión del usuario; corte en `4742bb99`. Detalle en el [reporte](../reports/2026-11-09-brix-e1-export.md). E4 hecho el mismo día: el producto se fusionó en `denispaiva/brix`, las evaluaciones pasaron a `docs/tooling/` y `vcx/brix/` es un clon ignorado por la raíz. E5 en PR (Teyst consume el tarball de `v0.1.0`; `score-run.mjs` usa `brix/`). Pendiente aparte: la ola 2 (`vc/tools`).
 
 ### Fase 3 · Precursor → `solera`
 

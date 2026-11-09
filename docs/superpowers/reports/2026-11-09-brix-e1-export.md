@@ -1,4 +1,4 @@
-# Brix E1 a E4: export, prueba aislada, publicación e incorporación
+# Brix E1 a E5: extracción completa
 
 Fecha: 2026-11-09. Etapa E1 del [diseño de la extracción de Brix](../specs/2026-11-07-brix-extraction-design.md) (VCX-D056), dentro del [plan de migración](../plans/2026-11-09-repos-migration-plan.md) (VCX-D059). El usuario la autorizó en el chat con Claude («Sí, Brix E1»). El export es local y descartable: no se publicó nada y no se escribió en el precursor.
 
@@ -136,7 +136,18 @@ Compuerta, medida en un clon aislado de la rama de E4:
 
 Observación: el pendiente `ux-checklist-consumer` de VCX-D060 vigila `brix/.agents/skills/brix-ux-review/**`, que ya no está en la raíz. Lo decide quien lleva esa línea de trabajo.
 
-Queda E5 (consumidores), con su propia autorización.
+## E5: consumidores
+
+El usuario la autorizó en el chat con Claude («Sí, Brix E5»). Son dos PR, a la espera del merge del usuario.
+
+| Consumidor | Cambio | Verificación |
+|---|---|---|
+| Teyst, en `solera-teyst#60` | `vendor/brix-cli-4742bb99.tgz`, armado con `git archive` desde el precursor, se reemplaza por `vendor/brix-cli-v0.1.0.tgz`, hecho con `npm pack` desde `denispaiva/brix` en `v0.1.0`, sha256 `913e3265…c95a`. Cambian `package.json`, el lock (solo `resolved` e `integrity`) y `vendor/procedencia.md` | [H] Mismos 29 archivos que el tarball anterior y 4 distintos, ninguno usado por Teyst. En local, con Node 24.22.2: ledger válido, 121 de 121 pruebas de `tools/gate-kit` y escenario `full-tasting` válido. En la CI del PR, completa con `npm ci` limpio: verde |
+| `docs/tooling/score-run.mjs`, en `vcx#14` | El CLI pasa a `brix/packages/cli/bin/brix.js`. La huella agrega `brixHead` y toma `cliTree` de `brix/`. La política sigue en el precursor | [H] Corrida en seco con un candidato nuevo y `--offline`: sale 0 y no escribe nada |
+
+[I] Con E5, nada de `vcx` ni de Teyst ejecuta código de `vc/brix/` del precursor. La política de scoring en `vc/tooling/` sigue allá hasta el corte de Solera.
+
+No cubierto: `brix seed run` contra el emulador. Tampoco la ola 2 de D056, las capacidades de `vc/tools`, que se planifica aparte.
 
 ## Recuperación
 
