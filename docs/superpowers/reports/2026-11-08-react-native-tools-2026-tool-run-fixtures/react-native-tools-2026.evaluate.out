@@ -1,0 +1,56 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · react-native-tools-2026 (practice)
+  github.com/alexbecerradev/react-native-tools-2026 · evaluado 2026-11-08
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         27.7 / 100
+  CONFIANZA             high (95)
+  NIVEL DE RIESGO        low
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        4.0
+  maintenance      8.6
+  security         49.8
+  fit              27.8
+  engineering      19.1
+  sustainability   72.5
+
+  ── Riesgo, por ─────────────────────────────────────
+  (sin señales de riesgo marcadas)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • security.vulnerabilityStatus (85) — Sin software ejecutable: el arbol tiene un solo archivo (README.md, 2811 bytes). security-advisories devuelve 0. El puntaje refleja ausencia de codigo, no una auditoria de las ~30 herramientas que el documento nombra.
+  • fit.adoptionSimplicity (95) — No hay nada que instalar: se lee un README de 2811 bytes.
+  • engineering.dependencySimplicity (98) — Cero dependencias: un archivo de texto de 2811 bytes.
+  • sustainability.reversibility (98) — Nada se instala ni se modifica en el workspace; abandonarlo no deja residuo.
+  • sustainability.operatingOverhead (95) — Sin servicios, claves ni daemons. No hay nada que seguir: el repo no ha cambiado desde su creacion.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.activityRecency (22) — Ultimo push 2026-03-27T12:46:56Z, 226 dias antes de la medicion; coincide con la fecha de creacion del repo (2026-03-27T12:46:37Z). No archivado, pero sin ninguna actividad posterior al dia de creacion. Segun la guia de lectura, 30 a los 180 dias; aqui se supera ese plazo.
+  • maintenance.releaseContinuity (0) — 0 releases y 0 tags. El titulo promete una guia para 2026 pero no hay ningun marcador de version ni fecha de revision dentro del documento.
+  • maintenance.commitContinuity (3) — 2 commits en total, ambos el 2026-03-27 con 17 segundos de diferencia (12:46:39Z inicial y 12:46:56Z revision del README). 0 commits en los ultimos 90 dias y 0 desde el dia de creacion. Un solo autor; factor de bus 1.
+  • maintenance.responseHealth — sin evidencia disponible (unavailable)
+  • security.sourceProvenance (35) — Cuenta personal (User) creada el 2021-01-26, anterior al repo; 38 repos publicos, 0 seguidores. El repo tiene 0 estrellas y 0 forks. El documento no cita fuentes para sus recomendaciones salvo cinco enlaces a sitios oficiales de productos; ninguna afirmacion de rendimiento (por ejemplo MMKV «ultra rapido») lleva comparacion ni medicion. Sin licencia: la API devuelve license=null, asi que la reutilizacion del texto no esta autorizada.
+  • security.securityHygiene (25) — Sin SECURITY.md, sin CI (total_count=0), sin licencia, sin CONTRIBUTING ni codigo de conducta; perfil de comunidad 28 %, solo el README cuenta. El README no pide ejecutar comandos ni revelar secretos: el unico bloque bash es una lista de nombres, no comandos. Poco relevante para un repo de solo markdown, pero no hay verificacion de enlaces ni fecha de revision.
+  • security.permissionTransparency (30) — El documento no pide permisos. Recomienda servicios alojados que reciben datos de usuarios finales (Supabase Auth, Clerk, Sentry, PostHog, Firebase Analytics, InstantDB) e IDE con IA (Cursor, Copilot) sin ninguna nota sobre red, credenciales, datos enviados a terceros ni alcance. Tampoco distingue librerias locales de servicios externos.
+  • fit.capabilityGapCoverage (15) — Consumidor: Teyst, la unica app React Native del workspace. Ya usa Expo ~57.0.16, expo-router, TypeScript, Reanimated 4.5.1, Gesture Handler 2.32, @expo/ui y EAS (aprobado con excepcion el 2026-11-03), es decir el «core» y la infraestructura del documento ya estan adoptados. Las decisiones abiertas del diseno nativo del 2026-11-02 son SDK de Google Sign-In nativo, App Check, expo-updates, persistencia de Firebase en RN y variantes de app; el documento no menciona ninguna. Donde opina (Supabase o InstantDB como backend, Zustand, TanStack Query, MMKV, SQLite+Drizzle, Uniwind+UniStyles) contradice o ignora el default Firebase fijado por el usuario y no aporta criterio de eleccion mas alla de una linea.
+  • fit.technicalCompatibility (30) — Como documento no exige integracion. Su contenido no declara versiones de ninguna herramienta ni de Expo o React Native, asi que no se puede verificar compatibilidad con Expo 57 / RN 0.86 y la nueva arquitectura. Las recomendaciones de backend (Supabase, InstantDB, Expo API Routes) chocan con el default Firebase del consumidor y con el backend ya desplegado en Functions; AsyncStorage, que Teyst usa, no aparece.
+  • fit.incrementalValue (8) — Lista de nombres por categoria con una recomendacion de una linea cada una, sin comparacion, condiciones ni evidencia. Todo lo que nombra es localizable en la documentacion oficial de Expo, que ademas trae versiones y guias de integracion. Lo unico que el documento agrega frente a esa fuente es la opinion del autor, sin fundamento verificable.
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (3) — 0 workflows; sin verificacion de enlaces ni lint. No hay criterio de admision que automatizar.
+  • engineering.documentationQuality (28) — README ordenado por categorias (core, IDE, estado, almacenamiento, UI, estilos, infraestructura, produccion, backend) y un stack recomendado final, legible en minutos. Debilidades: ~30 herramientas nombradas y solo 5 enlazadas; sin versiones, fechas, criterios de eleccion ni alternativas descartadas; afirmaciones de rendimiento sin respaldo; sin indicar como mantenerlo vigente pese a titularse guia 2026.
+  • engineering.versioningDiscipline (3) — Sin tags, releases ni changelog; 2 commits el mismo minuto. El contenido no tiene fecha de revision ni version.
+  • engineering.compatibilityEvidence (5) — Ninguna version de Expo, React Native ni de las librerias; sin matriz de compatibilidad ni mencion a la nueva arquitectura. No se puede saber si las combinaciones propuestas (por ejemplo Uniwind + UniStyles) fueron probadas juntas.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+Borrador guardado en pending: brix/tooling/evaluations/react-native-tools-2026.evaluation.json
+
+score-run: línea agregada a brix/tooling/score-runs.jsonl:
+{"candidate": "react-native-tools-2026", "command": "node ../blends/vc/brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-08-react-native-tools-2026-tool-run-fixtures/react-native-tools-2026.evidence.json --policy ../blends/vc/tooling/scoring-policy.json --output-dir brix/tooling --now 2026-11-08T23:42:20Z", "now": "2026-11-08T23:42:20Z", "precursorHead": "f86a2a7df72e55bbb97451c1a35ef3c03b961fc3", "cliTree": "889332c5d1065a3a39e25889587f503caad40195", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": "1.6.0", "evaluationSha256": "e25ff855a38f2aa4a8891df7f19d48416d9d99cdf82f2fe82b64efcc0ebf635b", "previousStatus": null, "operator": "Claude Fable 5.1 (Claude Code), autorizado por Denis Paiva el 2026-11-08"}

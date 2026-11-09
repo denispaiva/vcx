@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "react-native-tools-2026",
+    "type": "practice",
+    "sourceUrl": "https://github.com/alexbecerradev/react-native-tools-2026",
+    "evaluatedRef": "aeaa2c85bc9869eb7146f232f838d1fc678f9441"
+  },
+  "observedAt": "2026-11-08T23:42:20.000Z",
+  "overallScore": 27.717189344022316,
+  "evidenceCoverage": 92.75,
+  "factorScores": {
+    "community": 4.0131526024644835,
+    "maintenance": 8.647058823529411,
+    "security": 49.75000000000001,
+    "fit": 27.8,
+    "engineering": 19.05,
+    "sustainability": 72.5
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.73750000000001,
+  "confidence": "high",
+  "riskLevel": "low",
+  "baselineRecommendation": "do_not_advance",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#react-native-tools-2026",
+  "evidenceInputRef": "brix/tooling/evaluations/react-native-tools-2026.evidence.json",
+  "expiresAt": "2027-02-06T23:42:20.000Z",
+  "communityEvidenceNote": null
+}

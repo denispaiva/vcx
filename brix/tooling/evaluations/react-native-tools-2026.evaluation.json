@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "id": "react-native-tools-2026",
+    "type": "practice",
+    "sourceUrl": "https://github.com/alexbecerradev/react-native-tools-2026",
+    "evaluatedRef": "aeaa2c85bc9869eb7146f232f838d1fc678f9441"
+  },
+  "observedAt": "2026-11-08T23:42:20.000Z",
+  "overallScore": 27.717189344022316,
+  "evidenceCoverage": 92.75,
+  "factorScores": {
+    "community": 4.0131526024644835,
+    "maintenance": 8.647058823529411,
+    "security": 49.75000000000001,
+    "fit": 27.8,
+    "engineering": 19.05,
+    "sustainability": 72.5
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.73750000000001,
+  "confidence": "high",
+  "riskLevel": "low",
+  "baselineRecommendation": "do_not_advance",
+  "status": "rejected",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#react-native-tools-2026",
+  "evidenceInputRef": "brix/tooling/evaluations/react-native-tools-2026.evidence.json",
+  "expiresAt": "2027-02-06T23:42:20.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "rejected",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-08T23:45:28.156Z",
+    "rationale": "Rechazo confirmado por puntaje: 27,7/100, confianza high (95), riesgo low, recomendación base do_not_advance, sobre aeaa2c85bc9869eb7146f232f838d1fc678f9441 (HEAD de main, sin cambios desde 2026-03-27). Decisión del usuario en el chat con Claude del 2026-11-08: «Sí, persistir», ante «¿Persisto la evaluación con decisión rejected a través del envoltorio?». Motivos: (1) es un único README de 2811 bytes sin licencia, con 2 commits el 2026-03-27 y ninguna actividad en 226 días; sin releases, tags, issues, PR ni CI. (2) Para Teyst, único consumidor React Native, lo que el documento llama core e infraestructura (Expo, TypeScript, Expo Router, Reanimated, Gesture Handler, EAS) ya está adoptado; no menciona ninguna decisión abierta del diseño nativo del 2026-11-02 (Google Sign-In nativo, App Check, expo-updates, variantes de app) y donde opina propone Supabase o InstantDB contra el default Firebase fijado por el Owner. (3) Unas 30 herramientas nombradas sin versiones, fechas, comparación ni evidencia; todo es localizable con más detalle en la documentación oficial de Expo. El riesgo low refleja que el documento no ejecuta nada; adoptar cualquier herramienta que nombra exige su propia evaluación. Reabrir solo si el repositorio incorpora versiones, criterios de elección y licencia, y Teyst tiene una decisión de stack abierta que el documento cubra."
+  }
+}
