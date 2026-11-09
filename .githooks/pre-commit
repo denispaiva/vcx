@@ -5,6 +5,10 @@
 unset GIT_DIR GIT_WORK_TREE GIT_PREFIX
 PATH="$HOME/.local/bin:$PATH"   # la release verificada se instala ahí; los hooks no cargan el perfil del shell
 ROOT="$(git rev-parse --show-toplevel)"
+# Recordatorio de pendientes con disparador (VCX-D058): solo avisa y falla abierto; no altera la compuerta.
+if command -v python3 >/dev/null 2>&1 && [ -f "$ROOT/scripts/pending_triggers.py" ]; then
+  python3 -I "$ROOT/scripts/pending_triggers.py" --staged --window 0 || echo "⚠ el recordatorio de pendientes falló; el commit sigue" >&2
+fi
 V=2.0.0-rc.1
 command -v betterleaks >/dev/null 2>&1 || { echo "✖ betterleaks no está instalado; ver docs/superpowers/specs/2026-11-02-secret-detection-strategy-design.md §4.1" >&2; exit 1; }
 [ "$(betterleaks version 2>/dev/null | head -n 1)" = "$V" ] || { echo "✖ betterleaks no es la versión $V fijada por la compuerta" >&2; exit 1; }
