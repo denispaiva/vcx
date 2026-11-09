@@ -1,6 +1,6 @@
 # Etapa 3 de `brix-llm-council`: evaluación de tooling con registro en VCX
 
-Fecha: 2026-11-01, hora local (registro del motor en UTC: 2026-11-02). Evidencia fechada; la fuente canónica es el registro en [`brix/tooling/evaluations/`](../../../brix/tooling/evaluations/brix-llm-council.evaluation.json). Plan seguido: [plan de la etapa 3](../plans/2026-11-01-council-stage3-tool-evaluation-plan.md), procedimiento de VCX-D035.
+Fecha: 2026-11-01, hora local (registro del motor en UTC: 2026-11-02). Evidencia fechada; la fuente canónica es el registro en [`brix/tooling/evaluations/`](../../tooling/evaluations/brix-llm-council.evaluation.json). Plan seguido: [plan de la etapa 3](../plans/2026-11-01-council-stage3-tool-evaluation-plan.md), procedimiento de VCX-D035.
 
 Autoridad: el usuario autorizó la evaluación («Autorizo la evaluación»). Ante el resultado eligió «Excepción registrada», tras preguntar «Si este lo construimos nosotros por qué no lo aprobaríamos?».
 
@@ -28,7 +28,7 @@ Autoridad: el usuario autorizó la evaluación («Autorizo la evaluación»). An
 | `precursorHead` · `cliTree` | `f86a2a7` · `889332c5d1065a3a39e25889587f503caad40195` |
 | `policySha256` · `formulaVersion` | `ce6e1a31…cd5ad49161` · 1.6.0 |
 | `--now` | `2026-11-02T00:50:00Z` en `evaluate` y `decide` |
-| Líneas de procedencia | Dos en [`score-runs.jsonl`](../../../brix/tooling/score-runs.jsonl), una por comando |
+| Líneas de procedencia | Dos en [`score-runs.jsonl`](../../tooling/score-runs.jsonl), una por comando |
 
 Durante la evaluación, otra sesión reescribió el correo del historial de `vcx` con autorización del usuario. `45f961a` pasó a ser `8bbb542`, con el mismo árbol de la skill (`647562e`), y [la tabla de correspondencia](2026-11-01-vcx-noreply-rewrite.md#correspondencia-de-sha) resuelve el SHA viejo. `evaluate` corrió antes de la reescritura, así que el `evaluatedRef` era correcto al evaluar. No se reevaluó para cambiarlo, porque VCX-D035 exige el envoltorio antes de una reevaluación.
 
@@ -56,4 +56,4 @@ Ordenados como pedidos en el [plan hacia la revisión](../plans/2026-11-01-counc
 
 - Revisión el 2026-12-02, o antes si hay evidencia nueva: una corrida que verifique la corrección de la etapa 2, usos reales para `observedOutcome` y un contador de uso para `observedAdoption`.
 
-Cerrados después de esta evaluación: el envoltorio de VCX-D035, [`brix/tooling/score-run.mjs`](../../../brix/tooling/score-run.mjs) (`6b47396`), probado solo en seco; y el generador de la vista, que lee primero `brix/tooling/` y muestra la fecha de revisión (`cbf0cb9`).
+Cerrados después de esta evaluación: el envoltorio de VCX-D035, [`brix/tooling/score-run.mjs`](../../tooling/score-run.mjs) (`6b47396`), probado solo en seco; y el generador de la vista, que lee primero `brix/tooling/` y muestra la fecha de revisión (`cbf0cb9`).

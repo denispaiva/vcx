@@ -14,7 +14,7 @@ VCX-D035 aprueba el procedimiento, pero «no autoriza evaluar `brix-llm-council`
 | `type` | `skill` |
 | `evaluatedRef` | `vcx@45f961a48236d51a42106ea153578f64900d84f3:brix/.claude/skills/brix-llm-council/`. VCX-D035 fija el último commit de VCX que toca la carpeta; `74c9db5` y `45f961a` solo cambian PROVENANCE.md (enlace a este plan y alineación con VCX-D035), y SKILL.md no cambia desde `ce392b1`, que corrige los hallazgos de la etapa 2. La carpeta no tiene cambios sin commit (comprobado el 2026-11-01). Si vuelve a cambiar antes de correr, se usa el nuevo último commit y se registra |
 | `sourceUrl` | `file:brix/.claude/skills/brix-llm-council`, según VCX-D035. No existe repositorio público que contenga la skill; si existiera al correr, VCX-D033 decisión 3 obliga a declararlo, y se consulta al usuario antes de seguir. Con `file:` el motor no consulta GitHub y `community` queda `unavailable` |
-| Comparador de `incrementalValue` | `/council` del precursor en `f86a2a7`, SHA-256 `bcc70adc…7885004`, con la tabla de diferencias de [PROVENANCE.md](../../../brix/.claude/skills/brix-llm-council/PROVENANCE.md#diferencias-frente-a-council) |
+| Comparador de `incrementalValue` | `/council` del precursor en `f86a2a7`, SHA-256 `bcc70adc…7885004`, con la tabla de diferencias de [PROVENANCE.md](https://github.com/denispaiva/brix/blob/main/.agents/skills/brix-llm-council/PROVENANCE.md#diferencias-frente-a-council) |
 | `--now` | Fijado al correr en seco y reutilizado en la corrida persistida |
 
 ## Precondiciones del motor, medidas el 2026-11-01

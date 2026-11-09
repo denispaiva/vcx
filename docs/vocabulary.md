@@ -35,7 +35,7 @@ Cada entrada indica su estado:
 | **Conducción** | Acciones y decisiones sobre un proyecto concreto después de graduar: planificar, priorizar, entregar, evolucionar. Dueño: Cellar, con el PO como autoridad | Redefinir las reglas del método | D029; definición detallada, propuesto |
 | **Custodia** | Conservar los datos de las iniciativas, legibles y recuperables sin ejecutar Blends ni Brix. Dueño: la instancia de Cellar | Admitir una propuesta ni conducir un proyecto | Vigente (invariante 3 de la [matriz](architecture/responsibility-matrix.md#5-invariantes-de-diseño)) |
 | **Tramo de idea** | Desde la propuesta hasta graduar. Coordina Blends, custodia la instancia y decide el responsable del portfolio | El tramo de proyecto | D029 |
-| **Capacidad** | Algo que un producto sabe hacer, con entradas, permisos y resultados verificables. Las técnicas y reutilizables son de Brix | Un producto, una funcionalidad del roadmap ni una unidad de trabajo | Vigente ([Brix](../brix/README.md)); reparto, D029 |
+| **Capacidad** | Algo que un producto sabe hacer, con entradas, permisos y resultados verificables. Las técnicas y reutilizables son de Brix | Un producto, una funcionalidad del roadmap ni una unidad de trabajo | Vigente ([Brix](https://github.com/denispaiva/brix/blob/main/README.md)); reparto, D029 |
 | **Dueño** | La pieza que mantiene una definición o un dato canónico | Una autoridad humana ni un permiso de ejecución | Vigente ([matriz](architecture/responsibility-matrix.md#2-matriz-de-responsabilidades-técnicas-propuesta)) |
 | **Contrato** | Interfaz pública por la que un producto ofrece datos u operaciones a otro, con dueño y versión | Leer archivos o ramas internas de otro producto | Vigente ([interoperabilidad](architecture/interoperability.md)) |
 

@@ -13,7 +13,7 @@ hasnt(){ case "$2" in *"$3"*) bad "$1: sobra «$3» en: $2";; *) ok "$1";; esac;
 run()  { python3 -I "$S" --root "$R" "$@" 2>&1; }
 
 newrepo() {
-  R="$W/$1"; mkdir -p "$R/docs/decisions" "$R/brix/tooling/evaluations"
+  R="$W/$1"; mkdir -p "$R/docs/decisions" "$R/docs/tooling/evaluations"
   git -C "$R" init -q && git -C "$R" config user.email f@x.test && git -C "$R" config user.name fx
 }
 triggers() { printf '%s' "$1" > "$R/docs/decisions/pending-triggers.json"; }
@@ -47,11 +47,11 @@ out=$(run --today 2026-11-30 --window 0); [ -z "$out" ] && ok "ventana 0 calla l
 
 # 5. Evaluaciones de tooling: se leen reviewAt y expiresAt; sin fechas no aparecen.
 newrepo tooling
-printf '%s' '{"candidate":{"id":"skill-a"},"expiresAt":"2027-01-31T00:50:00.000Z","humanDecision":{"status":"approved_with_exception","reviewAt":"2026-12-02"}}' > "$R/brix/tooling/evaluations/skill-a.evaluation.json"
-printf '%s' '{"candidate":{"id":"skill-b"},"humanDecision":{"status":"rejected"}}' > "$R/brix/tooling/evaluations/skill-b.evaluation.json"
+printf '%s' '{"candidate":{"id":"skill-a"},"expiresAt":"2027-01-31T00:50:00.000Z","humanDecision":{"status":"approved_with_exception","reviewAt":"2026-12-02"}}' > "$R/docs/tooling/evaluations/skill-a.evaluation.json"
+printf '%s' '{"candidate":{"id":"skill-b"},"humanDecision":{"status":"rejected"}}' > "$R/docs/tooling/evaluations/skill-b.evaluation.json"
 out=$(run --today 2026-12-03); has "revisión de tooling vencida" "$out" "tooling:skill-a"; has "con su estado" "$out" "approved_with_exception"; hasnt "sin fechas no aparece" "$out" "skill-b"
 out=$(run --today 2027-02-01); has "expiresAt vencido" "$out" "vencimiento vencida el 2027-01-31"
-printf '%s' '{"candidate":{"id":"skill-c"},"expiresAt":"mañana"}' > "$R/brix/tooling/evaluations/skill-c.evaluation.json"
+printf '%s' '{"candidate":{"id":"skill-c"},"expiresAt":"mañana"}' > "$R/docs/tooling/evaluations/skill-c.evaluation.json"
 run --today 2026-12-03 >/dev/null; code "expiresAt inválido" 2 $?
 
 # 6. Modo --staged en un repositorio real, con espacios y acentos en la ruta.

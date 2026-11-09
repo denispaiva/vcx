@@ -4,7 +4,7 @@ Fecha: 2026-10-30. Estado: secuencia requerida por el usuario; detalles propuest
 
 ## Ubicación en el recorrido
 
-Después de que el humano revise el reporte del consejo y confirme el ingreso de la idea, el siguiente entregable es el documento FinOps, construido a partir del modelo propuesto por la [capacidad de arquitectura de referencia de Brix](../../brix/docs/reference-architecture.md).
+Después de que el humano revise el reporte del consejo y confirme el ingreso de la idea, el siguiente entregable es el documento FinOps, construido a partir del modelo propuesto por la [capacidad de arquitectura de referencia de Brix](https://github.com/denispaiva/brix/blob/main/docs/reference-architecture.md).
 
 La secuencia queda: idea aceptada y registrada → modelo de arquitectura de referencia → documento FinOps → revisión humana del presupuesto y alcance → exploración autorizada. La idea sigue `registered` mientras se prepara esa base; no se gradúa por obtener arquitectura o presupuesto.
 

@@ -15,7 +15,7 @@ Estado: reparto de interfaces propuesto. Este documento es la fuente editable de
 
 Cada pieza mantiene su interfaz pública. Los acuerdos comunes tienen una sola fuente y responsable; concentrar todos los contratos en Cellar lo haría dependiente de cambios ajenos a su misión.
 
-Las [interfaces de comandos de Brix](../../brix/docs/commands.md) definen los instrumentos `idea` y `council` y sus equivalentes de conversación, con una sola lógica de entrada y ayuda. Blends consume esas capacidades y coordina las decisiones del proceso; la ubicación del consejo existente en Blends se conserva hasta una adaptación explícita.
+Las [interfaces de comandos de Brix](https://github.com/denispaiva/brix/blob/main/docs/commands.md) definen los instrumentos `idea` y `council` y sus equivalentes de conversación, con una sola lógica de entrada y ayuda. Blends consume esas capacidades y coordina las decisiones del proceso; la ubicación del consejo existente en Blends se conserva hasta una adaptación explícita.
 
 La ubicación y distribución de la fuente compartida siguen pendientes. **Trasiego** es un candidato para nombrarla y ya identifica una iniciativa existente. Consultar [nombres](../naming.md) y [decisiones](../decisions/README.md) antes de adoptar un nombre o crear otra pieza.
 

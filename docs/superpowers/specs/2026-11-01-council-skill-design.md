@@ -4,7 +4,7 @@ Fecha: 2026-11-01. Estado: **diseño aprobado por el usuario el 2026-11-01** par
 
 ## Propósito y enfoque
 
-Cubrir «Reporte de Consejo» con una skill propia de Brix, adaptando el comando `/council` del precursor. El usuario propone este enfoque en el chat del 2026-11-01. La entrada por archivo y las equivalencias públicas ya están definidas en [comandos](../../../brix/docs/commands.md); el consumidor conserva la coordinación y la decisión humana.
+Cubrir «Reporte de Consejo» con una skill propia de Brix, adaptando el comando `/council` del precursor. El usuario propone este enfoque en el chat del 2026-11-01. La entrada por archivo y las equivalencias públicas ya están definidas en [comandos](https://github.com/denispaiva/brix/blob/main/docs/commands.md); el consumidor conserva la coordinación y la decisión humana.
 
 Alternativas consideradas: adoptar una skill externa (requiere demostrar una ventaja frente al procedimiento existente); conservar solo el comando ligado a `ideas/<slug>/` (no satisface la interfaz por archivo ni la entrega como skill); adaptar el procedimiento propio (enfoque recomendado por el usuario). La adaptación conserva el método, pero explicita sus dependencias y límites.
 
