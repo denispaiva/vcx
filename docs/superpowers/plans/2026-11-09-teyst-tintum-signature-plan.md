@@ -1,6 +1,6 @@
 # Plan · firma «powered by tintum» en Teyst
 
-Fecha: 2026-11-09. Estado: **ejecutado hasta el PR** el 2026-11-09, autorizado con «Sí, ejecutá»: opción A en el login y en las páginas legales, [PR 65](https://github.com/denispaiva/solera-teyst/pull/65), ADR 0012 de Teyst. Sin merge ni deploy. Decisión que lo origina: VCX-D061 en el [registro](../../decisions/README.md); lista de productos comerciales en [recursos de Tintum](../../../assets/tintum/README.md#productos-comerciales). Pedido: el usuario respondió «Sí, planificala» a «¿Planifico la integración de la firma en Teyst?».
+Fecha: 2026-11-09. Estado: **ejecutado hasta el PR** el 2026-11-09, autorizado con «Sí, ejecutá»: opción A en el login y en las páginas legales, [PR 65](https://github.com/denispaiva/solera-teyst/pull/65), ADR 0012 de Teyst. Mergeado el 2026-11-09 en `main` (`9622813`, CI verde); sin deploy a Hosting. Decisión que lo origina: VCX-D061 en el [registro](../../decisions/README.md); lista de productos comerciales en [recursos de Tintum](../../../assets/tintum/README.md#productos-comerciales). Pedido: el usuario respondió «Sí, planificala» a «¿Planifico la integración de la firma en Teyst?».
 
 Teyst es el primer producto comercial que muestra la firma. Este plan cubre solo esa integración. No incluye deploys, piezas nuevas de marca ni otros productos.
 

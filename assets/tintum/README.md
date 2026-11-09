@@ -23,7 +23,7 @@ Cada producto comercial de Tintum muestra la firma `powered by tintum` (VCX-D061
 
 | Producto | Desde | Firma integrada | Procedencia de la copia |
 |---|---|---|---|
-| Teyst | 2026-11-09, el más evolucionado según el usuario | En revisión: [PR 65 de solera-teyst](https://github.com/denispaiva/solera-teyst/pull/65), sin merge ni deploy; [plan](../../docs/superpowers/plans/2026-11-09-teyst-tintum-signature-plan.md) | Sin copia: firma en texto (ADR 0012 de Teyst) |
+| Teyst | 2026-11-09, el más evolucionado según el usuario | Sí, en `main` desde el 2026-11-09 ([PR 65 de solera-teyst](https://github.com/denispaiva/solera-teyst/pull/65), merge `9622813`); sin deploy a Hosting; [plan](../../docs/superpowers/plans/2026-11-09-teyst-tintum-signature-plan.md) | Sin copia: firma en texto (ADR 0012 de Teyst) |
 
 ## Uso entre proyectos
 
