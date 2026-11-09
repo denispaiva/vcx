@@ -53,19 +53,35 @@ Sigue las etapas E1 a E5 de VCX-D056 sin cambios: aparta el espejo, crea `brix` 
 
 Estado al 2026-11-09: E1, E2 y E3 hechos. `denispaiva/brix` es público con `v0.1.0`; `scripts/` quedó en Solera por decisión del usuario; corte en `4742bb99`. Detalle en el [reporte](../reports/2026-11-09-brix-e1-export.md). E4 hecho el mismo día: el producto se fusionó en `denispaiva/brix`, las evaluaciones pasaron a `docs/tooling/` y `vcx/brix/` es un clon ignorado por la raíz. E5 en PR (Teyst consume el tarball de `v0.1.0`; `score-run.mjs` usa `brix/`). Pendiente aparte: la ola 2 (`vc/tools`).
 
-### Fase 3 · Precursor → `solera`
+### Fase 3 · Preparación del precursor (hecha)
 
-1. Llevar `vcx/solera/docs/` y `README.md` al repositorio de la instancia, y que `vcx` ignore `/solera/` entero (VCX-D059).
-2. Colocar el clon del precursor en `vcx/solera/`, con `/teyst/` en su `.gitignore`, y corregir `core.hooksPath`.
-3. Retirar `vc/teyst/` dejando un puntero y sacar el check `teyst` de la protección en la misma entrega.
-4. Actualizar las referencias vivas a `denispaiva/blends`, los remotos, los worktrees y las tareas programadas; después, renombrar en GitHub.
-5. Verificar `queue`, trenes y workflows con el nombre nuevo.
+Medición previa del 2026-11-09, en solo lectura. Su detalle incluye datos de infraestructura y se custodia fuera de este repositorio público. Encontró dos bloqueantes:
 
-Necesita los trenes detenidos durante el renombre.
+- La regla de no escribir en el precursor. VCX-D062 la levantó solo para esta fase.
+- Dos identidades de deploy en la nube autorizaban por el nombre del repositorio. Se migraron al ID el mismo día, con autorización del usuario, y se verificaron con deploys a los entornos de desarrollo, con y sin la autorización por nombre.
+
+Entró en los PR 310 a 313 de `denispaiva/blends`:
+
+- Baja de 18 evaluaciones de tooling vencidas, que bloqueaban la gobernanza.
+- `vc/teyst/` congelada, en lugar de retirarla: el tooling la usa como proyecto de referencia.
+- Las herramientas del tren derivan el nombre del repositorio.
+- Los documentos de la instancia, que vinieron de `vcx/solera/docs/`.
+
+El retiro completo del job y el check `teyst` queda como deuda.
+
+### Fase 3 bis · Extraer, archivar y `solera` limpio (VCX-D063)
+
+El renombre del precursor a `solera` se descartó: la instancia heredaría todo lo que no le corresponde. En su lugar, cada paso con su propia autorización:
+
+1. **`solera` nuevo**, privado y vacío, con lo que es de la instancia: los documentos de la instancia, FinOps, ideas e iniciativas. Checkout en `vcx/solera/`, con `/teyst/` y los demás `solera-*` ignorados. `vcx` deja de versionar `solera/README.md` e ignora `/solera/` entero. Hecho el 2026-11-09: `denispaiva/solera`, privado, colocado en `vcx/solera/`.
+2. **Proyectos vivos a `solera-<proyecto>`**, como Teyst: Melquisedec y Salmanazar con sus deploys, cuyas identidades en la nube pasan al ID del repositorio nuevo, y Pinot Index, reutilizando su espejo si conviene. Hecho el 2026-11-09 para Melquisedec y Salmanazar: repositorios privados propios con historia, CI y deploy. Sus identidades en la nube autorizan solo al repositorio nuevo, lo que se verificó con deploys a desarrollo, y los workflows del precursor quedaron deshabilitados. Pinot Index, el mismo día: se reutilizó su espejo privado, que entró por fast-forward, renombrado a `solera-pinot-index`.
+3. **Ola 2 de Brix:** las capacidades de `vc/tools` que sigan en uso pasan a `brix`. Las demás quedan en el archivo.
+4. **Fase 4**, abajo: el núcleo de Blends al `blends` público.
+5. **Archivo:** el precursor se renombra a `blends-precursor` y se archiva, privado y con toda su historia, ramas y tags. Esto libera el nombre `blends`, así que va antes de crear el `blends` público.
 
 ### Fase 4 · Blends público
 
-Paso 3 de VCX-D032. El repositorio nuevo termina la redirección del nombre viejo: todo lo de la fase 3 tiene que estar actualizado antes. Incorporación con el mismo mecanismo E4 sobre `vcx/blends/`.
+Paso 3 de VCX-D032. Export del núcleo desde el precursor (archivado o no) con historial filtrado, repositorio público nuevo e incorporación con el mismo mecanismo E4 sobre `vcx/blends/`.
 
 ## Resultado esperado
 
@@ -73,9 +89,9 @@ Cada carpeta de primer nivel de `vcx/` es un repositorio con el mismo nombre en 
 
 ## Riesgos
 
-- Dos fuentes editables de Brix y Blends mientras el tren del precursor siga activo. El `git diff` de corte detecta la divergencia, no la impide.
+- Dos fuentes editables de Brix y Blends mientras el precursor no esté archivado. El `git diff` de corte detecta la divergencia, no la impide.
 - Lo publicado es irreversible: el scan cubre el historial exportado, no solo el árbol final.
-- Las referencias `uses:` de Actions no siguen el renombre: Blends público va después.
+- Las referencias `uses:` de Actions no siguen un renombre: antes de archivar el precursor, ningún workflow vivo puede depender de él.
 - El cupo de Actions es uno por cuenta. Los repositorios públicos con runners estándar no lo consumen.
 
 Nota orientativa según VCX-P2: 7 de 10. Descuentos: la ola 2 de Brix sigue sin diseñar, y las 83 referencias no están clasificadas entre vivas e históricas.
