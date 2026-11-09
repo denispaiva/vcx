@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Envoltorio de VCX-D035 sobre `brix tool score` del precursor. Hace cumplir las
+// Envoltorio de VCX-D035 sobre `brix tool score`, desde el clon de Brix en brix/. Hace cumplir las
 // precondiciones 2 y 3 del procedimiento y agrega una línea por comando persistido
 // a score-runs.jsonl. Diseño: docs/superpowers/specs/2026-11-01-tooling-evaluation-in-vcx-design.md
 //
@@ -14,7 +14,10 @@
 // es obligatorio si el registro ya tiene una decisión humana. El motor no tiene
 // --dry-run en decide: en seco, decide solo corre los controles.
 //
-// Salidas: 0 éxito; 1 precondición o argumentos; 3 el precursor cambió durante la
+// La política de scoring sigue en el precursor (vc/tooling/scoring-policy.json);
+// el CLI viene de brix/ (denispaiva/brix) desde la E5 de VCX-D056.
+//
+// Salidas: 0 éxito; 1 precondición o argumentos; 3 Brix o la política cambiaron durante la
 // corrida (no se agrega línea; revertir a mano lo que el motor escribió en docs/tooling).
 // Otro código distinto de 0 es el del motor.
 //
@@ -29,11 +32,12 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const PRECURSOR = path.resolve(ROOT, '../blends');
-const CLI = '../blends/vc/brix/packages/cli/bin/brix.js';
+const BRIX = path.resolve(ROOT, 'brix');
+const CLI = 'brix/packages/cli/bin/brix.js';
 const POLICY = '../blends/vc/tooling/scoring-policy.json';
 const OUTPUT_DIR = 'docs/tooling';
 const RUNS_FILE = path.join(ROOT, OUTPUT_DIR, 'score-runs.jsonl');
-const GUARDED_PATHS = ['vc/brix/packages/cli', 'vc/tooling/scoring-policy.json'];
+const GUARDED_PATHS = ['vc/tooling/scoring-policy.json'];
 const RESERVED_FLAGS = ['policy', 'output-dir', 'narrative-doc'];
 const OWN_FLAGS = ['now', 'operator', 'replace-decision', 'dry-run'];
 const RATIONALE_PLACEHOLDER = '<ver humanDecision.rationale>';
@@ -65,8 +69,8 @@ function sha256(buffer) {
   return createHash('sha256').update(buffer).digest('hex');
 }
 
-function git(...args) {
-  const result = spawnSync('git', ['--no-optional-locks', '-C', PRECURSOR, ...args], {
+function git(repo, ...args) {
+  const result = spawnSync('git', ['--no-optional-locks', '-C', repo, ...args], {
     encoding: 'utf8',
   });
   if (result.status !== 0) {
@@ -77,9 +81,12 @@ function git(...args) {
 
 function precursorFingerprint() {
   return {
-    dirty: git('status', '--porcelain', '--ignored', '--', ...GUARDED_PATHS),
-    precursorHead: git('rev-parse', 'HEAD'),
-    cliTree: git('rev-parse', 'HEAD:vc/brix/packages/cli'),
+    dirty:
+      git(PRECURSOR, 'status', '--porcelain', '--ignored', '--', ...GUARDED_PATHS) +
+      git(BRIX, 'status', '--porcelain', '--ignored', '--', 'packages/cli'),
+    precursorHead: git(PRECURSOR, 'rev-parse', 'HEAD'),
+    brixHead: git(BRIX, 'rev-parse', 'HEAD'),
+    cliTree: git(BRIX, 'rev-parse', 'HEAD:packages/cli'),
     policySha256: sha256(readFileSync(path.join(PRECURSOR, 'vc/tooling/scoring-policy.json'))),
   };
 }
@@ -169,7 +176,7 @@ if (typeof candidateId !== 'string' || !/^[a-z0-9][a-z0-9._-]*$/i.test(candidate
 // 3. Precondición 2: motor y política sin cambios locales ni ignorados.
 const before = precursorFingerprint();
 if (before.dirty !== '') {
-  fail(`el motor o la política del precursor tienen cambios locales o ignorados; no es reproducible:\n${before.dirty}`);
+  fail(`el motor (brix/packages/cli) o la política del precursor tienen cambios locales o ignorados; no es reproducible:\n${before.dirty}`);
 }
 
 // 4. Procedencia del registro vigente: su hash debe ser el de su última línea.
@@ -224,6 +231,7 @@ const line = {
   command: ['node', CLI, 'tool', 'score', subcommand, ...recordedArgs].join(' '),
   now: flags.now,
   precursorHead: before.precursorHead,
+  brixHead: before.brixHead,
   cliTree: before.cliTree,
   policySha256: before.policySha256,
   formulaVersion: null,
@@ -261,11 +269,11 @@ if (result.status !== 0) {
   fail(`el motor terminó con código ${result.status}; no se agregó línea`, result.status ?? 1);
 }
 
-// 7. Precondición 2, después: si el precursor cambió, la corrida no es reproducible.
-const changed = ['precursorHead', 'cliTree', 'policySha256'].filter((key) => before[key] !== after[key]);
+// 7. Precondición 2, después: si Brix o la política cambiaron, la corrida no es reproducible.
+const changed = ['precursorHead', 'brixHead', 'cliTree', 'policySha256'].filter((key) => before[key] !== after[key]);
 if (after.dirty !== '' || changed.length > 0) {
   fail(
-    `corrida inválida: el precursor cambió durante la corrida (${[...changed, after.dirty && 'cambios locales'].filter(Boolean).join(', ')}). ` +
+    `corrida inválida: Brix o la política cambiaron durante la corrida (${[...changed, after.dirty && 'cambios locales'].filter(Boolean).join(', ')}). ` +
       'No se agregó línea; revertir a mano lo que el motor escribió en docs/tooling',
     3,
   );
