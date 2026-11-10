@@ -6,9 +6,9 @@ para que la vista cite una revisión identificable, y que cada elemento que la
 matriz consume tenga ubicación en la tabla «Dónde vive cada elemento».
 
 Incorpora la decisión, las fechas y el riesgo de cada herramienta desde
-docs/tooling/evaluations/ y, si no tiene registro ahí, desde las evaluaciones de
-solo lectura del precursor (VCX-D035); exige que las de VCX estén commiteadas y
-anota de qué fuente viene cada una. La vista calcula al abrirse si la revisión
+docs/tooling/evaluations/; exige que estén commiteadas. Hasta el 2026-11-10
+también leía, como segunda fuente, las evaluaciones del precursor; esas quedan en
+el precursor archivado (VCX-D063). La vista calcula al abrirse si la revisión
 venció y muestra una aprobación vencida como sin admisión. Sin ninguna de las
 dos carpetas, la vista se genera igual y avisa que no tiene datos de evaluación.
 
@@ -101,8 +101,8 @@ for c in table("Reemplazos"):
 if missing:
     sys.exit("Sin ubicación en «Dónde vive cada elemento»: " + ", ".join(sorted(set(missing))))
 
-# Fuentes de evaluación en orden de prioridad (VCX-D035): prevalece la de VCX.
-eval_dirs = [("vcx", root / "docs/tooling/evaluations"), ("precursor", root.parent / "blends/vc/tooling/evaluations")]
+# Fuente de evaluación: solo las de VCX (VCX-D035; el precursor se archiva, VCX-D063).
+eval_dirs = [("vcx", root / "docs/tooling/evaluations")]
 eval_dirs = [(name, d) for name, d in eval_dirs if d.is_dir()]
 if any(name == "vcx" for name, _ in eval_dirs) and subprocess.run(
         ["git", "-C", str(root), "status", "--porcelain", "--", str(root / "docs/tooling/evaluations")],
