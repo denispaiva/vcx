@@ -40,8 +40,6 @@ Etiquetas: [H] hecho medido; [I] interpretación; [P] propuesta.
 3. **Sin herramientas ejecutables por ahora:** validadores, `verify` y `roadmap/` quedan en el archivo. Se publican solo si aparece un consumidor, con su propio corte de imports.
 4. **Incorporación:** el mismo mecanismo E4 sobre `vcx/blends/`, con principios, `CLAUDE.md` y enlaces.
 
-## Decisiones abiertas
+## Decisión
 
-- Confirmar historia nueva (B') en lugar de filtrada (B).
-- Confirmar que la maquinaria queda en el archivo.
-- La lista de estándares que entran y la curación de cada uno: es el trabajo de E1 de esta fase.
+El 2026-11-10, ante «¿Blends nace con historia nueva y solo con el método?», el usuario respondió «Sí, así». Eso confirma B' (historial nuevo con la procedencia declarada) y deja la maquinaria ejecutable en el archivo. Queda abierta la lista de estándares que entran y la curación de cada uno, que es el trabajo de E1 de esta fase.
