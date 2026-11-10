@@ -83,6 +83,8 @@ El renombre del precursor a `solera` se descartó: la instancia heredaría todo 
 
 Paso 3 de VCX-D032. Export del núcleo desde el precursor (archivado o no) con historial filtrado, repositorio público nuevo e incorporación con el mismo mecanismo E4 sobre `vcx/blends/`.
 
+Medición previa del 2026-11-10 ([reporte](../reports/2026-11-10-blends-publico-medicion.md)): el historial de los estándares contiene infraestructura e importes, así que se propone historia nueva (B') y publicar el método sin la maquinaria ejecutable, que no tiene consumidores.
+
 ## Resultado esperado
 
 Cada carpeta de primer nivel de `vcx/` es un repositorio con el mismo nombre en GitHub: `vcx`, `blends`, `brix` y `cellar` públicos; `solera` y `solera-*` privados.
