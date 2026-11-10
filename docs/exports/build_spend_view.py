@@ -1,7 +1,8 @@
-"""Genera los datos del tablero «Gasto y consumo VCX» desde el ledger del precursor y los registros locales de tokens.
+"""Genera los datos del tablero «Gasto y consumo VCX» desde los ledgers de la instancia y sus proyectos y los registros locales de tokens.
 
 Herramienta documental opcional: solo usa la biblioteca estándar y git. No es
-dependencia de ningún producto. Lee el precursor en solo lectura con `git show`
+dependencia de ningún producto. Lee `solera/` y cada `solera/<proyecto>/` (o los
+repositorios de --repo) en solo lectura con `git show`
 sobre refs locales, como el generador del tablero del portfolio, y de los
 registros de Claude Code y Codex extrae solo contadores de tokens, fechas,
 modelo y carpeta de trabajo, nunca el contenido de las conversaciones.
@@ -20,7 +21,8 @@ los repositorios no se asignan a proyectos.
 
 Los proyectos usan los IDs de los roadmaps, los mismos del tablero del
 portfolio. Una carpeta de trabajo se asigna a un proyecto solo si está dentro
-de la carpeta de su roadmap en el precursor o si se declara con --map; el resto
+de la carpeta de su roadmap, o, para los registros viejos, si está en `vc/<proyecto>/` del
+precursor archivado (--precursor); también si se declara con --map; el resto
 queda «sin asignar» con su ruta, sin inferir identidades (VCX-P9).
 
 Agregar los ledgers replica la capacidad `finops-ledger`, que es de Brix: deuda
@@ -45,20 +47,27 @@ root = Path(__file__).resolve().parents[2]
 home = Path.home()
 
 ap = argparse.ArgumentParser(description="Genera los datos del tablero Gasto y consumo VCX.")
-ap.add_argument("--blends", default=str(root.parent / "blends"), help="checkout del precursor, solo lectura")
-ap.add_argument("--ref", default="main", help="ref local con los roadmaps y los ledgers")
+ap.add_argument("--repo", action="append", help="checkout a leer (repetible); por defecto solera/ y cada solera/<proyecto>/")
+ap.add_argument("--ref", default="main", help="ref local con los roadmaps y los ledgers en cada repositorio")
+ap.add_argument("--precursor", default=str(root.parent / "blends"),
+                help="checkout del precursor archivado, solo para asignar registros viejos de tokens por carpeta")
 ap.add_argument("--claude-dir", default=str(home / ".claude/projects"), help="registros de Claude Code")
 ap.add_argument("--codex-dir", default=str(home / ".codex"), help="registros de Codex (sessions y archived_sessions)")
 ap.add_argument("--map", action="append", default=[], metavar="CARPETA=PROYECTO",
                 help="asigna una carpeta de trabajo, y lo que cuelga de ella, a un ID de proyecto")
 ap.add_argument("--payments", default=str(home / "finops-private/payments.csv"),
                 help="ledger privado de pagos con comprobante (VCX-D042), solo lectura")
-ap.add_argument("--out", required=True, help="carpeta de salida, fuera de vcx y del precursor")
+ap.add_argument("--out", required=True, help="carpeta de salida, fuera de vcx y de los repositorios de origen")
 args = ap.parse_args()
 
-blends = Path(args.blends).resolve()
+solera = root / "solera"
+repos = [Path(x).resolve() for x in args.repo] if args.repo else (
+    [solera] + sorted(d for d in solera.iterdir() if (d / ".git").exists()) if (solera / ".git").exists() else [])
+if not repos:
+    sys.exit("No hay repositorios que leer: falta el checkout solera/ (o pasá --repo).")
+precursor = Path(args.precursor).resolve()
 out = Path(args.out).resolve()
-for forbidden, why in ((root, "vcx es público (VCX-D032)"), (blends, "el precursor es de solo lectura")):
+for forbidden, why in ((root, "vcx es público (VCX-D032)"), *((d, "los repositorios de origen son de solo lectura") for d in repos)):
     if out == forbidden or forbidden in out.parents:
         sys.exit(f"La salida no puede quedar en {forbidden}: {why}.")
 manual = []
@@ -69,26 +78,34 @@ for m in args.map:
     manual.append((Path(folder).expanduser().resolve(), pid))
 
 
-def git(*a):
-    r = subprocess.run(["git", "-C", str(blends), *a], capture_output=True, text=True)
+def git(repo, *a):
+    r = subprocess.run(["git", "-C", str(repo), *a], capture_output=True, text=True)
     if r.returncode:
-        sys.exit(f"git {' '.join(a)} falló: {r.stderr.strip()}")
+        sys.exit(f"git -C {repo} {' '.join(a)} falló: {r.stderr.strip()}")
     return r.stdout
 
 
-rev_sha, rev_date = git("log", "-1", "--format=%h|%cI", args.ref, "--").strip().split("|")
-files = git("ls-tree", "-r", "--name-only", args.ref).split()
+revs = []
+for repo in repos:
+    sha, date = git(repo, "log", "-1", "--format=%h|%cI", args.ref, "--").strip().split("|")
+    revs.append((repo.name, sha, date))
+rev_sha = " ".join(f"{n}@{s}" for n, s, _ in revs)
+rev_date = max(d for _, _, d in revs)
+files = [(repo, p) for repo in repos for p in git(repo, "ls-tree", "-r", "--name-only", args.ref).split()]
 warnings = []
 
 # Proyectos y sprints del Board.
 projects, sprints, project_dirs = [], [], {}
-for path in (p for p in files if p.endswith(".roadmap.json") and not p.startswith("roadmap/")):
+legacy_dirs = {}
+for repo, rel in ((r_, p) for r_, p in files if p.endswith(".roadmap.json") and not p.startswith("roadmap/")):
+    path = f"{repo.name}/{rel}"
     try:
-        r = json.loads(git("show", f"{args.ref}:{path}"))
+        r = json.loads(git(repo, "show", f"{args.ref}:{rel}"))
         pid = r["id"]
-        project_dirs[path.rsplit("/", 1)[0]] = pid
+        project_dirs[(repo / rel).parent] = pid
+        legacy_dirs[f"vc/{(repo / rel).parent.name}"] = pid
         projects.append(dict(project=pid, title=r.get("title") or pid,
-                             kind="idea" if path.startswith("ideas/") else "proyecto", inBoard=True))
+                             kind="idea" if rel.startswith("ideas/") else "proyecto", inBoard=True))
         done = collections.defaultdict(lambda: [0, 0])
         for e in r.get("epics", []):
             for t in e.get("tasks", []):
@@ -104,9 +121,10 @@ board_ids = {p["project"] for p in projects}
 
 # Ledger: un renglón por ítem y asignación; sin comprobantes ni notas del plan.
 ledger = []
-for path in (p for p in files if p.endswith("finops/billing-ledger.json")):
+for repo, rel in ((r_, p) for r_, p in files if p.endswith("finops/billing-ledger.json")):
+    path = f"{repo.name}/{rel}"
     try:
-        d = json.loads(git("show", f"{args.ref}:{path}"))
+        d = json.loads(git(repo, "show", f"{args.ref}:{rel}"))
         allocs = collections.defaultdict(list)
         for a in d.get("allocations", []):
             allocs[a["billingItemId"]].append(a)
@@ -148,13 +166,15 @@ def project_of(cwd):
     for folder, pid in sorted(manual, key=lambda m: -len(m[0].parts)):
         if p == folder or folder in p.parents:
             return pid
-    if p == blends or blends in p.parents:
-        rel = p.relative_to(blends).parts
+    for folder, pid in sorted(project_dirs.items(), key=lambda m: -len(m[0].parts)):
+        if p == folder or folder in p.parents:
+            return pid
+    if p == precursor or precursor in p.parents:
+        rel = p.relative_to(precursor).parts
         if rel[:2] == (".claude", "worktrees"):
             rel = rel[3:]
-        for n in range(len(rel), 0, -1):
-            if "/".join(rel[:n]) in project_dirs:
-                return project_dirs["/".join(rel[:n])]
+        if "/".join(rel[:2]) in legacy_dirs:
+            return legacy_dirs["/".join(rel[:2])]
     return f"sin asignar · {unassigned_label(p)}"
 
 
@@ -278,10 +298,10 @@ now = datetime.datetime.now().astimezone().isoformat(timespec="minutes")
 periods = sorted({r["period"] for r in ledger})
 cc, cx = coverage["claude-code"], coverage["codex"]
 sources = [
-    dict(source="Ledger de facturación del precursor", status="ok" if ledger else "sin datos",
+    dict(source="Ledgers de facturación de la instancia y sus proyectos", status="ok" if ledger else "sin datos",
          detail=f"Períodos {', '.join(periods)}; {len({r['item'] for r in ledger})} ítems en "
                 f"{len({r['ledger'] for r in ledger})} ledgers; ref {args.ref} {rev_sha} del {rev_date[:10]}. "
-                "Se actualiza en el precursor, no aquí"),
+                "Se actualiza en cada repositorio, no aquí"),
     dict(source="Ledger privado de pagos", status="ok" if payments else "sin datos",
          detail=f"{len(payments)} comprobantes del {payments[0]['date']} al {payments[-1]['date']}; "
                 f"{sum(p['inPrecursorLedger'] for p in payments)} también citados en el ledger del precursor. "

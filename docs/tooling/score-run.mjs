@@ -14,8 +14,9 @@
 // es obligatorio si el registro ya tiene una decisión humana. El motor no tiene
 // --dry-run en decide: en seco, decide solo corre los controles.
 //
-// La política de scoring sigue en el precursor (vc/tooling/scoring-policy.json);
-// el CLI viene de brix/ (denispaiva/brix) desde la E5 de VCX-D056.
+// El CLI y la política de scoring vienen de brix/ (denispaiva/brix): el CLI desde la
+// E5 de VCX-D056, y la política (default-scoring-policy.json, idéntica a la que
+// usaba el precursor) desde el desacople del 2026-11-10, previo a archivarlo.
 //
 // Salidas: 0 éxito; 1 precondición o argumentos; 3 Brix o la política cambiaron durante la
 // corrida (no se agrega línea; revertir a mano lo que el motor escribió en docs/tooling).
@@ -31,13 +32,11 @@ import { appendFileSync, existsSync, readFileSync, realpathSync } from 'node:fs'
 import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
-const PRECURSOR = path.resolve(ROOT, '../blends');
 const BRIX = path.resolve(ROOT, 'brix');
 const CLI = 'brix/packages/cli/bin/brix.js';
-const POLICY = '../blends/vc/tooling/scoring-policy.json';
+const POLICY = 'brix/packages/cli/scoring/default-scoring-policy.json';
 const OUTPUT_DIR = 'docs/tooling';
 const RUNS_FILE = path.join(ROOT, OUTPUT_DIR, 'score-runs.jsonl');
-const GUARDED_PATHS = ['vc/tooling/scoring-policy.json'];
 const RESERVED_FLAGS = ['policy', 'output-dir', 'narrative-doc'];
 const OWN_FLAGS = ['now', 'operator', 'replace-decision', 'dry-run'];
 const RATIONALE_PLACEHOLDER = '<ver humanDecision.rationale>';
@@ -79,15 +78,12 @@ function git(repo, ...args) {
   return result.stdout.trim();
 }
 
-function precursorFingerprint() {
+function engineFingerprint() {
   return {
-    dirty:
-      git(PRECURSOR, 'status', '--porcelain', '--ignored', '--', ...GUARDED_PATHS) +
-      git(BRIX, 'status', '--porcelain', '--ignored', '--', 'packages/cli'),
-    precursorHead: git(PRECURSOR, 'rev-parse', 'HEAD'),
+    dirty: git(BRIX, 'status', '--porcelain', '--ignored', '--', 'packages/cli'),
     brixHead: git(BRIX, 'rev-parse', 'HEAD'),
     cliTree: git(BRIX, 'rev-parse', 'HEAD:packages/cli'),
-    policySha256: sha256(readFileSync(path.join(PRECURSOR, 'vc/tooling/scoring-policy.json'))),
+    policySha256: sha256(readFileSync(path.join(ROOT, POLICY))),
   };
 }
 
@@ -174,9 +170,9 @@ if (typeof candidateId !== 'string' || !/^[a-z0-9][a-z0-9._-]*$/i.test(candidate
 }
 
 // 3. Precondición 2: motor y política sin cambios locales ni ignorados.
-const before = precursorFingerprint();
+const before = engineFingerprint();
 if (before.dirty !== '') {
-  fail(`el motor (brix/packages/cli) o la política del precursor tienen cambios locales o ignorados; no es reproducible:\n${before.dirty}`);
+  fail(`el motor o la política (brix/packages/cli) tienen cambios locales o ignorados; no es reproducible:\n${before.dirty}`);
 }
 
 // 4. Procedencia del registro vigente: su hash debe ser el de su última línea.
@@ -230,7 +226,6 @@ const line = {
   candidate: candidateId,
   command: ['node', CLI, 'tool', 'score', subcommand, ...recordedArgs].join(' '),
   now: flags.now,
-  precursorHead: before.precursorHead,
   brixHead: before.brixHead,
   cliTree: before.cliTree,
   policySha256: before.policySha256,
@@ -259,7 +254,7 @@ const result = spawnSync(process.execPath, [CLI, 'tool', 'score', subcommand, ..
   cwd: ROOT,
   stdio: 'inherit',
 });
-const after = precursorFingerprint();
+const after = engineFingerprint();
 const current = readRecord(candidateId);
 
 if (result.status !== 0) {
@@ -270,7 +265,7 @@ if (result.status !== 0) {
 }
 
 // 7. Precondición 2, después: si Brix o la política cambiaron, la corrida no es reproducible.
-const changed = ['precursorHead', 'brixHead', 'cliTree', 'policySha256'].filter((key) => before[key] !== after[key]);
+const changed = ['brixHead', 'cliTree', 'policySha256'].filter((key) => before[key] !== after[key]);
 if (after.dirty !== '' || changed.length > 0) {
   fail(
     `corrida inválida: Brix o la política cambiaron durante la corrida (${[...changed, after.dirty && 'cambios locales'].filter(Boolean).join(', ')}). ` +

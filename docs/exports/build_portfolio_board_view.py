@@ -1,13 +1,14 @@
-"""Genera la vista «Tablero del portfolio» desde los roadmaps y la cola del precursor.
+"""Genera la vista «Tablero del portfolio» desde los roadmaps de la instancia y sus proyectos.
 
 Herramienta documental opcional: solo usa la biblioteca estándar y git. No es
-dependencia de ningún producto. Lee el precursor en solo lectura con `git show`
+dependencia de ningún producto. Lee `solera/` y cada checkout `solera/<proyecto>/`
+(o los repositorios que se pasen con --repo) en solo lectura con `git show`
 sobre refs locales, sin fetch, checkout ni sincronización, como pide el mapeo
 del sistema actual. Las refs se fijan por argumento y la vista cita sus
 revisiones, para que se note si los datos quedaron viejos.
 
 La salida contiene datos de proyectos privados (VCX-D032). Este repositorio es
-público: el generador se niega a escribir dentro de él o dentro del precursor.
+público: el generador se niega a escribir dentro de él o de los repositorios de origen.
 Publicarla solo como artifact privado.
 
 La plantilla calcula en el navegador el orden del backlog (prioridad
@@ -29,16 +30,22 @@ template = root / "docs/exports/portfolio-board.template.html"
 PLACEHOLDER = "/*DATA*/null/*END*/"
 
 ap = argparse.ArgumentParser(description="Genera la vista Tablero del portfolio.")
-ap.add_argument("--blends", default=str(root.parent / "blends"), help="checkout del precursor, solo lectura")
-ap.add_argument("--roadmap-ref", default="main", help="ref local con los .roadmap.json")
-ap.add_argument("--queue-ref", default="queue", help="ref local con la carpeta backlog/")
+ap.add_argument("--repo", action="append", help="checkout a leer (repetible); por defecto solera/ y cada solera/<proyecto>/")
+ap.add_argument("--roadmap-ref", default="main", help="ref local con los .roadmap.json en cada repositorio")
+ap.add_argument("--queue-repo", help="checkout con la rama de cola y backlog/ (opcional; la cola quedó en el precursor archivado)")
+ap.add_argument("--queue-ref", default="queue", help="ref local con la carpeta backlog/ en --queue-repo")
 ap.add_argument("--today", default=datetime.date.today().isoformat(), help="fecha de referencia AAAA-MM-DD")
-ap.add_argument("--out", required=True, help="archivo HTML de salida, fuera de vcx y del precursor")
+ap.add_argument("--out", required=True, help="archivo HTML de salida, fuera de vcx y de los repositorios de origen")
 args = ap.parse_args()
 
-blends = Path(args.blends).resolve()
+solera = root / "solera"
+repos = [Path(x).resolve() for x in args.repo] if args.repo else (
+    [solera] + sorted(d for d in solera.iterdir() if (d / ".git").exists()) if (solera / ".git").exists() else [])
+if not repos:
+    sys.exit("No hay repositorios que leer: falta el checkout solera/ (o pasá --repo).")
+queue_repo = Path(args.queue_repo).resolve() if args.queue_repo else None
 out = Path(args.out).resolve()
-for forbidden, why in ((root, "vcx es público (VCX-D032)"), (blends, "el precursor es de solo lectura")):
+for forbidden, why in ((root, "vcx es público (VCX-D032)"), *((d, "los repositorios de origen son de solo lectura") for d in repos)):
     if out == forbidden or forbidden in out.parents:
         sys.exit(f"La salida no puede quedar en {forbidden}: {why}.")
 try:
@@ -47,16 +54,16 @@ except ValueError:
     sys.exit("--today debe tener formato AAAA-MM-DD.")
 
 
-def git(*a):
-    r = subprocess.run(["git", "-C", str(blends), *a], capture_output=True, text=True)
+def git(repo, *a):
+    r = subprocess.run(["git", "-C", str(repo), *a], capture_output=True, text=True)
     if r.returncode:
-        sys.exit(f"git {' '.join(a)} falló: {r.stderr.strip()}")
+        sys.exit(f"git -C {repo} {' '.join(a)} falló: {r.stderr.strip()}")
     return r.stdout
 
 
-def revision(ref):
-    sha, date = git("log", "-1", "--format=%h|%cI", ref, "--").strip().split("|")
-    return dict(ref=ref, sha=sha, date=date)
+def revision(repo, ref):
+    sha, date = git(repo, "log", "-1", "--format=%h|%cI", ref, "--").strip().split("|")
+    return dict(ref=f"{repo.name}:{ref}", sha=sha, date=date)
 
 
 def clip(s, n):
@@ -66,14 +73,15 @@ def clip(s, n):
 
 warnings = []
 projects, sprints, tasks, deliverables = [], [], [], []
-paths = [p for p in git("ls-tree", "-r", "--name-only", args.roadmap_ref).split()
+paths = [(repo, p) for repo in repos for p in git(repo, "ls-tree", "-r", "--name-only", args.roadmap_ref).split()
          if p.endswith(".roadmap.json") and not p.startswith("roadmap/")]
-for path in paths:
+for repo, rel in paths:
+    path = f"{repo.name}/{rel}"
     try:
-        r = json.loads(git("show", f"{args.roadmap_ref}:{path}"))
+        r = json.loads(git(repo, "show", f"{args.roadmap_ref}:{rel}"))
         pid = r["id"]
         projects.append(dict(id=pid, title=r.get("title") or pid, status=r.get("status"),
-                             kind="idea" if path.startswith("ideas/") else "proyecto",
+                             kind="idea" if rel.startswith("ideas/") else "proyecto",
                              updatedAt=r.get("updatedAt"), path=path))
         for s in r.get("sprints", []):
             sprints.append(dict(project=pid, id=s["id"], start=s["startDate"], end=s["endDate"],
@@ -91,11 +99,13 @@ for path in paths:
         warnings.append(f"{path}: no se pudo leer ({exc})")
 
 backlog = []
-for f in git("ls-tree", "--name-only", args.queue_ref, "backlog/").split():
+if queue_repo is None:
+    warnings.append("Sin cola: quedó en el precursor archivado. Pasá --queue-repo para leerla.")
+for f in (git(queue_repo, "ls-tree", "--name-only", args.queue_ref, "backlog/").split() if queue_repo else []):
     if not f.endswith(".json"):
         continue
     try:
-        i = json.loads(git("show", f"{args.queue_ref}:{f}"))
+        i = json.loads(git(queue_repo, "show", f"{args.queue_ref}:{f}"))
         backlog.append(dict(id=i["id"], project=i["project"], kind=i.get("kind"), status=i["status"],
                             title=clip(i.get("title"), 300), summary=clip(i.get("summary"), 700),
                             priority=i.get("priority"), suggestedPriority=i.get("suggestedPriority"),
@@ -111,8 +121,16 @@ for pid in sorted({b["project"] for b in backlog} - known):
     warnings.append(f"El backlog tiene pedidos de «{pid}», que no tiene roadmap en {args.roadmap_ref}.")
     projects.append(dict(id=pid, title=pid, status=None, kind="proyecto", updatedAt=None, path=None))
 
+def roadmap_sources():
+    revs = [revision(repo, args.roadmap_ref) for repo in repos]
+    return dict(ref=f"{args.roadmap_ref} de {len(revs)} repositorios",
+                sha=" ".join(f"{x['ref'].split(':')[0]}@{x['sha']}" for x in revs),
+                date=max(x["date"] for x in revs))
+
+
 data = dict(today=args.today, generatedAt=datetime.datetime.now().astimezone().isoformat(timespec="minutes"),
-            sources=dict(roadmaps=revision(args.roadmap_ref), queue=revision(args.queue_ref)),
+            sources=dict(roadmaps=roadmap_sources(), queue=revision(queue_repo, args.queue_ref) if queue_repo
+                         else dict(ref="sin cola", sha="—", date=args.today)),
             projects=projects, sprints=sprints, tasks=tasks, deliverables=deliverables,
             backlog=backlog, warnings=warnings)
 payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")

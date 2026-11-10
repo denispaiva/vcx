@@ -408,7 +408,7 @@ const DATA = /*DATA*/null/*END*/;
     const s = DATA.sources;
     const st = { conectando: ['', 'Conectando con la base de propuestas…'], ok: ['ok', 'Propuestas guardadas en el artifact'], lento: ['off', 'La base de propuestas no responde todavía'], off: ['off', 'Propuestas solo en esta sesión: la base del artifact no está disponible'], error: ['off', 'La base de propuestas dejó de responder; recargá para reintentar'] }[state.dbStatus] || ['off', ''];
     document.getElementById('sources').innerHTML =
-      `Roadmaps: <span class="mono">${esc(s.roadmaps.ref)} ${esc(s.roadmaps.sha)}</span> del ${fmt(s.roadmaps.date.slice(0, 10))} · Cola: <span class="mono">${esc(s.queue.ref)} ${esc(s.queue.sha)}</span> del ${fmt(s.queue.date.slice(0, 10))} · Referencia: ${fmt(TODAY)}/${TODAY.slice(0, 4)} · Solo lectura del precursor, sin fetch` +
+      `Roadmaps: <span class="mono">${esc(s.roadmaps.ref)} ${esc(s.roadmaps.sha)}</span> del ${fmt(s.roadmaps.date.slice(0, 10))} · Cola: <span class="mono">${esc(s.queue.ref)} ${esc(s.queue.sha)}</span> del ${fmt(s.queue.date.slice(0, 10))} · Referencia: ${fmt(TODAY)}/${TODAY.slice(0, 4)} · Solo lectura de los repositorios de origen, sin fetch` +
       `<div class="status ${st[0]}"><b></b>${esc(st[1])}${state.canWrite ? '' : ' · solo lectura'}</div>`;
   }
   function renderFilters() {
