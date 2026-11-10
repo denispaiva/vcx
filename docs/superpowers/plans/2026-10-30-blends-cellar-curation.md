@@ -8,7 +8,7 @@
 
 **Tecnologías:** Markdown y referencias relativas; sin código, instalaciones ni cambios de almacenamiento operativo.
 
-**Base de diseño:** [arquitectura](../../architecture/overview.md), [primer recorrido conjunto](../specs/2026-10-30-cellar-blends-first-journey-design.md), contextos de [Cellar](https://github.com/denispaiva/cellar/blob/main/README.md) y [Blends](../../../blends/README.md).
+**Base de diseño:** [arquitectura](../../architecture/overview.md), [primer recorrido conjunto](../specs/2026-10-30-cellar-blends-first-journey-design.md), contextos de [Cellar](https://github.com/denispaiva/cellar/blob/main/README.md) y [Blends](https://github.com/denispaiva/blends/blob/main/README.md).
 
 **Estado al 2026-10-30:** plan aprobado por el usuario mediante «vamos» después de su presentación, incluyendo la secuencia y modalidad directa recomendadas. Ejecución documental completada según las casillas y el [reporte](../reports/2026-10-30-blends-cellar-curation.md). La autorización no incluye implementación, instancia real ni migración.
 

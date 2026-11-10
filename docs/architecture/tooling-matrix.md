@@ -76,7 +76,7 @@ Al corte, el uso medido cubre 23 ramas entre el 2026-09-26 y el 2026-10-01 y sol
 
 Se toman de las fuentes de cada producto, sin crear fases nuevas:
 
-- **Blends:** [ingreso](../../blends/docs/idea-intake.md#secuencia-de-ingreso) y [recorrido de idea a proyecto](../../blends/docs/idea-to-project.md#secuencia) — exploración, definición, gate (graduar, diferir o archivar) y preparación. La [maduración con preguntas asesinas](../superpowers/specs/2026-10-31-idea-maturation-design.md) sigue en revisión.
+- **Blends:** [ingreso](https://github.com/denispaiva/blends/blob/main/docs/idea-intake.md#secuencia-de-ingreso) y [recorrido de idea a proyecto](https://github.com/denispaiva/blends/blob/main/docs/idea-to-project.md#secuencia) — exploración, definición, gate (graduar, diferir o archivar) y preparación. La [maduración con preguntas asesinas](../superpowers/specs/2026-10-31-idea-maturation-design.md) sigue en revisión.
 - **Brix:** capacidades invocables de [comandos](https://github.com/denispaiva/brix/blob/main/docs/commands.md), incluida la admisión de tooling.
 - **Cellar:** organización del portfolio y backlog, custodia de decisiones y evidencia, respaldo, según su [README](https://github.com/denispaiva/cellar/blob/main/README.md) y el [modelo de iniciativa](https://github.com/denispaiva/cellar/blob/main/docs/initiative-model.md); y, desde VCX-D029, conducción de los proyectos graduados, con planificación, implementación, revisión, integración, entrega, cierre e interfaz, según la [matriz](responsibility-matrix.md#1-método-y-conducción).
 

@@ -10,13 +10,13 @@ Etiquetas: [H] hecho medido el 2026-11-02 en solo lectura; [D] hecho documentado
 
 [D] Lo que sí existe:
 
-- En el tramo de idea, cambiar arquitectura, carga, tarifas o período exige actualizar FinOps y revisar si la aprobación sigue cubriendo el escenario ([arquitectura y FinOps](../../../blends/docs/architecture-and-finops.md#autorización-y-cambios)).
+- En el tramo de idea, cambiar arquitectura, carga, tarifas o período exige actualizar FinOps y revisar si la aprobación sigue cubriendo el escenario ([arquitectura y FinOps](https://github.com/denispaiva/blends/blob/main/docs/architecture-and-finops.md#autorización-y-cambios)).
 - En el precursor, `vc/docs/standards/work-proportionality.md` fija cuándo documentar: sin ADR en N1; ADR en N2 solo si la decisión ata trabajo futuro; decision record obligatorio en N3. Dice cuándo registrar una decisión, no cuándo reconsiderarla. Es referencia de consulta según [AGENTS](../../../AGENTS.md#fronteras), no regla vigente en VCX hasta conciliar por VCX-D011.
 - La [matriz](../../architecture/responsibility-matrix.md#1-método-y-conducción) asigna el método a Blends y la conducción del proyecto graduado a Cellar con su PO.
 
 ## 2. Alcance
 
-[P] Aplica a la arquitectura vigente de un proyecto con `lifecycleState` `graduated` ([modelo de iniciativa](https://github.com/denispaiva/cellar/blob/main/docs/initiative-model.md#estados-y-relaciones)). El tramo de idea sigue rigiéndose por [arquitectura y FinOps](../../../blends/docs/architecture-and-finops.md); esta propuesta no lo modifica.
+[P] Aplica a la arquitectura vigente de un proyecto con `lifecycleState` `graduated` ([modelo de iniciativa](https://github.com/denispaiva/cellar/blob/main/docs/initiative-model.md#estados-y-relaciones)). El tramo de idea sigue rigiéndose por [arquitectura y FinOps](https://github.com/denispaiva/blends/blob/main/docs/architecture-and-finops.md); esta propuesta no lo modifica.
 
 Fuera de alcance: el formato de los ADR, la adopción de herramientas, la numeración heredada, las revisiones periódicas y su aplicación a los productos del grupo A (§7).
 
