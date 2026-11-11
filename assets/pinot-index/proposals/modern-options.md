@@ -1,0 +1,20 @@
+# Pinot Index · exploración moderna
+
+2026-11-11. Nuevas propuestas solicitadas por el usuario para representar el cálculo matemático con un lenguaje más moderno. Sin elección ni adopción confirmada. Generadas con ImageGen integrado; se preservan las propuestas previas.
+
+- [Matriz → resultado](pinot-index-matrix.png): cuatro entradas, transformación y resultado. Más abstracta; el chevrón también puede leerse como comparación.
+- [Función f(x)](pinot-index-function.png): transformación matemática de entradas. Más explícita, aunque la notación es genérica.
+
+Ambas mantienen burdeos y crema, geometría redondeada y relieve más sutil que las primeras propuestas. PNG con canal alfa; pendiente vectorización y validación a tamaños pequeños. No son representaciones de la fórmula exacta de Pinot Index.
+
+## Prompt de matriz
+
+Use case: logo-brand. Create a new modern symbol-only identity proposal for Pinot Index, a mathematical scoring engine. Concept: "inputs become one calculated result". A sophisticated contemporary computational brand mark, not a retro calculator or abacus.
+Square canvas, rich deep wine burgundy #5E1B26 rounded-square tile occupying 86% of canvas, transparency outside. Within tile: on the left a precise 2 by 2 matrix of four small warm cream circular nodes; in the middle a single thick rounded right-pointing chevron >; on the right one larger warm cream circular output node. Exactly four small input dots, one chevron, one larger output dot. Compose these as a compact balanced iconic glyph rather than a diagram, absolutely no connecting lines or explanatory text. Matrix nodes and output node solid, no holes. A subtle dynamic horizontal progression. Main glyph occupies about 70% tile width. Sufficient generous separation to remain readable.
+Art direction from tintum brand family: rounded, friendly but precise, warm cream #F4EDE0 on wine burgundy, very subtle tactile satin-rubber microtexture. Much more contemporary and restrained than inflated toy-like 3D: near-flat shallow relief, fine quiet microtexture, only the faintest ambient shadow. Clean orthographic front view, controlled geometric proportions. No grainy leather, no puffy pillows, no glossy plastic, no neon, no gradients, no stock AI sparkle, no circuits, no charts, no sigma, no typography, no letters, no label, no multiple options. One refined original icon, transparent exterior, crisp silhouette.
+
+## Prompt de función
+
+Use case: logo-brand. Design a contemporary symbol-only brand icon for Pinot Index, a mathematical scoring engine. Concept: the mathematical function f(x), data transformed into a score, designed as a custom compact typographic emblem. Modern computational design studio aesthetic, distinctive and carefully drawn, not a textbook equation pasted onto an app icon.
+A deep wine burgundy #5E1B26 rounded-square tile occupies 86% of square canvas with transparent outside. Center a warm cream #F4EDE0 custom f(x) emblem. Exact symbol text only: "f(x)". Lowercase f should have a smooth generously curved top hook and rounded crossbar, gently forward leaning; x formed of two rounded intersecting diagonal strokes; parentheses are bold, elegantly curved, close enough to integrate the entire expression into one compact coherent mark. Equal visual weight across glyphs, clear negative spaces, optically balanced, strong silhouette. Emblem about 72% tile width and 48% tile height. Geometric rounded monoline lettering rather than serif math font. The overall expression must unmistakably read f(x), not fx without brackets, and not a face. No additional words, digits, logos or symbols.
+Match tintum family with tactile satin soft-rubber finish, but modernize with very shallow relief, nearly flat typography, subtle microtexture, barely visible soft ambient shadows. Restrained precise material, no inflated balloon lettering, no toy-like chunky blocks, no glossy plastic, no leather grain. Orthographic straight-on view, crisp contour, generous margin. No gradients in tile, no sparkle, no circuit illustration, no abacus, no calculator, no charts, no sigma. One icon only, not a presentation board.
