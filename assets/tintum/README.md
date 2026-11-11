@@ -18,12 +18,15 @@ Queda aceptada esa dirección visual y se conservan ambas variantes; no hubo ele
 | Ícono burdeos | [icon/tintum-icon.svg](icon/tintum-icon.svg) | La «t» crema en el cuadrado redondeado burdeos, como la opción 2; base de los favicons |
 | Ícono crema | [icon/tintum-icon-cream.svg](icon/tintum-icon-cream.svg) | La «t» burdeos con el acento redondo en el cuadrado crema, como la opción 3 |
 | Favicons | [icon/](icon/) | `favicon.ico` (16, 32 y 48), `favicon-16/32/48.png`, `apple-touch-icon.png` (180), `icon-192.png` e `icon-512.png`, del ícono burdeos |
+| Imagen Open Graph | [og/tintum-og.png](og/tintum-og.png) | 1200 × 630, el wordmark crema centrado sobre burdeos `#5E1B26`; para `og:image` de los sitios de Tintum |
 
 Las dos láminas son PNG de 1536 × 1024 px, generadas con ImageGen integrado. Los [prompts originales](prompts.md) conservan la intención de generación; los valores de color allí indicados no equivalen a una paleta uniforme medida en imágenes con textura e iluminación.
 
 El wordmark vectorial lo dibujó Claude el 2026-11-11 con [build_wordmark.py](build_wordmark.py) (trazo 19, espaciado 10) y lo aprobó el usuario con «Sí, aprobado» (VCX-D061). Es una interpretación plana de las láminas: conserva la estructura de las letras, no la textura ni el volumen. Toma el color del texto donde se usa (`currentColor`), así que sirve igual en burdeos sobre crema y en crema sobre burdeos. Se revisó a 96, 40, 24, 16, 12 y 11 px sobre crema `#F4EDE0`, burdeos `#5E1B26`, blanco y `#43121B`: se lee en todos. Las letras son trazos, no contornos. SHA-256: `f95f3470…`.
 
 El ícono y los favicons los generó Claude el 2026-11-11 con [build_icon.py](build_icon.py), que dibuja la misma geometría en SVG y en PNG con Pillow, y los aprobó el usuario con «Sí, aprobado» (VCX-D061). La «t» es la del wordmark con trazo y proporciones propias, más gruesa, como en las láminas. Se lee a 64, 32 y 16 px sobre blanco y sobre una barra oscura. Los favicons salen del ícono burdeos porque el cuadrado crema casi desaparece sobre una pestaña clara. El script es reproducible: dos corridas dan los mismos bytes.
+
+La imagen Open Graph la generó Claude el 2026-11-11 con [build_og.py](build_og.py), que lee `tintum-wordmark.svg` sin modificarlo y dibuja sus trazos con Pillow, con el mismo método que `build_icon.py`. El usuario eligió la variante crema sobre burdeos («Crema sobre burdeos») entre esa y burdeos sobre crema, que se descartó. El wordmark mide 560 px de ancho para entrar con margen en el recorte cuadrado central de 630 px que usan algunas apps de mensajería. No lleva texto: el título y la descripción salen de los metadatos de cada página. Contraste del par, 10,86:1. El script es reproducible. SHA-256: `f4f16731…`.
 
 ## Productos comerciales
 
