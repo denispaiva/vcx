@@ -14,8 +14,11 @@ Queda aceptada esa dirección visual y se conservan ambas variantes; no hubo ele
 |---|---|---|
 | Opción 2 · burdeos sobre crema | [tintum-burgundy-on-cream.png](tintum-burgundy-on-cream.png) | Logo redondeado con acabado gomoso satinado, ícono y firma |
 | Opción 3 · crema sobre burdeos | [tintum-cream-on-burgundy.png](tintum-cream-on-burgundy.png) | Logo redondeado con textura mate porosa, ícono y firma |
+| Wordmark vectorial | [tintum-wordmark.svg](tintum-wordmark.svg) | Solo la palabra `tintum`, monolínea, en `currentColor`; para la firma y cualquier tamaño |
 
-Ambas imágenes son PNG de 1536 × 1024 px, generadas con ImageGen integrado. Los [prompts originales](prompts.md) conservan la intención de generación; los valores de color allí indicados no equivalen a una paleta uniforme medida en imágenes con textura e iluminación.
+Las dos láminas son PNG de 1536 × 1024 px, generadas con ImageGen integrado. Los [prompts originales](prompts.md) conservan la intención de generación; los valores de color allí indicados no equivalen a una paleta uniforme medida en imágenes con textura e iluminación.
+
+El wordmark vectorial lo dibujó Claude el 2026-11-11 con [build_wordmark.py](build_wordmark.py) (trazo 19, espaciado 10) y lo aprobó el usuario con «Sí, aprobado» (VCX-D061). Es una interpretación plana de las láminas: conserva la estructura de las letras, no la textura ni el volumen. Toma el color del texto donde se usa (`currentColor`), así que sirve igual en burdeos sobre crema y en crema sobre burdeos. Se revisó a 96, 40, 24, 16, 12 y 11 px sobre crema `#F4EDE0`, burdeos `#5E1B26`, blanco y `#43121B`: se lee en todos. Las letras son trazos, no contornos. SHA-256: `f95f3470…`.
 
 ## Productos comerciales
 
@@ -30,6 +33,6 @@ Cada producto comercial de Tintum muestra la firma `powered by tintum` (VCX-D061
 
 Esta carpeta es la fuente de los recursos aceptados en VCX. Las salidas de `output/imagegen/tintum-2026-11-09/` son antecedentes de generación. Para usar una imagen en otro proyecto, incorporar una copia al directorio de assets de ese proyecto y registrar su procedencia y revisión; el producto debe seguir funcionando sin depender de una ruta de ejecución hacia VCX.
 
-Los archivos actuales son láminas de identidad con fondo: cada uno reúne logo, ícono y firma. Pueden usarse como referencia visual o como lámina completa. No son todavía un paquete de piezas individuales transparentes, SVG ni favicons; su separación y la verificación a tamaños pequeños quedan pendientes para la integración que las necesite. No se ha modificado ni publicado ningún proyecto consumidor.
+Las láminas reúnen logo, ícono y firma con fondo, y sirven como referencia visual. Para la firma de un producto se usa el wordmark vectorial. El ícono de la «t» y los favicons todavía no existen como piezas separadas.
 
-La decisión está registrada como VCX-D061 en el [registro de decisiones](../../docs/decisions/README.md), fuente canónica de su autoridad, alcance y pendientes; esta guía no la reemplaza. Por declaración del usuario del mismo día, VCX y todo lo que vive debajo forman parte de Tintum, sin renombrar VCX, VibeOS ni sus productos. La separación en piezas transparentes, SVG y favicons y la validación a tamaño pequeño quedan como pendiente `tintum-brand-kit`. El [prompt de continuidad](claude-registration-prompt.md) conserva el alcance con que se hizo el registro.
+La decisión está registrada como VCX-D061 en el [registro de decisiones](../../docs/decisions/README.md), fuente canónica de su autoridad, alcance y pendientes; esta guía no la reemplaza. Por declaración del usuario del mismo día, VCX y todo lo que vive debajo forman parte de Tintum, sin renombrar VCX, VibeOS ni sus productos. El ícono de la «t» y los favicons quedan como pendiente `tintum-brand-kit`; el wordmark vectorial ya lo resolvió en parte. El [prompt de continuidad](claude-registration-prompt.md) conserva el alcance con que se hizo el registro.
