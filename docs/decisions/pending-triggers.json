@@ -45,6 +45,33 @@
         "brix/.agents/skills/brix-ux-review/**"
       ],
       "reviewAt": "2027-02-09"
+    },
+    {
+      "id": "teyst-prod-deploy-approval",
+      "decision": "VCX-D065",
+      "title": "Aprobación humana del deploy a prod-teyst fuera de la sesión que despacha",
+      "paths": [
+        "docs/architecture/github-topology.md"
+      ],
+      "reviewAt": "2026-12-11"
+    },
+    {
+      "id": "teyst-deploy-session-coordination",
+      "decision": "VCX-D065",
+      "title": "Coordinación de deploys de Teyst entre sesiones que las guardas no cubren",
+      "paths": [],
+      "reviewAt": "2026-12-11"
+    },
+    {
+      "id": "vcx-ruleset-negative-case",
+      "decision": "VCX-D065",
+      "title": "Caso negativo del ruleset de main y de la compuerta de secretos (SEC-23, SEC-24)",
+      "paths": [
+        ".github/workflows/secrets.yml",
+        ".betterleaks.toml",
+        ".betterleaksignore"
+      ],
+      "reviewAt": "2026-12-11"
     }
   ]
 }
