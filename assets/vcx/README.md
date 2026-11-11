@@ -13,6 +13,16 @@ Los PNG conservan transparencia exterior y el fondo coloreado de cada baldosa. U
 
 Fuentes editables: [redacción pública](product-copy.md) y [justificaciones de marca](brand-rationale.md). El sitio incorpora copias propias sin depender de rutas de este workspace.
 
+## Reutilización
+
+Cada proyecto que use un isotipo incorpora su propia copia sin editar y registra en su documentación el origen (`assets/vcx/<archivo>` de denispaiva/vcx), la revisión y el SHA-256 de esta tabla. No se crean dependencias de ejecución hacia rutas de este workspace: VCX no es una aplicación ni una dependencia ejecutable de sus productos (VCX-D029).
+
+| Consumidor | Copias | Registro de procedencia |
+|---|---|---|
+| `hello.tintum.app` | Los cuatro PNG, en `TintumHero/hello/public/assets/` | [README del sitio](https://github.com/denispaiva/TintumHero/blob/main/hello/README.md#recursos-copiados) |
+
+Los símbolos de la [primera exploración](proposals/2026-11-11/README.md) no se adoptaron y la [lámina v2](proposals/2026-11-11/wine-family-v2.png) es solo referencia histórica: los assets reutilizables son los cuatro PNG de esta carpeta.
+
 ## Prompt de producción
 
 Para cada pieza se usó la lámina v2 como referencia y el siguiente prompt, sustituyendo SUBJECT por `VCX top left grape bunch`, `Cellar top right barrel`, `Blends bottom left liquid swirl` o `Brix bottom right graduated drop`:

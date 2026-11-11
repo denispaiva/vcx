@@ -1,5 +1,7 @@
 # Familia VCX · alternativa enológica
 
+> **Actualización del 2026-11-11.** Esta dirección se adoptó en VCX-D067. Las piezas finales son recreaciones individuales de esta lámina, aprobadas y publicadas, registradas en la [guía de recursos](../../README.md). La lámina queda como referencia histórica; el texto siguiente conserva el estado de su momento.
+
 2026-11-11. Dirección conceptual recibida favorablemente por el usuario, quien pidió conservar las justificaciones para el detalle de marca. Sin publicación ni paquete final de piezas aprobado. [Lámina comparativa](wine-family-v2.png) generada con ImageGen integrado. Es una lámina exploratoria, no cuatro archivos independientes. Las [justificaciones de marca](../../brand-rationale.md) son la fuente editable de su significado.
 
 Dirección solicitada: referencia permanente al universo del vino, líquido para Blends y libertad cromática respecto de Teyst. Conceptos: racimo para VCX; barrica para Cellar; ensamblaje líquido para Blends; gota de mosto y escala para Brix. La referencia de Brix es azúcar y alcohol potencial, no una medición directa del alcohol: [AWRI](https://www.awri.com.au/wp-content/uploads/2018/04/s1809.pdf).
