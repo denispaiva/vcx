@@ -45,17 +45,6 @@
         "brix/.agents/skills/brix-ux-review/**"
       ],
       "reviewAt": "2027-02-09"
-    },
-    {
-      "id": "tintum-brand-kit",
-      "decision": "VCX-D061",
-      "title": "Ícono de la «t» y favicons de Tintum (el wordmark SVG ya existe)",
-      "paths": [
-        "assets/tintum/**/*.png",
-        "assets/tintum/**/*.svg",
-        "assets/tintum/**/*.ico"
-      ],
-      "reviewAt": "2027-02-09"
     }
   ]
 }
