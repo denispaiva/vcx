@@ -10,7 +10,7 @@ Revisión: 2026-11-11. Estado: redacción y encabezado aprobados por el usuario;
 
 **Acción:** Explorar los productos.
 
-Este encabezado amplía el actual «Productos digitales para quienes disfrutan el vino» para incluir herramientas de desarrollo sin presentarlas como software de gestión vitivinícola. Su adopción forma parte de esta propuesta.
+Este encabezado amplía el actual «Productos digitales para quienes disfrutan el vino» para incluir herramientas de desarrollo sin presentarlas como software de gestión vitivinícola. Su adopción quedó aprobada con esta revisión (VCX-D067).
 
 ## VCX
 

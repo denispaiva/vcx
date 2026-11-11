@@ -41,6 +41,7 @@ Blends y Cellar son proyectos pares de primer nivel. Se prioriza su curación do
 - Para explorar la jerarquía en un mapa mental: [mapa de VCX en OPML al 2026-11-01](docs/exports/vcx-ecosystem-2026-11-01.opml), vista derivada con VCX-D029 aplicado y las iniciativas del portfolio precursor; la [instantánea de la fundación](docs/exports/vcx-ecosystem.opml) del 2026-10-30 se conserva como histórica. Ninguna se actualiza automáticamente.
 - Para iniciar un contexto: [plantillas de Cellar e iniciativas](https://github.com/denispaiva/cellar/blob/main/README.md#plantillas-documentales).
 - Para firmar un proyecto con la marca comercial: [recursos de Tintum](assets/tintum/README.md), VCX-D061; cada proyecto incorpora su propia copia.
+- Para presentar la familia VCX o sus productos: [isotipos, redacción pública y justificaciones](assets/vcx/README.md), VCX-D067; cada proyecto incorpora su propia copia con origen y hash.
 - Para elegir nombres: [criterio de nombres](docs/naming.md) y [banco de candidatos sin curar](docs/references/enology-glossary-source.md).
 - Para retomar decisiones: [registro de decisiones](docs/decisions/README.md), [fuentes](docs/sources.md) y [registro de ejecución](docs/superpowers/reports/2026-10-30-vcx-foundation.md).
 

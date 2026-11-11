@@ -1,5 +1,7 @@
 # VCX · primera propuesta de familia visual
 
+> **Superada el 2026-11-11.** Esta exploración no se adoptó. La dirección elegida es la [alternativa enológica](wine-family-v2.md) y las piezas finales son las de la [guía de recursos](../../README.md), VCX-D067. Se conserva como antecedente; no usar estos símbolos.
+
 2026-11-11. Estado: exploración solicitada, sin adopción ni publicación. El usuario pidió isotipos para VCX, Cellar, Blends y Brix; la redacción comercial y publicación quedan para después. La jerarquía visual no redefine la arquitectura ni convierte VCX en una dependencia ejecutable.
 
 | Identidad | Propuesta | Intención |
