@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="tintum">
+  <title>tintum</title>
+  <rect width="100" height="100" rx="22" fill="#F4EDE0"/>
+  <path d="M48,20 V63 A17 17 0 0 0 65,80 H67 M33,39 H63" fill="none" stroke="#5E1B26" stroke-width="21" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="79" cy="21" r="6" fill="#5E1B26"/>
+</svg>
