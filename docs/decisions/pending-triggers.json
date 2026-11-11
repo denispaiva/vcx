@@ -72,6 +72,13 @@
         ".betterleaksignore"
       ],
       "reviewAt": "2026-12-11"
+    },
+    {
+      "id": "pinot-teyst-revendor",
+      "decision": "solera-pinot-index · docs/decisions/0001-graduation.md (re-vendorizado diferido)",
+      "title": "Re-vendorizar Pinot Index en Teyst o registrar el descarte",
+      "paths": [],
+      "reviewAt": "2026-11-29"
     }
   ]
 }
