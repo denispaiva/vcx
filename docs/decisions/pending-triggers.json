@@ -49,7 +49,7 @@
     {
       "id": "tintum-brand-kit",
       "decision": "VCX-D061",
-      "title": "Piezas separadas de Tintum: transparentes, SVG, favicons y legibilidad pequeña",
+      "title": "Ícono de la «t» y favicons de Tintum (el wordmark SVG ya existe)",
       "paths": [
         "assets/tintum/**/*.png",
         "assets/tintum/**/*.svg",
