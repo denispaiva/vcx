@@ -26,8 +26,8 @@ Cada producto comercial de Tintum muestra la firma `powered by tintum` (VCX-D061
 
 | Producto | Desde | Firma integrada | Procedencia de la copia |
 |---|---|---|---|
-| Teyst | 2026-11-09, el más evolucionado según el usuario | Sí: en `main` desde el [PR 65 de solera-teyst](https://github.com/denispaiva/solera-teyst/pull/65) y publicada en `teyst.web.app` el 2026-11-11 desde `e19918f` ([corrida](https://github.com/denispaiva/solera-teyst/actions/runs/42934508452)), después del canary ([corrida](https://github.com/denispaiva/solera-teyst/actions/runs/42933703032)); [plan](../../docs/superpowers/plans/2026-11-09-teyst-tintum-signature-plan.md) | Sin copia: firma en texto (ADR 0012 de Teyst) |
-| Salmanazar | 2026-11-11, elegido por el usuario entre los candidatos de Solera | En revisión: [PR 1 de solera-salmanazar](https://github.com/denispaiva/solera-salmanazar/pull/1), en Entrar y en la cava; sin merge ni deploy, y todavía sin sitio público | Sin copia: firma en texto (ADR 0002 de Salmanazar) |
+| Teyst | 2026-11-09, el más evolucionado según el usuario | Sí: en `main` desde el [PR 65 de solera-teyst](https://github.com/denispaiva/solera-teyst/pull/65); con el wordmark SVG desde el [PR 93](https://github.com/denispaiva/solera-teyst/pull/93). Publicada en `teyst.web.app` el 2026-11-11 desde `21c732b` ([corrida](https://github.com/denispaiva/solera-teyst/actions/runs/42946510773)), después del canary ([corrida](https://github.com/denispaiva/solera-teyst/actions/runs/42946146240)); [plan](../../docs/superpowers/plans/2026-11-09-teyst-tintum-signature-plan.md) | Copia del wordmark SVG de VCX en `components/icons/tintum-wordmark.tsx` (vcx `8ac42e5`; ADR 0012 de Teyst) |
+| Salmanazar | 2026-11-11, elegido por el usuario entre los candidatos de Solera | Sí: en `main` desde el [PR 1 de solera-salmanazar](https://github.com/denispaiva/solera-salmanazar/pull/1), en Entrar y en la cava; con el wordmark SVG desde el [PR 2](https://github.com/denispaiva/solera-salmanazar/pull/2). Todavía sin sitio público | Copia del wordmark SVG de VCX en `apps/app/components/tintum-wordmark.ts` (vcx `8ac42e5`; ADR 0002 de Salmanazar) |
 
 ## Uso entre proyectos
 
