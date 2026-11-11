@@ -12,13 +12,13 @@
 | Responsabilidades y RACI propuestas | [Matriz](architecture/responsibility-matrix.md) |
 | Propiedad de interfaces | [Interoperabilidad](architecture/interoperability.md) |
 | Modelo mínimo propuesto de iniciativa | [Modelo de Cellar](https://github.com/denispaiva/cellar/blob/main/docs/initiative-model.md) |
-| Proceso mínimo propuesto de idea a proyecto | [Recorrido de Blends](../blends/docs/idea-to-project.md) |
-| Ingreso mediante documento, consejo y confirmación | [Flujo de ingreso](../blends/docs/idea-intake.md) |
+| Proceso mínimo propuesto de idea a proyecto | [Recorrido de Blends](https://github.com/denispaiva/blends/blob/main/docs/idea-to-project.md) |
+| Ingreso mediante documento, consejo y confirmación | [Flujo de ingreso](https://github.com/denispaiva/blends/blob/main/docs/idea-intake.md) |
 | Capacidad requerida de preparación sobre Brix | [Preparación de ideas](https://github.com/denispaiva/brix/blob/main/docs/idea-intake.md) |
 | Comandos CLI, equivalencias de conversación y ayuda | [Comandos de Brix](https://github.com/denispaiva/brix/blob/main/docs/commands.md) |
 | Formato documental de la propuesta previa al ingreso | [Plantilla de ideas](https://github.com/denispaiva/cellar/blob/main/templates/idea/README.md) |
 | Modelo propuesto para estimación técnica y económica | [Arquitectura de referencia en Brix](https://github.com/denispaiva/brix/blob/main/docs/reference-architecture.md) |
-| Secuencia de arquitectura, FinOps y revisión de presupuesto | [Etapa de Blends](../blends/docs/architecture-and-finops.md) |
+| Secuencia de arquitectura, FinOps y revisión de presupuesto | [Etapa de Blends](https://github.com/denispaiva/blends/blob/main/docs/architecture-and-finops.md) |
 | Documento FinOps de la iniciativa | [Plantilla FinOps](https://github.com/denispaiva/cellar/blob/main/templates/finops/README.md) |
 | Ejemplo y aceptación del primer recorrido | [Diseño conjunto](superpowers/specs/2026-10-30-cellar-blends-first-journey-design.md) |
 | Contraste acotado con el sistema activo | [Correspondencia](architecture/current-system-mapping.md) |

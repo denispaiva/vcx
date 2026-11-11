@@ -79,7 +79,7 @@ Cambiar materialmente el escenario o encontrar evidencia contradictoria exige re
 
 ### Cambio propuesto del gate y vigencia
 
-El [recorrido actual](../../../blends/docs/idea-to-project.md) requiere preguntas decisivas respondidas con evidencia. El estándar del precursor, `vc/docs/standards/idea-lifecycle.md`, exige responder todas las asesinas antes de graduar, según lectura del 2026-10-31. Esta propuesta sustituiría ese criterio por: **todas las preguntas bloqueantes resueltas con evidencia vigente; solo pueden quedar abiertas aquellas cuya validación dependa justificadamente del compromiso de proyecto delimitado**.
+El [recorrido actual](https://github.com/denispaiva/blends/blob/main/docs/idea-to-project.md) requiere preguntas decisivas respondidas con evidencia. El estándar del precursor, `vc/docs/standards/idea-lifecycle.md`, exige responder todas las asesinas antes de graduar, según lectura del 2026-10-31. Esta propuesta sustituiría ese criterio por: **todas las preguntas bloqueantes resueltas con evidencia vigente; solo pueden quedar abiertas aquellas cuya validación dependa justificadamente del compromiso de proyecto delimitado**.
 
 Es un cambio de política, no una aclaración ni una aprobación ya obtenida. Hasta su aprobación explícita y conciliación mediante VCX-D011, bajo el gobierno de Blends conservado por VCX-D026, sigue rigiendo el gate actual. No se incorporarán dos reglas de graduación activas al mismo repositorio. Las desviaciones históricas conservan esa condición y sus actas; este diseño no las regulariza retroactivamente.
 
@@ -99,7 +99,7 @@ Para una graduación ordinaria, todas las preguntas bloqueantes deben estar verd
 
 Las decisiones continúan siendo humanas: graduar, diferir o archivar. Un rojo no archiva automáticamente y ningún conjunto de verdes gradúa automáticamente. El semáforo informa; la decisión registra su fundamento y revisión.
 
-Graduar autoriza preparar el contexto de proyecto. La ejecución del siguiente paso requiere además autorización de su alcance y recursos: pueden registrarse en la misma decisión si son explícitos, pero no se deducen de la graduación. Se conservan las reglas de preparación reanudable del [recorrido actual](../../../blends/docs/idea-to-project.md).
+Graduar autoriza preparar el contexto de proyecto. La ejecución del siguiente paso requiere además autorización de su alcance y recursos: pueden registrarse en la misma decisión si son explícitos, pero no se deducen de la graduación. Se conservan las reglas de preparación reanudable del [recorrido actual](https://github.com/denispaiva/blends/blob/main/docs/idea-to-project.md).
 
 ### MVP recomendado, sin obligatoriedad
 
@@ -117,7 +117,7 @@ Para implementación directa ordinaria, todas las preguntas bloqueantes para con
 
 No se diseña un MVP ficticio para completar la plantilla cuando otra vía resulta más adecuada. Un paso experimental que pueda realizarse adecuadamente en exploración permanece allí. Graduar con validación pendiente exige satisfacer la prueba de dependencia anterior; la etiqueta MVP, piloto o proyecto no la sustituye.
 
-La [secuencia de arquitectura de referencia y FinOps](../../../blends/docs/architecture-and-finops.md) se conserva. Una estimación autoriza solo lo expresamente aprobado; desconocido no significa costo cero. La profundidad del modelo debe corresponder al compromiso evaluado.
+La [secuencia de arquitectura de referencia y FinOps](https://github.com/denispaiva/blends/blob/main/docs/architecture-and-finops.md) se conserva. Una estimación autoriza solo lo expresamente aprobado; desconocido no significa costo cero. La profundidad del modelo debe corresponder al compromiso evaluado.
 
 ## Casos de contraste ficticios
 

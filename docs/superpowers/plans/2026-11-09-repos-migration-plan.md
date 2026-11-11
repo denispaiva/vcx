@@ -77,11 +77,13 @@ El renombre del precursor a `solera` se descartó: la instancia heredaría todo 
 2. **Proyectos vivos a `solera-<proyecto>`**, como Teyst: Melquisedec y Salmanazar con sus deploys, cuyas identidades en la nube pasan al ID del repositorio nuevo, y Pinot Index, reutilizando su espejo si conviene. Hecho el 2026-11-09 para Melquisedec y Salmanazar: repositorios privados propios con historia, CI y deploy. Sus identidades en la nube autorizan solo al repositorio nuevo, lo que se verificó con deploys a desarrollo, y los workflows del precursor quedaron deshabilitados. Pinot Index, el mismo día: se reutilizó su espejo privado, que entró por fast-forward, renombrado a `solera-pinot-index`.
 3. **Ola 2 de Brix:** las capacidades de `vc/tools` que sigan en uso pasan a `brix`. Las demás quedan en el archivo. Medida el 2026-11-10 ([reporte](../reports/2026-11-10-brix-ola2-medicion.md)): ningún repositorio vivo usa `vc/tools/`, así que nada pasa a Brix. Antes de archivar hay que desacoplar cinco herramientas que leen el checkout del precursor.
 4. **Fase 4**, abajo: el núcleo de Blends al `blends` público.
-5. **Archivo:** el precursor se renombra a `blends-precursor` y se archiva, privado y con toda su historia, ramas y tags. Esto libera el nombre `blends`, así que va antes de crear el `blends` público.
+5. **Archivo:** el precursor se renombra a `blends-precursor` y se archiva, privado y con toda su historia, ramas y tags. Esto libera el nombre `blends`, así que va antes de crear el `blends` público. Hecho el 2026-11-10, con autorización del usuario: el precursor es `denispaiva/blends-precursor`, privado y archivado. Consecuencia: dejaron de correr sus workflows programados, y el aviso mensual de renovaciones (`renewals.yml`) tiene que pasar a `solera` antes del 2026-12-01.
 
 ### Fase 4 · Blends público
 
 Paso 3 de VCX-D032. Export del núcleo desde el precursor (archivado o no) con historial filtrado, repositorio público nuevo e incorporación con el mismo mecanismo E4 sobre `vcx/blends/`.
+
+Hecho el 2026-11-10: `denispaiva/blends` es público, nació con historia nueva (B') y trae el método curado (documentos y ocho estándares con sus esquemas), con licencia MIT. La raíz deja de versionar `blends/`.
 
 ## Resultado esperado
 
