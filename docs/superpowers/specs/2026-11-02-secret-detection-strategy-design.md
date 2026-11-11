@@ -615,6 +615,8 @@ Etiqueta: **plantilla incompleta**. Solo cuando exista autoridad para restringir
 }
 ```
 
+Actualización del 2026-11-11: la plantilla se aplicó con [VCX-D064](../../decisions/README.md), con una regla `pull_request` de 0 aprobaciones agregada porque el usuario decidió que `main` no admite push directo; el estado vigente y su evidencia están en la fila SEC-24 del [inventario](../../architecture/security-controls-inventory.md). El texto de esta sección se conserva como diseño fechado.
+
 Se aplicaría con `gh api -X POST repos/denispaiva/vcx/rulesets --input <archivo>` y se comprobaría con `GET .../rulesets`. Un ruleset que exige un check solo bloquea el merge de PR y los pushes que no lo cumplan; no retroactúa sobre lo ya integrado.
 
 ### 4.5 Cobertura
