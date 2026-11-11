@@ -17,7 +17,7 @@ Cada entrada indica su estado:
 |---|---|---|---|
 | **VCX · VibeOS** | Raíz organizativa y marca del conjunto de productos: «Vibe Coding for X projects» | Un producto, servicio central o dependencia ejecutable | Vigente como raíz (VCX-D024); VibeOS como marca, D029 |
 | **Tintum** | Dominio web y marca comercial paraguas, `tintum.app`: VCX y todo lo que vive debajo forman parte de ella; firma `powered by tintum` | Un producto, otro nombre de VCX o VibeOS, ni el grupo de proyectos de vino (Assemblage) | Vigente (VCX-D061; [recursos](../assets/tintum/README.md)) |
-| **Producto comercial** | Producto de un proyecto que se ofrece al público bajo Tintum y muestra `powered by tintum`; hoy Teyst | Blends, Brix o Cellar | Vigente (VCX-D061; [lista](../assets/tintum/README.md#productos-comerciales)) |
+| **Producto comercial** | Producto de un proyecto que se ofrece al público bajo Tintum y muestra `powered by tintum`; los productos se enumeran en la lista | Blends, Brix o Cellar | Vigente (VCX-D061; [lista](../assets/tintum/README.md#productos-comerciales)) |
 | **Producto** | Una de las tres piezas reutilizables: Blends, Brix o Cellar. Se versiona, distribuye y evoluciona por separado, en su propio repositorio | Lo que construye un proyecto; para eso ver *producto de un proyecto* | Vigente ([arquitectura](architecture/overview.md#dos-grupos-y-tres-productos), VCX-D025) |
 | **Producto de un proyecto** | Lo que un proyecto construye y entrega a sus usuarios, decidido por su PO | Blends, Brix o Cellar | D029 ([modelo de productos](superpowers/specs/2026-10-31-product-model-design.md)) |
 | **Cellar · producto** | Define la estructura y los mecanismos para custodiar y, desde D029, conducir | Un portfolio concreto | Vigente; conducción, D029 |
