@@ -83,6 +83,8 @@ El renombre del precursor a `solera` se descartó: la instancia heredaría todo 
 
 Paso 3 de VCX-D032. Export del núcleo desde el precursor (archivado o no) con historial filtrado, repositorio público nuevo e incorporación con el mismo mecanismo E4 sobre `vcx/blends/`.
 
+Medición previa del 2026-11-10 ([reporte](../reports/2026-11-10-blends-publico-medicion.md)): el historial de los estándares contiene infraestructura e importes, así que se propone historia nueva (B') y publicar el método sin la maquinaria ejecutable, que no tiene consumidores.
+
 Hecho el 2026-11-10: `denispaiva/blends` es público, nació con historia nueva (B') y trae el método curado (documentos y ocho estándares con sus esquemas), con licencia MIT. La raíz deja de versionar `blends/`.
 
 ## Resultado esperado
