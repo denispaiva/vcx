@@ -24,7 +24,7 @@ Cada entrada indica su estado:
 | **Cellar · instancia** | Un portfolio concreto: conserva sus iniciativas, configuración, decisiones y memoria | El producto Cellar ni una carpeta cualquiera | Vigente ([modelo de iniciativa](https://github.com/denispaiva/cellar/blob/main/docs/initiative-model.md#qué-corresponde-a-cada-nivel)) |
 | **Portfolio** | El conjunto de iniciativas que custodia una instancia de Cellar | Todo VCX | Vigente |
 | **Iniciativa** | Una idea o un proyecto, con una sola identidad durante todo su ciclo | Una propuesta todavía no admitida | Vigente ([modelo de iniciativa](https://github.com/denispaiva/cellar/blob/main/docs/initiative-model.md#estados-y-relaciones)) |
-| **Propuesta** | Lo que se prepara antes del ingreso; queda fuera del portfolio activo hasta la confirmación humana | Una idea registrada | Vigente (VCX-D017, [ingreso](../blends/docs/idea-intake.md)) |
+| **Propuesta** | Lo que se prepara antes del ingreso; queda fuera del portfolio activo hasta la confirmación humana | Una idea registrada | Vigente (VCX-D017, [ingreso](https://github.com/denispaiva/blends/blob/main/docs/idea-intake.md)) |
 | **Idea** | Iniciativa registrada que todavía no se graduó | Un proyecto | Vigente |
 | **Proyecto** | Iniciativa graduada; conserva la misma identidad que tenía como idea | Una iniciativa nueva | Vigente; conducción por Cellar, D029 |
 | **Graduar** | Decisión humana del gate que convierte una idea en proyecto y, desde D029, asigna su PO | Un cambio de estado automático | Vigente; asignación del PO, D029 |
