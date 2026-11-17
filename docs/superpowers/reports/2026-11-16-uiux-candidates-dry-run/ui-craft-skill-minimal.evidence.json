@@ -1,0 +1,399 @@
+{
+  "candidate": {
+    "id": "ui-craft-skill-minimal",
+    "type": "skill",
+    "sourceUrl": "https://github.com/educlopez/ui-craft",
+    "evaluatedRef": "8172a867232d60d2b976ee99f748dcb0cbf2c124"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último push 2026-11-16 (rama main en c1e556e) y tag v1.0.21 el 2026-11-05.",
+        "evidenceRefs": [
+          "github-api:repos/educlopez/ui-craft (pushed_at=2026-11-16; medido 2026-11-16)",
+          "github-api:repos/educlopez/ui-craft/releases (v1.0.21 2026-11-05; medido 2026-11-16)"
+        ],
+        "score": 95
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Releases v1.0.17 a v1.0.21 entre agosto y noviembre de 2026; además el repo versiona por separado MCP (0.9.0), detector (0.13.0) y plugin.",
+        "evidenceRefs": [
+          "github-api:repos/educlopez/ui-craft/tags (v1.0.7 a v1.0.21; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/distribution-manifest.json (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 80
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "48 commits desde el 2026-08-18 y 3 contribuidores: actividad sostenida con bus factor bajo.",
+        "evidenceRefs": [
+          "github-api:repos/educlopez/ui-craft/commits?since=2026-08-18 (48; medido 2026-11-16)",
+          "github-api:repos/educlopez/ui-craft/contributors (3; medido 2026-11-16)"
+        ],
+        "score": 70
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "16 issues cerrados y 0 abiertos; SECURITY.md fija acuse en 2 días hábiles (declaración). Tiempos reales no medidos.",
+        "evidenceRefs": [
+          "github-api:search/issues repo:educlopez/ui-craft (open=0, closed=16; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/SECURITY.md (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 75
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La distribución evaluada, skills/ui-craft/, es solo Markdown: SKILL.md y 30 referencias, sin scripts. 0 advisories; el repo corre CodeQL. El MCP, el CLI Go y el detector no se evaluaron.",
+        "evidenceRefs": [
+          "github-api:repos/educlopez/ui-craft/security-advisories (0; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/.github/workflows/codeql.yml (leído como dato; medido 2026-11-16)",
+          "github-api:repos/educlopez/ui-craft/git/trees/8172a86?recursive=1 (skills/ui-craft: 31 archivos .md; medido 2026-11-16)"
+        ],
+        "score": 90
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cuenta personal, MIT, 462 estrellas. Tres números de versión discrepan: tag v1.0.21, plugin.json 1.0.0 y marketplace 2026.11.5.1559. Mirrors de la skill en .agents, .codex, .gemini y .opencode con un check:mirrors declarado.",
+        "evidenceRefs": [
+          "github-api:repos/educlopez/ui-craft (owner.type=User; license=MIT; stargazers=462; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/.claude-plugin/plugin.json (leído como dato; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/.claude-plugin/marketplace.json (leído como dato; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/package.json scripts.check:mirrors (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 60
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SECURITY.md con canal privado, CodeQL, check de pins de actions y de aislamiento de HOME. El perfil de comunidad de la API marca 71 % y no detecta el SECURITY.md de la raíz.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/SECURITY.md (leído como dato; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/package.json scripts.check:action-pins, check:home-isolation (leído como dato; medido 2026-11-16)",
+          "github-api:repos/educlopez/ui-craft/community/profile (health_percentage=71; medido 2026-11-16)"
+        ],
+        "score": 75
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La skill sola no declara hooks ni herramientas. Instruye llamar a la tool MCP route_task si el servidor está conectado y a comandos (/sddesign, /remember) que escriben .ui-craft/. Esos controles no vienen en la skill mínima. El plugin completo, no evaluado, agrega .mcp.json con `npx -y ui-craft-mcp@0.9.0` (red y ejecución de un paquete npm) y un hooks.json preToolUse con variable de Cursor.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/SKILL.md líneas 19-20, 57, 141-152 (leído como dato; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/.mcp.json (leído como dato; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/hooks/hooks.json (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 60
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cubre dashboards densos, formularios, estados, accesibilidad, reduced-motion, responsive y copy con locale, que son superficies de Teyst web y de páginas de marca. Las referencias son de CSS y web; no hay guía de React Native ni Expo.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/SKILL.md tabla de referencias (leído como dato; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/references/forms.md (leído como dato; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/references/dashboard.md (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 50
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Markdown estándar: carga en Codex desde .agents/skills y en Claude Code desde .claude/skills, sin runtime. En la distribución mínima quedan colgadas las referencias a /comandos, agentes y tools MCP. Además prefiere APCA sobre WCAG 2, y la conformidad exigible hoy es WCAG.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/SKILL.md líneas 57, 64, 277 (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 55
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Hipótesis no medida: solapa con Impeccable, Web Design Guidelines y UX Heuristics en anti-patrones, tipografía y heurísticas. Lo distintivo es coverage.md (completitud de 12 arquetipos) y state-design.md. Las perillas (MOTION_INTENSITY ≤3 = solo hover) permiten un dashboard sin animación, a diferencia de Taste.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/references/coverage.md (leído como dato; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/SKILL.md Knobs (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 40
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Copiar una carpeta de unos 550 KB. Cargar la skill cuesta contexto: un SKILL.md de 38 KB, unos 10.000 tokens por estimación de bytes/4, sin medir.",
+        "evidenceRefs": [
+          "github-api:repos/educlopez/ui-craft/git/trees/8172a86 (skills/ui-craft/SKILL.md 38.442 bytes; medido 2026-11-16)"
+        ],
+        "score": 75
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin uso en VCX.",
+        "evidenceRefs": [
+          "local:ls ~/.claude/skills ~/.codex/skills (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin piloto. Las 129 evals del repo son del proveedor; no se ejecutaron.",
+        "evidenceRefs": [
+          "github-api:repos/educlopez/ui-craft/git/trees/8172a86 (evals/ 129 archivos; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "13 workflows: validate, mcp-test, installer-e2e y CodeQL, entre otros. package.json declara check:frontmatter y check:mirrors. No se verificó qué workflow cubre la skill mínima en cada push.",
+        "evidenceRefs": [
+          "github-api:repos/educlopez/ui-craft/actions/workflows (total_count=13; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/package.json scripts (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 65
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SKILL.md estructurado, con escalera de uso, tabla de rutas y criterios de carga por referencia, y un README extenso. Mezcla capacidades de la skill con las del MCP y el CLI sin marcar cuál requiere qué.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/SKILL.md líneas 1-60 (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 70
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tags semver y un VERSIONS.md, pero la versión del plugin y la del marketplace no coinciden con el tag.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/.claude-plugin/plugin.json (leído como dato; medido 2026-11-16)",
+          "github-raw:educlopez/ui-craft@8172a86/.claude-plugin/marketplace.json (leído como dato; medido 2026-11-16)",
+          "github-api:repos/educlopez/ui-craft/tags (v1.0.21; medido 2026-11-16)"
+        ],
+        "score": 50
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Mirrors por host y un workflow installer-e2e (declarados). No se observó la carga en Claude Code ni en Codex.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/.github/workflows/installer-e2e.yml (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 45
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La skill mínima no tiene dependencias ejecutables.",
+        "evidenceRefs": [
+          "github-api:repos/educlopez/ui-craft/git/trees/8172a86 (skills/ui-craft solo .md; medido 2026-11-16)"
+        ],
+        "score": 95
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Gratis, sin key. El costo es contexto del cupo de suscripción (SKILL.md más referencias), sin medir.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/SKILL.md (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 75
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "MIT y Markdown plano; .ui-craft/ es Markdown versionable.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/SKILL.md Design Memory (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 80
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se retira borrando la carpeta; los .ui-craft/ que se escriban son archivos planos.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/SKILL.md líneas 141-152 (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 90
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Pide una fase de Discovery (perillas 1-10) antes de codificar: consume atención del Owner; sin gates que mantener en la distribución mínima.",
+        "evidenceRefs": [
+          "github-raw:educlopez/ui-craft@8172a86/skills/ui-craft/SKILL.md Knobs, Quick Start 0 (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 70
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

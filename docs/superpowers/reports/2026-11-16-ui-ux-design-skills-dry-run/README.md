@@ -51,7 +51,7 @@ Política `ce6e1a31…` (formulaVersion 1.6.0), Brix `131a5c2`, cliTree `b4c9276
 
 ## Piloto propuesto
 
-El [diseño del piloto](pilot-design.md) mide si `frontend-design` y las reglas web fijadas aportan algo en uso real. El piloto A se ejecutó el mismo día: [resultado](pilot-a-results.md), que pasa a evaluación formal con el tope de tokens excedido. El piloto B sigue sin ejecutar.
+El [diseño del piloto](pilot-design.md) mide si `frontend-design` y las reglas web fijadas aportan algo en uso real. El piloto A se ejecutó el mismo día: [resultado](pilot-a-results.md), que pasa a evaluación formal con el tope de tokens excedido. El piloto B también se ejecutó: [resultado](pilot-b-results.md). Las reglas web fijadas se archivan como antecedente, porque aportaron 1 hallazgo único relevante de los 3 que exigía la regla.
 
 ## Evaluación formal y decisión
 
