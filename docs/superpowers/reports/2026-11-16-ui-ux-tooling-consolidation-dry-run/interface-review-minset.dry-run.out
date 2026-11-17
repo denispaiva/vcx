@@ -1,0 +1,50 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · interface-review-minset (skill)
+  github.com/jakubkrehel/skills · evaluado 2026-11-17
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         50.3 / 100
+  CONFIANZA             high (85)
+  NIVEL DE RIESGO        high
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        unavailable
+  maintenance      59.3
+  security         62.3
+  fit              33.3
+  engineering      31.0
+  sustainability   75.8
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+  • networkAccess (acceso a red)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • maintenance.activityRecency (95) — Push del repo el 2026-11-16. La ruta interface-review cambió de contenido por última vez el 2026-10-04 (da5f6d5); las better-* el 2026-11-12.
+  • security.vulnerabilityStatus (85) — Solo Markdown y metadatos: sin código ejecutable propio.
+  • sustainability.costPredictability (85) — Gratuita; costo de cupo por cargar ~199 KB de referencias, no medido.
+  • sustainability.reversibility (85) — Se retira borrando las 8 carpetas; las escrituras en .git son refs remotas inocuas.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.releaseContinuity (10) — 0 releases y 0 tags; solo plugin.json declara 1.20.0. Se fija por SHA.
+  • security.securityHygiene (35) — Sin CI, sin SECURITY.md, sin tags; versión solo por SHA.
+  • fit.capabilityGapCoverage (30) — Consumidor identificado: Teyst (Expo SDK 57, React Native 0.86, react-native-web; sin Tailwind, sin React DOM propio), con tokens propios y marca Tintum (VCX-D061). VCX-D060 dejó la revisión UX con disparador: hoy no hay una decisión de interfaz pendiente que la active. Cubre la necesidad «regresiones de interfaz en un diff» con clasificación causal (Introduced, Regression, Pre-existing vía git blame), pero sus señales son HTML, CSS, ARIA y Tailwind; no nombra React Native, Expo, StyleSheet ni accessibilityLabel, así que en Teyst buena parte no se dispararía.
+  • fit.technicalCompatibility (25) — Supone web (rutas app/**/page.*, pages/**, *.astro; Tailwind en 23 archivos). Compatible con las reglas Git locales (sin add -A, ours/theirs, force ni commits), pero escribe refs de .git.
+  • fit.incrementalValue (40) — Lo nuevo frente a la checklist v1, code-review y design:accessibility-review es la resolución del alcance del diff y la clasificación causal con veredicto Block/Approve. La comprobación visual es opcional y sin herramienta nombrada: en la práctica es lectura de código. No calcula contraste ni corre axe.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (5) — 0 workflows; sin tests ni evals de las skills.
+  • engineering.versioningDiscipline (15) — Sin tags; 8 carpetas que deben fijarse juntas por SHA.
+  • engineering.compatibilityEvidence (15) — Sin evidencia fuera de proyectos web; metadatos para Codex y Claude Code.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "interface-review-minset", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-16-ui-ux-tooling-consolidation-dry-run/interface-review-minset.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-17T00:20:00Z", "now": "2026-11-17T00:20:00Z", "brixHead": "131a5c20dff07ae6c105056443c394def7153345", "cliTree": "b4c927628119076a51fe835ab739ba816afa0e22", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Code (claude-opus-5-5); evaluación en seco solicitada"}

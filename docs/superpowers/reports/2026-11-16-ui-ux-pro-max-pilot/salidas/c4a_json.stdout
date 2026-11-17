@@ -1,0 +1,103 @@
+{
+  "design_system": {
+    "project_name": "WINE TASTING APP, BURGUNDY AND CREAM BRAND, ROUNDED TYPOGRAPHY",
+    "category": "Luxury/Premium Brand",
+    "pattern": {
+      "name": "Scroll-Triggered Storytelling",
+      "sections": "Intro hook > Chapter 1 (problem) > Chapter 2 (journey) > Chapter 3 (solution) > Climax CTA",
+      "cta_placement": "End of each chapter (mini) + Final climax CTA",
+      "color_strategy": "Progressive reveal. Each chapter has distinct color. Building intensity.",
+      "conversion": "Keep the narrative understandable without scroll-driven effects. Use progress indicator. Mobile: simplify animations. Keep DOM reading order complete; disable parallax and scroll-scrub under reduced motion. Pause scroll animation when offscreen or hidden and render each chapter in its final readable state under reduced motion."
+    },
+    "style": {
+      "id": "liquid-glass",
+      "name": "Liquid Glass",
+      "type": "Platform/Material",
+      "effects": "Lensing and refraction, adaptive translucency, and fluid morph transitions aligned to Apple platform behavior",
+      "keywords": "dynamic material, optical glass, translucency, lensing, refraction, fluid morphing, system navigation",
+      "best_for": "Apple-platform navigation, controls, and system-aligned app chrome",
+      "performance": "cost:moderate|drivers:animation,blur",
+      "accessibility": "risk:conditional|requires:contrast-text-4.5,keyboard,visible-focus,reduced-motion",
+      "light_mode": "supported",
+      "dark_mode": "supported"
+    },
+    "colors": {
+      "primary": "#1C1917",
+      "on_primary": "#FFFFFF",
+      "secondary": "#44403C",
+      "on_secondary": "#FFFFFF",
+      "accent": "#A16207",
+      "on_accent": "#FFFFFF",
+      "background": "#FAFAF9",
+      "foreground": "#0C0A09",
+      "card": "#FFFFFF",
+      "card_foreground": "#0C0A09",
+      "muted": "#E8ECF0",
+      "muted_foreground": "#475569",
+      "border": "#D6D3D1",
+      "destructive": "#DC2626",
+      "on_destructive": "#FFFFFF",
+      "ring": "#1C1917",
+      "notes": "Premium black + gold accent [Accent adjusted from #CA8A04]",
+      "cta": "#A16207",
+      "text": "#0C0A09",
+      "on_cta": "#FFFFFF"
+    },
+    "typography": {
+      "heading": "Inter",
+      "body": "Playfair Display",
+      "mood": "bold typography, editorial, poster, near-black, vermillion, luxury, type-as-hero, manifesto, high-contrast",
+      "best_for": "Creative brand flagships, reading platforms, event apps, flash pages, luxury mobile experiences",
+      "google_fonts_url": "https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400&family=Playfair+Display:ital@1",
+      "css_import": "@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400&family=Playfair+Display:ital@1&display=swap');",
+      "tailwind_config": "fontFamily: { display: ['Inter', 'sans-serif'], quote: ['Playfair Display', 'serif'], mono: ['JetBrains Mono', 'monospace'] }",
+      "category": "Sans + Serif (Display) + Mono"
+    },
+    "key_effects": "Lensing and refraction, adaptive translucency, and fluid morph transitions aligned to Apple platform behavior",
+    "anti_patterns": "Cheap visuals + Fast animations",
+    "decision_rules": {
+      "must_have": [
+        "constraint:high-quality-imagery",
+        "constraint:storytelling"
+      ]
+    },
+    "activated_rules": [
+      {
+        "condition": "must_have",
+        "actions": [
+          "constraint:high-quality-imagery",
+          "constraint:storytelling"
+        ]
+      }
+    ],
+    "constraints": [
+      "high-quality-imagery",
+      "storytelling"
+    ],
+    "reasoning_default": false,
+    "source_identities": {
+      "product": "Luxury/Premium Brand",
+      "reasoning": "Luxury/Premium Brand",
+      "style": "liquid-glass",
+      "color": "Luxury/Premium Brand",
+      "typography": "Bold Typography Mobile (Inter Poster)",
+      "landing": "Scroll-Triggered Storytelling"
+    },
+    "color_mode": "light",
+    "source_derivations": {
+      "color_mode": null
+    },
+    "severity": "HIGH",
+    "dials": {
+      "variance": null,
+      "variance_label": null,
+      "motion": null,
+      "motion_label": null,
+      "density": null,
+      "density_label": null
+    },
+    "motion_snippet": {},
+    "spacing_scale": null
+  },
+  "persistence": null
+}

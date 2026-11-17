@@ -1,0 +1,13 @@
+c1_json	rc=0	0.23s	app para catas de vino entre amigos, con ligas y ranking --design-system --json
+c1b_ascii	rc=0	0.24s	app para catas de vino entre amigos, con ligas y ranking --design-system
+c2_json	rc=0	0.09s	wine tasting social app with leagues and ranking --design-system --json
+c3a_search	rc=0	0.10s	trazabilidad de barricas de roble para cooperativas
+c3b_json	rc=0	0.18s	trazabilidad de barricas de roble para cooperativas --design-system --json
+c3b_ascii	rc=0	0.18s	trazabilidad de barricas de roble para cooperativas --design-system
+c4a_json	rc=0	0.09s	wine tasting app, burgundy and cream brand, rounded typography --design-system --json
+c5a_nostack	rc=0	0.09s	wine tasting social app with leagues and ranking --design-system
+c5a_stack	rc=0	0.09s	wine tasting social app with leagues and ranking --design-system --stack react-native
+c5b_rtl	rc=2	0.07s	wine tasting social app with leagues and ranking --design-system --rtl full
+c6a_first	rc=0	0.09s	wine tasting social app with leagues and ranking --design-system -p pilot --persist --output-dir /private/tmp/claude-501/-Users-denis--claude-spares-spare-wDHR0T/bf0a5e75-3aff-4d5c-91bf-786085f0290c/scratchpad/pilot/ds6a
+c6a_second	rc=0	0.28s	app para catas de vino entre amigos, con ligas y ranking --design-system -p pilot --persist --page ligas --output-dir /private/tmp/claude-501/-Users-denis--claude-spares-spare-wDHR0T/bf0a5e75-3aff-4d5c-91bf-786085f0290c/scratchpad/pilot/ds6a
+c6b_force	rc=0	0.23s	app para catas de vino entre amigos, con ligas y ranking --design-system -p pilot --persist --force --output-dir /private/tmp/claude-501/-Users-denis--claude-spares-spare-wDHR0T/bf0a5e75-3aff-4d5c-91bf-786085f0290c/scratchpad/pilot/ds6a

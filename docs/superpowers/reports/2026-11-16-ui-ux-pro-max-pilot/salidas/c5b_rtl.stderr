@@ -1,0 +1,11 @@
+usage: search.py [-h]
+                 [--domain {style,color,chart,landing,product,ux,typography,icons,gsap,react,web,google-fonts}]
+                 [--rtl [LEVEL]]
+                 [--stack {react,nextjs,vue,svelte,astro,swiftui,react-native,flutter,nuxtjs,nuxt-ui,html-tailwind,shadcn,jetpack-compose,threejs,angular,laravel,javafx,wpf,winui,avalonia,uno,uwp}]
+                 [--max-results 1-20] [--json] [--full] [--design-system]
+                 [--project-name PROJECT_NAME] [--format {ascii,markdown}]
+                 [--persist] [--page PAGE] [--output-dir OUTPUT_DIR] [--force]
+                 [--preview] [--tokens {dtcg,css}] [--variance 1-10]
+                 [--motion 1-10] [--density 1-10]
+                 query
+search.py: error: --rtl is not supported with --design-system; run a separate --domain style or --domain product query
