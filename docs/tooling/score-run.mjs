@@ -5,7 +5,7 @@
 //
 // Uso, desde la raíz de VCX:
 //   node docs/tooling/score-run.mjs evaluate --input <evidencia> --now <ISO> --operator "<texto>"
-//       [--offline] [--dry-run] [--replace-decision]
+//       [--offline] [--dry-run] [--replace-decision] [--allow-missing-community]
 //   node docs/tooling/score-run.mjs decide --id <id> --status <estado> --by "<nombre>"
 //       [--rationale <texto>] [--review-at <fecha>] [--accepted-risk]
 //       --now <ISO> --operator "<texto>" [--dry-run] [--replace-decision]
@@ -14,13 +14,20 @@
 // es obligatorio si el registro ya tiene una decisión humana. El motor no tiene
 // --dry-run en decide: en seco, decide solo corre los controles.
 //
+// Comunidad (score-run-community.mjs): sin GITHUB_TOKEN, evaluate lo toma de
+// `gh auth token` y se lo pasa solo al motor. Antes de correr, consulta el colector de
+// GitHub del motor; si responde rate_limited, unavailable o not_found, corta, porque el
+// motor dejaría community en null sin aviso. Salidas: --offline (el motor reutiliza el
+// snapshot vigente) o --allow-missing-community (queda en la línea de score-runs.jsonl).
+//
 // El CLI y la política de scoring vienen de brix/ (denispaiva/brix): el CLI desde la
 // E5 de VCX-D056, y la política (default-scoring-policy.json, idéntica a la que
 // usaba el precursor) desde el desacople del 2026-11-10, previo a archivarlo.
 //
 // Salidas: 0 éxito; 1 precondición o argumentos; 3 Brix o la política cambiaron durante la
-// corrida (no se agrega línea; revertir a mano lo que el motor escribió en docs/tooling).
-// Otro código distinto de 0 es el del motor.
+// corrida (no se agrega línea; revertir a mano lo que el motor escribió en docs/tooling);
+// 4 el registro persistido quedó sin comunidad aunque el colector respondía antes de
+// correr (mismo tratamiento que 3). Otro código distinto de 0 es el del motor.
 //
 // Límites: no bloquea corridas concurrentes ni verifica el estado de VCX fuera de
 // docs/tooling (paso 8 manual de D035). Si el motor escribe y falla agregar la línea,
@@ -30,15 +37,18 @@ import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { appendFileSync, existsSync, readFileSync, realpathSync } from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { postflightCommunity, preflightCommunity } from './score-run-community.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const BRIX = path.resolve(ROOT, 'brix');
 const CLI = 'brix/packages/cli/bin/brix.js';
+const COLLECTOR = 'packages/cli/scoring/lib/collectors/github.mjs';
 const POLICY = 'brix/packages/cli/scoring/default-scoring-policy.json';
 const OUTPUT_DIR = 'docs/tooling';
 const RUNS_FILE = path.join(ROOT, OUTPUT_DIR, 'score-runs.jsonl');
 const RESERVED_FLAGS = ['policy', 'output-dir', 'narrative-doc'];
-const OWN_FLAGS = ['now', 'operator', 'replace-decision', 'dry-run'];
+const OWN_FLAGS = ['now', 'operator', 'replace-decision', 'dry-run', 'allow-missing-community'];
 const RATIONALE_PLACEHOLDER = '<ver humanDecision.rationale>';
 
 function fail(message, code = 1) {
@@ -155,10 +165,13 @@ if (typeof flags.operator !== 'string' || flags.operator.trim() === '') {
 }
 
 let candidateId;
+let sourceUrl = null;
 if (subcommand === 'evaluate') {
   if (typeof flags.input !== 'string') fail('evaluate: falta --input <evidencia>');
   try {
-    candidateId = JSON.parse(readFileSync(flags.input, 'utf8')).candidate?.id;
+    const candidate = JSON.parse(readFileSync(flags.input, 'utf8')).candidate;
+    candidateId = candidate?.id;
+    sourceUrl = candidate?.sourceUrl ?? null;
   } catch (error) {
     fail(`evaluate: no se pudo leer --input: ${error.message}`);
   }
@@ -207,6 +220,26 @@ if (decision) {
   }
 }
 
+// 6. Comunidad: token para el colector y chequeo previo (ver score-run-community.mjs).
+const offline = Boolean(flags.offline);
+const allowMissing = Boolean(flags['allow-missing-community']);
+const engineEnv = { ...process.env };
+let collectorState = null;
+if (subcommand === 'evaluate' && !offline) {
+  if (!engineEnv.GITHUB_TOKEN) {
+    const gh = spawnSync('gh', ['auth', 'token'], { encoding: 'utf8' });
+    const token = gh.status === 0 ? gh.stdout.trim() : '';
+    if (token) engineEnv.GITHUB_TOKEN = token;
+    else console.error('score-run: sin GITHUB_TOKEN ni `gh auth token`: el colector usa el cupo anónimo de GitHub (60 consultas por hora)');
+  }
+  if (sourceUrl && !allowMissing) {
+    const { collectGithubCommunityEvidence } = await import(pathToFileURL(path.join(BRIX, COLLECTOR)).href);
+    collectorState = (await collectGithubCommunityEvidence(sourceUrl, { token: engineEnv.GITHUB_TOKEN })).state;
+    const gate = preflightCommunity({ collectorState, offline, allowMissing });
+    if (!gate.ok) fail(gate.message);
+  }
+}
+
 const engineArgs = [];
 const recordedArgs = [];
 for (const [name, value] of pairs) {
@@ -233,12 +266,14 @@ const line = {
   evaluationSha256: null,
   previousStatus,
   operator: flags.operator,
+  ...(allowMissing ? { allowMissingCommunity: true } : {}),
 };
 
 if (flags['dry-run']) {
   if (subcommand === 'evaluate') {
     const result = spawnSync(process.execPath, [CLI, 'tool', 'score', 'evaluate', ...engineArgs, '--dry-run'], {
       cwd: ROOT,
+      env: engineEnv,
       stdio: 'inherit',
     });
     if (result.status !== 0) fail(`el motor terminó con código ${result.status}`, result.status ?? 1);
@@ -249,9 +284,10 @@ if (flags['dry-run']) {
   process.exit(0);
 }
 
-// 6. Corrida persistida.
+// 7. Corrida persistida.
 const result = spawnSync(process.execPath, [CLI, 'tool', 'score', subcommand, ...engineArgs], {
   cwd: ROOT,
+  env: engineEnv,
   stdio: 'inherit',
 });
 const after = engineFingerprint();
@@ -264,7 +300,7 @@ if (result.status !== 0) {
   fail(`el motor terminó con código ${result.status}; no se agregó línea`, result.status ?? 1);
 }
 
-// 7. Precondición 2, después: si Brix o la política cambiaron, la corrida no es reproducible.
+// 8. Precondición 2, después: si Brix o la política cambiaron, la corrida no es reproducible.
 const changed = ['brixHead', 'cliTree', 'policySha256'].filter((key) => before[key] !== after[key]);
 if (after.dirty !== '' || changed.length > 0) {
   fail(
@@ -274,6 +310,17 @@ if (after.dirty !== '' || changed.length > 0) {
   );
 }
 if (!current) fail(`el motor terminó bien pero no hay registro de "${candidateId}"`);
+
+// 9. Comunidad, después: el colector respondía, pero el registro quedó sin comunidad.
+if (subcommand === 'evaluate') {
+  const post = postflightCommunity({ collectorState, offline, allowMissing, record: current.record });
+  if (!post.ok) {
+    fail(
+      `corrida inválida: ${post.message}. No se agregó línea; revertir a mano lo que el motor escribió en docs/tooling y repetir`,
+      4,
+    );
+  }
+}
 
 line.formulaVersion = current.record.formulaVersion ?? null;
 line.evaluationSha256 = current.sha;
