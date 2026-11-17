@@ -19,6 +19,8 @@
 // GitHub del motor; si responde rate_limited, unavailable o not_found, corta, porque el
 // motor dejaría community en null sin aviso. Salidas: --offline (el motor reutiliza el
 // snapshot vigente) o --allow-missing-community (queda en la línea de score-runs.jsonl).
+// --allow-missing-community también se reenvía al motor: desde brix#5, el motor falla
+// por su cuenta sin comunidad, y versiones anteriores lo ignoran.
 //
 // El CLI y la política de scoring vienen de brix/ (denispaiva/brix): el CLI desde la
 // E5 de VCX-D056, y la política (default-scoring-policy.json, idéntica a la que
@@ -48,7 +50,7 @@ const POLICY = 'brix/packages/cli/scoring/default-scoring-policy.json';
 const OUTPUT_DIR = 'docs/tooling';
 const RUNS_FILE = path.join(ROOT, OUTPUT_DIR, 'score-runs.jsonl');
 const RESERVED_FLAGS = ['policy', 'output-dir', 'narrative-doc'];
-const OWN_FLAGS = ['now', 'operator', 'replace-decision', 'dry-run', 'allow-missing-community'];
+const OWN_FLAGS = ['now', 'operator', 'replace-decision', 'dry-run'];
 const RATIONALE_PLACEHOLDER = '<ver humanDecision.rationale>';
 
 function fail(message, code = 1) {
