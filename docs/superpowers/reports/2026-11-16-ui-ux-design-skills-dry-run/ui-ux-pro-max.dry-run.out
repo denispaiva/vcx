@@ -1,0 +1,42 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · ui-ux-pro-max (skill)
+  github.com/nextlevelbuilder/ui-ux-pro-max-skill · evaluado 2026-11-17
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         62.8 / 100
+  CONFIANZA             high (84)
+  NIVEL DE RIESGO        high
+  RECOMENDACIÓN BASE     advance_with_reservations
+
+  ── Por factor ──────────────────────────────────────
+  community        unavailable
+  maintenance      80.5
+  security         65.8
+  fit              42.3
+  engineering      65.3
+  sustainability   67.5
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+  • newLocalDependencies (nuevas dependencias locales)
+  • broadScope (alcance amplio)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • maintenance.activityRecency (95) — Push el 2026-11-16, día de la medición.
+  • maintenance.commitContinuity (85) — 89 commits desde 2026-08-18; ~116 contributors con anónimos.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • fit.incrementalValue (30) — Su modo central genera un sistema de diseño y lo persiste como «Global Source of Truth» en design-system/<slug>/MASTER.md: contradice la fuente única de tokens del proyecto y la marca ya aprobada. Los modos --domain ux y --stack, de solo lectura, aportan reglas que en parte repiten la checklist v1.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "ui-ux-pro-max", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-16-ui-ux-design-skills-dry-run/ui-ux-pro-max.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-17T00:15:00Z", "now": "2026-11-17T00:15:00Z", "brixHead": "131a5c20dff07ae6c105056443c394def7153345", "cliTree": "b4c927628119076a51fe835ab739ba816afa0e22", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Code (claude-opus-5-5); evaluación en seco solicitada por el usuario"}

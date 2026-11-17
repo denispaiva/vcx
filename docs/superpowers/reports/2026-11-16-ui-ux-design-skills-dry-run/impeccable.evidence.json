@@ -1,0 +1,388 @@
+{
+  "candidate": {
+    "id": "impeccable",
+    "type": "skill",
+    "sourceUrl": "https://github.com/pbakaus/impeccable",
+    "evaluatedRef": "d41d9860b0094dcb68030657da63461212835aaa"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 95,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Commits y releases el 2026-11-16.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable (pushed_at=2026-11-16T23:58:49Z; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 75,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Releases por componente (skill-v, cli-v, engine-v, loop-v) con fecha; skill-v4.9.1 el 2026-11-14. Sin CHANGELOG en el repositorio; las notas viven en Releases y en el sitio.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/releases (medido 2026-11-16)",
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "1734 commits desde 2026-08-18 según el conteo mensual del subagente; 1971 desde skill-v4.0.4. Ritmo muy alto, con riesgo de cambios de comportamiento entre versiones.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 75,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "31 issues abiertos y 492 cerrados; muestra de 10 cerrados con mediana cercana a un día.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 55,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Descarga y ejecuta un binario Rust (engine 0.1.25) verificado con sha256 de un archivo del mismo repositorio, sin firma independiente. El binario no se inspeccionó ni hay auditoría.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Autor identificable (Paul Bakaus), Apache-2.0, derivada de frontend-design según su README. Los artefactos ejecutables vienen de GitHub Releases del mismo autor y un catálogo remoto de impeccable.style sin revisión fijada.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó",
+          "github-raw:pbakaus/impeccable/d41d9860b0094dcb68030657da63461212835aaa/README.md (líneas 72, 209 y 213: Apply sin chat activo lanza codex o claude sin aprobaciones ni sandbox; hooks fuera de la aprobación del modelo; consulta a impeccable.style que la telemetría apagada no evita; verificado por el agente principal; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 55,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "CI y ~70 archivos de test, pero sin SECURITY.md; checksums en el mismo repo que el binario.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El README documenta hooks fuera de la aprobación del modelo, la descarga del engine en la primera edición, la telemetría y su opt-out. Lo documenta, pero el diseño por defecto actúa sin aprobación y Apply puede lanzar un agente sin aprobaciones ni sandbox.",
+        "evidenceRefs": [
+          "github-raw:pbakaus/impeccable/d41d9860b0094dcb68030657da63461212835aaa/plugin/hooks/hooks.json (SessionStart, PostToolUse Edit|Write y Stop ejecutan scripts/impeccable hook; verificado por el agente principal; medido 2026-11-16)",
+          "github-raw:pbakaus/impeccable/d41d9860b0094dcb68030657da63461212835aaa/README.md (líneas 72, 209 y 213: Apply sin chat activo lanza codex o claude sin aprobaciones ni sandbox; hooks fuera de la aprobación del modelo; consulta a impeccable.style que la telemetría apagada no evita; verificado por el agente principal; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La cobertura más amplia de las seis: dirección visual, auditoría con WCAG AA como referencia, foco, teclado, estados, movimiento reducido y lectura de código nativo (React Native incluido). Detector, live y hooks son solo web.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó",
+          "local-read:solera/teyst/package.json (expo ~57.0.32; react-native 0.86.3; react-native-web ~0.21.0; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Instalación documentada para Claude Code y Codex, con goldens de hooks de Codex. Requiere el binario del engine y Node para npx; no probado aquí.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó",
+          "github-raw:pbakaus/impeccable/d41d9860b0094dcb68030657da63461212835aaa/README.md (líneas 72, 209 y 213: Apply sin chat activo lanza codex o claude sin aprobaciones ni sandbox; hooks fuera de la aprobación del modelo; consulta a impeccable.style que la telemetría apagada no evita; verificado por el agente principal; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Agrega flujo de diseño completo y detector, pero escribe PRODUCT.md, DESIGN.md y .impeccable/, una segunda fuente del sistema de diseño, y sortea direcciones visuales para pantallas nuevas. Se superpone con design:accessibility-review (aprobada) y con la checklist v1; 0 usos en tres meses de admisión previa.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó",
+          "local-read:docs/tooling/evaluations/impeccable.evaluation.json (rejected por el PO el 2026-11-17T00:04Z en otra sesión, sobre skill-v4.9.1, vence 2027-02-15; sin commitear) y docs/superpowers/plans/2026-11-02-tooling-renewal-plan.md:105 (dejar vencer el 2026-11-08)",
+          "local-read:docs/superpowers/reports/2026-11-09-ux-checklist-pilot.md y VCX-D060"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Plugin con 24 comandos, 54 referencias, 5 agentes, hooks y engine descargable.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de uso de este candidato en VCX: docs/tooling/evaluations/ y score-runs.jsonl no lo contienen.",
+        "evidenceRefs": [
+          "local-read:docs/tooling/evaluations/ y docs/tooling/score-runs.jsonl (sin el candidato; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin uso del candidato en el workspace: no hay resultado observable. Esta ronda no ejecutó la skill.",
+        "evidenceRefs": [
+          "sin uso del candidato en el workspace ni prueba ejecutada en esta ronda (consultado 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 75,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "CI con tests y goldens; no ejecutados aquí.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "README con avisos de seguridad y telemetría explícitos; referencias extensas.",
+        "evidenceRefs": [
+          "github-raw:pbakaus/impeccable/d41d9860b0094dcb68030657da63461212835aaa/README.md (líneas 72, 209 y 213: Apply sin chat activo lanza codex o claude sin aprobaciones ni sandbox; hooks fuera de la aprobación del modelo; consulta a impeccable.style que la telemetría apagada no evita; verificado por el agente principal; medido 2026-11-16)",
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 70,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tags semver por componente y checksums por versión del engine; sin CHANGELOG local.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Goldens por harness en tests; la compatibilidad real no se comprobó.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 25,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Binario nativo, hooks, Node para el instalador y servicio remoto de catálogo.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Apache-2.0 y gratuita; existe una cuenta Pro opcional cuyos precios no se comprobaron.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Formato de skill abierto, pero DESIGN.md y PRODUCT.md siguen el formato del proyecto y el engine es propio.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Deja ~/.impeccable/ (binario, config, salt de telemetría), entradas de hooks en settings y, en el proyecto, PRODUCT.md, DESIGN.md, .impeccable/ y líneas de .gitignore. No se comprobó un desinstalador.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Seguir un upstream de ~600 commits por mes, revisar hooks y telemetría, y fijar la versión del engine.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a d41d9860b0094dcb68030657da63461212835aaa; el binario del engine no se inspeccionó"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 82
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": true,
+    "networkAccess": true,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": true,
+    "destructiveActions": false,
+    "elevatedPrivileges": true,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

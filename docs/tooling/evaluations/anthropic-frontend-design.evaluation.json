@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "id": "anthropic-frontend-design",
+    "type": "skill",
+    "sourceUrl": "https://github.com/anthropics/skills",
+    "evaluatedRef": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba"
+  },
+  "observedAt": "2026-11-17T00:25:00.000Z",
+  "overallScore": 63.25718685210177,
+  "evidenceCoverage": 98,
+  "factorScores": {
+    "community": 76.73454537161993,
+    "maintenance": 42.75,
+    "security": 74.00000000000001,
+    "fit": 58.388888888888886,
+    "engineering": 38.3,
+    "sustainability": 92.75
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 96.6,
+  "confidence": "high",
+  "riskLevel": "medium",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "approved",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#anthropic-frontend-design",
+  "evidenceInputRef": "docs/tooling/evaluations/anthropic-frontend-design.evidence.json",
+  "expiresAt": "2027-02-15T00:25:00.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "approved",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-17T00:27:18.784Z",
+    "rationale": "Decisión de Denis Paiva (PO) en el chat de Claude Code del 2026-11-16: «Aprobar con reservas», ante la pregunta «¿Qué decisión registro sobre frontend-design?». Puntaje 63,3, advance_with_reservations, riesgo medium, sobre anthropics/skills@e4bb5d9 (skills/frontend-design). Respaldo: piloto A ciego del 2026-11-16, en el que el PO eligió el brazo con la skill en 3 de 3 pares, con mediana fuera de tokens de 31 contra 47 y costo de 1,03 veces el del control; muestra chica y tope de tokens del piloto excedido. La comunidad (76,7) es del repositorio entero, no de la skill. Reservas: (1) se usa fijada en e4bb5d9 como texto de referencia, no como plugin; (2) el brief y los tokens del proyecto mandan sobre la skill; (3) está orientada a web y no cubre la implementación en React Native; (4) se revisa con uso medido antes del vencimiento."
+  }
+}

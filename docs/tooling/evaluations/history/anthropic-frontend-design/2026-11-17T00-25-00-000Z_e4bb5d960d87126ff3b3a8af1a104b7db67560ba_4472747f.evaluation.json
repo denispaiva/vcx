@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "anthropic-frontend-design",
+    "type": "skill",
+    "sourceUrl": "https://github.com/anthropics/skills",
+    "evaluatedRef": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba"
+  },
+  "observedAt": "2026-11-17T00:25:00.000Z",
+  "overallScore": 63.25718685210177,
+  "evidenceCoverage": 98,
+  "factorScores": {
+    "community": 76.73454537161993,
+    "maintenance": 42.75,
+    "security": 74.00000000000001,
+    "fit": 58.388888888888886,
+    "engineering": 38.3,
+    "sustainability": 92.75
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 96.6,
+  "confidence": "high",
+  "riskLevel": "medium",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#anthropic-frontend-design",
+  "evidenceInputRef": "docs/tooling/evaluations/anthropic-frontend-design.evidence.json",
+  "expiresAt": "2027-02-15T00:25:00.000Z",
+  "communityEvidenceNote": null
+}

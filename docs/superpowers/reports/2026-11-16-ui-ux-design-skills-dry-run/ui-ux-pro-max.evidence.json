@@ -1,0 +1,393 @@
+{
+  "candidate": {
+    "id": "ui-ux-pro-max",
+    "type": "skill",
+    "sourceUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "evaluatedRef": "e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 95,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Push el 2026-11-16, día de la medición.",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill (pushed_at=2026-11-16T04:10:04Z; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 75,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "semantic-release con v2.15.0 (2026-08-13) y v2.14.x; la revisión evaluada está 89 commits por delante del último release.",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/releases (medido 2026-11-16)",
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "89 commits desde 2026-08-18; ~116 contributors con anónimos.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 55,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Muestra de 7 issues cerrados: de minutos a ~2 meses; 83 abiertos.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 75,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Scripts Python de librería estándar y CLI Node opcional que extrae con unzip o cp por shell; sin advisories publicados. No se auditó el código completo.",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill/e59ff376a41f7ca47b7541ad5c116495cbade3ee/.claude/skills/ui-ux-pro-max/scripts/{search,core,design_system,preview}.py (imports de core.py solo librería estándar, verificado; medido 2026-11-16)",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill/e59ff376a41f7ca47b7541ad5c116495cbade3ee/cli/src/utils/github.ts y cli/src/commands/init.ts (descarga releases/latest sin fijar revisión; medido 2026-11-16)",
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/security-advisories (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Organización nextlevelbuilder, MIT. data-provenance.json fuentea 53 registros; las 192 paletas y las etiquetas «Conversion-Focused» y «Mobile-Friendly» no tienen fuente ni medición. Ofrece una versión Premium aparte.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill/e59ff376a41f7ca47b7541ad5c116495cbade3ee/README.md (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 70,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SECURITY.md con alcance (RCE, path traversal en el CLI), 6 workflows con tests y release. Sin auditoría propia.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SKILL.md declara que no instala paquetes y que sus resultados son recomendaciones. Pero el plugin instala 7 skills, dos con scripts de red y APIs de terceros (generación de logos, imágenes de Pexels), y --persist escribe en el proyecto.",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/contents/.claude-plugin/plugin.json?ref=e59ff376a41f7ca47b7541ad5c116495cbade3ee (\"skills\": \"./.claude/skills/\", 7 skills; verificado; medido 2026-11-16)",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill/e59ff376a41f7ca47b7541ad5c116495cbade3ee/.claude/skills/ui-ux-pro-max/SKILL.md (18,6 KB; leído en parte; líneas 40-46 y 92-102 verificadas por el agente principal; medido 2026-11-16)",
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Base buscable de estilos, paletas, tipografías y reglas UX (foco, teclado, contraste, carga, errores, movimiento reducido) con guía por stack, incluido React Native. Casi nada de español ni i18n.",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill/e59ff376a41f7ca47b7541ad5c116495cbade3ee/.claude/skills/ui-ux-pro-max/SKILL.md (18,6 KB; leído en parte; líneas 40-46 y 92-102 verificadas por el agente principal; medido 2026-11-16)",
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Requiere Python 3. Instalación documentada para Claude Code (plugin) y Codex (uipro init --ai codex); SKILL.md usa ${CLAUDE_PLUGIN_ROOT}. Sin prueba e2e de Codex; no probado aquí.",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill/e59ff376a41f7ca47b7541ad5c116495cbade3ee/.claude/skills/ui-ux-pro-max/SKILL.md (18,6 KB; leído en parte; líneas 40-46 y 92-102 verificadas por el agente principal; medido 2026-11-16)",
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Su modo central genera un sistema de diseño y lo persiste como «Global Source of Truth» en design-system/<slug>/MASTER.md: contradice la fuente única de tokens del proyecto y la marca ya aprobada. Los modos --domain ux y --stack, de solo lectura, aportan reglas que en parte repiten la checklist v1.",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill/e59ff376a41f7ca47b7541ad5c116495cbade3ee/.claude/skills/ui-ux-pro-max/SKILL.md (18,6 KB; leído en parte; líneas 40-46 y 92-102 verificadas por el agente principal; medido 2026-11-16)",
+          "local-read:solera/teyst/package.json (expo ~57.0.32; react-native 0.86.3; react-native-web ~0.21.0; tokens de tema en un archivo propio del proyecto; consultado 2026-11-16)",
+          "local-read:docs/superpowers/reports/2026-11-09-ux-checklist-pilot.md y docs/decisions/README.md VCX-D060 (checklist v1 sin skill; dos pilotos ciegos sin carencia que exija skill; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Skill de 3,7 MB con datos CSV y scripts; el plugin trae 10 MB y 7 skills. Requiere un intérprete Python.",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/contents/.claude-plugin/plugin.json?ref=e59ff376a41f7ca47b7541ad5c116495cbade3ee (\"skills\": \"./.claude/skills/\", 7 skills; verificado; medido 2026-11-16)",
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de uso de este candidato en VCX: docs/tooling/evaluations/ y score-runs.jsonl no lo contienen.",
+        "evidenceRefs": [
+          "local-read:docs/tooling/evaluations/ y docs/tooling/score-runs.jsonl (sin el candidato; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin uso del candidato en el workspace: no hay resultado observable. Esta ronda no ejecutó la skill.",
+        "evidenceRefs": [
+          "sin uso del candidato en el workspace ni prueba ejecutada en esta ronda (consultado 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 75,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tests unittest, e2e del CLI con Playwright, umbrales de relevancia y smoke por stack en CI. No se ejecutaron.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "README extenso multilenguaje, INSTALL y SECURITY; SKILL con salvaguardas explícitas. Afirmaciones de conversión sin respaldo.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill/e59ff376a41f7ca47b7541ad5c116495cbade3ee/.claude/skills/ui-ux-pro-max/SKILL.md (18,6 KB; leído en parte; líneas 40-46 y 92-102 verificadas por el agente principal; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 70,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "semantic-release y tags semver; el CHANGELOG se genera en los releases y no está en el árbol.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Plantillas por plataforma y e2e para algunas, no para Codex ni Claude Code.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 50,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Python 3 obligatorio; CLI npm global opcional; 10 MB de datos.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "MIT y gratuita para la skill de UI/UX; Premium y APIs de imágenes de las skills hermanas serían de pago y no se necesitan.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Datos CSV abiertos y Python estándar; el diseño persistido queda en un formato propio.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Desinstalar quita las skills, pero no limpia design-system/, preview.html ni tokens generados, ni el CLI global.",
+        "evidenceRefs": [
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Ritmo alto de cambios y un CLI que siempre baja el último release: hay que fijar revisión y revisar diferencias.",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill/e59ff376a41f7ca47b7541ad5c116495cbade3ee/cli/src/utils/github.ts y cli/src/commands/init.ts (descarga releases/latest sin fijar revisión; medido 2026-11-16)",
+          "informe del subagente de inspección (sonnet, solo lectura) del 2026-11-16, con citas ruta:línea a e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 82
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": true,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": true,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

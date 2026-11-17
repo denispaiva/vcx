@@ -1,0 +1,395 @@
+{
+  "candidate": {
+    "id": "wondelai-ux-heuristics",
+    "type": "skill",
+    "sourceUrl": "https://github.com/wondelai/skills",
+    "evaluatedRef": "c5265583b1a9740f06831e1d3e89b35bba3eb430"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 45,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último cambio de la ruta el 2026-06-30 (139 días); el repositorio tuvo commits el 2026-11-13.",
+        "evidenceRefs": [
+          "github-api:repos/wondelai/skills/commits?path=ux-heuristics (13 commits 2026-01-29 a 2026-06-30; 0 desde 2026-08-18; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 55,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tags semver del repositorio v1.6.0 a v1.8.0 en agosto de 2026; la skill declara 1.6.0 en su frontmatter.",
+        "evidenceRefs": [
+          "github-api:repos/wondelai/skills/releases (v1.8.0 2026-08-29; medido 2026-11-16)",
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 35,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "13 commits en la ruta en cinco meses y ninguno en 90 días; 3 contributors en el repositorio.",
+        "evidenceRefs": [
+          "github-api:repos/wondelai/skills/commits?path=ux-heuristics (13 commits 2026-01-29 a 2026-06-30; 0 desde 2026-08-18; medido 2026-11-16)",
+          "github-api:repos/wondelai/skills/contributors (3; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 35,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Solo 2 issues cerrados en la muestra (371 y 506 h); 13 abiertos.",
+        "evidenceRefs": [
+          "github-api:search/issues repo:wondelai/skills is:closed (medido 2026-11-16)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 90,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La skill es solo Markdown; el único script del repositorio genera plugins y no se instala. 0 advisories.",
+        "evidenceRefs": [
+          "github-api:repos/wondelai/skills/git/trees/c5265583b1a9740f06831e1d3e89b35bba3eb430?recursive=1 (medido 2026-11-16)",
+          "github-api:repos/wondelai/skills/security-advisories (0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Organización wondelai, MIT. El contenido resume a Krug y Nielsen sin ser de sus autores, y enlaza los libros con tag de afiliado de Amazon (tag=wondelai00-20).",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)",
+          "github-api:repos/wondelai/skills (license=MIT; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 45,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin SECURITY.md; perfil 50 %; workflows de índice, revisión con Claude y sincronización de versión.",
+        "evidenceRefs": [
+          "github-api:repos/wondelai/skills/community/profile (50; medido 2026-11-16)",
+          "github-api:repos/wondelai/skills/actions/workflows (3; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Auditoría de solo lectura; no pide red, scripts ni escritura. Sugiere herramientas externas (axe, WAVE, Lighthouse) y aclara que la automatización detecta ~30 % de los problemas.",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)",
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/references/*.md (7 archivos, ~67 KB; buscados por red, scripts y herramientas; wcag-checklist.md leído en parte; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Auditoría heurística de usabilidad: estado del sistema, errores, estados vacíos, carga, objetivos táctiles de 44 px, foco y contraste. Se superpone casi por completo con la checklist v1 de VCX-D060; agrega escala de severidad, patrones oscuros y una referencia WCAG 2.1 AA, esta última ya cubierta por design:accessibility-review, aprobada el 2026-11-17.",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)",
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/references/*.md (7 archivos, ~67 KB; buscados por red, scripts y herramientas; wcag-checklist.md leído en parte; medido 2026-11-16)",
+          "local-read:docs/superpowers/reports/2026-11-09-ux-checklist-pilot.md y docs/decisions/README.md VCX-D060 (checklist v1 sin skill; dos pilotos ciegos sin carencia que exija skill; consultado 2026-11-16)",
+          "local-read:docs/tooling/evaluations/design-accessibility-review.evaluation.json y design-ux-copy.evaluation.json (approved por el PO el 2026-11-17T00:04Z en otra sesión, sin commitear al 2026-11-17T00:10Z; anthropics/knowledge-work-plugins@c71b6f3; auditoría WCAG web y redacción de UI)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Texto independiente de plataforma, aplicable a web y móvil. El README declara Claude Code y Codex (Agent Skills); no se probó.",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/README.md (líneas 3-46; medido 2026-11-16)",
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Lo incremental frente a la checklist v1 y a design:accessibility-review es la severidad y los patrones oscuros. Su puntaje propio «Goal: 10/10» compite con la nota orientativa de VCX-P2 y con el motor de evaluación; los pilotos de VCX-D060 no mostraron una carencia que exija una skill.",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)",
+          "local-read:docs/superpowers/reports/2026-11-09-ux-checklist-pilot.md y docs/decisions/README.md VCX-D060 (checklist v1 sin skill; dos pilotos ciegos sin carencia que exija skill; consultado 2026-11-16)",
+          "local-read:docs/tooling/evaluations/design-accessibility-review.evaluation.json y design-ux-copy.evaluation.json (approved por el PO el 2026-11-17T00:04Z en otra sesión, sin commitear al 2026-11-17T00:10Z; anthropics/knowledge-work-plugins@c71b6f3; auditoría WCAG web y redacción de UI)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SKILL de 16 KB y siete referencias Markdown; sin dependencias.",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)",
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/references/*.md (7 archivos, ~67 KB; buscados por red, scripts y herramientas; wcag-checklist.md leído en parte; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de uso de este candidato en VCX: docs/tooling/evaluations/ y score-runs.jsonl no lo contienen.",
+        "evidenceRefs": [
+          "local-read:docs/tooling/evaluations/ y docs/tooling/score-runs.jsonl (sin el candidato; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin uso del candidato en el workspace: no hay resultado observable. Esta ronda no ejecutó la skill.",
+        "evidenceRefs": [
+          "sin uso del candidato en el workspace ni prueba ejecutada en esta ronda (consultado 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 20,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Workflows de índice y revisión por Claude; ninguna eval del efecto de la skill.",
+        "evidenceRefs": [
+          "github-api:repos/wondelai/skills/actions/workflows (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Estructurada, con tablas, diagnóstico rápido, conflictos entre heurísticas y fuentes citadas. Sin ejemplos en español.",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)",
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/references/*.md (7 archivos, ~67 KB; buscados por red, scripts y herramientas; wcag-checklist.md leído en parte; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 55,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Semver en tags y versión en el frontmatter, aunque la skill (1.6.0) va detrás del repositorio (1.8.0).",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)",
+          "github-api:repos/wondelai/skills/tags (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Lista de agentes compatibles sin pruebas por agente.",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/README.md (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 97,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cero dependencias.",
+        "evidenceRefs": [
+          "github-api:repos/wondelai/skills/git/trees/c5265583b1a9740f06831e1d3e89b35bba3eb430?recursive=1 (medido 2026-11-16)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 95,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "MIT y gratuita; los enlaces de afiliado no generan costo.",
+        "evidenceRefs": [
+          "github-api:repos/wondelai/skills (license=MIT; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Markdown en formato abierto, vendorizable con atribución.",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 97,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Solo lee; retirarla no deja residuo.",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin servicios ni claves.",
+        "evidenceRefs": [
+          "github-raw:wondelai/skills/c5265583b1a9740f06831e1d3e89b35bba3eb430/ux-heuristics/SKILL.md (16518 bytes; versión 1.6.0 en frontmatter; leído; medido 2026-11-16)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 88
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": true,
+    "localWriteReversible": false,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

@@ -1,0 +1,51 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · wondelai-ux-heuristics (skill)
+  github.com/wondelai/skills · evaluado 2026-11-17
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         59.5 / 100
+  CONFIANZA             high (86)
+  NIVEL DE RIESGO        low
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        unavailable
+  maintenance      44.0
+  security         71.3
+  fit              49.7
+  engineering      50.2
+  sustainability   93.3
+
+  ── Riesgo, por ─────────────────────────────────────
+  • scopedLocalReadOnly (solo lectura local con alcance acotado)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • security.vulnerabilityStatus (90) — La skill es solo Markdown; el único script del repositorio genera plugins y no se instala. 0 advisories.
+  • security.permissionTransparency (85) — Auditoría de solo lectura; no pide red, scripts ni escritura. Sugiere herramientas externas (axe, WAVE, Lighthouse) y aclara que la automatización detecta ~30 % de los problemas.
+  • fit.adoptionSimplicity (85) — SKILL de 16 KB y siete referencias Markdown; sin dependencias.
+  • engineering.dependencySimplicity (97) — Cero dependencias.
+  • sustainability.costPredictability (95) — MIT y gratuita; los enlaces de afiliado no generan costo.
+  • sustainability.portability (90) — Markdown en formato abierto, vendorizable con atribución.
+  • sustainability.reversibility (97) — Solo lee; retirarla no deja residuo.
+  • sustainability.operatingOverhead (90) — Sin servicios ni claves.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.commitContinuity (35) — 13 commits en la ruta en cinco meses y ninguno en 90 días; 3 contributors en el repositorio.
+  • maintenance.responseHealth (35) — Solo 2 issues cerrados en la muestra (371 y 506 h); 13 abiertos.
+  • fit.capabilityGapCoverage (35) — Auditoría heurística de usabilidad: estado del sistema, errores, estados vacíos, carga, objetivos táctiles de 44 px, foco y contraste. Se superpone casi por completo con la checklist v1 de VCX-D060; agrega escala de severidad, patrones oscuros y una referencia WCAG 2.1 AA, esta última ya cubierta por design:accessibility-review, aprobada el 2026-11-17.
+  • fit.incrementalValue (25) — Lo incremental frente a la checklist v1 y a design:accessibility-review es la severidad y los patrones oscuros. Su puntaje propio «Goal: 10/10» compite con la nota orientativa de VCX-P2 y con el motor de evaluación; los pilotos de VCX-D060 no mostraron una carencia que exija una skill.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (20) — Workflows de índice y revisión por Claude; ninguna eval del efecto de la skill.
+  • engineering.compatibilityEvidence (40) — Lista de agentes compatibles sin pruebas por agente.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "wondelai-ux-heuristics", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-16-ui-ux-design-skills-dry-run/wondelai-ux-heuristics.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-17T00:15:00Z", "now": "2026-11-17T00:15:00Z", "brixHead": "131a5c20dff07ae6c105056443c394def7153345", "cliTree": "b4c927628119076a51fe835ab739ba816afa0e22", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Code (claude-opus-5-5); evaluación en seco solicitada por el usuario"}

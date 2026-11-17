@@ -1,0 +1,391 @@
+{
+  "candidate": {
+    "id": "interface-design",
+    "type": "skill",
+    "sourceUrl": "https://github.com/Dammyjay93/interface-design",
+    "evaluatedRef": "2f9be3206855bcb2d1d0af262c8bae25cba6658d"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 40,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último commit 2026-06-20 (149 días) en todo el repositorio.",
+        "evidenceRefs": [
+          "github-api:repos/Dammyjay93/interface-design/commits (50 commits 2026-01-05 a 2026-06-20; 0 desde 2026-08-18; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 40,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Releases por fecha hasta 2026-06-12; el hook de pre-commit reescribe la versión en cada commit, así que la versión no marca cambios de contenido.",
+        "evidenceRefs": [
+          "github-api:repos/Dammyjay93/interface-design/releases (v2026.6.12.1248; medido 2026-11-16)",
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.githooks/pre-commit (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 25,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "50 commits en seis meses y ninguno en 90 días; un solo autor, factor de bus 1.",
+        "evidenceRefs": [
+          "github-api:repos/Dammyjay93/interface-design/commits (50 commits 2026-01-05 a 2026-06-20; 0 desde 2026-08-18; medido 2026-11-16)",
+          "github-api:repos/Dammyjay93/interface-design/contributors (1; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 20,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Issues cerrados de la muestra: 399 a 4646 h; 8 abiertos.",
+        "evidenceRefs": [
+          "github-api:search/issues repo:Dammyjay93/interface-design is:closed (5; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 90,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Solo Markdown en la skill y los comandos; el hook de git es del repositorio y no se instala en el proyecto. 0 advisories.",
+        "evidenceRefs": [
+          "github-api:repos/Dammyjay93/interface-design/git/trees/2f9be3206855bcb2d1d0af262c8bae25cba6658d?recursive=1 (15 archivos; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cuenta personal, MIT, un único autor; sin fuentes citadas para sus reglas de craft.",
+        "evidenceRefs": [
+          "github-api:repos/Dammyjay93/interface-design (owner User; license=MIT; medido 2026-11-16)",
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design/SKILL.md (29614 bytes; leído por secciones; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 25,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin CI, sin SECURITY.md; perfil de comunidad 42 %.",
+        "evidenceRefs": [
+          "github-api:repos/Dammyjay93/interface-design/actions/workflows (0; medido 2026-11-16)",
+          "github-api:repos/Dammyjay93/interface-design/community/profile (42; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El README advierte que las skills corren con los permisos del agente. La skill escribe .interface-design/system.md después de ofrecerlo y sugiere usar generación de imágenes y screenshots si existen.",
+        "evidenceRefs": [
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design/SKILL.md (29614 bytes; leído por secciones; medido 2026-11-16)",
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/README.md (línea 83; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Interfaces de producto (no marketing): jerarquía, tokens, estados obligatorios (hover, foco, deshabilitado, carga, vacío, error), objetivos de 44 px, movimiento reducido y «usar lo que existe» antes que componentes a mano. Encaja con la fila de la matriz; se superpone en parte con la checklist v1.",
+        "evidenceRefs": [
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design/SKILL.md (29614 bytes; leído por secciones; medido 2026-11-16)",
+          "local-read:docs/architecture/tooling-matrix.md:117 (fila «Cellar · conducción, interfaz · Diseño y anti-patrones de UI»: impeccable y emilkowalski-skills sin admisión vigente desde 2026-11-08; consultado 2026-11-16)",
+          "local-read:docs/superpowers/reports/2026-11-09-ux-checklist-pilot.md y docs/decisions/README.md VCX-D060 (checklist v1 sin skill; dos pilotos ciegos sin carencia que exija skill; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Orientada a HTML y CSS (native HTML, dialog, details); no menciona React Native. Documenta instalación con skills.sh para Codex y trae agents/openai.yaml; no probado.",
+        "evidenceRefs": [
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design/SKILL.md (29614 bytes; leído por secciones; medido 2026-11-16)",
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/README.md (líneas 56-83; medido 2026-11-16)",
+          "local-read:solera/teyst/package.json (expo ~57.0.32; react-native 0.86.3; react-native-web ~0.21.0; tokens de tema en un archivo propio del proyecto; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Su memoria de decisiones en .interface-design/system.md es una segunda fuente del sistema de diseño junto a los tokens del proyecto (VCX-P9), salvo que se la limite a apuntar a esos tokens. La regla de inspeccionar tokens existentes primero lo mitiga.",
+        "evidenceRefs": [
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design/SKILL.md (29614 bytes; leído por secciones; medido 2026-11-16)",
+          "local-read:solera/teyst/package.json (expo ~57.0.32; react-native 0.86.3; react-native-web ~0.21.0; tokens de tema en un archivo propio del proyecto; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Un SKILL de 30 KB y dos comandos; sin dependencias.",
+        "evidenceRefs": [
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design/SKILL.md (29614 bytes; leído por secciones; medido 2026-11-16)",
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/commands/design-review.md y design-deslop.md (buscados por red y herramientas; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de uso de este candidato en VCX: docs/tooling/evaluations/ y score-runs.jsonl no lo contienen.",
+        "evidenceRefs": [
+          "local-read:docs/tooling/evaluations/ y docs/tooling/score-runs.jsonl (sin el candidato; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin uso del candidato en el workspace: no hay resultado observable. Esta ronda no ejecutó la skill.",
+        "evidenceRefs": [
+          "sin uso del candidato en el workspace ni prueba ejecutada en esta ronda (consultado 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 3,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin workflows ni pruebas.",
+        "evidenceRefs": [
+          "github-api:repos/Dammyjay93/interface-design/actions/workflows (0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Detallada y ordenada, con flujo de trabajo, chequeos previos y lista de defaults a evitar. Afirmaciones de craft sin fuente.",
+        "evidenceRefs": [
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design/SKILL.md (29614 bytes; leído por secciones; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 35,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Versión por timestamp automática en cada commit, sin changelog.",
+        "evidenceRefs": [
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.githooks/pre-commit (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Instalación documentada para varios agentes; sin pruebas ni matriz.",
+        "evidenceRefs": [
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/README.md (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 97,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cero dependencias.",
+        "evidenceRefs": [
+          "github-api:repos/Dammyjay93/interface-design/git/trees/2f9be3206855bcb2d1d0af262c8bae25cba6658d?recursive=1 (medido 2026-11-16)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 95,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "MIT y gratuita; FUNDING.yml es voluntario.",
+        "evidenceRefs": [
+          "github-api:repos/Dammyjay93/interface-design (license=MIT; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Markdown en formato abierto.",
+        "evidenceRefs": [
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design/SKILL.md (29614 bytes; leído por secciones; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se retira borrando la carpeta; si se aceptó guardar patrones, queda .interface-design/system.md en el proyecto.",
+        "evidenceRefs": [
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design/SKILL.md (29614 bytes; leído por secciones; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin servicios; mantener system.md alineado con los tokens reales es trabajo continuo.",
+        "evidenceRefs": [
+          "github-raw:Dammyjay93/interface-design/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design/SKILL.md (29614 bytes; leído por secciones; medido 2026-11-16)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

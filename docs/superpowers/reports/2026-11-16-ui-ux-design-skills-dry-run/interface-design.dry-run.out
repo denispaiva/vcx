@@ -1,0 +1,51 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · interface-design (skill)
+  github.com/Dammyjay93/interface-design · evaluado 2026-11-17
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         52.7 / 100
+  CONFIANZA             high (85)
+  NIVEL DE RIESGO        medium
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        unavailable
+  maintenance      33.3
+  security         62.0
+  fit              51.3
+  engineering      39.6
+  sustainability   86.0
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • security.vulnerabilityStatus (90) — Solo Markdown en la skill y los comandos; el hook de git es del repositorio y no se instala en el proyecto. 0 advisories.
+  • engineering.dependencySimplicity (97) — Cero dependencias.
+  • sustainability.costPredictability (95) — MIT y gratuita; FUNDING.yml es voluntario.
+  • sustainability.portability (85) — Markdown en formato abierto.
+  • sustainability.reversibility (85) — Se retira borrando la carpeta; si se aceptó guardar patrones, queda .interface-design/system.md en el proyecto.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.activityRecency (40) — Último commit 2026-06-20 (149 días) en todo el repositorio.
+  • maintenance.releaseContinuity (40) — Releases por fecha hasta 2026-06-12; el hook de pre-commit reescribe la versión en cada commit, así que la versión no marca cambios de contenido.
+  • maintenance.commitContinuity (25) — 50 commits en seis meses y ninguno en 90 días; un solo autor, factor de bus 1.
+  • maintenance.responseHealth (20) — Issues cerrados de la muestra: 399 a 4646 h; 8 abiertos.
+  • security.securityHygiene (25) — Sin CI, sin SECURITY.md; perfil de comunidad 42 %.
+  • fit.incrementalValue (40) — Su memoria de decisiones en .interface-design/system.md es una segunda fuente del sistema de diseño junto a los tokens del proyecto (VCX-P9), salvo que se la limite a apuntar a esos tokens. La regla de inspeccionar tokens existentes primero lo mitiga.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (3) — Sin workflows ni pruebas.
+  • engineering.versioningDiscipline (35) — Versión por timestamp automática en cada commit, sin changelog.
+  • engineering.compatibilityEvidence (30) — Instalación documentada para varios agentes; sin pruebas ni matriz.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "interface-design", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-16-ui-ux-design-skills-dry-run/interface-design.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-17T00:15:00Z", "now": "2026-11-17T00:15:00Z", "brixHead": "131a5c20dff07ae6c105056443c394def7153345", "cliTree": "b4c927628119076a51fe835ab739ba816afa0e22", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Code (claude-opus-5-5); evaluación en seco solicitada por el usuario"}
