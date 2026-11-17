@@ -1,0 +1,51 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · gentle-ai (technology)
+  github.com/Gentleman-Programming/gentle-ai · evaluado 2026-11-17
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         63.1 / 100
+  CONFIANZA             high (90)
+  NIVEL DE RIESGO        high
+  RECOMENDACIÓN BASE     advance_with_reservations
+
+  ── Por factor ──────────────────────────────────────
+  community        73.4
+  maintenance      85.8
+  security         64.2
+  fit              28.7
+  engineering      72.3
+  sustainability   61.3
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+  • newLocalDependencies (nuevas dependencias locales)
+  • networkAccess (acceso a red)
+  • sensitiveDataAccess (acceso a datos sensibles)
+  • broadScope (alcance amplio)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • maintenance.activityRecency (95) — Último commit en main el 2026-11-16; push diario.
+  • maintenance.releaseContinuity (90) — 100+ releases; v4.1.1 a v4.5.0 entre el 2026-10-12 y el 2026-11-13, cadencia semanal o quincenal.
+  • maintenance.commitContinuity (85) — 2.281 commits en 90 días; 97 contributors, pero un mantenedor concentra 3.395 de ~5.059 commits (factor bus alto).
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • security.vulnerabilityStatus — sin evidencia disponible (unavailable)
+  • fit.capabilityGapCoverage (20) — VCX ya cubre lo central con fuentes propias: principios VCX-P1..P9 en AGENTS.md (P4 rigor proporcional ≈ ODD; P5 verificación ≈ RDD), memoria de Claude Code, registro de decisiones, /code-review y Cellar como plantilla de instancias. No hay un hueco declarado que gentle-ai cierre.
+  • fit.technicalCompatibility (40) — Soporta Claude Code y Codex nativamente, pero se instala en la capa global (~/.claude, hooks, persona) y se superpone con ~/.claude/CLAUDE.md del usuario y AGENTS.md de VCX: dos fuentes de reglas compitiendo (choca con VCX-P9).
+  • fit.incrementalValue (30) — Lo distintivo es RDD: candidato congelado por revisión y transiciones deterministas por binario; y el benchmark de delegación proporcional. Engram, personas, skills (branch-pr, work-unit-commits) y deny-list se solapan con lo que VCX ya tiene o con controles de Claude Code.
+  • fit.adoptionSimplicity (25) — Binario Go + TUI de selección de agentes, componentes y persona; ~2.800 archivos; Engram, Context7 y CodeGraph opcionales. Adoptarlo es adoptar un framework, no copiar una skill.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • engineering.dependencySimplicity (35) — Binario autocontenido, pero arrastra Engram, Context7 MCP, hooks y un colector de telemetría; superficie grande para lo que VCX necesitaría.
+  • sustainability.operatingOverhead (30) — Releases semanales con cambios de contrato (v1/v2 de review-integration) obligan a re-pinear y revisar hooks globales seguido; más un opt-out de telemetría que mantener.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "gentle-ai", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-16-gentle-ai-tool-dry-run/gentle-ai.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-17T02:00:00Z", "now": "2026-11-17T02:00:00Z", "brixHead": "c3a93296da60a96b4bbf88429ab0fd8186e5a1fb", "cliTree": "af14043fff3fd52228f9090e91823179026be3fe", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Code (claude-opus-5-5); evaluación en seco solicitada"}
