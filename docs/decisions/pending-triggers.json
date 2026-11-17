@@ -83,7 +83,7 @@
     {
       "id": "private-secrets-ci",
       "decision": "VCX-D069",
-      "title": "Escaneo de secretos en CI de solera-melquisedec, solera-pinot-index y solera-salmanazar al reiniciar el cupo de Actions",
+      "title": "Escaneo de secretos en CI de solera, solera-melquisedec, solera-pinot-index y solera-salmanazar al reiniciar el cupo de Actions",
       "paths": [],
       "reviewAt": "2026-12-01"
     }
