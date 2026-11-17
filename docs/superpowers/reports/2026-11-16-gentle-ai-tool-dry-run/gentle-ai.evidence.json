@@ -1,0 +1,372 @@
+{
+  "candidate": {
+    "id": "gentle-ai",
+    "type": "technology",
+    "sourceUrl": "https://github.com/Gentleman-Programming/gentle-ai",
+    "evaluatedRef": "1ab243ca426d55dee64cf0ba693d0745cb1146c2"
+  },
+  "confidenceInputs": {
+    "sourceReliability": 80
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": true,
+    "networkAccess": true,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": true,
+    "remoteWrite": false,
+    "broadScope": true,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 95,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último commit en main el 2026-11-16; push diario.",
+        "evidenceRefs": [
+          "github-api:repos/Gentleman-Programming/gentle-ai (pushed_at 2026-11-16, medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "100+ releases; v4.1.1 a v4.5.0 entre el 2026-10-12 y el 2026-11-13, cadencia semanal o quincenal.",
+        "evidenceRefs": [
+          "github-api:repos/Gentleman-Programming/gentle-ai/releases (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "2.281 commits en 90 días; 97 contributors, pero un mantenedor concentra 3.395 de ~5.059 commits (factor bus alto).",
+        "evidenceRefs": [
+          "git rev-list --count --since=2026-08-18 HEAD",
+          "github-api:repos/Gentleman-Programming/gentle-ai/contributors"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "1.558 issues abiertos desde el 2026-08-18, 1.201 cerrados; 423 abiertos hoy; hay workflow de cierre de stale, que infla los cerrados.",
+        "evidenceRefs": [
+          "github-search:issues created:>2026-08-18 (total y closed, medido 2026-11-16)",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:.github/workflows/close-stale-issues.yml"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "unavailable",
+        "rationale": "No se consultó un advisory ni se corrió govulncheck sobre las 43 líneas de go.mod en esta ronda."
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Organización de un creador de contenido; MIT; releases con checksums y doc de verificación de firma; TRADEMARKS.md restringe la marca.",
+        "evidenceRefs": [
+          "github-api:repos/Gentleman-Programming/gentle-ai",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:LICENSE",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:docs/release-signing.md"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "CI con 12 workflows (Linux, macOS, Windows), renovate, install.sh verifica checksum y falla cerrado salvo --insecure; recomienda curl | bash desde main.",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:.github/workflows/",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:scripts/install.sh:461-487",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:renovate.json"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Documenta qué escribe (hooks, permissions.deny, persona, output style en ~/.claude/settings.json) y respalda antes de escribir. Pero la telemetría anónima y RDD son opt-out (activos por defecto) y agrega hooks globales a todos los proyectos.",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:docs/components.md:17-34,70",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:docs/telemetry.md",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:README.md:214"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 20,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "VCX ya cubre lo central con fuentes propias: principios VCX-P1..P9 en AGENTS.md (P4 rigor proporcional ≈ ODD; P5 verificación ≈ RDD), memoria de Claude Code, registro de decisiones, /code-review y Cellar como plantilla de instancias. No hay un hueco declarado que gentle-ai cierre.",
+        "evidenceRefs": [
+          "vcx:AGENTS.md (VCX-P1..P9)",
+          "vcx:docs/decisions/README.md"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Soporta Claude Code y Codex nativamente, pero se instala en la capa global (~/.claude, hooks, persona) y se superpone con ~/.claude/CLAUDE.md del usuario y AGENTS.md de VCX: dos fuentes de reglas compitiendo (choca con VCX-P9).",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:docs/agents.md:39",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:docs/components.md"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Lo distintivo es RDD: candidato congelado por revisión y transiciones deterministas por binario; y el benchmark de delegación proporcional. Engram, personas, skills (branch-pr, work-unit-commits) y deny-list se solapan con lo que VCX ya tiene o con controles de Claude Code.",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:README.md:Features",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:skills/"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Binario Go + TUI de selección de agentes, componentes y persona; ~2.800 archivos; Engram, Context7 y CodeGraph opcionales. Adoptarlo es adoptar un framework, no copiar una skill.",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:README.md:Get started",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:docs/components.md:169-172"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "rationale": "Sin uso en VCX ni en Teyst; 9.285 estrellas y 899 forks son popularidad del repo, no adopción por un consumidor de VCX."
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "rationale": "Sin piloto. Los benchmarks del README son n=1 y del propio autor (Gentle Shell), no resultados observados aquí."
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 80,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "1.300 archivos *_test.go, e2e, golden files y CI en tres sistemas operativos.",
+        "evidenceRefs": [
+          "find -name '*_test.go' (1300)",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:.github/workflows/"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Docs extensas: arquitectura, contrato RDD con modelo de amenazas, telemetría con esquema, usage por comando, wiki. Densa y orientada a main, no a la release.",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:docs/",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:docs/telemetry.md:3-4"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SemVer con módulo Go /v4, goreleaser, canal beta separado; ritmo alto de cambios mayores (v4 en meses).",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:.goreleaser.yaml",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:go.mod"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "CI en Linux, macOS y Windows; matriz de 17 agentes con diferencias declaradas por agente.",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:.github/workflows/windows-full-suite.yml",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:docs/agents.md"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Binario autocontenido, pero arrastra Engram, Context7 MCP, hooks y un colector de telemetría; superficie grande para lo que VCX necesitaría.",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:go.mod",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:docs/components.md"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Gratuito, MIT, financiado por sponsors. RDD y delegación consumen tokens del cupo de suscripción; no medido.",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:README.md:Support the project"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "MIT y config nativa de cada agente; pero el estado (state.json, recibos RDD en el directorio git común) es propio del binario.",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:LICENSE",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:docs/review-integration.md:12"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Hay componente uninstall y backups de config antes de cada escritura; hooks y settings globales hacen la reversión más delicada que borrar una carpeta.",
+        "evidenceRefs": [
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:internal/components/uninstall/",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:internal/backup/"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Releases semanales con cambios de contrato (v1/v2 de review-integration) obligan a re-pinear y revisar hooks globales seguido; más un opt-out de telemetría que mantener.",
+        "evidenceRefs": [
+          "github-api:repos/Gentleman-Programming/gentle-ai/releases",
+          "github-raw:Gentleman-Programming/gentle-ai@1ab243c:contracts/review-integration/"
+        ]
+      }
+    ]
+  }
+}
