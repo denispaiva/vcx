@@ -1,0 +1,388 @@
+{
+  "candidate": {
+    "id": "ux-discovery-interviewer",
+    "type": "skill",
+    "sourceUrl": "https://github.com/JacobLinCool/ux-discovery-interviewer-skill",
+    "evaluatedRef": "305a4b94c4513bc773c2b2b8366ca795f114f0f5"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Un único push, el 2026-03-09: 252 días sin actividad.",
+        "evidenceRefs": [
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill (created_at=pushed_at=2026-03-09; medido 2026-11-16)"
+        ],
+        "score": 15
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 tags y 0 releases.",
+        "evidenceRefs": [
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill/tags (0; medido 2026-11-16)",
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill/releases (0; medido 2026-11-16)"
+        ],
+        "score": 0
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "1 commit y 1 contribuidor.",
+        "evidenceRefs": [
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill/commits (305a4b9 único; medido 2026-11-16)",
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill/contributors (1; medido 2026-11-16)"
+        ],
+        "score": 5
+      },
+      {
+        "id": "responseHealth",
+        "availability": "unavailable",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 issues y 0 PRs: no hay interacción que medir.",
+        "evidenceRefs": [
+          "github-api:search/issues repo:JacobLinCool/ux-discovery-interviewer-skill (0; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tres archivos de texto (7,3 KB en la skill), sin código ni dependencias; 0 advisories.",
+        "evidenceRefs": [
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill/git/trees/305a4b9?recursive=1 (SKILL.md 4.649, agent.yaml 54, interview-guide.md 2.549 bytes; medido 2026-11-16)"
+        ],
+        "score": 95
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cuenta personal, MIT, 20 estrellas, un solo commit. El frontmatter dice «use when chatgpt should act as a ux researcher» y el README apunta a Codex y Claude Code: no fue escrita ni probada para estos adaptadores.",
+        "evidenceRefs": [
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill (owner.type=User; license=MIT; stargazers=20; medido 2026-11-16)",
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/.agents/skills/ux-discovery-interviewer/SKILL.md description (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 45
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin CI, SECURITY.md ni CONTRIBUTING; perfil 42 %. El riesgo es bajo porque no hay código.",
+        "evidenceRefs": [
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill/community/profile (health_percentage=42; medido 2026-11-16)",
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill/actions/workflows (0; medido 2026-11-16)"
+        ],
+        "score": 30
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No pide herramientas, archivos, red ni permisos; es solo conversación.",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/.agents/skills/ux-discovery-interviewer/SKILL.md (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 85
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Entrevista al «customer» que trae la idea, es decir al Owner, no a usuarios reales: no cubre la falta de investigación con usuarios. El encuadre de la idea ya lo cubre Blends (idea-intake: plantilla, preguntas asesinas, consejo y confirmación humana). Su aporte propio es el formato de journey, happy path y pain points.",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/.agents/skills/ux-discovery-interviewer/SKILL.md Core role, Discovery workflow (leído como dato; medido 2026-11-16)",
+          "repo:vcx/blends@6d77cd0/docs/idea-intake.md (líneas 7, 16, 41; leído 2026-11-16)"
+        ],
+        "score": 25
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Formato de skill estándar en .agents/skills, el directorio de Codex. Claude Code necesita copiarla o enlazarla a .claude/skills, como hace Brix. Por defecto escribe la salida en inglés («Write mainly in English»), contra la regla de idioma de VCX: hay que pedir otro idioma en cada uso.",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/.agents/skills/ux-discovery-interviewer/SKILL.md Output defaults, Style rules (leído como dato; medido 2026-11-16)",
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/README.md Install (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 70
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Las etiquetas Known/Inferred/Unknown y la regla de no presentar como validado lo que sale de una conversación ya están en VCX-P1. Lo incremental es el ritmo de 3 a 5 preguntas por ronda y la estructura de journey.",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/.agents/skills/ux-discovery-interviewer/references/interview-guide.md § 3 Inference rules (leído como dato; medido 2026-11-16)",
+          "repo:vcx/AGENTS.md VCX-P1 (leído 2026-11-16)"
+        ],
+        "score": 30
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Copiar una carpeta de tres archivos.",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/README.md Install (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 95
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin uso en VCX.",
+        "evidenceRefs": [
+          "local:ls ~/.claude/skills ~/.codex/skills (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin piloto ni evidencia del autor.",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/README.md (leído como dato; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin tests ni CI.",
+        "evidenceRefs": [
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill/actions/workflows (0; medido 2026-11-16)"
+        ],
+        "score": 0
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SKILL.md claro y acotado, con límites explícitos («Do not pretend research findings are validated»). El README no tiene ejemplos de salida ni de compatibilidad probada.",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/.agents/skills/ux-discovery-interviewer/SKILL.md Boundaries (leído como dato; medido 2026-11-16)",
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/README.md (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 55
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin tags, versiones ni changelog.",
+        "evidenceRefs": [
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill/tags (0; medido 2026-11-16)"
+        ],
+        "score": 5
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La compatibilidad con Codex y Claude Code solo se declara en el README; el frontmatter nombra ChatGPT.",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/.agents/skills/ux-discovery-interviewer/SKILL.md description (leído como dato; medido 2026-11-16)",
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/README.md (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 20
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin dependencias.",
+        "evidenceRefs": [
+          "github-api:repos/JacobLinCool/ux-discovery-interviewer-skill/git/trees/305a4b9 (3 archivos de skill; medido 2026-11-16)"
+        ],
+        "score": 100
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Gratis, sin servicios; el costo es contexto chico (unos 7 KB).",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/.agents/skills/ux-discovery-interviewer/SKILL.md (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 90
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "MIT, Markdown y salida en Markdown.",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/LICENSE (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 95
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No escribe nada; se retira borrando la carpeta.",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/.agents/skills/ux-discovery-interviewer/SKILL.md (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 100
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cada entrevista son varias rondas de preguntas al Owner: el costo principal es su atención (VCX-P8), sin herramienta que mantener.",
+        "evidenceRefs": [
+          "github-raw:JacobLinCool/ux-discovery-interviewer-skill@305a4b9/.agents/skills/ux-discovery-interviewer/references/interview-guide.md § 2 Interview pacing (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 55
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 90
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": true,
+    "localWriteReversible": false,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}
