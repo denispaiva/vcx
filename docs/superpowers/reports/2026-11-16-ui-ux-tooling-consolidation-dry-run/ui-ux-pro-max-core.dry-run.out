@@ -1,0 +1,45 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · ui-ux-pro-max-core (skill)
+  github.com/nextlevelbuilder/ui-ux-pro-max-skill · evaluado 2026-11-17
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         56.2 / 100
+  CONFIANZA             high (85)
+  NIVEL DE RIESGO        medium
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        unavailable
+  maintenance      71.5
+  security         60.5
+  fit              31.7
+  engineering      59.0
+  sustainability   69.3
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+  • newLocalDependencies (nuevas dependencias locales)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • maintenance.activityRecency (95) — Push el 2026-11-16, día de la medición.
+  • maintenance.commitContinuity (85) — 89 commits en 90 días (API); 112 contributors.
+  • sustainability.costPredictability (85) — Gratuita y local en la ruta núcleo. Costo de cupo de suscripción no medido. Las APIs pagas están solo en la skill design, fuera de la ruta evaluada.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • fit.capabilityGapCoverage (25) — Consumidor identificado: Teyst (Expo SDK 57, React Native 0.86, react-native-web; sin Tailwind, sin React DOM propio), con tokens propios y marca Tintum (VCX-D061). VCX-D060 dejó la revisión UX con disparador: hoy no hay una decisión de interfaz pendiente que la active. La necesidad sería dirección visual; la skill genera un sistema genérico por industria, no lee el sistema existente (solo comprueba si MASTER.md existe), no admite restricciones de marca y una consulta en español cae en abstención y, en --design-system, en defaults fijos (#2563EB, Inter) presentados como recomendación.
+  • fit.technicalCompatibility (30) — Tiene stacks/react-native.csv, pero --stack se ignora en modo --design-system (solo una nota en stderr) y --rtl da error en ese modo; --rtl es un filtro de metadatos, no layout RTL. Los tokens salen como DTCG JSON o variables CSS :root, no como objeto de StyleSheet de RN. Requiere python3.
+  • fit.incrementalValue (30) — Aporta recuperación BM25 sobre CSV curados en inglés (192 productos, 89 estilos, 192 paletas con contraste validado). Se superpone con design:accessibility-review (aprobada el 2026-11-16, sin commit) y con la checklist v1 en reglas UX; la calidad del resultado no tiene evidencia: las evals miden recuperación (P@1 0,816 sobre 90 casos de los mantenedores), no diseño.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • engineering.compatibilityEvidence (35) — smoke-stacks prueba stacks web; no hay evidencia para React Native, RTL real ni consultas en otro idioma.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "ui-ux-pro-max-core", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-16-ui-ux-tooling-consolidation-dry-run/ui-ux-pro-max-core.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-17T00:20:00Z", "now": "2026-11-17T00:20:00Z", "brixHead": "131a5c20dff07ae6c105056443c394def7153345", "cliTree": "b4c927628119076a51fe835ab739ba816afa0e22", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Code (claude-opus-5-5); evaluación en seco solicitada"}

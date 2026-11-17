@@ -1,0 +1,94 @@
+{
+  "design_system": {
+    "project_name": "WINE TASTING SOCIAL APP WITH LEAGUES AND RANKING",
+    "category": "Social Media App",
+    "pattern": {
+      "name": "Feature-Rich Showcase",
+      "sections": "Hero (value prop) > Feature grid/cards (4-6) > Use cases or benefits > Social proof or logos > CTA",
+      "cta_placement": "Hero (sticky) + After features + Bottom",
+      "color_strategy": "Brand primary + card bg #FAFAFA. Feature icons accent. CTA contrasting.",
+      "conversion": "Clear feature hierarchy. One key message per card. Strong CTA repetition."
+    },
+    "style": {
+      "id": "vibrant-and-block-based",
+      "name": "Vibrant & Block-based",
+      "type": "General",
+      "effects": "Large sections (48px+ gaps), animated patterns, bold hover (color shift), scroll-snap, large type (32px+), 200-300ms",
+      "keywords": "Bold, energetic, playful, block layout, geometric shapes, high color contrast, duotone, modern, energetic",
+      "best_for": "Startups, creative agencies, gaming, social media, youth-focused, entertainment, consumer",
+      "performance": "cost:low|drivers:none",
+      "accessibility": "risk:conditional|requires:contrast-text-4.5,keyboard,visible-focus,reduced-motion",
+      "light_mode": "supported",
+      "dark_mode": "supported"
+    },
+    "colors": {
+      "primary": "#E11D48",
+      "on_primary": "#FFFFFF",
+      "secondary": "#FB7185",
+      "on_secondary": "#0F172A",
+      "accent": "#2563EB",
+      "on_accent": "#FFFFFF",
+      "background": "#FFF1F2",
+      "foreground": "#881337",
+      "card": "#FFFFFF",
+      "card_foreground": "#881337",
+      "muted": "#F0ECF2",
+      "muted_foreground": "#475569",
+      "border": "#FECDD3",
+      "destructive": "#DC2626",
+      "on_destructive": "#FFFFFF",
+      "ring": "#E11D48",
+      "notes": "Vibrant rose + engagement blue",
+      "cta": "#2563EB",
+      "text": "#881337",
+      "on_cta": "#FFFFFF"
+    },
+    "typography": {
+      "heading": "Inter",
+      "body": "Playfair Display",
+      "mood": "bold typography, editorial, poster, near-black, vermillion, luxury, type-as-hero, manifesto, high-contrast",
+      "best_for": "Creative brand flagships, reading platforms, event apps, flash pages, luxury mobile experiences",
+      "google_fonts_url": "https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400&family=Playfair+Display:ital@1",
+      "css_import": "@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400&family=Playfair+Display:ital@1&display=swap');",
+      "tailwind_config": "fontFamily: { display: ['Inter', 'sans-serif'], quote: ['Playfair Display', 'serif'], mono: ['JetBrains Mono', 'monospace'] }",
+      "category": "Sans + Serif (Display) + Mono"
+    },
+    "key_effects": "Large sections (48px+ gaps), animated patterns, bold hover (color shift), scroll-snap, large type (32px+), 200-300ms",
+    "anti_patterns": "Heavy skeuomorphism + Accessibility ignored",
+    "decision_rules": {
+      "if_engagement_metric": [
+        "constraint:add-motion"
+      ],
+      "if_content_focused": [
+        "constraint:minimize-chrome"
+      ]
+    },
+    "activated_rules": [],
+    "constraints": [],
+    "reasoning_default": false,
+    "source_identities": {
+      "product": "Social Media App",
+      "reasoning": "Social Media App",
+      "style": "vibrant-and-block-based",
+      "color": "Social Media App",
+      "typography": "Bold Typography Mobile (Inter Poster)",
+      "landing": "Feature-Rich Showcase"
+    },
+    "color_mode": "light",
+    "source_derivations": {
+      "color_mode": null
+    },
+    "severity": "MEDIUM",
+    "dials": {
+      "variance": null,
+      "variance_label": null,
+      "motion": null,
+      "motion_label": null,
+      "density": null,
+      "density_label": null
+    },
+    "motion_snippet": {},
+    "spacing_scale": null
+  },
+  "persistence": null
+}

@@ -1,0 +1,5 @@
+(version 1)
+(allow default)
+(deny network*)
+(deny file-write*)
+(allow file-write* (subpath "/private/tmp/claude-501/-Users-denis--claude-spares-spare-wDHR0T/bf0a5e75-3aff-4d5c-91bf-786085f0290c/scratchpad/pilot") (subpath "/private/var/folders") (subpath "/private/tmp/claude-501/-Users-denis--claude-spares-spare-wDHR0T/bf0a5e75-3aff-4d5c-91bf-786085f0290c/scratchpad/pilot") (literal "/dev/null") (literal "/dev/stdout") (literal "/dev/stderr") (literal "/dev/tty"))
