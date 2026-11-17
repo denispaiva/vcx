@@ -1,0 +1,52 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · taste-skill-design-taste-frontend (skill)
+  github.com/Leonxlnx/taste-skill · evaluado 2026-11-17
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         52.3 / 100
+  CONFIANZA             high (85)
+  NIVEL DE RIESGO        high
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        unavailable
+  maintenance      87.0
+  security         54.3
+  fit              33.7
+  engineering      42.3
+  sustainability   48.5
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+  • newLocalDependencies (nuevas dependencias locales)
+  • networkAccess (acceso a red)
+  • broadScope (alcance amplio)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • maintenance.activityRecency (95) — Último push 2026-11-08 y release v2.5.1 el 2026-11-07, nueve días antes de la medición. No archivado.
+  • maintenance.releaseContinuity (85) — Diez tags v2.0.0 a v2.5.1; cinco releases entre el 2026-10-19 y el 2026-11-07, con CHANGELOG por versión. La continuidad de entregas es alta; la estabilidad del contrato se mide en versioningDiscipline.
+  • maintenance.commitContinuity (90) — 100 o más commits desde el 2026-08-18 (la consulta tope de 100 se llenó) y 24 contribuidores. Concentración en el autor no medida.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • security.securityHygiene (40) — Sin SECURITY.md ni CONTRIBUTING; perfil de comunidad 42 %. CI único (check-skills.yml): parsea frontmatter, codificación y `node --check` de scripts; no ejecuta tests/kit-clean.mjs ni análisis estático de seguridad.
+  • fit.capabilityGapCoverage (25) — 2.5.x se limita a sitios web de empresas (landing, producto, servicio, lugar); 2.5.0 retiró el pipeline de pantallas de app de 2.1.x. Los consumidores con interfaz en VCX son Teyst (Expo/React Native y web) y páginas de marca. Cubre solo la landing; no dashboards, formularios de producto ni flujos móviles nativos.
+  • fit.technicalCompatibility (40) — Claude Code: plugin o symlink global con install.sh; el hook Stop se activa por el frontmatter. Codex: plugin y symlink en ~/.codex/skills, pero según el CHANGELOG 2.5.1 el hook sale de sus propios archivos de hook, que la skill no instala: en Codex el gate queda manual. Requiere Node 22+ y Chrome, Edge o Chromium; el navegador del usuario es Brave, que la skill no nombra (compatibilidad no verificada). No apunta a React Native.
+  • fit.adoptionSimplicity (20) — Paquete de 37 MB y 1.811 archivos, Node 22, navegador Chromium, hook con hasta 9,5 min por Stop, rondas y waivers. La web declara 30-45 min y «a few hundred thousand tokens» por build (declaración del proveedor, no medida).
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (35) — Tres archivos en tests/; el CI corre frontmatter.mjs y text-encoding.mjs y `node --check`. kit-clean.mjs, que corre el checker sobre las páginas modelo, no está en el workflow.
+  • engineering.versioningDiscipline (40) — Tags semver y CHANGELOG, pero 2.5.0 fue una reconstrucción completa que retiró los scripts de 2.1.x en una versión menor; los manifiestos coinciden en 2.5.1.
+  • engineering.compatibilityEvidence (35) — El CI parsea el frontmatter «as Claude Code and Codex parse it»; no hay prueba automatizada del hook en ningún host. Las pruebas de instalación limpia son declaraciones del CHANGELOG.
+  • engineering.dependencySimplicity (35) — Sin dependencias npm, pero exige Node 22+, un navegador Chromium, ffmpeg opcional y red para fotos y fuentes.
+  • sustainability.operatingOverhead (30) — Cada cierre de build puede tardar hasta 9,5 min; tres rondas por defecto (máx. 10); tope de bloqueos (rondas + 4, o 30 en 6 h). Mantener un Chromium y revisar waivers recae en el operador.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "taste-skill-design-taste-frontend", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-16-uiux-candidates-dry-run/taste-skill-design-taste-frontend.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-17T00:10:00Z", "now": "2026-11-17T00:10:00Z", "brixHead": "131a5c20dff07ae6c105056443c394def7153345", "cliTree": "b4c927628119076a51fe835ab739ba816afa0e22", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Opus 5.5 (Claude Code); evaluación en seco solicitada por Denis Paiva el 2026-11-16"}

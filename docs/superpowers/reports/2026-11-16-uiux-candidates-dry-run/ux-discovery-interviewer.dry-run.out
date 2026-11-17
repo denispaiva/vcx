@@ -1,0 +1,54 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · ux-discovery-interviewer (skill)
+  github.com/JacobLinCool/ux-discovery-interviewer-skill · evaluado 2026-11-17
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         45.6 / 100
+  CONFIANZA             high (85)
+  NIVEL DE RIESGO        low
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        unavailable
+  maintenance      6.8
+  security         65.5
+  fit              47.7
+  engineering      27.8
+  sustainability   86.8
+
+  ── Riesgo, por ─────────────────────────────────────
+  • scopedLocalReadOnly (solo lectura local con alcance acotado)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • security.vulnerabilityStatus (95) — Tres archivos de texto (7,3 KB en la skill), sin código ni dependencias; 0 advisories.
+  • security.permissionTransparency (85) — No pide herramientas, archivos, red ni permisos; es solo conversación.
+  • fit.adoptionSimplicity (95) — Copiar una carpeta de tres archivos.
+  • engineering.dependencySimplicity (100) — Sin dependencias.
+  • sustainability.costPredictability (90) — Gratis, sin servicios; el costo es contexto chico (unos 7 KB).
+  • sustainability.portability (95) — MIT, Markdown y salida en Markdown.
+  • sustainability.reversibility (100) — No escribe nada; se retira borrando la carpeta.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.activityRecency (15) — Un único push, el 2026-03-09: 252 días sin actividad.
+  • maintenance.releaseContinuity (0) — 0 tags y 0 releases.
+  • maintenance.commitContinuity (5) — 1 commit y 1 contribuidor.
+  • maintenance.responseHealth — sin evidencia disponible (unavailable)
+  • security.securityHygiene (30) — Sin CI, SECURITY.md ni CONTRIBUTING; perfil 42 %. El riesgo es bajo porque no hay código.
+  • fit.capabilityGapCoverage (25) — Entrevista al «customer» que trae la idea, es decir al Owner, no a usuarios reales: no cubre la falta de investigación con usuarios. El encuadre de la idea ya lo cubre Blends (idea-intake: plantilla, preguntas asesinas, consejo y confirmación humana). Su aporte propio es el formato de journey, happy path y pain points.
+  • fit.incrementalValue (30) — Las etiquetas Known/Inferred/Unknown y la regla de no presentar como validado lo que sale de una conversación ya están en VCX-P1. Lo incremental es el ritmo de 3 a 5 preguntas por ronda y la estructura de journey.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (0) — Sin tests ni CI.
+  • engineering.versioningDiscipline (5) — Sin tags, versiones ni changelog.
+  • engineering.compatibilityEvidence (20) — La compatibilidad con Codex y Claude Code solo se declara en el README; el frontmatter nombra ChatGPT.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "ux-discovery-interviewer", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-16-uiux-candidates-dry-run/ux-discovery-interviewer.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-17T00:10:00Z", "now": "2026-11-17T00:10:00Z", "brixHead": "131a5c20dff07ae6c105056443c394def7153345", "cliTree": "b4c927628119076a51fe835ab739ba816afa0e22", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Opus 5.5 (Claude Code); evaluación en seco solicitada por Denis Paiva el 2026-11-16"}

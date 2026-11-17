@@ -1,0 +1,408 @@
+{
+  "candidate": {
+    "id": "taste-skill-design-taste-frontend",
+    "type": "skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill",
+    "evaluatedRef": "f6b76575f949707b4e3c37cd86cb44b0b98643e8"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último push 2026-11-08 y release v2.5.1 el 2026-11-07, nueve días antes de la medición. No archivado.",
+        "evidenceRefs": [
+          "github-api:repos/Leonxlnx/taste-skill (pushed_at=2026-11-08; archived=false; medido 2026-11-16)",
+          "github-api:repos/Leonxlnx/taste-skill/releases (v2.5.1 2026-11-07; medido 2026-11-16)"
+        ],
+        "score": 95
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Diez tags v2.0.0 a v2.5.1; cinco releases entre el 2026-10-19 y el 2026-11-07, con CHANGELOG por versión. La continuidad de entregas es alta; la estabilidad del contrato se mide en versioningDiscipline.",
+        "evidenceRefs": [
+          "github-api:repos/Leonxlnx/taste-skill/tags (v2.5.1 f6b7657, v2.5.0 822e0b9, v2.1.5 12af471, ...; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/CHANGELOG.md (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 85
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "100 o más commits desde el 2026-08-18 (la consulta tope de 100 se llenó) y 24 contribuidores. Concentración en el autor no medida.",
+        "evidenceRefs": [
+          "github-api:repos/Leonxlnx/taste-skill/commits?since=2026-08-18 (100 por página, página llena; medido 2026-11-16)",
+          "github-api:repos/Leonxlnx/taste-skill/contributors (24; medido 2026-11-16)"
+        ],
+        "score": 90
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "74 issues cerrados y 8 abiertos. No se midieron tiempos de respuesta; el CHANGELOG atribuye PRs de la comunidad (#181, #182, #185, #186, #158) en las últimas versiones.",
+        "evidenceRefs": [
+          "github-api:search/issues repo:Leonxlnx/taste-skill (is:issue open=8, closed=74; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/CHANGELOG.md § 2.5.1 Thanks, § 2.1.5 (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 70
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 security advisories. Sin package.json: los scripts importan solo módulos node:* (gate.mjs líneas 91-96). No se auditaron los 1.811 archivos ni consistency.mjs (1.015.117 bytes); el puntaje refleja ausencia de dependencias declaradas, no una auditoría.",
+        "evidenceRefs": [
+          "github-api:repos/Leonxlnx/taste-skill/security-advisories (0; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/scripts/gate.mjs líneas 91-96 (leído como dato; medido 2026-11-16)",
+          "github-api:repos/Leonxlnx/taste-skill/git/trees/f6b7657?recursive=1 (1.811 entradas; truncated=false; 37.303.881 bytes en blobs; medido 2026-11-16)"
+        ],
+        "score": 70
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cuenta personal (User) con 116.900 estrellas y licencia MIT del código. El árbol incluye 929 logos de marcas de terceros en assets/icons/demo (créditos en icons-credits.json) y fotografías de Unsplash y Wikimedia con licencias propias: MIT no cubre marcas ni fotos, y cada imagen exige revisar su licencia. La web tasteskill.dev documenta 2.1.5 con scripts que 2.5.0 retiró (draw.mjs, lint.mjs, inspect.mjs, assets.mjs, scenes.mjs): dos contratos públicos distintos para el mismo nombre.",
+        "evidenceRefs": [
+          "github-api:repos/Leonxlnx/taste-skill (owner.type=User; stargazers=116900; license=MIT; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/assets/icons/demo/icons-credits.json (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/CHANGELOG.md § 2.5.0 primer párrafo (leído como dato; medido 2026-11-16)",
+          "web:https://www.tasteskill.dev/docs (describe 2.1.5; leída 2026-11-16)"
+        ],
+        "score": 50
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin SECURITY.md ni CONTRIBUTING; perfil de comunidad 42 %. CI único (check-skills.yml): parsea frontmatter, codificación y `node --check` de scripts; no ejecuta tests/kit-clean.mjs ni análisis estático de seguridad.",
+        "evidenceRefs": [
+          "github-api:repos/Leonxlnx/taste-skill/community/profile (health_percentage=42; security=null; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/.github/workflows/check-skills.yml (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 40
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El SKILL.md declara un hook Stop de Claude Code (timeout 600 s) que busca gate.mjs en seis ubicaciones, incluidas ~/.claude/skills y ~/.agents/skills, y ejecuta la primera que exista: puede correr otra copia instalada de otra versión. Escribe .taste-skill/ (build.json, gate.json, gate-blocks.json, waivers.json, gate-hook-missing.txt), perfiles de Chrome en el temp del sistema y, si se define TASTE_SKILL_RECENT, un archivo fuera del proyecto. Red: Wikimedia Commons, picsum.photos y Google Fonts. Todo está documentado en gate.mjs y el CHANGELOG, pero el hook corre en cada Stop mientras la skill está cargada y solo se apaga sin build activa.",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/SKILL.md frontmatter hooks.Stop (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/scripts/gate.mjs líneas 1-90 (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/scripts/photos.mjs URLs de commons.wikimedia.org y picsum.photos (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/scripts/start.mjs fonts.googleapis.com (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 45
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "2.5.x se limita a sitios web de empresas (landing, producto, servicio, lugar); 2.5.0 retiró el pipeline de pantallas de app de 2.1.x. Los consumidores con interfaz en VCX son Teyst (Expo/React Native y web) y páginas de marca. Cubre solo la landing; no dashboards, formularios de producto ni flujos móviles nativos.",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/SKILL.md description (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/CHANGELOG.md § 2.5.0 (leído como dato; medido 2026-11-16)",
+          "repo:vcx/docs/architecture/tooling-matrix.md (fila Cellar · interfaz; leído 2026-11-16)"
+        ],
+        "score": 25
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Claude Code: plugin o symlink global con install.sh; el hook Stop se activa por el frontmatter. Codex: plugin y symlink en ~/.codex/skills, pero según el CHANGELOG 2.5.1 el hook sale de sus propios archivos de hook, que la skill no instala: en Codex el gate queda manual. Requiere Node 22+ y Chrome, Edge o Chromium; el navegador del usuario es Brave, que la skill no nombra (compatibilidad no verificada). No apunta a React Native.",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/CHANGELOG.md § 2.5.1 finish gate (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/install.sh (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/.codex-plugin/plugin.json (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/SKILL.md línea 'It needs Node 22+ and Chrome, Edge or Chromium' (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 40
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Aporta lo que una skill solo-texto no tiene: un gate en navegador real a 1440/390/320 con contraste, foco, tap-size, colisiones, reduced-motion y formularios, más copy-lint. Hipótesis no medida: ese gate es el diferencial frente a Frontend Design, Impeccable y Web Design Guidelines. Lo reducen reglas que contradicen marca y contenido (sin violeta, contactos en .example, sin teléfono real, mínimo de movimiento) y un copy-lint sin manejo de idioma (0 menciones de lang o spanish).",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/scripts/gate.mjs líneas 28-45 (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/SKILL.md House rules 1-8 y § 6 Never (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/scripts/copy-lint.mjs grep lang/spanish = 0 (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 45
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Paquete de 37 MB y 1.811 archivos, Node 22, navegador Chromium, hook con hasta 9,5 min por Stop, rondas y waivers. La web declara 30-45 min y «a few hundred thousand tokens» por build (declaración del proveedor, no medida).",
+        "evidenceRefs": [
+          "github-api:repos/Leonxlnx/taste-skill/git/trees/f6b7657?recursive=1 (1.811 archivos; medido 2026-11-16)",
+          "web:https://www.tasteskill.dev/docs (Typical build; leída 2026-11-16)"
+        ],
+        "score": 20
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin uso en ningún proyecto de VCX: no está instalada ni en ~/.claude/skills ni en ~/.codex/skills.",
+        "evidenceRefs": [
+          "local:ls ~/.claude/skills ~/.codex/skills (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin piloto. Las pruebas ciegas (research.md) y el test de 44 sitios son declaraciones del proveedor, no resultados observados aquí.",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/CHANGELOG.md § 2.5.1 primer párrafo (leído como dato; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tres archivos en tests/; el CI corre frontmatter.mjs y text-encoding.mjs y `node --check`. kit-clean.mjs, que corre el checker sobre las páginas modelo, no está en el workflow.",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/.github/workflows/check-skills.yml (leído como dato; medido 2026-11-16)",
+          "github-api:repos/Leonxlnx/taste-skill/git/trees/f6b7657 (tests/frontmatter.mjs, tests/kit-clean.mjs, tests/text-encoding.mjs; medido 2026-11-16)"
+        ],
+        "score": 35
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SKILL.md de 30 KB, 22 referencias y cabeceras de uso detalladas en los scripts. La documentación pública (tasteskill.dev) describe la 2.1.5 retirada, con otros scripts, rutas (~/.taste-skill/history.json frente a .taste-skill/history.json) y pasos.",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/SKILL.md (leído como dato; medido 2026-11-16)",
+          "web:https://www.tasteskill.dev/docs (leída 2026-11-16)"
+        ],
+        "score": 60
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tags semver y CHANGELOG, pero 2.5.0 fue una reconstrucción completa que retiró los scripts de 2.1.x en una versión menor; los manifiestos coinciden en 2.5.1.",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/CHANGELOG.md § 2.5.0 (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/.claude-plugin/marketplace.json (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/.codex-plugin/plugin.json (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 40
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El CI parsea el frontmatter «as Claude Code and Codex parse it»; no hay prueba automatizada del hook en ningún host. Las pruebas de instalación limpia son declaraciones del CHANGELOG.",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/.github/workflows/check-skills.yml (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/CHANGELOG.md § 2.5.0 Tested on a fresh install (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 35
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin dependencias npm, pero exige Node 22+, un navegador Chromium, ffmpeg opcional y red para fotos y fuentes.",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/SKILL.md requisitos (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 35
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin servicios pagos ni API keys. El costo es cupo de suscripción, no medido; el proveedor declara cientos de miles de tokens por build. Sin contadores aquí, el costo en cupo queda no disponible.",
+        "evidenceRefs": [
+          "web:https://www.tasteskill.dev/docs (No API keys; Typical build; leída 2026-11-16)",
+          "repo:vcx/finops-policy.md § Free Tier first (leído 2026-11-16)"
+        ],
+        "score": 50
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Código MIT y salida HTML/CSS estática, pero la página carga archivos del kit que el gate prohíbe editar (kit-edited, no waivable): la salida queda atada al kit.",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/scripts/gate.mjs líneas 36-41 y 52 (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 50
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "install.sh --uninstall retira los symlinks; en el proyecto quedan .taste-skill/, assets/ descargados y la línea de créditos. Los perfiles de Chrome se limpian solo si el proceso dueño murió (2.1.5).",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/install.sh modo uninstall (leído como dato; medido 2026-11-16)",
+          "github-raw:Leonxlnx/taste-skill@f6b7657/CHANGELOG.md § 2.1.5 profiles (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 60
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cada cierre de build puede tardar hasta 9,5 min; tres rondas por defecto (máx. 10); tope de bloqueos (rondas + 4, o 30 en 6 h). Mantener un Chromium y revisar waivers recae en el operador.",
+        "evidenceRefs": [
+          "github-raw:Leonxlnx/taste-skill@f6b7657/skills/taste-skill/scripts/gate.mjs líneas 55-82, 114, 609 (leído como dato; medido 2026-11-16)"
+        ],
+        "score": 30
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": true,
+    "networkAccess": true,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": true,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

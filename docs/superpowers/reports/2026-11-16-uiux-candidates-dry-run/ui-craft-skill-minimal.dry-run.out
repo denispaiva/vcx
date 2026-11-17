@@ -1,0 +1,42 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · ui-craft-skill-minimal (skill)
+  github.com/educlopez/ui-craft · evaluado 2026-11-17
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         68.3 / 100
+  CONFIANZA             high (85)
+  NIVEL DE RIESGO        medium
+  RECOMENDACIÓN BASE     advance_with_reservations
+
+  ── Por factor ──────────────────────────────────────
+  community        unavailable
+  maintenance      81.3
+  security         73.5
+  fit              52.0
+  engineering      63.3
+  sustainability   79.0
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • maintenance.activityRecency (95) — Último push 2026-11-16 (rama main en c1e556e) y tag v1.0.21 el 2026-11-05.
+  • security.vulnerabilityStatus (90) — La distribución evaluada, skills/ui-craft/, es solo Markdown: SKILL.md y 30 referencias, sin scripts. 0 advisories; el repo corre CodeQL. El MCP, el CLI Go y el detector no se evaluaron.
+  • engineering.dependencySimplicity (95) — La skill mínima no tiene dependencias ejecutables.
+  • sustainability.reversibility (90) — Se retira borrando la carpeta; los .ui-craft/ que se escriban son archivos planos.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • fit.incrementalValue (40) — Hipótesis no medida: solapa con Impeccable, Web Design Guidelines y UX Heuristics en anti-patrones, tipografía y heurísticas. Lo distintivo es coverage.md (completitud de 12 arquetipos) y state-design.md. Las perillas (MOTION_INTENSITY ≤3 = solo hover) permiten un dashboard sin animación, a diferencia de Taste.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "ui-craft-skill-minimal", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-16-uiux-candidates-dry-run/ui-craft-skill-minimal.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-17T00:10:00Z", "now": "2026-11-17T00:10:00Z", "brixHead": "131a5c20dff07ae6c105056443c394def7153345", "cliTree": "b4c927628119076a51fe835ab739ba816afa0e22", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Opus 5.5 (Claude Code); evaluación en seco solicitada por Denis Paiva el 2026-11-16"}
