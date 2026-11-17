@@ -20,6 +20,9 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Fixtures locales de integridad del workspace (sin red)
+        run: bash scripts/tests/health.fixtures.sh
+
       - name: Pendientes disparados por el PR o con fecha cercana
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
