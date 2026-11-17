@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "mobile-app-ui-design",
+    "type": "skill",
+    "sourceUrl": "https://github.com/ceorkm/mobile-app-ui-design",
+    "evaluatedRef": "0ad61f025fc647417d4b8fb0ca786cb493c5156a"
+  },
+  "observedAt": "2026-11-17T00:02:00.000Z",
+  "overallScore": 39.365624999999994,
+  "evidenceCoverage": 75,
+  "factorScores": {
+    "community": null,
+    "maintenance": 22.4,
+    "security": 48.050000000000004,
+    "fit": 40,
+    "engineering": 25.15,
+    "sustainability": 67.5
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 85,
+  "confidence": "high",
+  "riskLevel": "medium",
+  "baselineRecommendation": "do_not_advance",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#mobile-app-ui-design",
+  "evidenceInputRef": "docs/tooling/evaluations/mobile-app-ui-design.evidence.json",
+  "expiresAt": "2027-02-15T00:02:00.000Z",
+  "communityEvidenceNote": null
+}

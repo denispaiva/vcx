@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "id": "design-ux-copy",
+    "type": "skill",
+    "sourceUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "evaluatedRef": "c71b6f3082b1e5ace3d1a9e30ac9205934134c9c"
+  },
+  "observedAt": "2026-11-17T00:02:00.000Z",
+  "overallScore": 63.252574526540464,
+  "evidenceCoverage": 97,
+  "factorScores": {
+    "community": 74.73860792681997,
+    "maintenance": 46.39999999999999,
+    "security": 80.7,
+    "fit": 49.411764705882355,
+    "engineering": 42.95,
+    "sustainability": 88.8
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.9,
+  "confidence": "high",
+  "riskLevel": "low",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "approved",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#design-ux-copy",
+  "evidenceInputRef": "docs/tooling/evaluations/design-ux-copy.evidence.json",
+  "expiresAt": "2027-02-15T00:02:00.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "approved",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-17T00:04:11.974Z",
+    "rationale": "Decisión de Denis Paiva (PO) en el chat de Claude Code del 2026-11-16: «Sí, aplicala», ante la recomendación de aprobar design:ux-copy y design:accessibility-review y rechazar impeccable, emilkowalski-skills y mobile-app-ui-design. Puntaje 63,3, riesgo low, advance_with_reservations, sobre anthropics/knowledge-work-plugins@c71b6f3 (design 1.2.0). Reservas: (1) la skill está en inglés; los textos de Teyst se escriben en español con el vocabulario Liga/WineBar, que se le da en cada uso; (2) propone, el texto final lo aprueba el PO. Entra en planned para Teyst; pasa a active con uso medido."
+  }
+}

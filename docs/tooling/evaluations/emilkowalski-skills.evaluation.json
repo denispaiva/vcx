@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "id": "emilkowalski-skills",
+    "type": "skill",
+    "sourceUrl": "https://github.com/emilkowalski/skills",
+    "evaluatedRef": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c"
+  },
+  "observedAt": "2026-11-17T00:02:00.000Z",
+  "overallScore": 57.62335780566612,
+  "evidenceCoverage": 97,
+  "factorScores": {
+    "community": 63.74325961656588,
+    "maintenance": 54.8,
+    "security": 64.7,
+    "fit": 52.82352941176472,
+    "engineering": 35.2,
+    "sustainability": 78.7
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 93.65,
+  "confidence": "high",
+  "riskLevel": "medium",
+  "baselineRecommendation": "do_not_advance",
+  "status": "rejected",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#emilkowalski-skills",
+  "evidenceInputRef": "docs/tooling/evaluations/emilkowalski-skills.evidence.json",
+  "expiresAt": "2027-02-15T00:02:00.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "rejected",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-17T00:04:12.426Z",
+    "rationale": "Decisión de Denis Paiva (PO) en el chat de Claude Code del 2026-11-16: «Sí, aplicala», ante la recomendación de aprobar design:ux-copy y design:accessibility-review y rechazar impeccable, emilkowalski-skills y mobile-app-ui-design. Puntaje 57,6, do_not_advance, riesgo medium, sobre 64eb3de (sin tags ni releases). La colección pasó de 9 a 20 skills y cambió entera desde la admisión del precursor; casi todas apuntan a CSS y librerías web; sin pruebas ni CI; 0 usos en tres meses. animate-expo y break-ui encajan con Teyst: si se quieren, se evalúan aparte, fijadas por SHA."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "id": "impeccable",
+    "type": "skill",
+    "sourceUrl": "https://github.com/pbakaus/impeccable",
+    "evaluatedRef": "skill-v4.9.1"
+  },
+  "observedAt": "2026-11-17T00:02:00.000Z",
+  "overallScore": 69.09206537305167,
+  "evidenceCoverage": 100,
+  "factorScores": {
+    "community": 83.46032686525834,
+    "maintenance": 89.3,
+    "security": 66.85000000000001,
+    "fit": 45.2,
+    "engineering": 66.9,
+    "sustainability": 65.6
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 95.5,
+  "confidence": "high",
+  "riskLevel": "high",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "rejected",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#impeccable",
+  "evidenceInputRef": "docs/tooling/evaluations/impeccable.evidence.json",
+  "expiresAt": "2027-02-15T00:02:00.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "rejected",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-17T00:04:12.275Z",
+    "rationale": "Decisión de Denis Paiva (PO) en el chat de Claude Code del 2026-11-16: «Sí, aplicala», ante la recomendación de aprobar design:ux-copy y design:accessibility-review y rechazar impeccable, emilkowalski-skills y mobile-app-ui-design. Puntaje 69,1 con advance_with_reservations, pero riesgo high: en skill-v4.9.1 instala hooks en SessionStart, en cada edición y en Stop que ejecutan un binario nativo descargado de GitHub Releases, fuera de la aprobación del modelo; telemetría por defecto y consulta a impeccable.style que no se apaga con ella. Sin uso medido en VCX en tres meses de admisión previa (0 en 344 transcripts), detector orientado a web y solapamiento con las skills aprobadas. No se acepta el riesgo a cambio de ese valor."
+  }
+}
