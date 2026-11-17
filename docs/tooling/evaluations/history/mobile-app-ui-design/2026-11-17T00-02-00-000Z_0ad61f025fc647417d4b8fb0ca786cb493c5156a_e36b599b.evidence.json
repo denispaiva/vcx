@@ -1,0 +1,429 @@
+{
+  "candidate": {
+    "id": "mobile-app-ui-design",
+    "type": "skill",
+    "sourceUrl": "https://github.com/ceorkm/mobile-app-ui-design",
+    "evaluatedRef": "0ad61f025fc647417d4b8fb0ca786cb493c5156a"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 55,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "pushed_at 2026-10-28 (hace 19 días) y no está archivado. Pero ese único commit reciente (0ad61f0) solo agrega 12 líneas que promocionan otra skill del mismo autor (ASO Shots); el contenido de diseño no cambia desde el 2026-02-15, hace nueve meses. La recencia es nominal, no de mantenimiento del contenido.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design (pushed_at=2026-10-28T18:35:14Z; archived=false; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/commits/0ad61f025fc647417d4b8fb0ca786cb493c5156a (README.md +8, SKILL.md +4; 'Point to ASO Shots for store screenshots'; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 3,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Ningún release y ningún tag desde su creación (2026-02-15). No hay versión declarada en el SKILL.md ni changelog. La única forma de fijar lo evaluado es por SHA de commit.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design/releases (0 releases; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/tags (0 tags; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 8,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "5 commits en toda la historia: 4 el mismo día de creación (2026-02-15, en 25 minutos) y 1 el 2026-10-28. En 30 días: 1 commit; en 90 días: 1. Un solo autor (ceorkm, nombre de commit 'livit'). Es un volcado inicial con un retoque promocional, no un proyecto con continuidad.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design/commits?per_page=100 (5 commits; 2026-02-15 x4, 2026-10-28 x1; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/contributors (1 contribuidor: ceorkm; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 20,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Muestra mínima: un único issue (#2, abierto el 2026-10-28 por un tercero, pide capturas de resultados), sin respuesta del mantenedor en 19 días; su único comentario es de otro usuario ('agree'). Cero issues cerrados y cero PRs en la historia. No hay evidencia de que el autor atienda reportes; la muestra es demasiado chica para una mediana.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design/issues?state=all (1 issue, #2 abierto 2026-10-28; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/issues/2/comments (1 comentario, de studymachinex el 2026-11-10; ninguno del mantenedor; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/pulls?state=all (0 PRs; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin security advisories publicados, pero el repo no declara SECURITY.md ni canal de reporte, así que la ausencia es evidencia débil. El contenido es solo Markdown (4 archivos, 24.287 bytes): no hay scripts, binarios ni dependencias que puedan tener CVE. No consulté OSV ni NVD (no aplica a texto). Sin vulnerabilidad conocida; el riesgo real es de contenido (ver securityHygiene), no de código.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design/security-advisories (respuesta=[]; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/git/trees/0ad61f025fc647417d4b8fb0ca786cb493c5156a?recursive=1 (.gitignore, INDEX.md, README.md, SKILL.md, references/industry-conventions.md; sin scripts; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Repo SIN LICENCIA: la API devuelve license=null y no existe archivo LICENSE en el SHA evaluado (404). El README muestra un badge 'License: MIT' que enlaza a un LICENSE inexistente y una sección 'MIT License', pero una afirmación en el README sin el texto de la licencia no otorga derechos claros: por defecto rige el copyright del autor y no hay permiso explícito para copiar, modificar ni redistribuir (por ejemplo, vendorizar la skill en el repo de Teyst). Autoría: cuenta ceorkm creada el 2025-07-27, 25 repos públicos, 27 seguidores, sin nombre ni empresa; los commits usan el nombre 'livit'. 4 de 5 commits sin firma; el último está verificado solo por la firma web de GitHub. Sin tags. El contenido cita casos (Duolingo, Disney, Kahneman) sin fuentes.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design (license=null; created_at=2026-02-15T07:33:51Z; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/contents/LICENSE?ref=0ad61f025fc647417d4b8fb0ca786cb493c5156a (404 Not Found; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/community/profile (health_percentage=28; license=false; medido 2026-11-16)",
+          "github-api:users/ceorkm (created_at=2025-07-27; public_repos=25; followers=27; medido 2026-11-16)",
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/README.md (sha256=6e6a5b744df8b005b4b756261e49fe2d6e97260c290ef9c5f3aa325b587fdf59; badge y sección 'MIT License' sin LICENSE; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/commits (verification: 4 unsigned, 1 verified por web-flow; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin SECURITY.md, sin licencia, sin workflows (total_count=0), sin plantillas ni CONTRIBUTING (perfil de comunidad 28 %). Hallazgo de contenido: el commit del 2026-10-28 agrega al SKILL.md la instrucción de que el agente sugiera 'npx skills add ceorkm/aso-shots' cuando el usuario mencione publicar en las tiendas. Es autopromoción del mismo autor (aso-shots, creado el 2026-10-26, 22 estrellas) que empuja a instalar otro paquete de terceros sin fijar versión. La skill no lo ejecuta, pero convierte al agente en canal de distribución y muestra que el autor usa el SKILL.md para cambios no relacionados con su propósito; como no hay releases, una actualización futura puede introducir instrucciones más agresivas sin aviso.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design/actions/workflows (total_count=0; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/community/profile (health_percentage=28; medido 2026-11-16)",
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/SKILL.md (sha256=4858c80494603d55b34d212ea6e892bac0fa90e23885df2099dd31364a2c9220; sección 'Store Screenshots'; medido 2026-11-16)",
+          "github-api:repos/ceorkm/aso-shots (created_at=2026-10-26; stargazers_count=22; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 62,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Solo texto: no pide permisos, no ejecuta comandos, no usa red ni telemetría. Descuentos: (1) la descripción de activación es muy amplia ('Even if the user just says \"design an app\" or \"make this screen look better\", use this skill'), lo que la hace disparar en cualquier tarea de UI; (2) la instrucción de recomendar la instalación de aso-shots no aparece en la descripción ni en el README como comportamiento de la skill, solo en el cuerpo; (3) las notas de implementación indican importar Lucide React y Recharts, lo que puede traducirse en dependencias nuevas en el proyecto sin que la skill lo declare como efecto.",
+        "evidenceRefs": [
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/SKILL.md (frontmatter description; 'Implementation Notes'; 'Store Screenshots'; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cubre el hueco genérico de 'criterio de diseño de pantallas móviles' que hoy no cubre ninguna skill admitida: jerarquía, grilla de 8 pt, zona del pulgar, estados vacío/error/carga/éxito y tap targets de 44x44 pt. No cubre lo que exige mobile-check: viewport desde 320 CSS px (usa 375 px como base), 48 dp en Android ni 24 CSS px en web, red lenta, modo offline o degradado, ni el criterio de no parpadeo de sesión. Tampoco trata UI en español ni microcopy localizado. La accesibilidad se reduce a 'Check contrast ratios'.",
+        "evidenceRefs": [
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/SKILL.md ('Ensure all tap targets are at least 44×44pt'; 'design for 375px width (iPhone SE) as baseline'; medido 2026-11-16)",
+          "teyst:AGENTS.md (§ Mobile First y § Sin parpadeo de sesión; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El formato (SKILL.md con frontmatter) funciona en Claude Code y Codex. Pero su guía de implementación apunta a 'React artifacts or HTML' con Tailwind CSS, Lucide React, Recharts, variables CSS, rounded-2xl y backdrop-blur. Teyst es Expo 57 / React Native 0.86 con react-native-web y no tiene tailwindcss, nativewind, lucide-react ni recharts. Seguir la skill al pie de la letra produce código web que no corre en iOS ni Android o arrastra dependencias ajenas. Menciona React Native en la descripción, pero no da ninguna indicación para StyleSheet, safe areas, Pressable ni hitSlop. Varias reglas chocan con el viewport compacto: padding vertical de sección de 80 a 96 px y tarjetas con 24 a 32 px de relleno a 320 px de ancho.",
+        "evidenceRefs": [
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/SKILL.md ('Implementation Notes': Tailwind, Lucide React, Recharts, backdrop-blur; 'Section vertical padding: at least 80-96px'; medido 2026-11-16)",
+          "teyst:package.json@897d5d0 (expo ~57.0.32; react-native 0.86.3; react-native-web ~0.21.0; sin tailwindcss/nativewind/lucide-react/recharts; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Frente a las alternativas en reevaluación: design:accessibility-review cubre contraste, tap targets y lectores de pantalla con más rigor (WCAG 2.1 AA); design:ux-copy cubre microcopy, vacíos y errores, que esta skill solo toca con 'uplifting microcopy' en inglés; impeccable cubre criterio visual general y emilkowalski-skills cubre animación, donde esta skill solo pide 'micro-animations' y 'sparkles' sin detalle. Lo que aporta de propio son heurísticas móviles de nivel blog (zona del pulgar, regla 60/30/10, peak-end, búsqueda nunca vacía), útiles como lista de recordatorio pero sin especificidad técnica. Además trae contradicciones internas (2 pesos de fuente en tipografía, 3 en antipatrones) y sugerencias que van contra la accesibilidad ('Ambient, low-contrast interfaces'). El valor incremental es bajo y en parte negativo si contradice mobile-check.",
+        "evidenceRefs": [
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/SKILL.md ('Maximum 4 font sizes and 2 font weights' vs 'More than 4 font sizes or 3 font weights'; medido 2026-11-16)",
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/references/industry-conventions.md (sha256=ba3e722707ae60a6cf371427447b3f7538db36cc58cf92574405ee5c450cfb55; 'Ambient, low-contrast interfaces'; medido 2026-11-16)",
+          "contexto-de-la-tarea:alternativas impeccable, emilkowalski-skills, design:accessibility-review, design:ux-copy en reevaluación paralela (2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La skill nunca se instaló ni se usó en Teyst; no hay resultados observables. No se ejecutó la candidata para esta evaluación.",
+        "evidenceRefs": [
+          "local-dir:~/.claude/skills (sin mobile-app-ui-design; medido 2026-11-16)",
+          "transcripts-claude-code:~/.claude/projects (las únicas menciones son de la sesión de esta evaluación; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se adopta copiando un directorio de Markdown (SKILL.md de 8.172 bytes más una referencia de 6.887), sin configuración ni dependencias propias. Descuentos: el instalador recomendado es 'npx skills add' sin fijar versión (habría que copiar por SHA a mano), y la falta de licencia complica vendorizarla en el repo.",
+        "evidenceRefs": [
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/README.md ('npx skills add ceorkm/mobile-app-ui-design'; 'Manual Installation'; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/git/trees/0ad61f025fc647417d4b8fb0ca786cb493c5156a?recursive=1 (tamaños de archivo; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de instalación ni de uso de la candidata en Teyst. Las lecturas hechas para esta evaluación no cuentan como adopción.",
+        "evidenceRefs": [
+          "transcripts-claude-code:~/.claude/projects (0 invocaciones fuera de esta evaluación; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 3,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin pruebas, sin evals, sin CI y sin ejemplos de salida. El issue #2 pide justamente capturas de resultados y sigue sin respuesta.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design/git/trees/0ad61f025fc647417d4b8fb0ca786cb493c5156a?recursive=1 (sin tests ni evals; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/actions/workflows (total_count=0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Estructura clara: proceso de cinco pasos, patrones, antipatrones y referencia por industria. Descuentos: contradicciones internas (pesos de fuente); afirmaciones sin fuente (Duolingo de 14,2 M a 34 M de DAU, 70 % de regreso en Disney); INDEX.md da números de línea que ya no coinciden tras el commit del 2026-10-28; el README promete una licencia MIT inexistente; reglas absolutas sin condiciones ('All spacing values must be divisible by 8 or 4') y ningún ejemplo de salida.",
+        "evidenceRefs": [
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/SKILL.md (sha256=4858c80494603d55b34d212ea6e892bac0fa90e23885df2099dd31364a2c9220; 153 líneas; medido 2026-11-16)",
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/INDEX.md (sha256=cc1462b87487bc5c39b8c4a6501909ff590f776197a6e23831edfcf16947afe6; 'Implementation Notes (lines 138-149)'; medido 2026-11-16)",
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/references/industry-conventions.md (Duolingo y Disney sin fuente; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 5,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin versión en el frontmatter, sin tags, releases ni changelog. El cambio de comportamiento del 2026-10-28 (nueva instrucción al agente) entró directo en main sin versión ni nota. Solo se puede fijar por SHA.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design/tags (0 tags; medido 2026-11-16)",
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/SKILL.md (frontmatter solo con name y description; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 15,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Solo afirmaciones: badges de skills.sh y Agent Skills y 'Made for Claude Code'. No hay matriz de arneses ni pruebas, y nada demuestra resultados en React Native, Flutter o SwiftUI, aunque la descripción los nombra.",
+        "evidenceRefs": [
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/README.md (badges skills.sh y Agent Skills; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La skill no tiene scripts, paquetes ni referencias a otras skills para funcionar: es un SKILL.md más una referencia. Descuento: sus notas de implementación prescriben Tailwind, Lucide React y Recharts en el código generado, y empuja a instalar aso-shots; son dependencias inducidas en el proyecto consumidor.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design/git/trees/0ad61f025fc647417d4b8fb0ca786cb493c5156a?recursive=1 (5 archivos, sin scripts; medido 2026-11-16)",
+          "github-raw:ceorkm/mobile-app-ui-design@0ad61f0/SKILL.md ('Implementation Notes'; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Gratis y sin claves. Contexto acotado: 8.172 bytes por activación y 6.887 más si lee la referencia. Descuentos: la activación amplia la carga en tareas de UI donde no hace falta, y la falta de licencia deja un costo legal no cuantificado si se copia o adapta.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design/git/trees/0ad61f025fc647417d4b8fb0ca786cb493c5156a?recursive=1 (SKILL.md=8172 bytes; references/industry-conventions.md=6887 bytes; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design (license=null; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Técnicamente es Markdown portable entre arneses. Pero sin licencia no hay permiso para copiarla, modificarla ni redistribuirla: no se puede vendorizar con seguridad en el repo de Teyst ni hacer un fork adaptado a Expo y a mobile-check sin pedir permiso al autor. La portabilidad legal es la que limita.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design (license=null; medido 2026-11-16)",
+          "github-api:repos/ceorkm/mobile-app-ui-design/contents/LICENSE?ref=0ad61f025fc647417d4b8fb0ca786cb493c5156a (404; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se retira borrando el directorio de la skill; no deja estado. Descuento: lo que haya inducido en el código (dependencias de Tailwind, Lucide o Recharts, estilos web) no se revierte solo, y una copia vendorizada sin licencia queda como pasivo a retirar.",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design/git/trees/0ad61f025fc647417d4b8fb0ca786cb493c5156a?recursive=1 (solo Markdown; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin servicios, claves ni estado. Costo de operación: fijar por SHA y revisar a mano cada cambio de main (sin releases ni changelog, y con antecedente de cambios promocionales); además, corregir en cada uso las reglas que contradicen mobile-check (375 px de base, 44 pt como único tap target, stack web).",
+        "evidenceRefs": [
+          "github-api:repos/ceorkm/mobile-app-ui-design/commits?per_page=100 (commit promocional del 2026-10-28 sin versión; medido 2026-11-16)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": true,
+    "localWriteReversible": false,
+    "newLocalDependencies": true,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  },
+  "communitySnapshot": {
+    "state": "available",
+    "counts": {
+      "stars": 560,
+      "forks": 47,
+      "contributors": 2
+    },
+    "contributorsState": "available",
+    "raw": {
+      "fullName": "ceorkm/mobile-app-ui-design",
+      "stars": 560,
+      "forks": 47,
+      "openIssues": 1,
+      "createdAt": "2026-02-15T07:33:51Z",
+      "pushedAt": "2026-10-28T18:35:14Z",
+      "license": null,
+      "archived": false,
+      "defaultBranch": "main"
+    },
+    "sourceUrl": "https://github.com/ceorkm/mobile-app-ui-design",
+    "observedAt": "2026-11-17T00:02:00.000Z"
+  }
+}

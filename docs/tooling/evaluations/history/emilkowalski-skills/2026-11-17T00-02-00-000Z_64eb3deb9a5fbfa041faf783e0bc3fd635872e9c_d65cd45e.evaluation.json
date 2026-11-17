@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "emilkowalski-skills",
+    "type": "skill",
+    "sourceUrl": "https://github.com/emilkowalski/skills",
+    "evaluatedRef": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c"
+  },
+  "observedAt": "2026-11-17T00:02:00.000Z",
+  "overallScore": 56.09338235294118,
+  "evidenceCoverage": 77,
+  "factorScores": {
+    "community": null,
+    "maintenance": 54.8,
+    "security": 64.7,
+    "fit": 52.82352941176472,
+    "engineering": 35.2,
+    "sustainability": 78.7
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 84.65,
+  "confidence": "high",
+  "riskLevel": "medium",
+  "baselineRecommendation": "do_not_advance",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#emilkowalski-skills",
+  "evidenceInputRef": "docs/tooling/evaluations/emilkowalski-skills.evidence.json",
+  "expiresAt": "2027-02-15T00:02:00.000Z",
+  "communityEvidenceNote": null
+}

@@ -1,0 +1,418 @@
+{
+  "candidate": {
+    "id": "design-ux-copy",
+    "type": "skill",
+    "sourceUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "evaluatedRef": "c71b6f3082b1e5ace3d1a9e30ac9205934134c9c"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 72,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El repositorio es un monorepo muy activo: pushed_at y último commit en main el 2026-11-13 (hace 3 días). Pero esa actividad casi no toca design/: la última modificación de la carpeta fue el 2026-09-21 (c71b6f3, solo README) y los SKILL.md de ux-copy no cambian desde el 2026-03-13 (2d6f7e2, migración de commands a skills), hace 248 días. Los commits recientes del repo son bumps de plugins externos y cambios de small-business y security-guidance. Descuento por esa distancia entre la actividad del repo y la de la skill.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/knowledge-work-plugins (pushed_at=2026-11-13T22:21:52Z; archived=false; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/commits/main (sha=e91a134584eb798bac7fb0379358006a2b63b965; fecha 2026-11-13T22:21:49Z; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/commits?path=design (8 commits en total; último c71b6f3 2026-09-21; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/commits?path=design/skills/ux-copy (último 2d6f7e2 2026-03-13; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 20,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El repositorio no publica releases ni tags (0 y 0). La única señal de versión es el campo version del plugin.json de cada plugin: design pasó de 1.1.0 a 1.2.0 el 2026-03-13 (7b2ea8e) y no cambió desde entonces, aunque design/ recibió tres commits después (3b505c1, 39a57c5, c71b6f3) sin subir versión. No hay notas de versión. La distribución real es por commit sincronizado, no por release.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/knowledge-work-plugins/releases (0 releases; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/tags (0 tags; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/contents/design/.claude-plugin/plugin.json?ref=main (version=1.2.0; en 2d6f7e2 version=1.1.0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 62,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Repo: 461 commits en main en 90 días (desde 2026-08-18) y 32 en 30 días, de 13 autores; por mes: ago (desde el 18) 57, sep 321, oct 62, nov (al 16) 21. La continuidad del repo es alta, pero design/ tuvo 1 commit en 90 días (c71b6f3, README) y 0 en 30 días; las skills candidatas, 0 en 90 días. Puntaje entre la continuidad del repo y la quietud de design/: para una skill de texto la quietud no es en sí un defecto, pero tampoco hay evidencia de que alguien la esté manteniendo.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/knowledge-work-plugins/commits?since=2026-08-18 (461 commits; 13 autores; ago=57, sep=321, oct=62, nov=21; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/commits?since=2026-10-17 (32 commits; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/commits?path=design (1 commit en 90 días; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 22,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cola de issues casi sin atención: 97 issues abiertos frente a 13 cerrados en toda la vida del repo; 35 de los 97 abiertos tienen algún comentario y el más antiguo abierto es del 2026-02-02. Hay 72 PRs abiertos y, desde el 2026-11-12, un workflow cierra todo PR de personas ajenas a la organización (close-external-prs), así que la vía de contribución externa está cerrada. Lo que toca a design: el issue #1382 (2026-10-23, solapamiento de triggers user-research/research-synthesis) sigue abierto sin respuesta visible. No hay issues sobre accessibility-review ni ux-copy.",
+        "evidenceRefs": [
+          "github-api:search/issues?q=repo:anthropics/knowledge-work-plugins+is:issue+is:open (total_count=97; 35 con comentarios; más antiguo 2026-02-02; medido 2026-11-16)",
+          "github-api:search/issues?q=repo:anthropics/knowledge-work-plugins+is:issue+is:closed (total_count=13; medido 2026-11-16)",
+          "github-api:search/issues?q=repo:anthropics/knowledge-work-plugins+is:pr+is:open (total_count=72; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/actions/workflows (Close External PRs, .github/workflows/close-external-prs.yml; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/issues/1382 (abierto; menciona design:user-research; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 78,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El listado de security advisories del repo está vacío y no hay SECURITY.md en la raíz, por lo que la ausencia de avisos es evidencia débil. No consulté bases externas (OSV, NVD). La skill es un único SKILL.md sin scripts ni dependencias: no hay código ejecutable propio que pueda tener una vulnerabilidad clásica. El riesgo residual es de contenido (instrucciones al modelo), no de código.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/knowledge-work-plugins/security-advisories (respuesta=[], 0 avisos; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/contents/ (sin SECURITY.md en la raíz; medido 2026-11-16)",
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy (1 archivo: SKILL.md; sin scripts; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 93,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Fuente de primera parte: organización anthropics (creada 2020-12-19, 98458 seguidores), repo creado 2026-01-23, Apache-2.0. Los 461 commits de main en 90 días tienen firma verificada, y también el único commit que tocó ux-copy (2d6f7e2) y c71b6f3. La carpeta de la skill es design/skills/ux-copy. La copia instalada coincide byte a byte con upstream: los 11 archivos del plugin design (SHA-1 de blob git) son idénticos al árbol de design/ en c71b6f3 y en HEAD (e91a134); el árbol de skills/ux-copy es 667711b17d9021f4a45d4cad7d23b7f2c4969680 desde 2d6f7e2 hasta HEAD. Descuento menor: la copia llega por el canal de plugins sincronizados de claude.ai, cuya procedencia no puedo verificar más allá de esa igualdad de contenido.",
+        "evidenceRefs": [
+          "github-api:orgs/anthropics (created_at=2020-12-19; followers=98458; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/commits?since=2026-08-18 (461 de 461 verified=true; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/git/trees/c71b6f3082b1e5ace3d1a9e30ac9205934134c9c:design?recursive=1 vs git hash-object de los 11 archivos de ~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510 (11 de 11 coinciden; también contra e91a134584eb798bac7fb0379358006a2b63b965; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/git/trees/2d6f7e22dd25593f0f748010430ef86f19659735:design/skills/ux-copy (tree=667711b17d9021f4a45d4cad7d23b7f2c4969680; SKILL.md=14ad66b916dbef712d0f35f208e1fdd137d28973; igual en c71b6f3082b1e5ace3d1a9e30ac9205934134c9c y e91a134584eb798bac7fb0379358006a2b63b965; medido 2026-11-16)",
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy/SKILL.md (sha256=d46a00a62ec637e9ca9d5f7823ea3e0a4ec26dffc53bb5035f59b48ebfcdcde7; 3436 bytes; blob git=14ad66b916dbef712d0f35f208e1fdd137d28973; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 66,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El repo tiene CI: Validate Plugins, Check MCP URLs, Scan Plugins (escaneo de políticas con Claude, pero solo de entradas externas del marketplace, no de los plugins de primera parte como design), Bump Plugin SHAs, Revert Failed Bumps y revisión de Copilot. Hay .github/policy (prompt.md, schema.json) para ese escaneo. No hay SECURITY.md ni canal de reporte privado. Todos los commits están firmados. El .mcp.json del plugin declara 9 servidores MCP remotos (dos con URL vacía) y un clientId OAuth de Slack, que es público y no un secreto.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/knowledge-work-plugins/actions/workflows (7 workflows del proyecto + Copilot; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/contents/.github/workflows/scan-plugins.yml ('Claude policy scan of changed external marketplace entries'; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/contents/.github/policy (prompt.md, schema.json; medido 2026-11-16)",
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/.mcp.json (9 servidores HTTP; gmail y google calendar con url vacía; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 82,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Solo texto. Pide contexto, estado del usuario, tono y restricciones, y devuelve copy con alternativas. Las instrucciones condicionales a conectores son solo de lectura: leer guías de voz desde ~~knowledge base (Notion) y ver la pantalla en ~~design tool (Figma). No escribe archivos ni sistemas remotos. Descuento leve porque el plugin que la trae declara 9 servidores MCP remotos, aunque esta skill solo lee de dos categorías y hoy ninguno está autenticado.",
+        "evidenceRefs": [
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy/SKILL.md (sha256=d46a00a62ec637e9ca9d5f7823ea3e0a4ec26dffc53bb5035f59b48ebfcdcde7; 3436 bytes; blob git=14ad66b916dbef712d0f35f208e1fdd137d28973; medido 2026-11-16)",
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/CONNECTORS.md (medido 2026-11-16)",
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/.mcp.json (medido 2026-11-16)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 48,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Teyst no tiene skill de diseño ni de redacción de interfaz admitida. La skill cubre microcopy, errores (qué pasó + por qué + cómo arreglarlo), estados vacíos, diálogos de confirmación con verbo de acción y tono por contexto, que son necesidades reales de una UI en español. Pero es genérica y en inglés: no trae glosario ni forma de fijar el vocabulario del producto («Liga», «WineBar», ADR 0004), ni pautas de español (voseo o tuteo, longitud en móvil a 320 px). Solo el principio «Consistent: same terms for the same things» apunta al problema, sin mecanismo.",
+        "evidenceRefs": [
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy/SKILL.md (sha256=d46a00a62ec637e9ca9d5f7823ea3e0a4ec26dffc53bb5035f59b48ebfcdcde7; 3436 bytes; blob git=14ad66b916dbef712d0f35f208e1fdd137d28973; medido 2026-11-16)",
+          "teyst:AGENTS.md (§ Vocabulario: Liga y WineBar; § Idioma; medido 2026-11-16)",
+          "teyst:.roadmap.json (tooling.skills=[]; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 72,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Texto sin dependencias, instalado en Claude Code; no supone web ni nativo, así que sirve igual para las tres plataformas de Expo. Pide restricciones de caracteres, lo que encaja con pantallas de 320 CSS px, y su plantilla incluye «Localization Notes». Descuento: todos los ejemplos y patrones están en inglés («Start free trial», «Delete files») y hay que traducir el criterio, no solo el texto; la fuente de la guía de voz que propone es un conector de knowledge base (Notion) que Teyst no usa, cuando la guía real vive en AGENTS.md y en los ADR.",
+        "evidenceRefs": [
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy/SKILL.md (sha256=d46a00a62ec637e9ca9d5f7823ea3e0a4ec26dffc53bb5035f59b48ebfcdcde7; 3436 bytes; blob git=14ad66b916dbef712d0f35f208e1fdd137d28973; medido 2026-11-16)",
+          "teyst:AGENTS.md (§ Idioma: interfaces en español; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 32,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Son pautas que el modelo ya aplica por defecto; el aporte es la plantilla de salida con tres alternativas y su justificación, útil para decidir un texto con el PO. Teyst ya trabaja el copy con cuidado (ver ee000f0, el placeholder «ej. Los Catadores» del nombre de Liga) y fija el vocabulario en AGENTS.md, así que el valor incremental es bajo y sin control del vocabulario propio.",
+        "evidenceRefs": [
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy/SKILL.md (sha256=d46a00a62ec637e9ca9d5f7823ea3e0a4ec26dffc53bb5035f59b48ebfcdcde7; 3436 bytes; blob git=14ad66b916dbef712d0f35f208e1fdd137d28973; medido 2026-11-16)",
+          "teyst:git log (ee000f0 fix(teyst): el nombre de una Liga nueva propone «ej. Los Catadores» con Tab; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Nunca se usó en Teyst ni en otro proyecto de esta máquina: no hay invocaciones, así que no hay resultado que medir. Sin dato, no se puntúa.",
+        "evidenceRefs": [
+          "transcripts-claude-code:~/.claude/projects/-Users-denis-VibeCoding-vcx-solera-teyst (92 transcripts; 0 invocaciones de la Skill design:ux-copy; medido 2026-11-16)",
+          "transcripts-claude-code:~/.claude/projects (todos los proyectos; búsqueda de tool_use Skill con design:accessibility-review o design:ux-copy y de <command-name>: 0 coincidencias; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 92,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Ya está instalada por el plugin design sincronizado; se invoca con /design:ux-copy sin configuración y sin conectores obligatorios. Para Teyst basta pasarle en el prompt el vocabulario y el tono.",
+        "evidenceRefs": [
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy (1 archivo: SKILL.md; sin scripts; medido 2026-11-16)",
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/.claude-plugin/plugin.json (version=1.2.0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "available",
+        "score": 0,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 invocaciones en los 92 transcripts de Claude Code de Teyst y 0 en el resto de los proyectos, aunque figura en la lista de skills disponibles de cada sesión al menos desde el 2026-11-09. Nunca se adoptó.",
+        "evidenceRefs": [
+          "transcripts-claude-code:~/.claude/projects/-Users-denis-VibeCoding-vcx-solera-teyst (92 transcripts; 0 invocaciones de la Skill design:ux-copy; medido 2026-11-16)",
+          "transcripts-claude-code:~/.claude/projects (todos los proyectos; búsqueda de tool_use Skill con design:accessibility-review o design:ux-copy y de <command-name>: 0 coincidencias; medido 2026-11-16)",
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510 (directorio creado 2026-11-09; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 18,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No hay pruebas ni evals del contenido de la skill. El CI del repo valida la estructura de los plugins y las URL de MCP, y el escaneo de políticas solo corre sobre entradas externas. Nada verifica que las afirmaciones de la skill sean correctas; de hecho, el error de nivel del 2.5.5 en accessibility-review pasó sin detección desde febrero.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/knowledge-work-plugins/actions/workflows (Validate Plugins, Check MCP URLs, Scan Plugins; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/git/trees/c71b6f3082b1e5ace3d1a9e30ac9205934134c9c:design?recursive=1 (sin tests ni evals; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 66,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Clara y breve (3436 bytes): principios, patrones con estructura explícita para errores y estados vacíos, tono por contexto y plantilla de salida con alternativas y notas de localización. Descuento: tooltips, estados de carga y onboarding tienen una línea cada uno, sin ejemplos; no trata pluralización, género gramatical ni expansión de texto más allá de mencionarla.",
+        "evidenceRefs": [
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy/SKILL.md (sha256=d46a00a62ec637e9ca9d5f7823ea3e0a4ec26dffc53bb5035f59b48ebfcdcde7; 3436 bytes; blob git=14ad66b916dbef712d0f35f208e1fdd137d28973; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Solo hay un version semver en plugin.json (1.2.0), sin tags, releases ni changelog. La versión no acompaña los cambios: design/ cambió tres veces después de 1.2.0 (.mcp.json dos veces y README) con el mismo número, así que «1.2.0» no identifica un contenido. El SKILL.md sí está estable desde el 2026-03-13. Por eso evaluatedRef es un SHA de commit.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/knowledge-work-plugins/commits?path=design (7b2ea8e sube a 1.2.0 el 2026-03-13; 3b505c1, 39a57c5, c71b6f3 sin bump; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/releases (0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No hay matriz de compatibilidad ni pruebas por arnés. El plugin está pensado para Cowork y Claude Code (README con comando de instalación, corregido en c71b6f3) y en esta máquina carga y se lista en Claude Code. No hay evidencia publicada de su comportamiento en otros arneses ni por versión del cliente.",
+        "evidenceRefs": [
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/README.md (instalación como plugin; medido 2026-11-16)",
+          "sesión Claude Code 2026-11-16 (la skill aparece en la lista de skills disponibles; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 88,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Un único SKILL.md, sin scripts ni paquetes; enlaza a ../../CONNECTORS.md. Los conectores son opcionales, pero el plugin que la contiene arrastra 9 servidores MCP remotos declarados que no se pueden quitar de forma individual sin editar la copia sincronizada.",
+        "evidenceRefs": [
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy (1 archivo: SKILL.md; sin scripts; medido 2026-11-16)",
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/.mcp.json (medido 2026-11-16)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Apache-2.0, gratis y sin claves. Costo fijo de contexto: 3436 bytes por invocación. Los conectores opcionales (Figma, Linear, Notion, etc.) tienen sus propias cuentas y planes, que Teyst no usa.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/knowledge-work-plugins (license=Apache-2.0; medido 2026-11-16)",
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy/SKILL.md (sha256=d46a00a62ec637e9ca9d5f7823ea3e0a4ec26dffc53bb5035f59b48ebfcdcde7; 3436 bytes; blob git=14ad66b916dbef712d0f35f208e1fdd137d28973; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Markdown con frontmatter; la licencia permite copiarla y adaptarla. Usa sintaxis propia de Claude Code/Cowork ($ARGUMENTS, @$1, marcadores ~~categoría), fácil de reescribir para otro arnés.",
+        "evidenceRefs": [
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy/SKILL.md (sha256=d46a00a62ec637e9ca9d5f7823ea3e0a4ec26dffc53bb5035f59b48ebfcdcde7; 3436 bytes; blob git=14ad66b916dbef712d0f35f208e1fdd137d28973; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins (license=Apache-2.0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 95,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se desactiva quitando el plugin; no escribe nada ni deja estado. La copia llega sincronizada desde claude.ai, así que desactivarla puede requerir tocar esa configuración y no solo la local.",
+        "evidenceRefs": [
+          "local-file:~/.claude/plugins/synced/962c4d83-bb07-4d19-ae02-9ce6123eb40c_41505ca8-a6e7-42e1-b5c6-6f92ca37b5fe/afe29730-8d0c-470c-801a-a52a510c0510/skills/ux-copy (1 archivo: SKILL.md; sin scripts; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 84,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin servicios ni estado propios. Costo de operación indirecto: el plugin design registra servidores MCP que, sin autenticar, generan avisos en cada sesión (en esta, figma e intercom). El SKILL.md no cambió desde marzo, así que no exigió revisiones por versión.",
+        "evidenceRefs": [
+          "sesión Claude Code 2026-11-16 (aviso de autenticación pendiente de plugin:design:figma y plugin:design:intercom; medido 2026-11-16)",
+          "github-api:repos/anthropics/knowledge-work-plugins/commits?path=design/skills/ux-copy (sin cambios desde 2026-03-13; medido 2026-11-16)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": true,
+    "localWriteReversible": false,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

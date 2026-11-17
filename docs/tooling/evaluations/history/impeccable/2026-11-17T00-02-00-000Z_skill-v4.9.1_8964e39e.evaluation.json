@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "impeccable",
+    "type": "skill",
+    "sourceUrl": "https://github.com/pbakaus/impeccable",
+    "evaluatedRef": "skill-v4.9.1"
+  },
+  "observedAt": "2026-11-17T00:02:00.000Z",
+  "overallScore": 69.09206537305167,
+  "evidenceCoverage": 100,
+  "factorScores": {
+    "community": 83.46032686525834,
+    "maintenance": 89.3,
+    "security": 66.85000000000001,
+    "fit": 45.2,
+    "engineering": 66.9,
+    "sustainability": 65.6
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 95.5,
+  "confidence": "high",
+  "riskLevel": "high",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#impeccable",
+  "evidenceInputRef": "docs/tooling/evaluations/impeccable.evidence.json",
+  "expiresAt": "2027-02-15T00:02:00.000Z",
+  "communityEvidenceNote": null
+}

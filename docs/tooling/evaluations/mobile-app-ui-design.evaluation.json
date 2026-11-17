@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "id": "mobile-app-ui-design",
+    "type": "skill",
+    "sourceUrl": "https://github.com/ceorkm/mobile-app-ui-design",
+    "evaluatedRef": "0ad61f025fc647417d4b8fb0ca786cb493c5156a"
+  },
+  "observedAt": "2026-11-17T00:02:00.000Z",
+  "overallScore": 38.84419901923932,
+  "evidenceCoverage": 95,
+  "factorScores": {
+    "community": 36.7584950961966,
+    "maintenance": 22.4,
+    "security": 48.050000000000004,
+    "fit": 40,
+    "engineering": 25.15,
+    "sustainability": 67.5
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94,
+  "confidence": "high",
+  "riskLevel": "medium",
+  "baselineRecommendation": "do_not_advance",
+  "status": "rejected",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#mobile-app-ui-design",
+  "evidenceInputRef": "docs/tooling/evaluations/mobile-app-ui-design.evidence.json",
+  "expiresAt": "2027-02-15T00:02:00.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "rejected",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-17T00:04:12.575Z",
+    "rationale": "Decisión de Denis Paiva (PO) en el chat de Claude Code del 2026-11-16: «Sí, aplicala», ante la recomendación de aprobar design:ux-copy y design:accessibility-review y rechazar impeccable, emilkowalski-skills y mobile-app-ui-design. Puntaje 38,8, do_not_advance, riesgo medium, sobre 0ad61f0. Sin licencia (el README anuncia MIT, pero no hay archivo LICENSE): no se puede copiar ni adaptar. El último commit agregó al SKILL.md una recomendación de instalar otra skill del autor, sin release ni nota. Orientada a HTML y Tailwind, base de 375 px, sin 48 dp ni 24 CSS px, sin red lenta ni parpadeo de sesión."
+  }
+}

@@ -1,0 +1,443 @@
+{
+  "candidate": {
+    "id": "impeccable",
+    "type": "skill",
+    "sourceUrl": "https://github.com/pbakaus/impeccable",
+    "evaluatedRef": "skill-v4.9.1"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 97,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Actividad máxima: pushed_at 2026-11-16T23:46Z, último commit en main 2026-11-16T00:41Z ('Sync generated provider output') y release skill-v4.9.1 el 2026-11-14. No está archivado.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable (pushed_at=2026-11-16T23:46:11Z; archived=false; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/commits?per_page=1 (d41d986, 2026-11-16T00:41:50Z; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 84,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El canal skill-v tiene 19 releases en 90 días (desde skill-v4.1.2 del 2026-08-26 hasta skill-v4.9.1 del 2026-11-14); brecha máxima 22 días (2026-09-09 a 2026-10-01). Hay además canales cli-v, engine-v y loop-v con releases propios. Descuento: ningún release es inmutable (immutable=false en todos) y la cadencia es tan alta que cada release cambia comportamiento; la continuidad no es estabilidad (ver versioningDiscipline y operatingOverhead).",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/releases?per_page=100 (19 releases skill-v en 90 días; immutable=false; brecha máxima 22 d; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/tags (skill-v4.9.1 -> acb4cfe14470b1fdf51e855431af618d936b7db8; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 86,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "1734 commits en main en 90 días y 825 en 30; por mes: ago (desde el 18) 189, sep 333, oct 527, nov (al 16) 685, en aumento. Descuento por concentración: 1295 de 1734 (75 %) son de pbakaus, 213 de un segundo autor y 185 de bots; el resto son contribuciones puntuales. 62 contribuidores históricos. Riesgo de bus factor alto.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/commits?since=2026-08-18T12:00:00Z (1734 commits; pbakaus=1295, abdulwahabone=213, github-actions[bot]=165, dependabot[bot]=20; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/commits?since=2026-10-17T12:00:00Z (825 commits; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contributors (62; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 90,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Muestra de los 40 issues cerrados más recientes (creados entre 2026-10-31 y 2026-11-14): mediana de cierre 0,64 días, p90 5,3 días, 36 de 40 cerrados en 7 días o menos; 35 completed, 3 not_planned, 2 duplicate. Acumulado: 492 issues cerrados, 31 abiertos (el más viejo de 2026-07-18), 17 PRs abiertos y 839 mergeados. Respuesta rápida y que resuelve.",
+        "evidenceRefs": [
+          "github-api:search/issues?q=repo:pbakaus/impeccable+is:issue+is:closed (total=492; muestra 40: mediana=0,64 d, p90=5,3 d, completed=35; medido 2026-11-16)",
+          "github-api:search/issues?q=repo:pbakaus/impeccable+is:issue+is:open (total=31; medido 2026-11-16)",
+          "github-api:search/issues?q=repo:pbakaus/impeccable+is:pr+is:open (total=17; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 68,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El listado de security advisories está vacío, pero el repositorio no tiene SECURITY.md ni canal de reporte privado declarado, así que la ausencia de avisos es evidencia débil. Dependabot está activo (20 commits en 90 días). No consulté OSV ni NVD, ni escaneé el binario nativo del engine (Rust, descargado por plataforma) ni el bundle live-browser.js de 565 KB que trae la skill. Sin vulnerabilidad conocida; cobertura limitada y superficie ejecutable grande para una skill.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/security-advisories (0 avisos; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/SECURITY.md?ref=skill-v4.9.1 (404; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/git/trees/skill-v4.9.1?recursive=1 (.github/dependabot.yml presente; skill/scripts/live-browser.js=565814 bytes; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 72,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Autor pbakaus (Paul Bakaus), cuenta desde 2008-12-28, 3732 seguidores, company=Google autodeclarado; repo creado 2025-11-16 con 111367 estrellas. evaluatedRef = skill-v4.9.1 (commit acb4cfe), el release de skill más reciente. El launcher verifica el binario del engine (0.1.24) contra sha256 fijados en scripts/engine-checksums.txt dentro del tag, y falla cerrado si no hay checksum; el instalador verifica el ZIP de la skill con Ed25519. Descuentos: releases no inmutables; 1257 de 1734 commits de 90 días sin firma verificada; el binario es un artefacto compilado que no reproduje; y el antecedente propio: la copia vendorizada en el precursor difería del tag skill-v4.0.4 en 18 de 147 archivos, lo que muestra que la procedencia de lo que efectivamente corre en VCX no se sostuvo.",
+        "evidenceRefs": [
+          "github-api:users/pbakaus (created_at=2008-12-28; followers=3732; company=Google; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/tags (skill-v4.9.1 -> acb4cfe; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/plugin/skills/impeccable/scripts/engine-checksums.txt?ref=skill-v4.9.1 (sha256 por plataforma para engine 0.1.24; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/docs/BUNDLE-SIGNING.md?ref=skill-v4.9.1 (firma Ed25519 del ZIP; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/commits?since=2026-08-18 (verified: 477 true, 1257 false; medido 2026-11-16)",
+          "encargo:reevaluación 2026-11-16 (copia vendorizada del precursor ≠ skill-v4.0.4 en 18 de 147 archivos; admisión vencida 2026-11-08)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 66,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Fortalezas: CI extenso (tests core, detector, live, Rust en Linux y Windows, oracle, e2e con Playwright, verificación de que las salidas generadas por arnés no derivan), Dependabot, CODEOWNERS, launcher con descarga fail-closed contra checksums propios y documentación honesta de que el hook corre sin sandbox. Descuentos: sin SECURITY.md; telemetría activada por defecto (registro de las direcciones visuales mostradas y elegidas) y una petición al catálogo de impeccable.style al iniciar diseño nuevo que no se apaga al desactivar la telemetría; varios workflows temporales de diagnóstico de Windows activos ('diag-win (temporary)', 'TEMP Windows probe', 'win-diag', 'Investigate Windows release detections').",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/contents/.github/workflows/ci.yml?ref=skill-v4.9.1 (jobs test-matrix, rust, rust-windows, launcher-windows, oracle, engine-release-ready; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/actions/workflows (8 workflows propios, 4 temporales o de diagnóstico; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/README.md?ref=skill-v4.9.1 (sección Telemetry, línea 213; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Documenta con franqueza lo que hace, pero lo que hace es mucho para una skill: el plugin de Claude Code instala hooks SessionStart, PostToolUse (Edit|Write) y Stop que ejecutan un binario nativo en cada edición y al cerrar el turno, fuera de la aprobación del modelo, con el entorno y el acceso a red del agente; el README advierte que la primera edición puede descargar el engine. Escribe en ~/.impeccable (caché del binario) y en el proyecto (.impeccable/, PRODUCT.md, DESIGN.md). Hace red: descarga del engine desde GitHub Releases, catálogo de impeccable.style y telemetría por defecto. Funciones nuevas ('impeccable world') requieren cuenta iniciada en el servicio. Las referencias nativas piden comandos como 'adb shell settings put system font_scale' (con restauración indicada). Transparente, no acotado.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/contents/plugin/hooks/hooks.json?ref=skill-v4.9.1 (SessionStart, PostToolUse Edit|Write timeout 5 s, Stop timeout 30 s; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/plugin/skills/impeccable/scripts/impeccable?ref=skill-v4.9.1 (descarga de engine-v0.1.24 con curl/wget a ~/.impeccable/bin; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/README.md?ref=skill-v4.9.1 ('Hooks run outside model approval', línea 209; Telemetry, línea 213; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/skill/reference/hooks.md?ref=skill-v4.9.1 ('runs the engine unsandboxed with the agent's environment and network access'; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/releases/tags/skill-v4.9.1 ('Needs a signed-in account'; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 68,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Teyst no tiene hoy ninguna skill de diseño admitida y impeccable cubre auditoría, crítica, adaptación, endurecimiento y pulido de UI, con referencias nativas que nombran React Native y Expo y fijan 44×44 pt en iOS y 48×48 dp en Android, en línea con mobile-check. Descuentos: el detector determinista está pensado para web (CSS, HTML, JSX) y no hay pruebas ni reglas específicas de React Native (0 archivos con 'react-native' en el árbol del tag); no cubre el criterio propio de 'sin parpadeo de sesión'; no hay nada específico de i18n ni de UI en español; el umbral de 24 CSS px web y el viewport de 320 px no los verifiqué como reglas explícitas.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/contents/skill/reference/ios.md?ref=skill-v4.9.1 ('React Native, Expo'; rule:ios-touch-target-44pt; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/skill/reference/android.md?ref=skill-v4.9.1 (rule:android-touch-target-48dp; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/git/trees/skill-v4.9.1?recursive=1 (0 rutas con react-native, i18n o locale; 2482 archivos en tests/; medido 2026-11-16)",
+          "vcx:solera/teyst/AGENTS.md (Mobile First, mobile-check, Sin parpadeo de sesión; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se instala como plugin de Claude Code desde su propio marketplace y funciona sin Node (binario nativo por plataforma, darwin-arm64 incluido). Para Expo web sirve 'impeccable detect <url>' con el Chrome instalado; para iOS y Android las referencias piden capturas de simulador y emulador, que Teyst puede producir. Descuentos: el hook escanea .tsx/.ts/.js de Teyst con reglas de CSS web, con riesgo de falsos positivos sobre StyleSheet de React Native (no verificado); la primera ejecución necesita red y escritura en ~/.impeccable, que choca con sesiones en sandbox; los hooks añaden latencia a cada Edit y Write (hasta 5 s) y al Stop (hasta 30 s).",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/contents/plugin/hooks/hooks.json?ref=skill-v4.9.1 (timeouts 5 s y 30 s; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/skill/reference/hooks.md?ref=skill-v4.9.1 (extensiones escaneadas: .tsx, .jsx, .ts, .js, .css…; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/README.md?ref=skill-v4.9.1 ('npx impeccable detect https://example.com'; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 52,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Lo distintivo frente a las alternativas en evaluación paralela es el detector determinista (62 reglas, sin LLM) y las referencias nativas iOS/Android. Pero se solapa con design:accessibility-review (WCAG, contraste, touch targets) y design:ux-copy (clarify), y con emilkowalski-skills en animación (animate, delight); ceorkm/mobile-app-ui-design compite en lo nativo. El valor de su parte más fuerte, el detector, depende del hook, que es justamente la parte de mayor riesgo. Tres meses admitida sin uso sugieren que el hueco no era tan apremiante como se estimó.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/contents/README.md?ref=skill-v4.9.1 ('62 deterministic rules… No LLM, no API key'; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/plugin/skills/impeccable/SKILL.md?ref=skill-v4.9.1 (24 comandos; medido 2026-11-16)",
+          "encargo:alternativas en evaluación (emilkowalski-skills, ceorkm/mobile-app-ui-design, design:accessibility-review, design:ux-copy)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "available",
+        "score": 0,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Admitida del 2026-08-10 al 2026-11-08 sin ninguna invocación registrada en VCX, por lo que no produjo ningún resultado aceptado. El único resultado observable de la admisión es de proceso y negativo: la copia vendorizada divergió del tag aprobado y la admisión venció sin renovar. El 0 refleja ausencia de resultados, no un daño medido.",
+        "evidenceRefs": [
+          "transcripts-claude-code:~/.claude/projects (344 transcripts modificados desde 2026-08-10; 0 invocaciones Skill, 0 /impeccable, 0 lecturas de skills/impeccable/SKILL.md, 0 ejecuciones del launcher; medido 2026-11-16)",
+          "encargo:reevaluación 2026-11-16 (admisión vencida 2026-11-08 sin uso en VCX)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 58,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Instalar es un comando de plugin (/plugin marketplace add pbakaus/impeccable), pero adoptarla bien no es simple: el plugin trae hooks activos, la primera ejecución descarga un binario, el flujo recomendado escribe PRODUCT.md y DESIGN.md en el proyecto, y la superficie es de 24 comandos con referencias de hasta 68 KB. El antecedente del precursor (copia vendorizada que no coincidía con el tag) muestra que mantenerla fijada a una versión revisada exige trabajo adicional.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/contents/README.md?ref=skill-v4.9.1 (Installation; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/git/trees/skill-v4.9.1?recursive=1 (skill/reference/new-work.md=67942 bytes, critique.md=48231 bytes; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "available",
+        "score": 0,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 usos en el período de admisión: 0 invocaciones en 344 transcripts de Claude Code desde el 2026-08-10 y 0 coincidencias en sesiones de Codex. Las menciones a 'impeccable' encontradas son de evaluación y gobernanza, no de uso.",
+        "evidenceRefs": [
+          "transcripts-claude-code:~/.claude/projects (invocaciones=0 en 344 transcripts; medido 2026-11-16)",
+          "transcripts-codex:~/.codex/sessions (coincidencias=0; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Verificación automatizada amplia: 2482 archivos en tests/, CI con test:core, test:detector, test:live, test:framework, cargo test en Linux y Windows, pruebas del launcher y su descarga, oracle y e2e de new-work con Playwright, y un control de que las copias generadas por arnés no derivan del fuente. Descuento: las pruebas verifican engine, detector y empaquetado, no el efecto de las instrucciones sobre el diseño que produce el agente; nada cubre React Native.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/contents/.github/workflows/ci.yml?ref=skill-v4.9.1 (medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/git/trees/skill-v4.9.1?recursive=1 (tests/=2482 archivos; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 72,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "README claro, con instalación por arnés, advertencias de seguridad explícitas (hooks fuera de la aprobación del modelo, telemetría, cómo desactivarla) y documentación por comando en reference/. Descuentos: volumen excesivo para una skill (new-work.md 68 KB, critique.md 48 KB, live.md 42 KB; CLAUDE.md del repo 60 KB), lo que encarece el contexto y dificulta revisar cada versión; parte de la política de privacidad vive fuera del repo (impeccable.style/privacy).",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/contents/README.md?ref=skill-v4.9.1 (17379 bytes; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/git/trees/skill-v4.9.1?recursive=1 (tamaños de skill/reference/*.md; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Semver por componente con prefijos (skill-v, cli-v, engine-v, loop-v), VERSION que fija el engine (0.1.24) y checksums por versión; la versión del plugin.json (4.9.1) coincide con el tag. Descuentos: 19 releases de skill en 90 días y 9 menores desde 4.1.0, cada uno con cambios de comportamiento; releases no inmutables; el alcance del producto se expande (cuentas, Loop, walkthroughs) dentro de versiones menores; en una skill el texto es la API y no hay garantía de estabilidad entre menores.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/releases (canales skill-v, cli-v, engine-v, loop-v; immutable=false; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/plugin/.claude-plugin/plugin.json?ref=skill-v4.9.1 (version=4.9.1; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/releases/tags/skill-v4.9.1 (notas: world con cuenta, Loop, walkthrough; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 66,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Hay evidencia de compatibilidad multiplataforma y multiarnés: builds y tests de Rust en Linux y Windows, pruebas del launcher en Windows, y salidas generadas para unos 20 arneses (Claude Code, Codex, Cursor, Gemini, Copilot y otros) con control de deriva en CI. Para el caso de Teyst no hay evidencia: ninguna prueba de React Native ni Expo.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/contents/.github/workflows/ci.yml?ref=skill-v4.9.1 (rust-windows, launcher-windows, control de deriva de .agents .claude .cursor .gemini plugin; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/git/trees/skill-v4.9.1?recursive=1 (0 rutas con react-native; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 30,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Lejos de un SKILL.md autónomo: trae un binario nativo del engine descargado por plataforma, un bundle JS de 565 KB, un índice de fuentes de 1,1 MB, hooks del arnés, y para algunas funciones Chrome o Edge instalado y un servicio remoto (catálogo y cuenta de impeccable.style).",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/git/trees/skill-v4.9.1?recursive=1 (scripts/live-browser.js=565814 bytes; scripts/data/font-index.json=1100013 bytes; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/plugin/skills/impeccable/scripts/impeccable?ref=skill-v4.9.1 (descarga del engine; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 72,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Apache-2.0 y el detector no usa LLM ni API key, sin costo variable directo. Descuentos: el costo de contexto por invocación es alto y variable según el comando (referencias de 4 a 68 KB, más el reminder del hook en cada edición); funciones nuevas requieren cuenta en impeccable.style, señal de un servicio que podría pasar a tener niveles pagos (no hay precio publicado en el repo).",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable (license=Apache-2.0; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/releases/tags/skill-v4.9.1 ('Needs a signed-in account'; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 76,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se distribuye para unos 20 arneses y el engine tiene binarios para macOS, Linux y Windows; el contenido de la skill es markdown. Descuento: lo distintivo (detector, hook, live) depende del binario propio y de la integración de hooks de cada arnés; sin ellos queda un conjunto de guías de diseño.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/git/trees/skill-v4.9.1?recursive=1 (directorios .agents .claude .cursor .gemini .github/skills .kiro .opencode plugin, etc.; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/plugin/skills/impeccable/scripts/engine-checksums.txt?ref=skill-v4.9.1 (5 plataformas; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 68,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Desinstalar el plugin retira skill y hooks del plugin. Quedan a mano: la caché ~/.impeccable con el binario, .impeccable/ y los PRODUCT.md y DESIGN.md escritos en el proyecto, y los hooks que el instalador npx haya agregado a la configuración de cada arnés. Todo es local y borrable, nada remoto salvo la telemetría ya enviada.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/contents/plugin/skills/impeccable/scripts/impeccable?ref=skill-v4.9.1 (caché en ${IMPECCABLE_HOME:-~/.impeccable}/bin; medido 2026-11-16)",
+          "github-api:repos/pbakaus/impeccable/contents/README.md?ref=skill-v4.9.1 (installer y hooks; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Mantenerla al día cuesta: 19 releases de skill en 90 días, cada uno con texto e instrucciones que habría que revisar antes de fijarlo, más el engine con checksums nuevos; el hook corre en cada edición y en cada cierre de turno. El antecedente del precursor confirma el costo: la copia vendorizada quedó desalineada del tag (18 de 147 archivos) y la admisión venció sin renovar.",
+        "evidenceRefs": [
+          "github-api:repos/pbakaus/impeccable/releases (19 skill-v en 90 días; medido 2026-11-16)",
+          "encargo:reevaluación 2026-11-16 (copia vendorizada ≠ tag; admisión vencida)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 82
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": true,
+    "networkAccess": true,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  },
+  "communitySnapshot": {
+    "state": "available",
+    "counts": {
+      "stars": 111367,
+      "forks": 6656,
+      "contributors": 66
+    },
+    "contributorsState": "available",
+    "raw": {
+      "fullName": "pbakaus/impeccable",
+      "stars": 111367,
+      "forks": 6656,
+      "openIssues": 49,
+      "createdAt": "2025-11-16T01:52:04Z",
+      "pushedAt": "2026-11-16T23:59:19Z",
+      "license": "Apache-2.0",
+      "archived": false,
+      "defaultBranch": "main"
+    },
+    "sourceUrl": "https://github.com/pbakaus/impeccable",
+    "observedAt": "2026-11-17T00:02:00.000Z"
+  }
+}

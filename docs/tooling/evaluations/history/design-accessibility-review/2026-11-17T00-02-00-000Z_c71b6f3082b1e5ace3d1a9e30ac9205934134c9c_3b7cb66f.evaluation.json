@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "design-accessibility-review",
+    "type": "skill",
+    "sourceUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "evaluatedRef": "c71b6f3082b1e5ace3d1a9e30ac9205934134c9c"
+  },
+  "observedAt": "2026-11-17T00:02:00.000Z",
+  "overallScore": 61.74728040889341,
+  "evidenceCoverage": 97,
+  "factorScores": {
+    "community": 74.73860792681997,
+    "maintenance": 46.39999999999999,
+    "security": 78.60000000000001,
+    "fit": 47.235294117647065,
+    "engineering": 39.45,
+    "sustainability": 87.55
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.9,
+  "confidence": "high",
+  "riskLevel": "low",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#design-accessibility-review",
+  "evidenceInputRef": "docs/tooling/evaluations/design-accessibility-review.evidence.json",
+  "expiresAt": "2027-02-15T00:02:00.000Z",
+  "communityEvidenceNote": null
+}
