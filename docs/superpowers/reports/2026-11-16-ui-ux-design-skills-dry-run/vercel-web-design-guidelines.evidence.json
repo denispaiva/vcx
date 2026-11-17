@@ -1,0 +1,395 @@
+{
+  "candidate": {
+    "id": "vercel-web-design-guidelines",
+    "type": "skill",
+    "sourceUrl": "https://github.com/vercel-labs/agent-skills",
+    "evaluatedRef": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62+rules:vercel-labs/web-interface-guidelines@434b7f91364665f2f733b310ec54809bf8f37937"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 55,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SKILL.md sin cambios desde 2026-01-16 (304 días); las reglas que descarga cambiaron el 2026-10-05 (42 días).",
+        "evidenceRefs": [
+          "github-api:repos/vercel-labs/agent-skills/commits?path=skills/web-design-guidelines (3 commits, último 2026-01-16; medido 2026-11-16)",
+          "github-api:repos/vercel-labs/web-interface-guidelines/commits?path=command.md (6 commits; últimos 2026-10-05, 2026-08-18 x3, 2026-04-06; 4 desde 2026-08-18; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 20,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "agent-skills publica releases automáticos nombrados por SHA; la skill declara 1.0.0 fijo. Las reglas no tienen versión y se leen de main en cada uso.",
+        "evidenceRefs": [
+          "github-api:repos/vercel-labs/agent-skills/releases (agent-skills-<sha>; medido 2026-11-16)",
+          "github-raw:vercel-labs/agent-skills/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/web-design-guidelines/SKILL.md (41 líneas, 1231 bytes; leído completo; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 50,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Reglas: 4 commits en 90 días; skill: 0. 12 y 27 contributors en cada repositorio.",
+        "evidenceRefs": [
+          "github-api:repos/vercel-labs/web-interface-guidelines/commits?path=command.md (6 commits; últimos 2026-10-05, 2026-08-18 x3, 2026-04-06; 4 desde 2026-08-18; medido 2026-11-16)",
+          "github-api:repos/vercel-labs/web-interface-guidelines/contributors (12) y repos/vercel-labs/agent-skills/contributors (27; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 45,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Muestra de issues cerrados: agent-skills de 0 a 146 h en 8 de 10, con dos de 2298 y 3415 h; web-interface-guidelines 33 a 582 h en 5.",
+        "evidenceRefs": [
+          "github-api:search/issues repo:vercel-labs/agent-skills y repo:vercel-labs/web-interface-guidelines (muestras; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin código ejecutable en la skill ni en las reglas; 0 advisories. El riesgo está en el canal de instrucciones remotas, valorado en procedencia y permisos.",
+        "evidenceRefs": [
+          "github-api:repos/vercel-labs/agent-skills/security-advisories (0; medido 2026-11-16)",
+          "github-raw:vercel-labs/agent-skills/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/web-design-guidelines/SKILL.md (41 líneas, 1231 bytes; leído completo; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Vercel Labs. La skill obedece en cada uso un archivo remoto de la rama main, mutable y sin fijar revisión: quien controle ese archivo cambia las instrucciones del agente. agent-skills no tiene archivo LICENSE (API license=null) aunque el README dice MIT; web-interface-guidelines es MIT.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/agent-skills/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/web-design-guidelines/SKILL.md (41 líneas, 1231 bytes; leído completo; medido 2026-11-16)",
+          "github-api:repos/vercel-labs/agent-skills (license=null; medido 2026-11-16)",
+          "github-api:repos/vercel-labs/web-interface-guidelines (license=MIT; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 35,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin SECURITY.md en ningún repositorio; perfil 37 %. agent-skills lista 24 workflows, varios con nombres ajenos a skills; no se inspeccionaron ni se sabe si alguno valida esta skill.",
+        "evidenceRefs": [
+          "github-api:repos/vercel-labs/agent-skills/actions/workflows (medido 2026-11-16)",
+          "github-api:repos/vercel-labs/agent-skills/community/profile (37; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Declara que descarga las reglas con WebFetch, pero delega en el contenido remoto «all the rules and output format instructions» sin advertir que es un canal de instrucciones no fijado.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/agent-skills/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/web-design-guidelines/SKILL.md (41 líneas, 1231 bytes; leído completo; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Revisión de código de interfaz con reglas concretas de accesibilidad, foco, formularios, movimiento reducido, estados vacíos, i18n y gestos. Complementa la checklist v1, que mira flujos; la parte de accesibilidad se superpone con design:accessibility-review, aprobada el 2026-11-17. Las reglas son de DOM y CSS: aplican de lleno a sitios web y solo en parte a una app Expo con react-native-web.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/web-interface-guidelines/434b7f91364665f2f733b310ec54809bf8f37937/command.md (191 líneas; leído completo; es lo que la skill descarga hoy de la rama main; medido 2026-11-16)",
+          "local-read:docs/superpowers/reports/2026-11-09-ux-checklist-pilot.md y docs/decisions/README.md VCX-D060 (checklist v1 sin skill; dos pilotos ciegos sin carencia que exija skill; consultado 2026-11-16)",
+          "local-read:solera/teyst/package.json (expo ~57.0.32; react-native 0.86.3; react-native-web ~0.21.0; tokens de tema en un archivo propio del proyecto; consultado 2026-11-16)",
+          "local-read:docs/tooling/evaluations/design-accessibility-review.evaluation.json y design-ux-copy.evaluation.json (approved por el PO el 2026-11-17T00:04Z en otra sesión, sin commitear al 2026-11-17T00:10Z; anthropics/knowledge-work-plugins@c71b6f3; auditoría WCAG web y redacción de UI)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Requiere WebFetch o equivalente. Reglas para HTML, Tailwind y Next.js; no hay reglas para componentes de React Native. Compatibilidad con Codex solo declarada por el formato Agent Skills.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/web-interface-guidelines/434b7f91364665f2f733b310ec54809bf8f37937/command.md (191 líneas; leído completo; es lo que la skill descarga hoy de la rama main; medido 2026-11-16)",
+          "github-raw:vercel-labs/agent-skills/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/web-design-guidelines/SKILL.md (41 líneas, 1231 bytes; leído completo; medido 2026-11-16)",
+          "local-read:solera/teyst/package.json (expo ~57.0.32; react-native 0.86.3; react-native-web ~0.21.0; tokens de tema en un archivo propio del proyecto; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Reglas verificables línea a línea con salida file:line; lo incremental frente a design:accessibility-review son formularios, animación, contenido, gestos e i18n. Choca con convenciones en español: pide Title Case estilo Chicago y comillas curvas inglesas, contra mayúscula inicial y comillas «» del castellano.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/web-interface-guidelines/434b7f91364665f2f733b310ec54809bf8f37937/command.md (191 líneas; leído completo; es lo que la skill descarga hoy de la rama main; medido 2026-11-16)",
+          "local-read:docs/tooling/evaluations/design-accessibility-review.evaluation.json y design-ux-copy.evaluation.json (approved por el PO el 2026-11-17T00:04Z en otra sesión, sin commitear al 2026-11-17T00:10Z; anthropics/knowledge-work-plugins@c71b6f3; auditoría WCAG web y redacción de UI)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Skill de 1,2 KB, pero cada uso depende de la red y de la disponibilidad de raw.githubusercontent.com.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/agent-skills/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/web-design-guidelines/SKILL.md (41 líneas, 1231 bytes; leído completo; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de uso de este candidato en VCX: docs/tooling/evaluations/ y score-runs.jsonl no lo contienen.",
+        "evidenceRefs": [
+          "local-read:docs/tooling/evaluations/ y docs/tooling/score-runs.jsonl (sin el candidato; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin uso del candidato en el workspace: no hay resultado observable. Esta ronda no ejecutó la skill.",
+        "evidenceRefs": [
+          "sin uso del candidato en el workspace ni prueba ejecutada en esta ronda (consultado 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 25,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Existe un workflow validate-agent-skills en el pack, no inspeccionado; ninguna prueba de las reglas ni de su efecto.",
+        "evidenceRefs": [
+          "github-api:repos/vercel-labs/agent-skills/actions/workflows (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SKILL mínimo y claro sobre el procedimiento. Las reglas son terminantes y sin fuentes ni justificación por regla.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/agent-skills/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/web-design-guidelines/SKILL.md (41 líneas, 1231 bytes; leído completo; medido 2026-11-16)",
+          "github-raw:vercel-labs/web-interface-guidelines/434b7f91364665f2f733b310ec54809bf8f37937/command.md (191 líneas; leído completo; es lo que la skill descarga hoy de la rama main; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 10,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Las reglas se toman de main sin fijar: dos ejecuciones con el mismo SHA de la skill pueden aplicar reglas distintas.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/agent-skills/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/web-design-guidelines/SKILL.md (41 líneas, 1231 bytes; leído completo; medido 2026-11-16)",
+          "github-api:repos/vercel-labs/web-interface-guidelines/commits?path=command.md (6 commits; últimos 2026-10-05, 2026-08-18 x3, 2026-04-06; 4 desde 2026-08-18; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin matriz de agentes ni de frameworks; ejemplos solo de React web.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/web-interface-guidelines/434b7f91364665f2f733b310ec54809bf8f37937/command.md (191 líneas; leído completo; es lo que la skill descarga hoy de la rama main; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 60,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin paquetes, pero con dependencia de red en tiempo de ejecución sobre un segundo repositorio.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/agent-skills/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/web-design-guidelines/SKILL.md (41 líneas, 1231 bytes; leído completo; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Gratuita; reglas MIT. El pack no incluye archivo de licencia, lo que deja dudas para vendorizar la skill misma (no las reglas).",
+        "evidenceRefs": [
+          "github-api:repos/vercel-labs/agent-skills (license=null; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Markdown. Las reglas MIT pueden fijarse por SHA y vendorizarse con atribución, lo que elimina la red.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/web-interface-guidelines/434b7f91364665f2f733b310ec54809bf8f37937/command.md (191 líneas; leído completo; es lo que la skill descarga hoy de la rama main; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 95,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Solo lee y reporta; retirarla no deja residuo.",
+        "evidenceRefs": [
+          "github-raw:vercel-labs/agent-skills/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62/skills/web-design-guidelines/SKILL.md (41 líneas, 1231 bytes; leído completo; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin fijar, las reglas cambian sin aviso; fijadas, hay que seguir el upstream a mano.",
+        "evidenceRefs": [
+          "github-api:repos/vercel-labs/web-interface-guidelines/commits?path=command.md (6 commits; últimos 2026-10-05, 2026-08-18 x3, 2026-04-06; 4 desde 2026-08-18; medido 2026-11-16)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 88
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": true,
+    "localWriteReversible": false,
+    "newLocalDependencies": false,
+    "networkAccess": true,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

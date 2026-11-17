@@ -1,0 +1,48 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · vercel-web-design-guidelines (skill)
+  github.com/vercel-labs/agent-skills · evaluado 2026-11-17
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         50.5 / 100
+  CONFIANZA             high (86)
+  NIVEL DE RIESGO        high
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        unavailable
+  maintenance      41.8
+  security         56.3
+  fit              50.0
+  engineering      31.8
+  sustainability   81.3
+
+  ── Riesgo, por ─────────────────────────────────────
+  • scopedLocalReadOnly (solo lectura local con alcance acotado)
+  • networkAccess (acceso a red)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • security.vulnerabilityStatus (85) — Sin código ejecutable en la skill ni en las reglas; 0 advisories. El riesgo está en el canal de instrucciones remotas, valorado en procedencia y permisos.
+  • sustainability.costPredictability (85) — Gratuita; reglas MIT. El pack no incluye archivo de licencia, lo que deja dudas para vendorizar la skill misma (no las reglas).
+  • sustainability.reversibility (95) — Solo lee y reporta; retirarla no deja residuo.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.releaseContinuity (20) — agent-skills publica releases automáticos nombrados por SHA; la skill declara 1.0.0 fijo. Las reglas no tienen versión y se leen de main en cada uso.
+  • security.securityHygiene (35) — Sin SECURITY.md en ningún repositorio; perfil 37 %. agent-skills lista 24 workflows, varios con nombres ajenos a skills; no se inspeccionaron ni se sabe si alguno valida esta skill.
+  • security.permissionTransparency (40) — Declara que descarga las reglas con WebFetch, pero delega en el contenido remoto «all the rules and output format instructions» sin advertir que es un canal de instrucciones no fijado.
+  • fit.technicalCompatibility (40) — Requiere WebFetch o equivalente. Reglas para HTML, Tailwind y Next.js; no hay reglas para componentes de React Native. Compatibilidad con Codex solo declarada por el formato Agent Skills.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (25) — Existe un workflow validate-agent-skills en el pack, no inspeccionado; ninguna prueba de las reglas ni de su efecto.
+  • engineering.versioningDiscipline (10) — Las reglas se toman de main sin fijar: dos ejecuciones con el mismo SHA de la skill pueden aplicar reglas distintas.
+  • engineering.compatibilityEvidence (25) — Sin matriz de agentes ni de frameworks; ejemplos solo de React web.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "vercel-web-design-guidelines", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-16-ui-ux-design-skills-dry-run/vercel-web-design-guidelines.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-17T00:15:00Z", "now": "2026-11-17T00:15:00Z", "brixHead": "131a5c20dff07ae6c105056443c394def7153345", "cliTree": "b4c927628119076a51fe835ab739ba816afa0e22", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Code (claude-opus-5-5); evaluación en seco solicitada por el usuario"}

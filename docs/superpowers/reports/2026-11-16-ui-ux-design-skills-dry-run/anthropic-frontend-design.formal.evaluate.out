@@ -1,0 +1,49 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · anthropic-frontend-design (skill)
+  github.com/anthropics/skills · evaluado 2026-11-17
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         63.3 / 100
+  CONFIANZA             high (97)
+  NIVEL DE RIESGO        medium
+  RECOMENDACIÓN BASE     advance_with_reservations
+
+  ── Por factor ──────────────────────────────────────
+  community        76.7
+  maintenance      42.8
+  security         74.0
+  fit              58.4
+  engineering      38.3
+  sustainability   92.8
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • security.vulnerabilityStatus (90) — La carpeta tiene SKILL.md y LICENSE.txt, sin código ejecutable; 0 security advisories. El puntaje refleja ausencia de código, no una auditoría.
+  • fit.adoptionSimplicity (90) — Un único archivo Markdown de 9 KB, sin dependencias.
+  • engineering.dependencySimplicity (98) — Cero dependencias.
+  • sustainability.costPredictability (95) — Gratuita, Apache-2.0, sin servicios. El consumo es el de tokens del agente que ya se usa.
+  • sustainability.portability (90) — Markdown plano en formato abierto; se puede vendorizar con atribución.
+  • sustainability.reversibility (95) — Se retira borrando la carpeta; no escribe configuración. Las decisiones de diseño que haya inspirado quedan en el código.
+  • sustainability.operatingOverhead (90) — Sin servicios ni claves; solo seguir cambios del upstream por SHA.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.releaseContinuity (15) — El repositorio no tiene releases ni tags; la skill no declara versión. Solo se puede fijar por SHA.
+  • maintenance.responseHealth (40) — Muestra de 10 issues cerrados: 0 a 62 h en 8 casos, 2112 h y 6220 h en dos; 1549 abiertos. Respuesta irregular a escala de repositorio.
+  • security.securityHygiene (40) — Sin SECURITY.md ni CONTRIBUTING; perfil de comunidad 25 %. Los únicos workflows son revisores dinámicos de Copilot; nada valida la skill.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (10) — Sin pruebas ni evals de la skill en el repositorio; solo revisión automática de PRs.
+  • engineering.versioningDiscipline (20) — Sin tags, releases ni versión en el frontmatter; los cambios solo se identifican por SHA.
+  • engineering.compatibilityEvidence (35) — Sin matriz de compatibilidad ni pruebas por agente; solo la declaración del estándar y la instalación documentada para Claude Code.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+Borrador guardado en pending: docs/tooling/evaluations/anthropic-frontend-design.evaluation.json
+
+score-run: línea agregada a docs/tooling/score-runs.jsonl:
+{"candidate": "anthropic-frontend-design", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-16-ui-ux-design-skills-dry-run/anthropic-frontend-design.formal.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-17T00:25:00Z", "now": "2026-11-17T00:25:00Z", "brixHead": "131a5c20dff07ae6c105056443c394def7153345", "cliTree": "b4c927628119076a51fe835ab739ba816afa0e22", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": "1.6.0", "evaluationSha256": "5c0909856c990df2fe4813c2f3ed5f66bc66e2e93c9200bab5d97160b9904516", "previousStatus": null, "operator": "Claude Code (claude-opus-5-5); evaluación formal tras piloto A, autorizada por el PO en el chat"}

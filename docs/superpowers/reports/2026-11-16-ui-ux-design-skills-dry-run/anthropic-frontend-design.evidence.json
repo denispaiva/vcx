@@ -1,0 +1,390 @@
+{
+  "candidate": {
+    "id": "anthropic-frontend-design",
+    "type": "skill",
+    "sourceUrl": "https://github.com/anthropics/skills",
+    "evaluatedRef": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 70,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último cambio de la ruta evaluada el 2026-09-03 (74 días); el repositorio recibe commits el mismo día de la medición. La actividad del repositorio no se atribuye a esta skill.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/skills/commits?path=skills/frontend-design (4 commits: 2025-12-01, 2025-12-04, 2026-06-09, 2026-09-03; 1 desde 2026-08-18; medido 2026-11-16)",
+          "github-api:repos/anthropics/skills (pushed_at=2026-11-16; license=null en la raíz; open_issues=1549; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 15,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El repositorio no tiene releases ni tags; la skill no declara versión. Solo se puede fijar por SHA.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/skills/releases y /tags (0 y 0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 45,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "4 commits en la ruta en 12 meses, 1 en los últimos 90 días; 16 contributors en el repositorio, sin dato por ruta.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/skills/commits?path=skills/frontend-design (4 commits: 2025-12-01, 2025-12-04, 2026-06-09, 2026-09-03; 1 desde 2026-08-18; medido 2026-11-16)",
+          "github-api:repos/anthropics/skills/contributors (16; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 40,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Muestra de 10 issues cerrados: 0 a 62 h en 8 casos, 2112 h y 6220 h en dos; 1549 abiertos. Respuesta irregular a escala de repositorio.",
+        "evidenceRefs": [
+          "github-api:search/issues?q=repo:anthropics/skills+is:issue+is:closed (muestra de 10; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 90,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La carpeta tiene SKILL.md y LICENSE.txt, sin código ejecutable; 0 security advisories. El puntaje refleja ausencia de código, no una auditoría.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/skills/git/trees/e4bb5d960d87126ff3b3a8af1a104b7db67560ba?recursive=1 (skills/frontend-design: 2 archivos; medido 2026-11-16)",
+          "github-api:repos/anthropics/skills/security-advisories (0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Repositorio de la organización Anthropic; la carpeta trae Apache-2.0 en LICENSE.txt aunque la raíz no declara licencia. El README advierte que las skills son «for demonstration and educational purposes only».",
+        "evidenceRefs": [
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/README.md (líneas 16-24; medido 2026-11-16)",
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/LICENSE.txt (Apache 2.0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 40,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin SECURITY.md ni CONTRIBUTING; perfil de comunidad 25 %. Los únicos workflows son revisores dinámicos de Copilot; nada valida la skill.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/skills/community/profile (health=25; medido 2026-11-16)",
+          "github-api:repos/anthropics/skills/actions/workflows (solo dynamic copilot reviewer; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No pide permisos, red ni scripts. Sugiere screenshots si el entorno lo permite y usar la memoria del agente sobre el cliente (línea 13), lo que mezcla contexto de otros proyectos si no se acota.",
+        "evidenceRefs": [
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/SKILL.md (71 líneas, 9390 bytes; leído completo; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cubre dirección visual y anti-patrones de UI genérica al crear o rediseñar pantallas, la necesidad de la fila de la matriz que quedó sin admisión. Orientada a páginas web con «hero»; no cubre auditoría de flujos (ya cubierta por la checklist v1) ni React Native.",
+        "evidenceRefs": [
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/SKILL.md (71 líneas, 9390 bytes; leído completo; medido 2026-11-16)",
+          "local-read:docs/architecture/tooling-matrix.md:117 (fila «Cellar · conducción, interfaz · Diseño y anti-patrones de UI»: impeccable y emilkowalski-skills sin admisión vigente desde 2026-11-08; consultado 2026-11-16)",
+          "local-read:docs/superpowers/reports/2026-11-09-ux-checklist-pilot.md y docs/decisions/README.md VCX-D060 (checklist v1 sin skill; dos pilotos ciegos sin carencia que exija skill; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Formato Agent Skills; el README documenta instalación como plugin de Claude Code. Para Codex solo hay compatibilidad declarada por el estándar agentskills.io, no documentada en el repo ni probada aquí. Contenido web (CSS, hero); aplicable a react-native-web solo en parte.",
+        "evidenceRefs": [
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/README.md (líneas 1, 31-51; medido 2026-11-16)",
+          "local-read:solera/teyst/package.json (expo ~57.0.32; react-native 0.86.3; react-native-web ~0.21.0; tokens de tema en un archivo propio del proyecto; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Aporta un proceso breve (plan de tokens, revisión contra el brief, crítica) y una lista de rasgos de UI generada. Un brief y tokens propios dan buena parte de eso; la regla «the brief's own words always win» evita contradecir la marca Tintum o el tema del proyecto, pero solo si el brief existe.",
+        "evidenceRefs": [
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/SKILL.md (71 líneas, 9390 bytes; leído completo; medido 2026-11-16)",
+          "local-read:assets/tintum/README.md (marca y piezas aprobadas por VCX-D061; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Un único archivo Markdown de 9 KB, sin dependencias.",
+        "evidenceRefs": [
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/SKILL.md (71 líneas, 9390 bytes; leído completo; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de uso de este candidato en VCX: docs/tooling/evaluations/ y score-runs.jsonl no lo contienen.",
+        "evidenceRefs": [
+          "local-read:docs/tooling/evaluations/ y docs/tooling/score-runs.jsonl (sin el candidato; consultado 2026-11-16)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin uso del candidato en el workspace: no hay resultado observable. Esta ronda no ejecutó la skill.",
+        "evidenceRefs": [
+          "sin uso del candidato en el workspace ni prueba ejecutada en esta ronda (consultado 2026-11-16)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 10,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin pruebas ni evals de la skill en el repositorio; solo revisión automática de PRs.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/skills/actions/workflows (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Clara y breve: principios, proceso en dos pasadas, piso de calidad (responsive, foco visible, movimiento reducido, accesibilidad visual) y guía de redacción. Sin ejemplos, sin criterios de aceptación medibles ni mención de React Native.",
+        "evidenceRefs": [
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/SKILL.md (71 líneas, 9390 bytes; leído completo; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 20,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin tags, releases ni versión en el frontmatter; los cambios solo se identifican por SHA.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/skills/tags (0; medido 2026-11-16)",
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/SKILL.md (71 líneas, 9390 bytes; leído completo; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin matriz de compatibilidad ni pruebas por agente; solo la declaración del estándar y la instalación documentada para Claude Code.",
+        "evidenceRefs": [
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/README.md (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 98,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cero dependencias.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/skills/git/trees/e4bb5d960d87126ff3b3a8af1a104b7db67560ba?recursive=1 (medido 2026-11-16)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 95,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Gratuita, Apache-2.0, sin servicios. El consumo es el de tokens del agente que ya se usa.",
+        "evidenceRefs": [
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/LICENSE.txt (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Markdown plano en formato abierto; se puede vendorizar con atribución.",
+        "evidenceRefs": [
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/SKILL.md (71 líneas, 9390 bytes; leído completo; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 95,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se retira borrando la carpeta; no escribe configuración. Las decisiones de diseño que haya inspirado quedan en el código.",
+        "evidenceRefs": [
+          "github-raw:anthropics/skills/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design/SKILL.md (71 líneas, 9390 bytes; leído completo; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin servicios ni claves; solo seguir cambios del upstream por SHA.",
+        "evidenceRefs": [
+          "github-api:repos/anthropics/skills/commits?path=skills/frontend-design (4 commits: 2025-12-01, 2025-12-04, 2026-06-09, 2026-09-03; 1 desde 2026-08-18; medido 2026-11-16)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 90
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}
