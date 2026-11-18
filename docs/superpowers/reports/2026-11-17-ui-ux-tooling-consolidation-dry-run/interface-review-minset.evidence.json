@@ -1,0 +1,385 @@
+{
+  "candidate": {
+    "id": "interface-review-minset",
+    "type": "skill",
+    "sourceUrl": "https://github.com/jakubkrehel/skills",
+    "evaluatedRef": "2136b60ecf0078f1556623f8b6d26a1563c03512"
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": false,
+    "networkAccess": true,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 95,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Push el 2026-11-17, día de la medición. interface-review cambió el mismo día (19ab1fa) y las ocho carpetas del conjunto mínimo también.",
+        "evidenceRefs": [
+          "github-api:repos/jakubkrehel/skills/compare/6c21201...2136b60 (8 commits, 2026-11-17; medido 2026-11-17)",
+          "git:jakubkrehel/skills@2136b60 log -- skills/interface-review (19ab1fa 2026-11-17)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 10,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 releases y 0 tags; solo plugin.json declara 1.20.0. Se fija por SHA. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/jakubkrehel/skills/releases (0; medido 2026-11-16)",
+          "github-api:repos/jakubkrehel/skills/tags (0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "95 commits en 90 días (git log --since=2026-08-19 en el clon). De todo el historial, 167 de 175 commits son del mismo mantenedor con dos nombres de autor y 8 de «Claude»: continuidad dependiente de una persona.",
+        "evidenceRefs": [
+          "git:jakubkrehel/skills@2136b60 log --since=2026-08-19 (95) y shortlog por autor (medido 2026-11-17)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "24 issues, todos cerrados; el dueño comenta (#40, #22) y corrige (#50 vía a25331a). Ninguna PR de terceros mergeada. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/jakubkrehel/skills/issues?state=all (medido 2026-11-16)",
+          "github-api:repos/jakubkrehel/skills/pulls?state=all (38; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Solo Markdown y metadatos: sin código ejecutable propio. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:jakubkrehel/skills@6c21201:skills/ (38 archivos .md en el conjunto mínimo)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cuenta personal de 2021; repo de 4 meses; MIT; commits sin firmar. Las estrellas (12.251) son de la colección de 14 skills, no de interface-review. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:users/jakubkrehel (type=User, created 2021-07-16; medido 2026-11-16)",
+          "github-api:repos/jakubkrehel/skills (stargazers=12251; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin CI, sin SECURITY.md, sin tags; versión solo por SHA. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/jakubkrehel/skills/actions/workflows (0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Declara la revisión de solo lectura y prohíbe checkout, switch, stash y gh pr checkout (SKILL.md:101); no usa add, commit, push ni --force. Pero `git remote set-head origin --auto` y `fetch --deepen` escriben en .git sin preguntar, gh usa red y la sesión del usuario, y la verificación renderizada crea un worktree en /tmp. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:jakubkrehel/skills@6c21201:skills/interface-review/SKILL.md:101-103",
+          "github-raw:jakubkrehel/skills@6c21201:skills/interface-review/scope-resolution.md:7,21,39"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Consumidor identificado: Teyst (Expo SDK 57, React Native 0.86, react-native-web; sin Tailwind, sin React DOM propio), con tokens propios y marca Tintum (VCX-D061). VCX-D060 dejó la revisión UX con disparador: hoy no hay una decisión de interfaz pendiente que la active. Cubre la necesidad «regresiones de interfaz en un diff» con clasificación causal (Introduced, Regression, Pre-existing vía git blame), pero sus señales son HTML, CSS, ARIA y Tailwind; no nombra React Native, Expo ni StyleSheet. Corrección por el piloto del 2026-11-16: el revisor mapeó accessibilityLabel a aria-label y vio la eliminación, pero el juicio de equivalencia en React Native quedó indeterminado sin renderizar. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:jakubkrehel/skills@6c21201:skills/interface-review/removed-signals.md:5-17",
+          "github-raw:jakubkrehel/skills@6c21201:skills/interface-review/SKILL.md:64-78",
+          "vcx:docs/superpowers/reports/2026-11-16-interface-review-pilot/README.md"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Supone web (rutas app/**/page.*, pages/**, *.astro; Tailwind en 23 archivos). Compatible con las reglas Git locales (sin add -A, ours/theirs, force ni commits), pero escribe refs de .git. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:jakubkrehel/skills@6c21201:skills/interface-review/scope-resolution.md:88",
+          "github-raw:jakubkrehel/skills@6c21201:skills/better-colors/SKILL.md:77"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Lo nuevo frente a la checklist v1, code-review y design:accessibility-review es la resolución del alcance del diff y la clasificación causal con veredicto Block/Approve. La comprobación visual es opcional y sin herramienta nombrada: en la práctica es lectura de código. No calcula contraste ni corre axe. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:jakubkrehel/skills@6c21201:skills/interface-review/SKILL.md:103",
+          "github-raw:jakubkrehel/skills@6c21201:skills/better-colors/SKILL.md:10,86"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sola no funciona: sin better-interface se detiene tras el inventario y sin cada better-* ese dominio queda Not reviewed. Conjunto mínimo en 2136b60: 8 carpetas, 44 archivos .md (6 reporting.md nuevos), 3.731 líneas, unos 195 KB. En el piloto los revisores cargaron solo las referencias del dominio con evidencia.",
+        "evidenceRefs": [
+          "git:jakubkrehel/skills@2136b60 (find de las 8 carpetas; wc; medido 2026-11-17)",
+          "vcx:docs/superpowers/reports/2026-11-16-interface-review-pilot/README.md"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "rationale": "Sin uso en VCX ni en Teyst: no se instaló ni se ejecutó. Las estrellas y los installs de catálogos son del repositorio o de skills.sh, no adopción por un consumidor de VCX. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]"
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "available",
+        "rationale": "Piloto del 2026-11-16 sobre 6c21201, no sobre 2136b60: los archivos ejercitados (SKILL.md, scope-resolution.md, removed-signals.md) cambiaron después, en aclaraciones que no alteran la resolución del alcance ni las reglas de Git; que el resultado se transfiera es un supuesto. Caso web: 3 de 3 defectos detectados y bien clasificados (Regression, Introduced, Pre-existing), veredicto Block, sin falsos positivos. Caso React Native: vio la eliminación de accessibilityLabel y la descartó como equivalente por el texto hijo; sin renderizar, indeterminado. Caso sin alcance: preguntó, sin caer en HEAD~1. Sin escrituras en .git en los tres. Una corrida por caso, puntuada por quien conocía los defectos: no es una tasa.",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "evidenceRefs": [
+          "vcx:docs/superpowers/reports/2026-11-16-interface-review-pilot/README.md",
+          "github-api:repos/jakubkrehel/skills/compare/6c21201...2136b60 (8 commits, 2026-11-17; medido 2026-11-17)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 5,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 workflows; sin tests ni evals de las skills. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/jakubkrehel/skills/actions/workflows (0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Resolución de alcance, formato, tope de 15 y exclusiones explícitos. En 2136b60 define cada objetivo (working, staged, branch, ref) y aclara que una eliminación sin reemplazo leída del diff es hallazgo de fuente y no necesita render. Lo declarado sobre verificación visual sigue siendo más amplio que lo que instruye.",
+        "evidenceRefs": [
+          "git:jakubkrehel/skills@2136b60:skills/interface-review/scope-resolution.md:13-16",
+          "git:jakubkrehel/skills@2136b60:skills/interface-review/SKILL.md:103"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 15,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin tags; 8 carpetas que deben fijarse juntas por SHA. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/jakubkrehel/skills/tags (0; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 15,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin evidencia fuera de proyectos web; metadatos para Codex y Claude Code. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:jakubkrehel/skills@6c21201:skills/*/agents/openai.yaml"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin paquetes; depende de 7 skills hermanas, git y, para PRs, gh autenticado. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:jakubkrehel/skills@6c21201:skills/better-interface/SKILL.md:44-53"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Gratuita; costo de cupo por cargar ~199 KB de referencias, no medido. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:jakubkrehel/skills@6c21201:skills/ (199.093 bytes en el conjunto mínimo)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "MIT, Markdown plano. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/jakubkrehel/skills/license (MIT; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se retira borrando las 8 carpetas; las escrituras en .git son refs remotas inocuas. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:jakubkrehel/skills@6c21201:skills/interface-review/scope-resolution.md:7,21"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Ocho commits en un día tocaron 39 archivos del conjunto mínimo: repinear las 8 carpetas juntas y revalidar será frecuente. Un solo mantenedor. La colección sumó upskill, que lee el historial de sesiones; queda fuera del conjunto mínimo y no se adoptaría.",
+        "evidenceRefs": [
+          "github-api:repos/jakubkrehel/skills/compare/6c21201...2136b60 (8 commits, 2026-11-17; medido 2026-11-17)",
+          "git:jakubkrehel/skills@2136b60:skills/upskill/SKILL.md:46-53"
+        ]
+      }
+    ]
+  }
+}

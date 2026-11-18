@@ -1,0 +1,54 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · platform-design-skills (skill)
+  github.com/ehmo/platform-design-skills · evaluado 2026-11-18
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         38.7 / 100
+  CONFIANZA             high (90)
+  NIVEL DE RIESGO        low
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        35.2
+  maintenance      11.8
+  security         58.3
+  fit              32.0
+  engineering      28.5
+  sustainability   75.8
+
+  ── Riesgo, por ─────────────────────────────────────
+  • scopedLocalReadOnly (solo lectura local con alcance acotado)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • security.vulnerabilityStatus (85) — Solo Markdown, JSON y un PDF; nada ejecutable. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • security.permissionTransparency (90) — No escribe ni ejecuta nada. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • engineering.dependencySimplicity (95) — Sin dependencias. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • sustainability.costPredictability (95) — Gratuita; cupo de suscripción no medido. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • sustainability.reversibility (95) — Se retira borrando la carpeta. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.activityRecency (20) — Último push el 2026-03-19, unos 242 días antes de la medición. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • maintenance.releaseContinuity (5) — 0 releases y 0 tags; solo un CHANGELOG v1.1.0. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • maintenance.commitContinuity (10) — 92 commits concentrados en marzo de 2026; 0 en 90 días; un autor. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • maintenance.responseHealth — sin evidencia disponible (unavailable)
+  • security.sourceProvenance (30) — Un autor, cuenta User; LICENSE MIT sin titular. Declara «built by scraping» el HIG e incluye Apple_HIG.pdf (2,4 MB) compilado del sitio de Apple: redistribución de contenido de terceros bajo MIT, riesgo de copyright. Cita 27 enlaces a developer.apple.com y fuentes de Material, W3C y web.dev. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • security.securityHygiene (30) — Sin CI, sin tags. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • fit.capabilityGapCoverage (20) — Consumidor identificado: Teyst (Expo SDK 57, React Native 0.86, react-native-web; sin Tailwind, sin React DOM propio), con tokens propios y marca Tintum (VCX-D061). VCX-D060 dejó la revisión UX con disparador: hoy no hay una decisión de interfaz pendiente que la active. Teyst publica en iOS y Android, pero no hay una decisión de plataforma abierta que estas reglas resuelvan; la necesidad queda condicionada y no se presume. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • fit.technicalCompatibility (30) — Ejemplos en SwiftUI/UIKit y Kotlin/Compose; ninguna mención a React Native ni Expo: hay que traducir cada regla. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • fit.incrementalValue (30) — Destila HIG, Material 3 y WCAG en reglas; las fuentes oficiales están disponibles directamente y pueden estar más al día que una destilación de marzo. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (0) — 0 workflows. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • engineering.versioningDiscipline (15) — Sin tags; CHANGELOG manual. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • engineering.compatibilityEvidence (15) — Sin evidencia de uso con frameworks multiplataforma. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "platform-design-skills", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-17-ui-ux-tooling-consolidation-dry-run/platform-design-skills.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-18T00:00:00Z", "now": "2026-11-18T00:00:00Z", "brixHead": "591c25f4aed01f0f68f25f1f7a59c9b21959bd66", "cliTree": "af14043fff3fd52228f9090e91823179026be3fe", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Code (claude-opus-5-5); evaluación en seco solicitada"}
