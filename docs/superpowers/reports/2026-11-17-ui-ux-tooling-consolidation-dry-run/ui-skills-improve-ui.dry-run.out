@@ -1,0 +1,50 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · ui-skills-improve-ui (skill)
+  github.com/ibelick/ui-skills · evaluado 2026-11-18
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         54.5 / 100
+  CONFIANZA             high (92)
+  NIVEL DE RIESGO        medium
+  RECOMENDACIÓN BASE     do_not_advance
+
+  ── Por factor ──────────────────────────────────────
+  community        59.4
+  maintenance      45.6
+  security         68.0
+  fit              40.3
+  engineering      36.8
+  sustainability   85.8
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • security.vulnerabilityStatus (85) — La skill es Markdown y una plantilla: sin código ejecutable. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • security.permissionTransparency (85) — Explícita: no modifica el producto, escribe solo bajo design-plans/, no instala, no formatea, no commitea ni pushea. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • engineering.dependencySimplicity (90) — Sin dependencias. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • sustainability.costPredictability (90) — Gratuita; cupo de suscripción no medido. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • sustainability.portability (85) — MIT, Markdown. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • sustainability.reversibility (90) — Se borra la carpeta y design-plans/. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.commitContinuity (35) — 241 commits en 90 días, casi todos del sitio ui-skills.com; solo 3 tocan skills/. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • maintenance.responseHealth — sin evidencia disponible (unavailable)
+  • fit.capabilityGapCoverage (25) — Consumidor identificado: Teyst (Expo SDK 57, React Native 0.86, react-native-web; sin Tailwind, sin React DOM propio), con tokens propios y marca Tintum (VCX-D061). VCX-D060 dejó la revisión UX con disparador: hoy no hay una decisión de interfaz pendiente que la active. Produce planes de mejora de una superficie para otro agente, con conexiones probadas por renderizado o imports; descarta por defecto accesibilidad y semántica ARIA. No hay decisión de interfaz que la active. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • fit.incrementalValue (25) — Se solapa con la checklist v1, design:accessibility-review (aprobada) y con interface-review (que revisa un diff, no una superficie). Lo distinto es el plan para delegar con fuentes verificadas. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (5) — Ningún workflow prueba las skills. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • engineering.versioningDiscipline (35) — Tags del repo, no de la skill. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+  • engineering.compatibilityEvidence (20) — Sin evidencia de uso fuera de proyectos web. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "ui-skills-improve-ui", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-17-ui-ux-tooling-consolidation-dry-run/ui-skills-improve-ui.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-18T00:00:00Z", "now": "2026-11-18T00:00:00Z", "brixHead": "591c25f4aed01f0f68f25f1f7a59c9b21959bd66", "cliTree": "af14043fff3fd52228f9090e91823179026be3fe", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "Claude Code (claude-opus-5-5); evaluación en seco solicitada"}

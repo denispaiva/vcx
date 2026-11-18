@@ -1,0 +1,393 @@
+{
+  "candidate": {
+    "id": "ui-ux-pro-max-core",
+    "type": "skill",
+    "sourceUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "evaluatedRef": "e59ff376a41f7ca47b7541ad5c116495cbade3ee"
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": true,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 95,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Push el 2026-11-16, día de la medición. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill (pushed_at=2026-11-16T04:10:04Z; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "41 releases y 49 tags, pero la última es v2.15.0 del 2026-08-13 (3 meses) y el workflow Release falla en los cuatro últimos pushes a main (e59ff37, 902bf61, b6a7900, efd9822). skill.json dice 2.15.0 y cli/package.json 2.5.0. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/releases (41; última v2.15.0 2026-08-13; medido 2026-11-16)",
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/actions/runs (Semantic release failure en e59ff37; medido 2026-11-16)",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:cli/package.json (version 2.5.0)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "89 commits en 90 días (API); 112 contributors. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/commits?since=2026-08-18 (89; medido 2026-11-16)",
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/contributors (112; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Primera respuesta en 1–2 h en los 10 últimos issues, pero todas de un mismo CONTRIBUTOR, sin OWNER ni MEMBER, con horarios regulares que sugieren un responder automatizado (inferencia). 43 issues y 40 PRs abiertos. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/issues/539..573/comments (medido 2026-11-16)",
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill (open_issues_count=83; medido 2026-11-16)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 advisories. Los scripts núcleo (core, search, design_system, preview) usan solo la biblioteca estándar de Python, sin red. No es una auditoría: no se ejecutó nada. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/security-advisories (0; medido 2026-11-16)",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/core.py (imports stdlib)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Organización creada 29 min antes del repo (2025-11-30); MIT; 112 contributors. Procedencia de datos parcial: data-provenance.json cubre 31 de 192 reglas de reasoning y 62 de sus 117 refs son derivadas de otros CSV del mismo repo (circulares); los CSV no citan fuentes por fila. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:orgs/nextlevelbuilder (created_at=2025-11-30T11:07:51Z; medido 2026-11-16)",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/data/data-provenance.json (53 registros, 117 refs)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "CI con pytest, smoke y validación de datos en verde en HEAD. Descuentos: release con bun-version latest falla; el resto de la colección (fuera de la ruta evaluada) lee .env de ~/.claude y llama APIs pagas; stack/ declara MCP @latest sin pin. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:.github/workflows/ (6 workflows)",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:.claude/skills/design/scripts/logo/generate.py:60-106"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Ningún SKILL.md declara allowed-tools. La persistencia escribe design-system/<slug>/MASTER.md y pages/ en el cwd si no se pasa --output-dir; --force sobrescribe con os.replace sin preguntar. El resguardo contra --force es solo texto en SKILL.md:112-114. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/design_system.py:1189-1251",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:.claude/skills/ui-ux-pro-max/SKILL.md:112-114"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Consumidor identificado: Teyst (Expo SDK 57, React Native 0.86, react-native-web; sin Tailwind, sin React DOM propio), con tokens propios y marca Tintum (VCX-D061). VCX-D060 dejó la revisión UX con disparador: hoy no hay una decisión de interfaz pendiente que la active. La necesidad sería dirección visual; la skill genera un sistema genérico por industria, no lee el sistema existente (solo comprueba si MASTER.md existe), no admite restricciones de marca y una consulta en español cae en abstención y, en --design-system, en el reasoning por defecto (#2563EB) con tipografía tomada de coincidencias débiles (Outfit + Work Sans en el piloto, no Inter), presentado como recomendación. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/design_system.py:394-408,557-593,608",
+          "file:solera-teyst (tokens propios de la app)",
+          "docs/decisions/README.md#VCX-D060",
+          "vcx:docs/superpowers/reports/2026-11-16-ui-ux-pro-max-pilot/README.md"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tiene stacks/react-native.csv, pero --stack se ignora en modo --design-system (solo una nota en stderr) y --rtl da error en ese modo; --rtl es un filtro de metadatos, no layout RTL. Los tokens salen como DTCG JSON o variables CSS :root, no como objeto de StyleSheet de RN. Requiere python3. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/search.py:150-165",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/core.py:782-795",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/design_system.py:1017-1103"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Aporta recuperación BM25 sobre CSV curados en inglés (192 productos, 89 estilos, 192 paletas con contraste validado). Se superpone con design:accessibility-review (aprobada el 2026-11-16, sin commit) y con la checklist v1 en reglas UX; la calidad del resultado no tiene evidencia: las evals miden recuperación (P@1 0,816 sobre 90 casos de los mantenedores), no diseño. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/tests/fixtures/relevance-cases.json",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:relevance-thresholds.json:3,14",
+          "docs/tooling/evaluations/design-accessibility-review.evaluation.json"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Copiar la carpeta de la skill más src/ui-ux-pro-max (scripts y data) y tener python3. El canal oficial (plugin o uipro init) instala las 7 skills, incluida design con APIs pagas: la adopción simple exige copia manual. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:.claude-plugin/plugin.json (skills: ./.claude/skills/)",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:cli/src/commands/"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "rationale": "Sin uso en VCX ni en Teyst: no se instaló ni se ejecutó. Las estrellas y los installs de catálogos son del repositorio o de skills.sh, no adopción por un consumidor de VCX. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]"
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "available",
+        "rationale": "Piloto del 2026-11-16 sobre e59ff37, en sandbox sin red: confirmó por ejecución --stack ignorado, --rtl con error, --force que sobrescribe sin preguntar, MASTER existente salteado sin aviso y defaults sin aviso en ascii. En español sin coincidencias toma color y tipografía de coincidencias débiles y los presenta como recomendación. La restricción de marca escrita en la consulta no llegó al resultado. En el A/B con la marca Tintum, la rama con skill no cambió tokens, pero porque el agente descartó la recomendación; no aportó nada que la rama sin skill no obtuviera y costó 7 % más de tokens y 47 % más de tiempo. Una corrida por rama, sin ciego: no es una tasa.",
+        "score": 30,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "evidenceRefs": [
+          "vcx:docs/superpowers/reports/2026-11-16-ui-ux-pro-max-pilot/README.md",
+          "vcx:docs/superpowers/reports/2026-11-16-ui-ux-pro-max-pilot/salidas/runs.tsv"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "pytest, validación de datos con cálculo real de contraste WCAG por paleta, smoke de stacks y evaluador de relevancia en CI. No cubre RN, español ni calidad visual. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/validate_data.py:75-84,385-410",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:.github/workflows/tests.yml"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "README y SKILL.md extensos; el docstring de search.py lista 16 stacks y el código acepta 22; la ignorancia de --stack en --design-system solo se avisa en stderr. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/search.py:13-14",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/core.py:98-121"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Hay tags semver, pero versiones divergentes (skill 2.15.0, CLI 2.5.0) y releases detenidas por un workflow roto. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/tags (49; medido 2026-11-16)",
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:cli/package.json"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "smoke-stacks prueba stacks web; no hay evidencia para React Native, RTL real ni consultas en otro idioma. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:.github/workflows/smoke-stacks.yml"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La ruta núcleo usa solo stdlib de Python 3. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/ (6 scripts, ~4.945 líneas)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Gratuita y local en la ruta núcleo. Costo de cupo de suscripción no medido. Las APIs pagas están solo en la skill design, fuera de la ruta evaluada. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:.claude/skills/design/scripts/logo/generate.py:83-106"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 70,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "MIT; Markdown, CSV y Python estándar. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/license (MIT; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 60,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se retira borrando la carpeta y design-system/. Sin --force crea archivos de forma exclusiva y puede dejar un conjunto mezclado (pages nuevas junto a un MASTER viejo); con --force sobrescribe sin copia previa. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.] Piloto 2026-11-16 (caso 6): la página de overrides apunta a design-system/MASTER.md, que no existe cuando el slug es otro, y la salida no informa los archivos salteados.",
+        "evidenceRefs": [
+          "github-raw:nextlevelbuilder/ui-ux-pro-max-skill@e59ff37:src/ui-ux-pro-max/scripts/design_system.py:1189-1209",
+          "vcx:docs/superpowers/reports/2026-11-16-ui-ux-pro-max-pilot/README.md"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Alta rotación (89 commits en 90 días) obliga a repinear y reevaluar seguido; 13 CSV y 22 de stacks a mantener al día. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/nextlevelbuilder/ui-ux-pro-max-skill/commits?since=2026-08-18 (89; medido 2026-11-16)"
+        ]
+      }
+    ]
+  }
+}

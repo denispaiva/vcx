@@ -1,0 +1,356 @@
+{
+  "candidate": {
+    "id": "ui-skills-improve-ui",
+    "type": "skill",
+    "sourceUrl": "https://github.com/ibelick/ui-skills",
+    "evaluatedRef": "65cc0edb4f64fe8bfe7e9c59466074de25bece76"
+  },
+  "confidenceInputs": {
+    "sourceReliability": 80
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El repo se movió el 2026-11-14, pero skills/improve-ui cambió por última vez el 2026-07-15 (b7a88e7), 4 meses. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/ibelick/ui-skills (medido 2026-11-16)",
+          "git log -1 -- skills/improve-ui (b7a88e7, 2026-07-15)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "8 releases (última v0.2.3, 2026-06-22) y 16 tags, del CLI y el sitio; las skills no se versionan por separado. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/ibelick/ui-skills/releases (8; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "241 commits en 90 días, casi todos del sitio ui-skills.com; solo 3 tocan skills/. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/ibelick/ui-skills/commits?since=2026-08-18&path=skills (medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "unavailable",
+        "rationale": "No se midió la respuesta a issues de este repo en esta ronda. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]"
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La skill es Markdown y una plantilla: sin código ejecutable. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/improve-ui/ (SKILL.md 116 líneas, references/plan-template.md)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cuenta personal; MIT 2026; 9 contributors (uno es cursoragent). [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/ibelick/ui-skills/contributors (medido 2026-11-16)",
+          "github-raw:ibelick/ui-skills@65cc0ed:LICENSE"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Workflows de release y metadatos; ninguno prueba las skills. El repo trae además un MCP remoto y un CLI que descarga del registro sin pin, fuera de la ruta evaluada. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:.github/workflows/",
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/ui-skills-root/SKILL.md"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Explícita: no modifica el producto, escribe solo bajo design-plans/, no instala, no formatea, no commitea ni pushea. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/improve-ui/SKILL.md:12-13"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Consumidor identificado: Teyst (Expo SDK 57, React Native 0.86, react-native-web; sin Tailwind, sin React DOM propio), con tokens propios y marca Tintum (VCX-D061). VCX-D060 dejó la revisión UX con disparador: hoy no hay una decisión de interfaz pendiente que la active. Produce planes de mejora de una superficie para otro agente, con conexiones probadas por renderizado o imports; descarta por defecto accesibilidad y semántica ARIA. No hay decisión de interfaz que la active. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/improve-ui/SKILL.md:22-24,59"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 55,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Método agnóstico del stack (traza rutas, layouts y tokens); algunas nociones son de CSS (herencia). Es la única de las 9 skills de ibelick que no supone Tailwind ni DOM. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/improve-ui/SKILL.md:22-24",
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/baseline-ui/SKILL.md (Tailwind MUST)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 25,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se solapa con la checklist v1, design:accessibility-review (aprobada) y con interface-review (que revisa un diff, no una superficie). Lo distinto es el plan para delegar con fuentes verificadas. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/improve-ui/SKILL.md:112"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Una carpeta, 116 líneas más plantilla; sin dependencias. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/improve-ui/SKILL.md (7.830 bytes)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "rationale": "Sin uso en VCX ni en Teyst: no se instaló ni se ejecutó. Las estrellas y los installs de catálogos son del repositorio o de skills.sh, no adopción por un consumidor de VCX. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]"
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "rationale": "Sin piloto ejecutado: no hay resultado observado. El piloto propuesto está en el README de esta carpeta. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]"
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 5,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Ningún workflow prueba las skills. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:.github/workflows/"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 65,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Reglas de evidencia claras (conexión probada, runtime); sin ejemplos de salida. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/improve-ui/SKILL.md:24,54"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 35,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tags del repo, no de la skill. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-api:repos/ibelick/ui-skills/tags (16; medido 2026-11-16)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 20,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin evidencia de uso fuera de proyectos web. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:README.md"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin dependencias. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/improve-ui/"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Gratuita; cupo de suscripción no medido. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/improve-ui/"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "MIT, Markdown. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:LICENSE"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Se borra la carpeta y design-plans/. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "github-raw:ibelick/ui-skills@65cc0ed:skills/improve-ui/SKILL.md:12"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Pocos cambios en la ruta; repinear es barato. [Medida el 2026-11-16 en la ronda anterior; el origen no cambió de SHA al 2026-11-17.]",
+        "evidenceRefs": [
+          "git log -- skills/improve-ui"
+        ]
+      }
+    ]
+  }
+}
