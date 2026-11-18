@@ -1,0 +1,290 @@
+{
+ "textos": 28,
+ "pasa": 28,
+ "falla": 0,
+ "noMedible": 0,
+ "fallas": [],
+ "noMedibles": [],
+ "rows": [
+  {
+   "text": "Morning, Maya",
+   "size": 30,
+   "weight": 700,
+   "fg": "#1f4d3a",
+   "bg": "#f6f1e7",
+   "ratio": 8.55,
+   "required": 3,
+   "result": "pasa"
+  },
+  {
+   "text": "What are you fixing this weekend?",
+   "size": 15,
+   "weight": 400,
+   "fg": "#5b6560",
+   "bg": "#f6f1e7",
+   "ratio": 5.37,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "M",
+   "size": 18,
+   "weight": 700,
+   "fg": "#ffffff",
+   "bg": "#1f4d3a",
+   "ratio": 9.63,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Search drills, ladders, saws…",
+   "size": 16,
+   "weight": 400,
+   "fg": "#5b6560",
+   "bg": "#ffffff",
+   "ratio": 6.04,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "All",
+   "size": 15,
+   "weight": 600,
+   "fg": "#ffffff",
+   "bg": "#1f4d3a",
+   "ratio": 9.63,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Power",
+   "size": 15,
+   "weight": 600,
+   "fg": "#1f2a24",
+   "bg": "#eae3d2",
+   "ratio": 11.6,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Hand",
+   "size": 15,
+   "weight": 600,
+   "fg": "#1f2a24",
+   "bg": "#eae3d2",
+   "ratio": 11.6,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Garden",
+   "size": 15,
+   "weight": 600,
+   "fg": "#1f2a24",
+   "bg": "#eae3d2",
+   "ratio": 11.6,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Ladders",
+   "size": 15,
+   "weight": 600,
+   "fg": "#1f2a24",
+   "bg": "#eae3d2",
+   "ratio": 11.6,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Available near you",
+   "size": 21,
+   "weight": 700,
+   "fg": "#1f2a24",
+   "bg": "#f6f1e7",
+   "ratio": 13.18,
+   "required": 3,
+   "result": "pasa"
+  },
+  {
+   "text": "See all",
+   "size": 15,
+   "weight": 600,
+   "fg": "#1f4d3a",
+   "bg": "#f6f1e7",
+   "ratio": 8.55,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Cordless drill",
+   "size": 16,
+   "weight": 700,
+   "fg": "#1f2a24",
+   "bg": "#ffffff",
+   "ratio": 14.84,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Tomás · 0.3 mi",
+   "size": 13,
+   "weight": 400,
+   "fg": "#5b6560",
+   "bg": "#ffffff",
+   "ratio": 6.04,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Available now",
+   "size": 13,
+   "weight": 700,
+   "fg": "#1b6b3a",
+   "bg": "#ffffff",
+   "ratio": 6.54,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Step ladder 6 ft",
+   "size": 16,
+   "weight": 700,
+   "fg": "#1f2a24",
+   "bg": "#ffffff",
+   "ratio": 14.84,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Priya · 0.5 mi",
+   "size": 13,
+   "weight": 400,
+   "fg": "#5b6560",
+   "bg": "#ffffff",
+   "ratio": 6.04,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "From Sat, Nov 21",
+   "size": 13,
+   "weight": 700,
+   "fg": "#8a4b00",
+   "bg": "#ffffff",
+   "ratio": 6.8,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Hand saw",
+   "size": 16,
+   "weight": 700,
+   "fg": "#1f2a24",
+   "bg": "#ffffff",
+   "ratio": 14.84,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Jonas · 0.8 mi",
+   "size": 13,
+   "weight": 400,
+   "fg": "#5b6560",
+   "bg": "#ffffff",
+   "ratio": 6.04,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Available now",
+   "size": 13,
+   "weight": 700,
+   "fg": "#1b6b3a",
+   "bg": "#ffffff",
+   "ratio": 6.54,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Garden spade",
+   "size": 16,
+   "weight": 700,
+   "fg": "#1f2a24",
+   "bg": "#ffffff",
+   "ratio": 14.84,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Lena · 1.1 mi",
+   "size": 13,
+   "weight": 400,
+   "fg": "#5b6560",
+   "bg": "#ffffff",
+   "ratio": 6.04,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "From Mon, Nov 23",
+   "size": 13,
+   "weight": 700,
+   "fg": "#8a4b00",
+   "bg": "#ffffff",
+   "ratio": 6.8,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Lend a tool",
+   "size": 17,
+   "weight": 700,
+   "fg": "#ffffff",
+   "bg": "#c2410c",
+   "ratio": 5.18,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Home",
+   "size": 12,
+   "weight": 600,
+   "fg": "#1f4d3a",
+   "bg": "#ffffff",
+   "ratio": 9.63,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Browse",
+   "size": 12,
+   "weight": 600,
+   "fg": "#5b6560",
+   "bg": "#ffffff",
+   "ratio": 6.04,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "My tools",
+   "size": 12,
+   "weight": 600,
+   "fg": "#5b6560",
+   "bg": "#ffffff",
+   "ratio": 6.04,
+   "required": 4.5,
+   "result": "pasa"
+  },
+  {
+   "text": "Profile",
+   "size": 12,
+   "weight": 600,
+   "fg": "#5b6560",
+   "bg": "#ffffff",
+   "ratio": 6.04,
+   "required": 4.5,
+   "result": "pasa"
+  }
+ ]
+}
