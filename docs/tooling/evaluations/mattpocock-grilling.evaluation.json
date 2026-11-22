@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "id": "mattpocock-grilling",
+    "type": "skill",
+    "sourceUrl": "https://github.com/mattpocock/skills",
+    "evaluatedRef": "d1478fcb140db0b93c0c8df17bcfd311844749d0"
+  },
+  "observedAt": "2026-11-22T02:08:33.000Z",
+  "overallScore": 67.90238069479409,
+  "evidenceCoverage": 97,
+  "factorScores": {
+    "community": 73.88322700338219,
+    "maintenance": 69,
+    "security": 77.00000000000001,
+    "fit": 54.94117647058824,
+    "engineering": 50.75,
+    "sustainability": 87.75
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.9,
+  "confidence": "high",
+  "riskLevel": "low",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "rejected",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#mattpocock-grilling",
+  "evidenceInputRef": "docs/tooling/evaluations/mattpocock-grilling.evidence.json",
+  "expiresAt": "2027-02-20T02:08:33.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "rejected",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-22T02:08:44.108Z",
+    "rationale": "Decisión de Denis Paiva (PO) en el chat de Claude Code del 2026-11-21: «Rechazarla», ante la recomendación de diferirla. Puntaje 67,9, riesgo low, advance_with_reservations, sobre mattpocock/skills@d1478fc (v1.3.2), skills/productivity/grilling. Motivo: su encaje quedó cubierto. En Teyst, VCX-P2 ya exige el cuestionamiento; en el ingreso de Blends, brix/docs/idea-intake.md ya define rondas (mínimo 2, tope 3) con control de madurez, y lo que falta es el instrumento de preguntas asesinas (brix-killer-questions, sin admisión). La revisión independiente de Codex (docs/superpowers/reports/2026-11-21-superpowers-brainstorming-codex-review/) objeta además dos reglas para un ingreso: redactar cada pregunta para que «sí» acepte la recomendación favorece la aquiescencia, y despachar un subagente por cada hecho es caro. grill-with-docs, que la combina con domain-modeling, se descartó antes por escribir GLOSSARY.md y docs/adr/ en rutas fijas que chocan con docs/decisions/ de Teyst. Se reevalúa solo si un piloto del ingreso muestra que faltan rondas mejor ordenadas."
+  }
+}
