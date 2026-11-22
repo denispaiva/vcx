@@ -1,0 +1,36 @@
+{
+  "candidate": {
+    "id": "mattpocock-to-spec",
+    "type": "skill",
+    "sourceUrl": "https://github.com/mattpocock/skills",
+    "evaluatedRef": "d1478fcb140db0b93c0c8df17bcfd311844749d0"
+  },
+  "observedAt": "2026-11-21T15:00:00.000Z",
+  "overallScore": 60.968312067343106,
+  "evidenceCoverage": 95,
+  "factorScores": {
+    "community": 73.88322700338219,
+    "maintenance": 55,
+    "security": 69.25000000000001,
+    "fit": 41.333333333333336,
+    "engineering": 50,
+    "sustainability": 83.25
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94,
+  "confidence": "high",
+  "riskLevel": "high",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "deferred",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#mattpocock-to-spec",
+  "evidenceInputRef": "docs/tooling/evaluations/mattpocock-to-spec.evidence.json",
+  "expiresAt": "2027-02-19T15:00:00.000Z",
+  "communityEvidenceNote": null,
+  "humanDecision": {
+    "status": "deferred",
+    "decidedBy": "Denis Paiva",
+    "decidedAt": "2026-11-22T01:56:21.047Z",
+    "rationale": "Decisión de Denis Paiva (PO) en el chat de Claude Code del 2026-11-21: «Diferir», ante la pregunta «¿Qué decisión registro sobre to-spec?». Puntaje 61,0, advance_with_reservations, riesgo high (remoteWrite y networkAccess: el original publica la spec como issue con ready-for-agent sin mostrar el borrador), sobre mattpocock/skills@d1478fc (tag v1.3.2, skills/engineering/to-spec). La comunidad (73,9) es del repositorio entero. Se difiere hasta medirla en uso real; la fecha de revisión (2026-12-21, 30 días) la fijó el agente porque el motor la exige, y el PO puede cambiarla. La adaptación to-spec-teyst (borrador local en docs/planning, sin publicar sin un sí, sin setup ni etiqueta) quedó preparada en la rama local docs/skill-to-spec-adaptada de solera-teyst, sin admisión: no se usa mientras la decisión sea deferred. Revisión independiente de la evidencia hecha por un subagente antes de persistir.",
+    "reviewAt": "2026-12-21"
+  }
+}

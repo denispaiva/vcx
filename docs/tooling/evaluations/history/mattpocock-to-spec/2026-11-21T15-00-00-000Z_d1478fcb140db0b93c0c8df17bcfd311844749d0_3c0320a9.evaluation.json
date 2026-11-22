@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "mattpocock-to-spec",
+    "type": "skill",
+    "sourceUrl": "https://github.com/mattpocock/skills",
+    "evaluatedRef": "d1478fcb140db0b93c0c8df17bcfd311844749d0"
+  },
+  "observedAt": "2026-11-21T15:00:00.000Z",
+  "overallScore": 60.968312067343106,
+  "evidenceCoverage": 95,
+  "factorScores": {
+    "community": 73.88322700338219,
+    "maintenance": 55,
+    "security": 69.25000000000001,
+    "fit": 41.333333333333336,
+    "engineering": 50,
+    "sustainability": 83.25
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94,
+  "confidence": "high",
+  "riskLevel": "high",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#mattpocock-to-spec",
+  "evidenceInputRef": "docs/tooling/evaluations/mattpocock-to-spec.evidence.json",
+  "expiresAt": "2027-02-19T15:00:00.000Z",
+  "communityEvidenceNote": null
+}

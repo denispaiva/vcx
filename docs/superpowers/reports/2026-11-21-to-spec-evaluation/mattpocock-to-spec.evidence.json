@@ -1,0 +1,405 @@
+{
+  "candidate": {
+    "id": "mattpocock-to-spec",
+    "type": "skill",
+    "sourceUrl": "https://github.com/mattpocock/skills",
+    "evaluatedRef": "d1478fcb140db0b93c0c8df17bcfd311844749d0"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último cambio de la ruta el 2026-08-19 (94 días); la página de docs cambió el 2026-10-05 y el repositorio recibe commits el 2026-11-19. La actividad del repositorio no se atribuye a esta skill.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/commits?path=skills/engineering/to-spec (9 commits: 2026-07-08 a 2026-08-19; 0 desde 2026-08-23; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills (pushed_at=2026-11-19; medido 2026-11-21)"
+        ],
+        "score": 55
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "10 tags con semver (último v1.3.2, release del 2026-10-29); la skill no declara versión propia, pero se puede fijar por tag. El blob de SKILL.md es igual en v1.3.2 y en main.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/releases y /tags (10 y 10; v1.3.2: objeto tag 85cbec9, commit d1478fc; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/to-spec/SKILL.md (blob 3f52599, 3043 bytes, idéntico en main y 5c89081; leído completo; medido 2026-11-21)"
+        ],
+        "score": 70
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "9 commits en la ruta entre 2026-07-08 y 2026-08-19, ninguno en los últimos 90 días; antes de v1.1 la skill se llamaba to-prd, con 10 commits entre 2026-04-28 y 2026-07-08. De los 4 contributors con login, una sola persona (mattpocock); los otros son claude, github-actions[bot] y una cuenta de prueba.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/commits?path=skills/engineering/to-spec (9 commits: 2026-07-08 a 2026-08-19; 0 desde 2026-08-23; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/contributors (4; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/commits?path=skills/engineering/to-prd (10 commits, 2026-04-28 a 2026-07-08; medido 2026-11-21)"
+        ],
+        "score": 40
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Muestra de 10 issues cerrados: 8 en 0 a 27 h, 2 en 92 y 121 h; 262 abiertos. Sesgo: dos se cerraron en segundos, tres en el mismo minuto (limpieza en lote), cuatro como not_planned y los diez con needs-triage al cerrar. El tiempo de cierre no mide la primera respuesta de un mantenedor.",
+        "evidenceRefs": [
+          "github-api:search/issues?q=repo:mattpocock/skills+is:issue+is:closed (muestra de 10; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/actions/workflows (Check, Close needs-info, Release, Triage label; medido 2026-11-21)"
+        ],
+        "score": 50
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La carpeta tiene SKILL.md y agents/openai.yaml, sin código ejecutable; 0 security advisories. El puntaje refleja ausencia de código, no una auditoría.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/git/trees/5c89081?recursive=1 (skills/engineering/to-spec: SKILL.md y agents/openai.yaml; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/security-advisories (0; medido 2026-11-21)"
+        ],
+        "score": 90
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Repositorio personal de Matt Pocock, MIT, 329.801 estrellas. Autor individual identificable; no es un publicador institucional. Las auditorías 'Pass' de skills.sh no se pudieron verificar y no se cuentan.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/main/LICENSE (MIT, 2026 Matt Pocock; medido 2026-11-21)",
+          "web:https://www.skills.sh/mattpocock/skills/to-spec (835,1 K instalaciones y auditorías 'Pass' declaradas por la página; leído 2026-11-21)"
+        ],
+        "score": 70
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Perfil de comunidad 57 % (README, CONTRIBUTING, LICENSE); sin SECURITY.md. El workflow Check solo valida el frontmatter de los SKILL.md.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/community/profile (health=57; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/main/.github/workflows/check.yml (npm run check-frontmatter; medido 2026-11-21)"
+        ],
+        "score": 50
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No declara permisos, pero su paso 3 crea un issue con gh issue create y aplica ready-for-agent sin mostrar antes el borrador. El setup del que depende edita CLAUDE.md o AGENTS.md, crea docs/agents/*.md y crea etiquetas en el tracker. La propia docs reconoce que los agentes autónomos que leen ready-for-agent intentan implementar la spec entera: 'the most-reported problem'.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/to-spec/SKILL.md (blob 3f52599, 3043 bytes, idéntico en main y 5c89081; leído completo; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/setup-matt-pocock-skills/ (SKILL.md, issue-tracker-github.md, issue-tracker-local.md, triage-labels.md; leídos completos; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/main/docs/engineering/to-spec.md (blob 824cd18, igual en v1.3.2 y main; último commit dfe7549, 2026-10-05; leído completo; medido 2026-11-21)"
+        ],
+        "score": 45
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Cubre pasar una conversación ya decidida a una spec para trabajo de varias sesiones, con seams de prueba acordados. Teyst ya planifica en docs/planning (64 entradas) y la matriz asigna writing-plans a la planificación; el hueco que queda es la síntesis y el acuerdo de seams, no la planificación.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/to-spec/SKILL.md (blob 3f52599, 3043 bytes, idéntico en main y 5c89081; leído completo; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/main/docs/engineering/to-spec.md (blob 824cd18, igual en v1.3.2 y main; último commit dfe7549, 2026-10-05; leído completo; medido 2026-11-21)",
+          "local-read:solera/teyst en 8a4040d (docs/planning: 64 entradas, ninguna con sufijo -spec; docs/decisions: ADR 0001-0015; sin GLOSSARY.md, docs/adr ni docs/agents; CLAUDE.md = @AGENTS.md; consultado 2026-11-21)",
+          "local-read:docs/architecture/tooling-matrix.md en ed5b72b (fila Cellar · conducción, planificación: writing-plans, observado; consultado 2026-11-21)"
+        ],
+        "score": 40
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Formato Agent Skills compatible con Claude Code y, por agents/openai.yaml, con Codex. Supone GLOSSARY.md, docs/adr y un tracker configurado: Teyst no tiene ninguno de los tres y su CLAUDE.md es solo @AGENTS.md, que el setup editaría. La plantilla sale en inglés y Teyst exige español en la documentación para personas.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/to-spec/SKILL.md (blob 3f52599, 3043 bytes, idéntico en main y 5c89081; leído completo; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/setup-matt-pocock-skills/ (SKILL.md, issue-tracker-github.md, issue-tracker-local.md, triage-labels.md; leídos completos; medido 2026-11-21)",
+          "local-read:solera/teyst en 8a4040d (docs/planning: 64 entradas, ninguna con sufijo -spec; docs/decisions: ADR 0001-0015; sin GLOSSARY.md, docs/adr ni docs/agents; CLAUDE.md = @AGENTS.md; consultado 2026-11-21)",
+          "github-api:repos/denispaiva/solera-teyst/labels (9 etiquetas por defecto, sin ready-for-agent; medido 2026-11-21)"
+        ],
+        "score": 40
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Aporta la disciplina de seams (pocos y altos, confirmados antes de escribir), una plantilla con 'Out of Scope' y 'Testing Decisions', y criterios de 'It's working if'. Frente a writing-plans y a los planes actuales, el aporte es parcial; la lista larga de historias de usuario no encaja con trabajo de arquitectura, como admite la docs.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/to-spec/SKILL.md (blob 3f52599, 3043 bytes, idéntico en main y 5c89081; leído completo; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/main/docs/engineering/to-spec.md (blob 824cd18, igual en v1.3.2 y main; último commit dfe7549, 2026-10-05; leído completo; medido 2026-11-21)",
+          "local-read:docs/architecture/tooling-matrix.md en ed5b72b (fila Cellar · conducción, planificación: writing-plans, observado; consultado 2026-11-21)"
+        ],
+        "score": 45
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El SKILL.md tiene 3 KB, pero el original depende de setup-matt-pocock-skills, que edita CLAUDE.md, crea docs/agents y etiquetas, y de un tracker configurado. Se puntúa el original; la adaptación es la reserva de uso, no un crédito.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/to-spec/SKILL.md (blob 3f52599, 3043 bytes, idéntico en main y 5c89081; leído completo; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/setup-matt-pocock-skills/ (SKILL.md, issue-tracker-github.md, issue-tracker-local.md, triage-labels.md; leídos completos; medido 2026-11-21)"
+        ],
+        "score": 40
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin registros de uso de este candidato en VCX: docs/tooling/evaluations/ y score-runs.jsonl no lo contienen.",
+        "evidenceRefs": [
+          "local-read:docs/tooling/evaluations/ y docs/tooling/score-runs.jsonl en ed5b72b (sin el candidato; consultado 2026-11-21)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin piloto ni uso medido en VCX.",
+        "evidenceRefs": [
+          "local-read:docs/tooling/evaluations/ en ed5b72b (sin el candidato; consultado 2026-11-21)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin pruebas ni evals del comportamiento de la skill; CI valida solo el frontmatter.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/main/.github/workflows/check.yml (medido 2026-11-21)"
+        ],
+        "score": 15
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "SKILL.md breve con plantilla completa y una página de docs que explica cuándo usarla, cuándo no, límites conocidos (etiqueta, refactors, duplicados, truncamiento) y criterios de 'It's working if'. Falta una matriz de compatibilidad.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/to-spec/SKILL.md (blob 3f52599, 3043 bytes, idéntico en main y 5c89081; leído completo; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/main/docs/engineering/to-spec.md (blob 824cd18, igual en v1.3.2 y main; último commit dfe7549, 2026-10-05; leído completo; medido 2026-11-21)"
+        ],
+        "score": 80
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Tags semver con releases y CHANGELOG implícito en la docs ('renamed in v1.1'); la skill no versiona su frontmatter.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/tags (10; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/main/docs/engineering/to-spec.md (blob 824cd18, igual en v1.3.2 y main; último commit dfe7549, 2026-10-05; leído completo; medido 2026-11-21)"
+        ],
+        "score": 60
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El README documenta instalación para Claude Code, Copilot, VS Code y Gemini, y trae agents/openai.yaml para Codex. No hay pruebas por agente.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/main/README.md (líneas 25-95; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/git/trees/5c89081?recursive=1 (skills/engineering/to-spec: SKILL.md y agents/openai.yaml; medido 2026-11-21)"
+        ],
+        "score": 40
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin dependencias de paquetes; depende de otra skill (setup-matt-pocock-skills) y del CLI gh para publicar.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/git/trees/5c89081?recursive=1 (skills/engineering/to-spec: SKILL.md y agents/openai.yaml; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/setup-matt-pocock-skills/ (SKILL.md, issue-tracker-github.md, issue-tracker-local.md, triage-labels.md; leídos completos; medido 2026-11-21)"
+        ],
+        "score": 75
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Gratuita, MIT, sin servicios propios. El consumo es el de tokens del agente que ya se usa.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/main/LICENSE (medido 2026-11-21)"
+        ],
+        "score": 95
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Markdown plano en formato abierto; se puede vendorizar con atribución bajo MIT.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/to-spec/SKILL.md (blob 3f52599, 3043 bytes, idéntico en main y 5c89081; leído completo; medido 2026-11-21)"
+        ],
+        "score": 90
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La skill se retira borrando su carpeta. Lo que escribe el setup se revierte a mano. Un issue publicado se puede cerrar o borrar en un repo privado, pero las notificaciones enviadas y el trabajo que un agente autónomo inicie al ver ready-for-agent no se deshacen; por eso no se marca irreversibleExternalPublication, que se reserva para publicación pública, y el costo queda acá.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/to-spec/SKILL.md (blob 3f52599, 3043 bytes, idéntico en main y 5c89081; leído completo; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/setup-matt-pocock-skills/ (SKILL.md, issue-tracker-github.md, issue-tracker-local.md, triage-labels.md; leídos completos; medido 2026-11-21)"
+        ],
+        "score": 65
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin servicios ni claves; seguir cambios del upstream por tag. Con el upstream, mantener la configuración de docs/agents.",
+        "evidenceRefs": [
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/to-spec/SKILL.md (blob 3f52599, 3043 bytes, idéntico en main y 5c89081; leído completo; medido 2026-11-21)",
+          "github-raw:mattpocock/skills/d1478fc (tag v1.3.2)/skills/engineering/setup-matt-pocock-skills/ (SKILL.md, issue-tracker-github.md, issue-tracker-local.md, triage-labels.md; leídos completos; medido 2026-11-21)"
+        ],
+        "score": 80
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": false,
+    "localWriteReversible": true,
+    "newLocalDependencies": false,
+    "networkAccess": true,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": true,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}
