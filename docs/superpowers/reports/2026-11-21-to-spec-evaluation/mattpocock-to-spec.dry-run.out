@@ -1,0 +1,48 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · mattpocock-to-spec (skill)
+  github.com/mattpocock/skills · evaluado 2026-11-21
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         61.0 / 100
+  CONFIANZA             high (94)
+  NIVEL DE RIESGO        high
+  RECOMENDACIÓN BASE     advance_with_reservations
+
+  ── Por factor ──────────────────────────────────────
+  community        73.9
+  maintenance      55.0
+  security         69.3
+  fit              41.3
+  engineering      50.0
+  sustainability   83.3
+
+  ── Riesgo, por ─────────────────────────────────────
+  • localWriteReversible (escritura local reversible)
+  • networkAccess (acceso a red)
+  • remoteWrite (escritura remota)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • security.vulnerabilityStatus (90) — La carpeta tiene SKILL.md y agents/openai.yaml, sin código ejecutable; 0 security advisories. El puntaje refleja ausencia de código, no una auditoría.
+  • sustainability.costPredictability (95) — Gratuita, MIT, sin servicios propios. El consumo es el de tokens del agente que ya se usa.
+  • sustainability.portability (90) — Markdown plano en formato abierto; se puede vendorizar con atribución bajo MIT.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.commitContinuity (40) — 9 commits en la ruta entre 2026-07-08 y 2026-08-19, ninguno en los últimos 90 días; antes de v1.1 la skill se llamaba to-prd, con 10 commits entre 2026-04-28 y 2026-07-08. De los 4 contributors con login, una sola persona (mattpocock); los otros son claude, github-actions[bot] y una cuenta de prueba.
+  • fit.capabilityGapCoverage (40) — Cubre pasar una conversación ya decidida a una spec para trabajo de varias sesiones, con seams de prueba acordados. Teyst ya planifica en docs/planning (64 entradas) y la matriz asigna writing-plans a la planificación; el hueco que queda es la síntesis y el acuerdo de seams, no la planificación.
+  • fit.technicalCompatibility (40) — Formato Agent Skills compatible con Claude Code y, por agents/openai.yaml, con Codex. Supone GLOSSARY.md, docs/adr y un tracker configurado: Teyst no tiene ninguno de los tres y su CLAUDE.md es solo @AGENTS.md, que el setup editaría. La plantilla sale en inglés y Teyst exige español en la documentación para personas.
+  • fit.adoptionSimplicity (40) — El SKILL.md tiene 3 KB, pero el original depende de setup-matt-pocock-skills, que edita CLAUDE.md, crea docs/agents y etiquetas, y de un tracker configurado. Se puntúa el original; la adaptación es la reserva de uso, no un crédito.
+  • fit.observedAdoption — sin evidencia disponible (unavailable)
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • engineering.automatedVerification (15) — Sin pruebas ni evals del comportamiento de la skill; CI valida solo el frontmatter.
+  • engineering.compatibilityEvidence (40) — El README documenta instalación para Claude Code, Copilot, VS Code y Gemini, y trae agents/openai.yaml para Codex. No hay pruebas por agente.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+(dry-run: no se escribió nada)
+
+score-run en seco: no se escribió nada. Línea que se agregaría (sin formulaVersion ni evaluationSha256):
+{"candidate": "mattpocock-to-spec", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input /private/tmp/claude-501/-Users-denis--claude-spares-spare-PJ9im2/df040613-5b4a-4c83-854b-21a489b043a6/scratchpad/to-spec/mattpocock-to-spec.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-21T15:00:00.000Z", "now": "2026-11-21T15:00:00.000Z", "brixHead": "591c25f4aed01f0f68f25f1f7a59c9b21959bd66", "cliTree": "af14043fff3fd52228f9090e91823179026be3fe", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": null, "evaluationSha256": null, "previousStatus": null, "operator": "claude-opus-5-5 en Claude Code, sesión de Teyst"}
