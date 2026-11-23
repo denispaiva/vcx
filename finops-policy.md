@@ -19,18 +19,18 @@ Esta sección es la fuente editable de ambas reglas; las instrucciones comunes l
 
 ## Fuentes de consulta en el precursor
 
-El precursor ya resolvió el enrutamiento de modelos por clase, riesgo y costo. Según [AGENTS](AGENTS.md#fronteras) es de solo lectura y sus rutas son referencias de consulta, no dependencias. Esta política no copia sus valores: los enlaza y registra solo lo que difiere en este entorno.
+El precursor ya resolvió el enrutamiento de modelos por clase, riesgo y costo. Según [AGENTS](AGENTS.md#fronteras) es de solo lectura y sus rutas son referencias de consulta, no dependencias. Esta política no copia sus valores: los enlaza y registra solo lo que difiere en este entorno. Desde VCX-D063 el precursor está archivado como `denispaiva/blends-precursor`, privado; los enlaces de la tabla apuntan a ese repositorio y la carpeta hermana `../blends/` ya no existe en disco. Lectura revalidada el 2026-11-23 para la política, el catálogo y `model-resolver.md`.
 
 | Dato | Fuente en el precursor | Qué aporta |
 |---|---|---|
-| Clases, perfiles de tarea, pisos por riesgo, motivos de elevación | [`model-routing-policy.json`](../blends/vc/tooling/lifecycle/model-routing-policy.json) | Orden `economy` < `balanced` < `frontier`; 16 perfiles de tarea; piso `balanced` para P0; auditoría P0/P1 en `frontier`; decorrelación del revisor por linaje |
-| Modelos contratados, clase, costo relativo medido, base de costo | [`contracted-models.json`](../blends/vc/tooling/lifecycle/contracted-models.json) | Catálogo con evidencia de recibo y llamadas reales; `relativeCost` fable 4 : sonnet 1, medido el 2026-09-14 |
-| Algoritmo, techo de costo, acta, fase 2 | [`model-resolver.md`](../blends/vc/docs/tooling/model-resolver.md) | Regla: el modelo menos costoso que cumpla la clase requerida; subir exige motivo declarado, bajar nunca |
-| Decisiones y ejecuciones registradas | [`model-resolution-acta.jsonl`](../blends/vc/tooling/model-resolution-acta.jsonl) | 27 líneas al 2026-11-01, todas del perfil `conventional-implementation` con `claude-sonnet-5`; evidencia real pero de un solo perfil |
-| Revisión de fallbacks por umbral | [`fallback-review.mjs`](../blends/vc/tools/fallback-review.mjs) | Cuenta fallbacks por binding y pide revisión al superar el umbral declarado |
-| Validación de la clasificación de tareas | [`task-profile-benchmark.mjs`](../blends/vc/tools/task-profile-benchmark.mjs) | Set etiquetado por el PO y modo `--gate` |
-| Tabla clase por tipo de tarea y presupuesto de tokens por complejidad | [`role-matrix.md`](../blends/vc/docs/standards/role-matrix.md) | Estándar que la política JSON refleja |
-| Ledger de costos: presupuesto, proyección y real separados | [`engine.mjs`](../blends/vc/brix/packages/cli/finops/engine.mjs) y su schema | Modelo para informar costo sin mezclar estimación y factura |
+| Clases, perfiles de tarea, pisos por riesgo, motivos de elevación | [`model-routing-policy.json`](https://github.com/denispaiva/blends-precursor/blob/main/vc/tooling/lifecycle/model-routing-policy.json) | Orden `economy` < `balanced` < `frontier`; 16 perfiles de tarea; piso `balanced` para P0; auditoría P0/P1 en `frontier`; decorrelación del revisor por linaje |
+| Modelos contratados, clase, costo relativo medido, base de costo | [`contracted-models.json`](https://github.com/denispaiva/blends-precursor/blob/main/vc/tooling/lifecycle/contracted-models.json) | Catálogo con evidencia de recibo y llamadas reales; `relativeCost` fable 4 : sonnet 1, medido el 2026-09-14 |
+| Algoritmo, techo de costo, acta, fase 2 | [`model-resolver.md`](https://github.com/denispaiva/blends-precursor/blob/main/vc/docs/tooling/model-resolver.md) | Regla: el modelo menos costoso que cumpla la clase requerida; subir exige motivo declarado, bajar nunca |
+| Decisiones y ejecuciones registradas | `vc/tooling/model-resolution-acta.jsonl` | 27 líneas al 2026-11-01, todas del perfil `conventional-implementation` con `claude-sonnet-5`; evidencia real pero de un solo perfil. El acta no está versionada en el precursor archivado: el 2026-11-23 ese conteo no pudo volver a verificarse |
+| Revisión de fallbacks por umbral | [`fallback-review.mjs`](https://github.com/denispaiva/blends-precursor/blob/main/vc/tools/fallback-review.mjs) | Cuenta fallbacks por binding y pide revisión al superar el umbral declarado |
+| Validación de la clasificación de tareas | [`task-profile-benchmark.mjs`](https://github.com/denispaiva/blends-precursor/blob/main/vc/tools/task-profile-benchmark.mjs) | Set etiquetado por el PO y modo `--gate` |
+| Tabla clase por tipo de tarea y presupuesto de tokens por complejidad | [`role-matrix.md`](https://github.com/denispaiva/blends-precursor/blob/main/vc/docs/standards/role-matrix.md) | Estándar que la política JSON refleja |
+| Ledger de costos: presupuesto, proyección y real separados | [`engine.mjs`](https://github.com/denispaiva/blends-precursor/blob/main/vc/brix/packages/cli/finops/engine.mjs) y su schema | Modelo para informar costo sin mezclar estimación y factura |
 
 Ninguna de estas fuentes figura todavía en la [matriz de tooling](docs/architecture/tooling-matrix.md), que registra `finops-ledger` pero no el resolver; ver pendientes.
 
@@ -60,6 +60,8 @@ Instantánea del 2026-11-01 en Claude Code dentro de la app de escritorio. No es
 
 Si falta un modelo de la clase requerida, declarar la sustitución o el bloqueo antes del despacho y registrarlo en la tabla de ejecución.
 
+Instantánea del 2026-11-23, misma app (F004). El agente principal se identifica como `claude-fable-5-2`; los subagentes `sonnet` y `haiku` se identificaron como `claude-sonnet-5-5` y `claude-haiku-5-5`. Es autoidentificación del modelo, no un contador del harness, y ninguno de los tres figura con ese nombre en el catálogo del precursor: la equivalencia de clase (`frontier`, `balanced`, `economy`) sigue siendo una hipótesis y su costo relativo no está medido. El uso de `haiku` como `economy` queda sujeto a que el PO lo acepte en el catálogo; hasta entonces rige la sustitución hacia arriba a `sonnet`. El plan expone tres medidores: ventana de 5 horas, semanal de todos los modelos y semanal propio de Fable. Codex no se verificó: su CLI no está instalado en esta máquina y su configuración local nombra `gpt-6.2-astra`, que tampoco figura en el catálogo.
+
 ## Pesos, confianza y presupuesto
 
 - Herramientas, posición del Owner del 2026-11-01, refinada el mismo día: preferir herramientas gratuitas que satisfagan los requisitos y verificar sus condiciones de uso. Toda opción paga debe contrastarse con una alternativa gratuita adecuada y requiere autorización vigente del Owner para el gasto adicional. Precisiones:
@@ -74,6 +76,38 @@ Si falta un modelo de la clase requerida, declarar la sustitución o el bloqueo 
 - Contadores: esta sesión expone porcentaje de uso del plan y ocupación de la ventana de contexto, no tokens por modelo con tarifa. El costo de subagentes no es medible aquí; declararlo «no disponible».
 - Concurrencia: cuatro sesiones totales, incluido el agente principal; hasta tres subagentes simultáneos. Usar menos cuando no haya caminos independientes útiles.
 - Acotar contexto, trabajo y criterios de aceptación por despacho. Evitar duplicación de investigación y reintentos sin diagnóstico.
+
+## Regla de sesión de Barenboim
+
+Barenboim es el nombre visible de la capacidad de selección y orquestación de modelos (`model-resolution`), fijado por el PO en VCX-D073; antes figuró como «Resolución de modelo» y como «Optimizador de modelos». Al tomar una tarea recomienda el modelo y el nivel de razonamiento. No elige qué tarea tomar, que recomienda el Sprint Planner, ni cómo validarla, que determina el optimizador de CI. Piloto consultivo adoptado por el PO en VCX-D072; ficha en la [matriz de tooling](docs/architecture/tooling-matrix.md#dónde-vive-cada-elemento). La ejerce el agente principal dentro de su propio turno, como consulta de las fuentes de esta política: no agrega una llamada a un modelo, no activa delegación automática y no amplía la autoridad de delegación ya concedida. Clases, perfiles, pisos y motivos de elevación son los de las [fuentes del precursor](#fuentes-de-consulta-en-el-precursor); esta sección no los copia.
+
+**Cuándo.** Al inicio de cada tarea con resultado verificable, incluidas las que el principal planea resolver por su cuenta. Se reevalúa solo si cambia alcance, riesgo, ambigüedad, herramientas necesarias o aparece retrabajo. Un comando individual no se evalúa.
+
+**Cómo decide.**
+
+1. Si un comando determinista resuelve la tarea, se ejecuta; no hay elección de modelo.
+2. Clase requerida: la mayor entre el perfil de la tarea y los pisos por riesgo, auditoría y datos sensibles. Las señales observables solo suben la clase.
+3. Si la clase del agente actual coincide con la requerida, continuar sin interrumpir al usuario.
+4. Nivel de razonamiento: el menor que el entorno exponga y que cumpla la tarea con el modelo elegido; se sube con los mismos motivos de elevación que la clase. Esta política no define una escala propia de niveles: usa los nombres del entorno y, si este no permite elegirlo, lo declara.
+5. Si la clase actual es superior, proponer handoff solo cuando se cumple todo: hay un modelo de la clase requerida despachable en el entorno, o el fallback mínimo hacia arriba; el contexto necesario cabe en un brief que apunta a archivos; verificar el resultado cuesta menos que producirlo; el subagente tiene las herramientas y permisos; la delegación ya está autorizada; y la tarea supera el costo fijo de un despacho. Si algo falla, el principal conserva la tarea y dice cuál condición faltó.
+6. Si la clase actual es inferior, proponer escalamiento con uno de los motivos de elevación vigentes y decir qué cambió.
+
+**Qué comunica.** Toda recomendación visible para el usuario se presenta con el nombre Barenboim. Un handoff nombra el modelo concreto y el nivel de razonamiento, qué parte se delega, el contexto mínimo, el resultado que debe volver y cómo lo verificará el principal, que conserva la integración y la entrega. Toda decisión distingue modelo y nivel recomendados, modelo y nivel usados y motivo de la diferencia.
+
+**Calificación.** Una línea por tarea, vinculada a su identificador existente: «Barenboim · adecuación del modelo · [calificación]. [Decisión, fundamento y evidencia observable]».
+
+| Calificación | Criterio |
+|---|---|
+| 3/3 · Adecuada | La ruta cumplía los requisitos y estaba justificada frente a las opciones disponibles. Vale para un handoff y para conservar el principal; en este caso la línea nombra la alternativa descartada |
+| 2/3 · Mejorable | La ruta era viable, pero había una alternativa concreta y razonable con lo que ya se sabía |
+| 1/3 · Inadecuada | Se ignoró un requisito conocido o hubo retrabajo atribuible a una incompatibilidad previsible |
+| Sin evaluar | Falta evidencia esencial; la línea dice cuál |
+
+Se califica con la información disponible al decidir y se contrasta con lo ocurrido después. La adecuación del modelo, la aceptación funcional y el consumo observado se informan por separado; sin contadores, el ahorro queda sin verificar. Si el usuario elige otra ruta por una razón válida, esa razón entra en el juicio.
+
+**Dónde queda la evidencia.** En el reporte de sesión del proyecto y, donde exista, en `agents[].delegations` de su `.roadmap.json`. No se crea otro registro de decisiones de enrutamiento.
+
+**Límites conocidos del piloto.** Quien califica es el mismo agente que eligió, y las tareas que el principal conserva solo dejan rastro si escribe la línea: el PO muestrea. Cada despacho del 2026-11-23 consumió entre 75 y 82 mil tokens informados por el harness para 6 o 7 llamadas a herramientas, sin que los medidores del plan se movieran; el umbral de tamaño del paso 5 no tiene todavía un valor medido. Revisar la regla tras unas diez sesiones: se descarta si preparar y verificar handoffs iguala el trabajo delegado o aparece retrabajo, y pasa al estándar de Blends si el cupo semanal baja con igual aceptación.
 
 ## Ejecución y consolidación
 
@@ -97,11 +131,13 @@ Si falta un modelo de la clase requerida, declarar la sustitución o el bloqueo 
 | F001 | Configuración documental de orquestación | Principal no expuesto en el entorno de origen | Fase de Pruebas | Sin medir; sin delta | Creación solicitada por el usuario el 2026-11-01; sin ejecución de código de producto |
 | F002 | Reformulación de esta política sobre las fuentes del precursor | Agente principal, `claude-fable-5-1` | Cerrada | Sin medir; sin delta | Lectura en solo lectura de las fuentes enlazadas el 2026-11-01; sin subagentes; costo no disponible |
 | F003 | Evidencia de evaluación de tooling, perfil `audit` (dos candidatos) e `inventory`/`bounded-search` (tres) | Subagentes `opus` (se identificaron como `claude-opus-5-5`) y `sonnet` (`claude-sonnet-5-5`); `opus` fuera del catálogo contratado, por decisión del usuario en el chat del 2026-11-02 | Cerrada | Sin medir; sin delta. Éxito técnico: los cinco archivos cumplieron el contrato del motor, uno tras agregar referencias a subfactores sin evidencia | [Reporte](docs/superpowers/reports/2026-11-02-finops-orchestration-repos-tool-dry-run.md): 580.294 tokens de subagentes informados por el harness, 3 simultáneos como máximo, costo en dinero no disponible |
+| F004 | Piloto consultivo de Barenboim, entonces «Optimizador de modelos» (VCX-D072): tres búsquedas de solo lectura, perfiles `inventory` y `bounded-search` | Subagentes `haiku` (se identificó como `claude-haiku-5-5`) y `sonnet` (`claude-sonnet-5-5`, dos despachos), por instrucción del usuario en el chat del 2026-11-23; diseño e integración en el agente principal, `claude-fable-5-2` | Cerrada | Sin medir; sin delta. Éxito técnico: los tres resultados se aceptaron tras contraste del principal, uno con una corrección | 82.045, 75.394 y 79.415 tokens de subagentes informados por el harness; plan en 77 %, 39 % y 30 % antes y después, sin variación observable; costo en dinero no disponible. Tres momentos adicionales simulados sobre `SP-2026-W47` de Teyst, sin despacho |
 
 ## Pendientes
 
 - Decidir dónde vive este archivo: la raíz responde a la instrucción original, pero no hay decisión registrada; una alternativa es `docs/` con entrada en el registro de decisiones.
 - Registrar el resolver del precursor en la matriz de tooling si se adopta como consulta, y comprobar si `brix-capabilities.json` tiene entrada para él.
-- Verificar qué versión resuelven `sonnet` y `haiku` en esta sesión y si `haiku` existe bajo el plan actual.
+- `sonnet` y `haiku` se identificaron el 2026-11-23 como `claude-sonnet-5-5` y `claude-haiku-5-5` (F004). Falta que el PO decida si entran al catálogo con su clase y medir su costo relativo frente a `claude-fable-5-2`.
+- Verificar la regla de sesión en Codex: CLI no instalado en esta máquina el 2026-11-23.
 - Obtener contadores y tarifas antes de afirmar costos o ahorros. Definir base de confianza y presupuesto numérico cuando una decisión los requiera.
 - El mensaje original quedó truncado al anunciar el formato de respuesta; la tabla del punto 1 adopta sus cuatro campos explícitos más riesgo.
