@@ -1,0 +1,72 @@
+<div id="three-circles-preview">
+  <div class="orbit-stage" role="img" aria-label="Tres círculos naranjas giran y aparecen y desaparecen de forma alternada">
+    <div class="orbit"><span></span><span></span><span></span></div>
+  </div>
+  <div class="orbit-controls"><button type="button" class="orbit-toggle" aria-pressed="false">Pausar</button></div>
+</div>
+<style>
+#three-circles-preview .orbit-stage { display: grid; place-items: center; height: 180px; }
+#three-circles-preview .orbit { position: relative; width: 90px; height: 90px; }
+#three-circles-preview .orbit span { position: absolute; left: 50%; top: 50%; width: 15px; height: 15px; margin: -7.5px; border-radius: 50%; background: #d98b58; will-change: transform, opacity; }
+#three-circles-preview > .orbit-controls { display: flex; justify-content: center; }
+#three-circles-preview .orbit-toggle { font: inherit; color: inherit; background: transparent; border: 1px solid currentColor; border-radius: 6px; padding: 8px 16px; cursor: pointer; min-height: 44px; }
+</style>
+<script>
+(() => {
+  const root = document.getElementById('three-circles-preview');
+  const dots = [...root.querySelectorAll('.orbit span')];
+  const button = root.querySelector('button');
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let paused = motion.matches;
+  let time = 0;
+  let previous = null;
+  let request = null;
+  const cycle = 2.1;
+
+  function draw(seconds) {
+    const angle = seconds * Math.PI * 2 / cycle;
+    const tiltX = angle + 0.15;
+    const tiltY = tiltX + Math.PI / 2;
+    dots.forEach((dot, i) => {
+      const phase = -angle + i * Math.PI * 2 / 3 + 0.5;
+      const x = Math.cos(phase);
+      const y = Math.sin(phase) * Math.cos(tiltX);
+      const z = Math.sin(phase) * Math.sin(tiltX);
+      const projectedX = x * Math.cos(tiltY) + z * Math.sin(tiltY);
+      const depth = -x * Math.sin(tiltY) + z * Math.cos(tiltY);
+      const front = (depth + 1) / 2;
+      const perspective = 1 / (1 - depth * 0.15);
+      const scale = 0.18 + 0.9 * front;
+      const visible = Math.max(0, Math.min(1, (front - 0.06) / 0.55));
+      dot.style.transform = `translate(${projectedX * 27 * perspective}px, ${y * 27 * perspective}px) scale(${scale})`;
+      dot.style.opacity = String(visible);
+      dot.style.zIndex = String(Math.round(front * 100));
+    });
+  }
+
+  function tick(timestamp) {
+    if (previous !== null) time += Math.min((timestamp - previous) / 1000, 0.05);
+    previous = timestamp;
+    draw(time);
+    request = requestAnimationFrame(tick);
+  }
+
+  function sync() {
+    if (request !== null) cancelAnimationFrame(request);
+    request = null;
+    previous = null;
+    button.textContent = paused ? 'Reproducir' : 'Pausar';
+    button.setAttribute('aria-pressed', String(paused));
+    draw(time);
+    if (!paused && !document.hidden) request = requestAnimationFrame(tick);
+  }
+
+  button.addEventListener('click', () => {
+    paused = !paused;
+    sync();
+  });
+  document.addEventListener('visibilitychange', sync);
+  motion.addEventListener('change', event => { paused = event.matches; sync(); });
+  sync();
+})();
+</script>
