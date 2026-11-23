@@ -172,7 +172,7 @@ const norm = s => [...String(s)].map(fold).join("");
 const plain = s => String(s).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`/g, "");
 const useText = u => plain([u.product, u.phase, u.need, u.cap, u.tool, u.state, u.note].join(" "));
 DATA.items.forEach(it => {
-  it.self = norm(plain([it.name, it.id, it.kind, it.home, it.source, it.note, it.origin, it.own ? "powered by VCX" : "", it.review ? it.review.label : "",
+  it.self = norm(plain([it.name, it.id, it.kind, it.role || "", it.home, it.source, it.note, it.origin, it.own ? "powered by VCX" : "", it.review ? it.review.label : "",
     it.eval ? DECISION[it.eval.status] || it.eval.status : ""].join(" ")));
   it.uses.forEach(u => u.idx = norm(useText(u)));
   it.idx = it.self + " " + it.uses.map(u => u.idx).join(" ");
@@ -247,7 +247,7 @@ function open(it){
   document.getElementById("dlg-title").innerHTML = it.code && !named ? `<code>${esc(it.id)}</code>` : esc(it.name);
   document.getElementById("dlg-sub").innerHTML =
     (it.own ? `<span class="vcx">powered by VCX</span> ` : "") +
-    (named ? `Clave <code>${esc(it.id)}</code> · ` : "") + `${esc(it.kind)} · vive en <b>${esc(it.home)}</b> · fuente: ${md(it.source)}` + (it.origin ? ` · construida por ${md(it.origin)}` : "") + (it.note ? `<br>${md(it.note)}` : "") +
+    (named ? `Clave <code>${esc(it.id)}</code> · ` : "") + `${esc(it.kind)} · vive en <b>${esc(it.home)}</b> · fuente: ${md(it.source)}` + (it.origin ? ` · construida por ${md(it.origin)}` : "") + (it.role ? ` · ejercida por el rol <b>${esc(it.role)}</b>` : "") + (it.note ? `<br>${md(it.note)}` : "") +
     (it.replacedBy ? `<br><span class="swap out">Reemplazada por ${esc(it.replacedBy)}</span>` : "") +
     (it.replaces ? `<br><span class="swap in">Reemplaza a ${esc(it.replaces)}</span>` : "") +
     (it.review ? `<div class="evalbox">${it.eval ? [
