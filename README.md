@@ -45,5 +45,6 @@ Blends y Cellar son proyectos pares de primer nivel. Se prioriza su curación do
 - Para presentar la familia VCX o sus productos: [isotipos, redacción pública y justificaciones](assets/vcx/README.md), VCX-D067; cada proyecto incorpora su propia copia con origen y hash.
 - Para elegir nombres: [criterio de nombres](docs/naming.md) y [banco de candidatos sin curar](docs/references/enology-glossary-source.md).
 - Para retomar decisiones: [registro de decisiones](docs/decisions/README.md), [fuentes](docs/sources.md) y [registro de ejecución](docs/superpowers/reports/2026-10-30-vcx-foundation.md).
+- Para retomar en Claude o Codex el trabajo sobre Vendimia, Barenboim y Dosaje, ver el [traspaso del 2026-11-23](docs/superpowers/reports/2026-11-23-capability-names-handoff.md).
 
 Las instrucciones de trabajo están en [AGENTS.md](AGENTS.md). La [propuesta de fundación](docs/superpowers/plans/2026-10-30-vcx-foundation.md) delimita esta etapa.
