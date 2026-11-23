@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "id": "mattpocock-grilling",
+    "type": "skill",
+    "sourceUrl": "https://github.com/mattpocock/skills",
+    "evaluatedRef": "d1478fcb140db0b93c0c8df17bcfd311844749d0"
+  },
+  "observedAt": "2026-11-22T02:08:33.000Z",
+  "overallScore": 67.90238069479409,
+  "evidenceCoverage": 97,
+  "factorScores": {
+    "community": 73.88322700338219,
+    "maintenance": 69,
+    "security": 77.00000000000001,
+    "fit": 54.94117647058824,
+    "engineering": 50.75,
+    "sustainability": 87.75
+  },
+  "formulaVersion": "1.6.0",
+  "confidenceScore": 94.9,
+  "confidence": "high",
+  "riskLevel": "low",
+  "baselineRecommendation": "advance_with_reservations",
+  "status": "decision_pending",
+  "sourceEvidence": "../../docs/tooling/evaluations.md#mattpocock-grilling",
+  "evidenceInputRef": "docs/tooling/evaluations/mattpocock-grilling.evidence.json",
+  "expiresAt": "2027-02-20T02:08:33.000Z",
+  "communityEvidenceNote": null
+}

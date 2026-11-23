@@ -1,0 +1,395 @@
+{
+  "candidate": {
+    "id": "mattpocock-grilling",
+    "type": "skill",
+    "sourceUrl": "https://github.com/mattpocock/skills",
+    "evaluatedRef": "d1478fcb140db0b93c0c8df17bcfd311844749d0"
+  },
+  "factors": {
+    "maintenance": [
+      {
+        "id": "activityRecency",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Último push del repo el 2026-11-19 (main abeeaf9). La skill cambió por última vez el 2026-10-29 (7739eae, subagentes con contexto limpio), hace 23 días, y ese cambio entró en el release v1.3.2 del mismo día. Actividad reciente tanto en el repo como en la carpeta de la skill.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills (pushed_at=2026-11-19T13:35:13Z; archived=false; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/commits?path=skills/productivity/grilling (último 7739eae 2026-10-29; medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "releaseContinuity",
+        "availability": "available",
+        "score": 70,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "10 releases y 10 tags con changesets; v1.3.0 y v1.3.1 el 2026-10-04 y v1.3.2 el 2026-10-29, con notas por PR que nombran los cambios de grilling (#1193). Desde v1.3.2 hay 9 commits en main sin release nuevo en 23 días. Las versiones son del repo entero, no de cada skill.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/releases (10; último v1.3.2 2026-10-29T10:27:41Z; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/compare/v1.3.2...abeeaf9 (ahead=9; medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "commitContinuity",
+        "availability": "available",
+        "score": 72,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "105 commits en main en 90 días (desde 2026-08-23): ago 3, sep 38, oct 58, nov 6; 13 en 30 días. 7 autores en 90 días, pero mattpocock firma 91 de 105: continuidad alta y concentrada en una persona. La carpeta de grilling tuvo 17 commits desde 2026-06-12, 3 en los últimos 90 días.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/commits?since=2026-08-23 (105; 7 autores; mattpocock=91; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/commits?since=2026-10-22 (13; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/commits?path=skills/productivity/grilling (17; medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "responseHealth",
+        "availability": "available",
+        "score": 30,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "En 30 días se abrieron 96 issues y se cerraron 14; 262 issues y PRs abiertos. De los 12 issues más recientes, 11 siguen abiertos y 11 sin comentarios. 22 PRs en 30 días, 6 mergeados. Hay workflows needs-info y triage-label. Los cambios de grilling sí salen de issues (#706 → #1193), pero la cola general casi no se atiende.",
+        "evidenceRefs": [
+          "search/issues repo:mattpocock/skills type:issue created:>=2026-10-22 (96; cerrados 14; medido 2026-11-21)",
+          "search/issues type:pr created:>=2026-10-22 (22; mergeados 6; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/issues?state=all (12 más recientes; medido 2026-11-21)"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "vulnerabilityStatus",
+        "availability": "available",
+        "score": 80,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin security advisories y sin SECURITY.md, así que la ausencia de avisos es evidencia débil. La skill es un SKILL.md de 2.077 bytes sin scripts ni dependencias propias; el package.json del repo solo trae devDependencies de changesets y yaml, que no se ejecutan al usar la skill. No se consultaron OSV ni NVD.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/security-advisories (0; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/contents/SECURITY.md (404; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/contents/package.json?ref=d1478fc (medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "sourceProvenance",
+        "availability": "available",
+        "score": 85,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Repo público con 329.802 estrellas, MIT, autor identificable (mattpocock) y release v1.3.2 anotado (tag 85cbec9 → d1478fc). La evaluación fija ese commit. No hay firma de commits ni de tags verificada. El SKILL.md se leyó completo en ese ref.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/git/tags/85cbec972d7a79c278c793d272f7fc715850fad4 (object d1478fc; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/contents/skills/productivity/grilling/SKILL.md?ref=d1478fc (medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "securityHygiene",
+        "availability": "available",
+        "score": 50,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "CI con check.yml (valida el frontmatter de los SKILL.md, permissions: contents read), release.yml con changesets, needs-info y triage-label. No hay escaneo de seguridad, dependabot visible ni SECURITY.md. Para una skill de solo texto la superficie es mínima, pero la higiene del repo es básica.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/contents/.github/workflows?ref=d1478fc (check, needs-info, release, triage-label; medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "permissionTransparency",
+        "availability": "available",
+        "score": 90,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Solo instrucciones de conversación: entrevistar por rondas, numerar preguntas con una recomendación y esperar respuestas. La única acción es despachar subagentes con contexto limpio para averiguar hechos del entorno (lectura). No escribe archivos, no usa red ni credenciales y no actúa hasta que el usuario confirma. No declara allowed-tools, así que hereda los permisos de la sesión.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/contents/skills/productivity/grilling/SKILL.md?ref=d1478fc (medido 2026-11-21)"
+        ]
+      }
+    ],
+    "fit": [
+      {
+        "id": "capabilityGapCoverage",
+        "availability": "available",
+        "score": 50,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "La necesidad es poner a prueba planes y propuestas antes de actuar. VCX-P2 ya la exige como política, pero no trae un método de conducción. brainstorming (superpowers) está aprobada con excepción para el encuadre de ideas, pero solo en Codex: Claude Code no tiene superpowers instalado. grilling cubre el método (árbol de decisiones, frontera, rondas) en Claude Code, aunque en inglés.",
+        "evidenceRefs": [
+          "vcx:docs/architecture/tooling-matrix.md (fila brainstorming; origin/main ed5b72b)",
+          "teyst:AGENTS.md (VCX-P2, Preguntas que deciden)"
+        ]
+      },
+      {
+        "id": "technicalCompatibility",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Formato SKILL.md estándar, compatible con Claude Code y con Codex (agents/openai.yaml). Encaja con la operativa por subagentes de Teyst. Choques: está en inglés y la salida debe ser en español; usa un formato de ronda con emojis que no es el de la app; y nombra a la herramienta de subagentes de forma genérica. No escribe GLOSSARY.md ni docs/adr/, a diferencia de domain-modeling.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/contents/skills/productivity/grilling/SKILL.md?ref=d1478fc (medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/contents/skills/productivity/grilling/agents/openai.yaml (medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "incrementalValue",
+        "availability": "available",
+        "score": 45,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sobre VCX-P2 agrega reglas concretas: preguntar toda la frontera en una ronda y no las preguntas que dependen de otras abiertas; recomendar una respuesta por pregunta redactada para que «sí» la acepte; no preguntar hechos que se pueden buscar; y no actuar hasta que el usuario confirme. Es un aporte de método real pero acotado: el modelo ya hace buena parte de esto si la política lo pide.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/contents/skills/productivity/grilling/SKILL.md?ref=d1478fc (medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "observedOutcome",
+        "availability": "unavailable",
+        "score": null,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No se usó en Teyst ni en VCX: no hay resultado que medir.",
+        "evidenceRefs": [
+          "transcripts-claude-code:~/.claude/projects (todos los proyectos; búsqueda de \"skill\":\"…grill…\" y de <command-name>/…grill: 0 invocaciones en 3 transcripts que mencionan grilling; en uno de vcx figura como skill listada de un plugin del directorio, sin uso; medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "adoptionSimplicity",
+        "availability": "available",
+        "score": 92,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Un solo archivo de 2 KB sin dependencias. Se puede copiar fijado al commit o instalar el repo; retirarla es borrar el archivo.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/contents/skills/productivity/grilling?ref=d1478fc (SKILL.md 2077 B, agents/; medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "observedAdoption",
+        "availability": "available",
+        "score": 0,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "0 invocaciones en los transcripts de Claude Code de Teyst y del resto de los proyectos. No está instalada en ~/.claude/skills; en una sesión de vcx apareció listada desde un plugin del directorio de claude.ai, sin ningún uso. Nunca se adoptó.",
+        "evidenceRefs": [
+          "transcripts-claude-code:~/.claude/projects (todos los proyectos; búsqueda de \"skill\":\"…grill…\" y de <command-name>/…grill: 0 invocaciones en 3 transcripts que mencionan grilling; en uno de vcx figura como skill listada de un plugin del directorio, sin uso; medido 2026-11-21)"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "automatedVerification",
+        "availability": "available",
+        "score": 15,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El CI solo valida el frontmatter de los SKILL.md. No hay evals ni pruebas del comportamiento de grilling.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/contents/.github/workflows/check.yml?ref=d1478fc (medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "documentationQuality",
+        "availability": "available",
+        "score": 75,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "El SKILL.md es corto y preciso: define árbol, frontera, rondas, formato de salida, reparto de hechos y decisiones y condición de cierre. El README del repo explica que grilling es el primitivo de grill-me, grill-with-docs y otras. Las notas del release nombran cada cambio con su issue.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/contents/skills/productivity/grilling/SKILL.md?ref=d1478fc (medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/releases/tags/v1.3.2 (medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "versioningDiscipline",
+        "availability": "available",
+        "score": 60,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Semver con changesets, CHANGELOG.md y releases con notas por PR. La versión es del repo, no de la skill, así que un release puede no tocar grilling; y main lleva 9 commits sin release. Fijar el commit del tag resuelve la identificación.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/contents/package.json?ref=d1478fc (version 1.3.2; medido 2026-11-21)",
+          "github-api:repos/mattpocock/skills/releases (10; medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "compatibilityEvidence",
+        "availability": "available",
+        "score": 40,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Declara Claude Code (.claude-plugin) y Codex (agents/openai.yaml en cada skill, 697d4ce). No hay matriz por arnés ni pruebas por versión del cliente.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/commits/697d4ce974 (medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "dependencySimplicity",
+        "availability": "available",
+        "score": 95,
+        "method": "metric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin dependencias. A diferencia de grill-with-docs, grilling no invoca otras skills.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/contents/skills/productivity/grilling/SKILL.md?ref=d1478fc (medido 2026-11-21)"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "id": "costPredictability",
+        "availability": "available",
+        "score": 80,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Gratis y MIT. El costo es de atención y de tokens: la entrevista sigue hasta vaciar la frontera, y cada hecho puede despachar un subagente. Se acota con el pedido de uso, no con la skill.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/contents/skills/productivity/grilling/SKILL.md?ref=d1478fc (medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "portability",
+        "availability": "available",
+        "score": 90,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Texto plano MIT, independiente del proveedor; corre en Claude Code y Codex.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills (license=MIT; medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "reversibility",
+        "availability": "available",
+        "score": 97,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "No escribe archivos ni estado. Retirarla es borrar un archivo.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/contents/skills/productivity/grilling/SKILL.md?ref=d1478fc (medido 2026-11-21)"
+        ]
+      },
+      {
+        "id": "operatingOverhead",
+        "availability": "available",
+        "score": 85,
+        "method": "rubric",
+        "assessor": {
+          "type": "model",
+          "version": "claude-opus-5-5",
+          "promptVersion": "1.0.0"
+        },
+        "rationale": "Sin mantenimiento propio. Actualizar exige revisar el diff de grilling entre releases y volver a fijar el commit.",
+        "evidenceRefs": [
+          "github-api:repos/mattpocock/skills/commits?path=skills/productivity/grilling (medido 2026-11-21)"
+        ]
+      }
+    ]
+  },
+  "confidenceInputs": {
+    "sourceReliability": 85
+  },
+  "riskFlags": {
+    "scopedLocalReadOnly": true,
+    "localWriteReversible": false,
+    "newLocalDependencies": false,
+    "networkAccess": false,
+    "credentialsAccess": false,
+    "sensitiveDataAccess": false,
+    "remoteWrite": false,
+    "broadScope": false,
+    "destructiveActions": false,
+    "elevatedPrivileges": false,
+    "irreversibleExternalPublication": false,
+    "knownCriticalVulnerability": false
+  }
+}

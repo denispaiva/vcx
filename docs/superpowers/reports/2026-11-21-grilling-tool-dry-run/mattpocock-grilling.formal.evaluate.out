@@ -1,0 +1,48 @@
+═══════════════════════════════════════════════════════════════
+  EVALUACIÓN DE TOOLING · mattpocock-grilling (skill)
+  github.com/mattpocock/skills · evaluado 2026-11-22
+═══════════════════════════════════════════════════════════════
+
+  SCORE GENERAL         67.9 / 100
+  CONFIANZA             high (95)
+  NIVEL DE RIESGO        low
+  RECOMENDACIÓN BASE     advance_with_reservations
+
+  ── Por factor ──────────────────────────────────────
+  community        73.9
+  maintenance      69.0
+  security         77.0
+  fit              54.9
+  engineering      50.8
+  sustainability   87.8
+
+  ── Riesgo, por ─────────────────────────────────────
+  • scopedLocalReadOnly (solo lectura local con alcance acotado)
+
+  ── Fortalezas (subfactores ≥85) ────────────────────
+  • maintenance.activityRecency (85) — Último push del repo el 2026-11-19 (main abeeaf9). La skill cambió por última vez el 2026-10-29 (7739eae, subagentes con contexto limpio), hace 23 días, y ese cambio entró en el release v1.3.2 del mismo día. Actividad reciente tanto en el repo como en la carpeta de la skill.
+  • security.sourceProvenance (85) — Repo público con 329.802 estrellas, MIT, autor identificable (mattpocock) y release v1.3.2 anotado (tag 85cbec9 → d1478fc). La evaluación fija ese commit. No hay firma de commits ni de tags verificada. El SKILL.md se leyó completo en ese ref.
+  • security.permissionTransparency (90) — Solo instrucciones de conversación: entrevistar por rondas, numerar preguntas con una recomendación y esperar respuestas. La única acción es despachar subagentes con contexto limpio para averiguar hechos del entorno (lectura). No escribe archivos, no usa red ni credenciales y no actúa hasta que el usuario confirma. No declara allowed-tools, así que hereda los permisos de la sesión.
+  • fit.adoptionSimplicity (92) — Un solo archivo de 2 KB sin dependencias. Se puede copiar fijado al commit o instalar el repo; retirarla es borrar el archivo.
+  • engineering.dependencySimplicity (95) — Sin dependencias. A diferencia de grill-with-docs, grilling no invoca otras skills.
+  • sustainability.portability (90) — Texto plano MIT, independiente del proveedor; corre en Claude Code y Codex.
+  • sustainability.reversibility (97) — No escribe archivos ni estado. Retirarla es borrar un archivo.
+  • sustainability.operatingOverhead (85) — Sin mantenimiento propio. Actualizar exige revisar el diff de grilling entre releases y volver a fijar el commit.
+
+  ── Preocupaciones (subfactores ≤40 o sin evidencia) ─
+  • maintenance.responseHealth (30) — En 30 días se abrieron 96 issues y se cerraron 14; 262 issues y PRs abiertos. De los 12 issues más recientes, 11 siguen abiertos y 11 sin comentarios. 22 PRs en 30 días, 6 mergeados. Hay workflows needs-info y triage-label. Los cambios de grilling sí salen de issues (#706 → #1193), pero la cola general casi no se atiende.
+  • fit.observedOutcome — sin evidencia disponible (unavailable)
+  • fit.observedAdoption (0) — 0 invocaciones en los transcripts de Claude Code de Teyst y del resto de los proyectos. No está instalada en ~/.claude/skills; en una sesión de vcx apareció listada desde un plugin del directorio de claude.ai, sin ningún uso. Nunca se adoptó.
+  • engineering.automatedVerification (15) — El CI solo valida el frontmatter de los SKILL.md. No hay evals ni pruebas del comportamiento de grilling.
+  • engineering.compatibilityEvidence (40) — Declara Claude Code (.claude-plugin) y Codex (agents/openai.yaml en cada skill, 697d4ce). No hay matriz por arnés ni pruebas por versión del cliente.
+
+  ── ¿Qué hacer? ─────────────────────────────────────
+  1. CONTINUAR   → activarla (con o sin reservas)
+  2. HOLDEAR     → dejarla pendiente, revisar más adelante
+  3. DESCARTAR   → no avanzar
+═══════════════════════════════════════════════════════════════
+
+Borrador guardado en pending: docs/tooling/evaluations/mattpocock-grilling.evaluation.json
+
+score-run: línea agregada a docs/tooling/score-runs.jsonl:
+{"candidate": "mattpocock-grilling", "command": "node brix/packages/cli/bin/brix.js tool score evaluate --input docs/superpowers/reports/2026-11-21-grilling-tool-dry-run/mattpocock-grilling.evidence.json --policy brix/packages/cli/scoring/default-scoring-policy.json --output-dir docs/tooling --now 2026-11-22T02:08:33Z", "now": "2026-11-22T02:08:33Z", "brixHead": "591c25f4aed01f0f68f25f1f7a59c9b21959bd66", "cliTree": "af14043fff3fd52228f9090e91823179026be3fe", "policySha256": "ce6e1a319f1f296cdf491fe38dfa32ee08306f9ba6dedcadac21f9cd5ad49161", "formulaVersion": "1.6.0", "evaluationSha256": "cee972137a54e0527aa830f32fa9a42ff9bf1c50f16d6945aad9376070114944", "previousStatus": null, "operator": "Claude Code (claude-opus-5-5); evaluación formal para registrar la decisión del Owner"}

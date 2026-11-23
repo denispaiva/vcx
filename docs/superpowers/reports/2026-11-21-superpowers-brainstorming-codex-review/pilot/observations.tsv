@@ -1,0 +1,17 @@
+order	case_id	arm	response_id	status	activation	framing	case_pass	avoidable_questions	scope_error	evidence	notes
+1	T03	A									
+2	T03	B									
+3	T06	B									
+4	T06	A									
+5	T02	A									
+6	T02	B									
+7	T01	B									
+8	T01	A									
+9	T07	A									
+10	T07	B									
+11	T04	B									
+12	T04	A									
+13	T08	A									
+14	T08	B									
+15	T05	B									
+16	T05	A									

@@ -1,0 +1,8 @@
+{"id":"T01","prompt":"Quiero que quien entra por primera vez a la aplicación no quede inscripto en ningún grupo. Nadie debería pertenecer a uno sin haber leído y aceptado las condiciones."}
+{"id":"T02","prompt":"Ya me convenció el argumento para conservar los tres entornos. Dejalo así y registrá la decisión."}
+{"id":"T03","prompt":"El ícono de la pestaña no se distingue. Probemos solo la inicial de la marca, con la misma tipografía de la portada, optimizada para ese tamaño. Probalo en desarrollo y después vemos."}
+{"id":"T04","prompt":"Quiero algún mecanismo para poder probar funciones nuevas si formo parte del grupo de prueba."}
+{"id":"T05","prompt":"Pongamos un tope a la cantidad de grupos que se pueden crear y actualicemos el registro. Para el plan gratuito y la cohorte de prueba, tres. Para el plan pago, diez. Más adelante podremos subirlos."}
+{"id":"T06","prompt":"Quiero manejar las capacidades con interruptores para que, al pasar de una membresía a otra, el cambio se aplique de inmediato."}
+{"id":"T07","prompt":"Ya se publicó el ícono aprobado en desarrollo y en el sitio de prueba de producción. Falta publicarlo en el sitio principal."}
+{"id":"T08","prompt":"Para quien tenga sesión iniciada, agregá el avatar al final de la barra de navegación. Como los otros ítems, va sin texto visible y con nombre accesible."}
