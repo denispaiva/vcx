@@ -2,6 +2,8 @@
 
 Para retomar desde otro worktree, `git worktree list` identifica el checkout principal. Estos cambios están en sus archivos de trabajo. El [README](../../../README.md) enlaza este traspaso.
 
+**Actualización del 23 de noviembre:** el PO eligió **Poda** para el optimizador de CI. Las menciones a Dosaje que siguen corresponden al primer traspaso. La elección vigente consta en VCX-D074.
+
 ## Qué modificó Codex
 
 - La [matriz](../../architecture/tooling-matrix.md) identifica a Vendimia con la clave `backlog-and-sprint-planning` y el rol Sprint Planner, a Barenboim con `model-resolution` y el rol AI Model Optimizer, y a Dosaje como nombre del optimizador de CI. Para Dosaje el PO aprobó la denominación. Su operación debe verificarse en el consumidor.
