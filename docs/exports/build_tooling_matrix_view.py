@@ -41,9 +41,17 @@ ticks = lambda s: re.findall(r"`([^`]+)`", s)
 unregistered = lambda s: (re.match(r"No registrada \((.+)\)", s) or [None, None])[1]
 
 # Dónde vive: clave → ubicación; la fila sin claves de tipo «Skill o MCP» es la regla general.
+# «Nombre (`clave`)» da a un elemento un nombre visible; sin él, el rótulo es la clave.
+# Una nota que empieza con «Rol: <rol>.» separa el rol que ejerce el elemento.
 homes, default_tool_home = {}, None
 for c in table("Dónde vive cada elemento"):
     home = dict(home=c[2], source=c[3], note=c[4], origin=c[5], own=c[5].startswith("VCX"))
+    role = re.match(r"Rol: ([^.]+)\. ?", c[4])
+    if role:
+        home.update(role=role[1], note=c[4][role.end():])
+    named = re.fullmatch(r"(.+?) \(`([^`]+)`\)", c[0])
+    if named:
+        home["name"] = named[1]
     keys = ticks(c[0])
     if keys:
         for k in keys:
@@ -60,8 +68,10 @@ def item(key, label, kind, home):
     if home is None:
         missing.append(label)
         return None
-    return items.setdefault(key, dict(id=label, kind=kind, code=kind != "Capacidad no registrada",
-                                      uses=[], **home))
+    if key not in items:
+        items[key] = dict(id=label, kind=kind, code=kind != "Capacidad no registrada", uses=[], **home)
+        items[key].setdefault("name", label)
+    return items[key]
 
 
 for c in table("Matriz"):

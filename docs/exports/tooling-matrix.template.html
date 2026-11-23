@@ -172,7 +172,7 @@ const norm = s => [...String(s)].map(fold).join("");
 const plain = s => String(s).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`/g, "");
 const useText = u => plain([u.product, u.phase, u.need, u.cap, u.tool, u.state, u.note].join(" "));
 DATA.items.forEach(it => {
-  it.self = norm(plain([it.id, it.kind, it.home, it.source, it.note, it.origin, it.own ? "powered by VCX" : "", it.review ? it.review.label : "",
+  it.self = norm(plain([it.name, it.id, it.kind, it.role || "", it.home, it.source, it.note, it.origin, it.own ? "powered by VCX" : "", it.review ? it.review.label : "",
     it.eval ? DECISION[it.eval.status] || it.eval.status : ""].join(" ")));
   it.uses.forEach(u => u.idx = norm(useText(u)));
   it.idx = it.self + " " + it.uses.map(u => u.idx).join(" ");
@@ -243,10 +243,11 @@ function useHtml(u, it){
     ${u.note ? `<div class="note">${md(u.note)}</div>` : ""}</div>`;
 }
 function open(it){
-  document.getElementById("dlg-title").innerHTML = it.code ? `<code>${esc(it.id)}</code>` : esc(it.id);
+  const named = it.name !== it.id;
+  document.getElementById("dlg-title").innerHTML = it.code && !named ? `<code>${esc(it.id)}</code>` : esc(it.name);
   document.getElementById("dlg-sub").innerHTML =
     (it.own ? `<span class="vcx">powered by VCX</span> ` : "") +
-    `${esc(it.kind)} · vive en <b>${esc(it.home)}</b> · fuente: ${md(it.source)}` + (it.origin ? ` · construida por ${md(it.origin)}` : "") + (it.note ? `<br>${md(it.note)}` : "") +
+    (named ? `Clave <code>${esc(it.id)}</code> · ` : "") + `${esc(it.kind)} · vive en <b>${esc(it.home)}</b> · fuente: ${md(it.source)}` + (it.origin ? ` · construida por ${md(it.origin)}` : "") + (it.role ? ` · ejercida por el rol <b>${esc(it.role)}</b>` : "") + (it.note ? `<br>${md(it.note)}` : "") +
     (it.replacedBy ? `<br><span class="swap out">Reemplazada por ${esc(it.replacedBy)}</span>` : "") +
     (it.replaces ? `<br><span class="swap in">Reemplaza a ${esc(it.replaces)}</span>` : "") +
     (it.review ? `<div class="evalbox">${it.eval ? [
@@ -272,7 +273,7 @@ function tile(it){
   b.setAttribute("aria-haspopup", "dialog");
   const counts = {}; it.uses.forEach(u => counts[u.state] = (counts[u.state] || 0) + 1);
   b.innerHTML = `<span class="head"><span class="kind">${esc(it.kind)}</span>${it.own ? `<span class="vcx" title="${esc(plain(it.origin))}">powered by VCX</span>` : ""}</span>
-    <span class="name${it.code ? "" : " plain"}">${esc(it.id)}</span>
+    <span class="name${it.code && it.name === it.id ? "" : " plain"}">${esc(it.name)}</span>
     ${it.review ? `<span class="rev r-${it.review.key}">${esc(it.review.label)}</span>` : ""}
     ${it.replacedBy ? `<span class="swap out">Reemplazada por ${esc(it.replacedBy)}</span>` : ""}
     ${it.replaces ? `<span class="swap in">Reemplaza a ${esc(it.replaces)}</span>` : ""}
@@ -328,7 +329,7 @@ function render(){
     const sec = document.createElement("section"); sec.className = "home";
     sec.innerHTML = `<div class="hhead"><h2>${esc(h)}</h2><p>${all.length} elementos${shown.length !== all.length ? ` · ${shown.length} con el filtro` : ""}</p></div>`;
     Object.entries(subs).forEach(([sub, its]) => {
-      const vis = its.filter(visible).sort((a, c) => a.id.localeCompare(c.id));
+      const vis = its.filter(visible).sort((a, c) => a.name.localeCompare(c.name));
       if (!vis.length) return;
       sec.insertAdjacentHTML("beforeend", `<h3 class="sub">${esc(sub)}</h3>`);
       const grid = document.createElement("div"); grid.className = "tiles";
