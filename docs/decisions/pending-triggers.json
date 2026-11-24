@@ -100,6 +100,13 @@
       "title": "Listar desde Codex sus modelos y niveles de razonamiento, verificar los dos observados y proponer el modelo balanced",
       "paths": [],
       "reviewAt": "2026-12-09"
+    },
+    {
+      "id": "label-photos-central-labels",
+      "decision": "VCX-D079",
+      "title": "Cargar las fotos de etiquetas sin curar por Salmanazar (central_labels) o descartar la carga",
+      "paths": [],
+      "reviewAt": "2027-01-24"
     }
   ]
 }
