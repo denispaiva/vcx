@@ -86,6 +86,13 @@
       "title": "Escaneo de secretos en CI de solera, solera-melquisedec, solera-pinot-index y solera-salmanazar al reiniciar el cupo de Actions",
       "paths": [],
       "reviewAt": "2026-12-01"
+    },
+    {
+      "id": "resume-brix-extraction",
+      "decision": "VCX-D077",
+      "title": "Evaluar la extracción a Brix de la lógica de resume.mjs cuando una instancia distinta de Solera necesite reutilizarla",
+      "paths": [],
+      "reviewAt": "2027-02-15"
     }
   ]
 }
