@@ -156,6 +156,8 @@ Precisión de VCX-D069, 2026-11-17: un PR de solo texto en `denispaiva/solera` (
 
 Precisión de alcance de VCX-D073, 2026-11-23. En la conversación sobre el piloto, después de revisar una consulta de Codex a Claude sin calificación visible del receptor, el PO indicó «Me gusta que se aplique bajo cualquier consulta dentro de VCX». La [regla de sesión](../../finops-policy.md#regla-de-sesión-de-barenboim) explicita ese alcance para ambos entornos. Los permisos de despacho siguen regidos por la ampliación anterior.
 
+Revisión de `spend-cache-subagents` (VCX-D058), 2026-11-24: el aviso se disparó por ruta, porque el PR 77 toca `finops-policy.md`. Ese cambio nombra a Poda y amplía a toda consulta el alcance de la regla de Barenboim; no plantea una pregunta de medición sobre caché por TTL ni sobre subagentes. A pedido del usuario («decidí el disparador spend-cache-subagents»), Claude decidió no retomarlo y mantenerlo pendiente con los mismos criterios y la misma revisión del 2026-12-09. Cada commit que toque `finops-policy.md` lo volverá a avisar hasta esa fecha.
+
 ## Cómo mantener el registro
 
 Ratificación del 2026-11-05: en el chat con Claude, a «¿Ratificás VCX-D045 con este reparto y la revocación de vc/kernel/?» el usuario respondió «Ratificar». Ratifica el [diseño del retiro](../superpowers/specs/2026-11-05-kernel-retirement-design.md) como decisión documental. No autoriza extracciones, exports ni cambios en el precursor o su `queue`.
