@@ -11,3 +11,8 @@
 
 # Blends es un repositorio propio (denispaiva/blends) con checkout en blends/; VCX-D063.
 /blends/
+
+# Salidas locales de trabajo y recursos sin curar; no se versionan en este repositorio público.
+# Lo que se acepte se cura hacia assets/ o hacia el repositorio de su producto.
+/output/
+/assets_sin_curar/
