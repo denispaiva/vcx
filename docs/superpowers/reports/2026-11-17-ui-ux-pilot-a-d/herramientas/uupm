@@ -1,0 +1,4 @@
+#!/bin/sh
+# Corre search.py de UI/UX Pro Max (e59ff37) sin red y con escritura solo en runs/.
+case "$PWD" in "<scratchpad>/pilot2/A/runs/"*) ;; *) echo "uupm: correr desde una carpeta bajo <scratchpad>/pilot2/A/runs" >&2; exit 2;; esac
+exec /usr/bin/sandbox-exec -f "<scratchpad>/pilot2/A/sandbox.sb" "/opt/homebrew/bin/python3" -E -s -B "<scratchpad>/src/uupm/.claude/skills/ui-ux-pro-max/scripts/search.py" "$@"

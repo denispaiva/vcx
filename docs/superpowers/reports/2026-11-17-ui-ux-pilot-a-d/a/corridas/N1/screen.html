@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Toolshed — Home</title>
+<style>
+:root{--bg:#F6F1E7;--card:#FFFFFF;--ink:#1F2A24;--muted:#5B6560;--green:#1F4D3A;--orange:#C2410C;--ok:#1B6B3A;--soon:#8A4B00;--line:#DDD5C4;--chip:#EAE3D2;
+--sans:ui-rounded,"SF Pro Rounded",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d9d2c0;font-family:var(--sans);color:var(--ink)}
+.phone{width:390px;height:844px;margin:0 auto;background:var(--bg);position:relative;overflow:hidden}
+.scroll{height:844px;overflow:hidden;padding:52px 0 96px}
+.pad{padding:0 20px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.hi{font-family:var(--serif);font-size:30px;line-height:36px;font-weight:700;color:var(--green)}
+.sub{font-size:15px;line-height:22px;color:var(--muted);margin-top:2px}
+.av{width:44px;height:44px;border-radius:22px;background:var(--green);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center}
+.search{margin-top:16px;height:52px;background:var(--card);border:2px solid var(--green);border-radius:14px;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:16px;color:var(--muted)}
+.cats{display:flex;gap:8px;margin-top:14px;padding:0 20px;overflow:hidden}
+.cat{min-height:44px;padding:0 14px;border-radius:22px;background:var(--chip);font-size:15px;font-weight:600;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.cat.on{background:var(--green);color:#fff}
+.sec{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 10px}
+h2{font-family:var(--serif);font-size:21px;line-height:28px;font-weight:700}
+.all{font-size:15px;font-weight:600;color:var(--green);min-height:44px;display:flex;align-items:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.ph{height:84px;position:relative;background-color:#E9DFC8;background-image:radial-gradient(#C9BC9C 1.5px,transparent 1.6px);background-size:12px 12px;display:flex;align-items:center;justify-content:center}
+.ph svg{width:48px;height:48px}
+.b{padding:9px 12px 11px}
+.n{font-size:16px;line-height:20px;font-weight:700}
+.m{font-size:13px;line-height:18px;color:var(--muted);margin-top:2px}
+.st{font-size:13px;line-height:18px;font-weight:700;margin-top:6px;display:flex;align-items:center;gap:6px}
+.st i{width:8px;height:8px;border-radius:4px;background:currentColor;display:inline-block}
+.ok{color:var(--ok)}.soon{color:var(--soon)}
+.fab{position:absolute;right:20px;bottom:100px;height:56px;padding:0 22px 0 16px;border-radius:28px;background:var(--orange);color:#fff;font-size:17px;font-weight:700;display:flex;align-items:center;gap:8px;box-shadow:0 6px 16px rgba(120,40,0,.35)}
+.tabs{position:absolute;left:0;right:0;bottom:0;height:84px;background:var(--card);border-top:1px solid var(--line);display:flex;padding:6px 8px 24px}
+.tab{flex:1;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:12px;font-weight:600;color:var(--muted)}
+.tab.on{color:var(--green)}
+.tab.on span{border-bottom:3px solid var(--orange);padding-bottom:1px}
+svg{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+</style></head><body>
+<div class="phone"><div class="scroll">
+<div class="pad">
+ <div class="top"><div><div class="hi">Morning, Maya</div><div class="sub">What are you fixing this weekend?</div></div><div class="av" aria-label="Maya's profile">M</div></div>
+ <div class="search" role="search"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Search drills, ladders, saws…</div>
+</div>
+<div class="cats" aria-label="Categories">
+ <div class="cat on">All</div><div class="cat">Power</div><div class="cat">Hand</div><div class="cat">Garden</div><div class="cat">Ladders</div>
+</div>
+<div class="pad">
+ <div class="sec"><h2>Available near you</h2><div class="all">See all</div></div>
+ <div class="grid">
+  <div class="tool"><div class="ph"><svg viewBox="0 0 48 48" style="color:#1F4D3A"><path d="M6 18h22v10H6zM28 21h12M14 28v12h8V28"/></svg></div><div class="b"><div class="n">Cordless drill</div><div class="m">Tomás · 0.3 mi</div><div class="st ok"><i></i>Available now</div></div></div>
+  <div class="tool"><div class="ph"><svg viewBox="0 0 48 48" style="color:#1F4D3A"><path d="M14 6l-4 38M34 6l4 38M12 16h24M11 28h26M10 40h28"/></svg></div><div class="b"><div class="n">Step ladder 6 ft</div><div class="m">Priya · 0.5 mi</div><div class="st soon"><i></i>From Sat, Nov 21</div></div></div>
+  <div class="tool"><div class="ph"><svg viewBox="0 0 48 48" style="color:#1F4D3A"><path d="M6 14h30l6 6-6 6H6zM10 14v12M16 14v12M22 14v12M28 14v12"/></svg></div><div class="b"><div class="n">Hand saw</div><div class="m">Jonas · 0.8 mi</div><div class="st ok"><i></i>Available now</div></div></div>
+  <div class="tool"><div class="ph"><svg viewBox="0 0 48 48" style="color:#1F4D3A"><path d="M24 6v32M16 6h16M10 38h28M14 38l-4 6M34 38l4 6"/></svg></div><div class="b"><div class="n">Garden spade</div><div class="m">Lena · 1.1 mi</div><div class="st soon"><i></i>From Mon, Nov 23</div></div></div>
+ </div>
+</div>
+</div>
+<div class="fab" role="button"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="stroke-width:2.5"><path d="M12 5v14M5 12h14"/></svg>Lend a tool</div>
+<nav class="tabs">
+ <div class="tab on"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/></svg><span>Home</span></div>
+ <div class="tab"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>Browse</span></div>
+ <div class="tab"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 7h16v13H4zM9 7V4h6v3"/></svg><span>My tools</span></div>
+ <div class="tab"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></svg><span>Profile</span></div>
+</nav>
+</div></body></html>
