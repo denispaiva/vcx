@@ -48,6 +48,24 @@ La clase requerida sale del perfil de tarea y de los pisos por riesgo, no solo d
 
 ## Disponibilidad en este entorno
 
+### Catálogo vigente
+
+Decisión del PO del 2026-11-24, VCX-D078. Para los modelos de esta tabla rige esta sección; el [catálogo del precursor](#fuentes-de-consulta-en-el-precursor) queda como antecedente y sigue siendo la fuente de planes, evidencia de contratación y política de datos. Las clases son una aceptación del PO, no una medición de capacidad.
+
+| Clase | Modelo | Dónde se despacha | Costo relativo | Estado |
+|---|---|---|---|---|
+| `frontier` | `claude-fable-5-2` | Claude Code: agente principal y subagente `fable` | 4, heredado de `claude-fable-5-1` y sin revalidar | Aceptado. Consume además el medidor semanal propio de Fable |
+| `frontier` | `claude-opus-5-5` | Claude Code: subagente `opus` y modelo de sesión | Sin medir | Aceptado. Alternativa `frontier` que no consume el medidor semanal de Fable |
+| `balanced` | `claude-sonnet-5-5` | Claude Code: subagente `sonnet` | 1, heredado de `claude-sonnet-5` y sin revalidar | Aceptado |
+| `economy` | `claude-haiku-5-5` | Claude Code: subagente `haiku` | Sin medir | Aceptado. Termina la sustitución hacia arriba de `economy` a `sonnet` en Claude Code |
+| `frontier` | `gpt-6.2-astra` | Codex | Sin medir | Aceptado como observado: figura en la configuración local de Codex; no se verificó con una llamada |
+| `economy` | `gpt-6-luna` | Codex | Sin medir | Aceptado como observado: lo nombra el [traspaso de Codex del 2026-11-23](docs/superpowers/reports/2026-11-23-capability-names-handoff.md); no se verificó desde otra sesión |
+| `balanced` | Sin modelo aceptado | Codex | — | Pendiente `codex-model-list`: una sesión de Codex debe listar sus modelos y niveles de razonamiento. Hasta entonces, `balanced` en Codex sube a `frontier` con la sustitución declarada |
+
+La relación 4 : 1 entre Fable y Sonnet es la medida el 2026-09-14 con los modelos anteriores; se usa como hipótesis de consumo de cupo, no como dato de los modelos actuales. Los pisos por riesgo, los motivos de elevación y `allowPayPerToken: false` no cambian. Los nombres provienen de la autoidentificación de cada modelo o de la configuración local, no de un contador del harness.
+
+### Instantáneas anteriores
+
 Instantánea del 2026-11-01 en Claude Code dentro de la app de escritorio. No es una afirmación sobre catálogos comerciales, precios ni capacidades medidas.
 
 | Clase | Catálogo del precursor | Despachable aquí | Estado de la verificación |
@@ -140,7 +158,8 @@ Se califica con la información disponible al decidir y se contrasta con lo ocur
 
 - Decidir dónde vive este archivo: la raíz responde a la instrucción original, pero no hay decisión registrada; una alternativa es `docs/` con entrada en el registro de decisiones.
 - Registrar el resolver del precursor en la matriz de tooling si se adopta como consulta, y comprobar si `brix-capabilities.json` tiene entrada para él.
-- `sonnet` y `haiku` se identificaron el 2026-11-23 como `claude-sonnet-5-5` y `claude-haiku-5-5` (F004). Falta que el PO decida si entran al catálogo con su clase y medir su costo relativo frente a `claude-fable-5-2`.
-- El [traspaso de Codex del 2026-11-23](docs/superpowers/reports/2026-11-23-capability-names-handoff.md) documenta el despacho en la aplicación de escritorio. La CLI requiere verificación independiente si se usa. En esta máquina la CLI no estaba instalada el 2026-11-23. El modelo que nombra el traspaso, `gpt-6-luna`, no figura con ese nombre en el catálogo contratado.
+- Medir el costo relativo de `claude-opus-5-5` y `claude-haiku-5-5`, y revalidar el 4 : 1 de Fable y Sonnet con los modelos del [catálogo vigente](#catálogo-vigente) (VCX-D078).
+- Pendiente `codex-model-list` (VCX-D078): listar desde una sesión de Codex sus modelos y niveles de razonamiento, verificar `gpt-6.2-astra` y `gpt-6-luna` y proponer el modelo `balanced`.
+- El [traspaso de Codex del 2026-11-23](docs/superpowers/reports/2026-11-23-capability-names-handoff.md) documenta el despacho en la aplicación de escritorio. La CLI requiere verificación independiente si se usa. En esta máquina la CLI no estaba instalada el 2026-11-23.
 - Obtener contadores y tarifas antes de afirmar costos o ahorros. Definir base de confianza y presupuesto numérico cuando una decisión los requiera.
 - El mensaje original quedó truncado al anunciar el formato de respuesta; la tabla del punto 1 adopta sus cuatro campos explícitos más riesgo.

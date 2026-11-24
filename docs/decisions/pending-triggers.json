@@ -93,6 +93,13 @@
       "title": "Evaluar la extracción a Brix de la lógica de resume.mjs cuando una instancia distinta de Solera necesite reutilizarla",
       "paths": [],
       "reviewAt": "2027-02-15"
+    },
+    {
+      "id": "codex-model-list",
+      "decision": "VCX-D078",
+      "title": "Listar desde Codex sus modelos y niveles de razonamiento, verificar los dos observados y proponer el modelo balanced",
+      "paths": [],
+      "reviewAt": "2026-12-09"
     }
   ]
 }
