@@ -1,0 +1,13 @@
+diff --git a/src/Toolbar.tsx b/src/Toolbar.tsx
+index e05d117..9de069b 100644
+--- a/src/Toolbar.tsx
++++ b/src/Toolbar.tsx
+@@ -8,7 +8,7 @@ export function Toolbar({ onSearch, onNotifications, unread }: Props) {
+       <button type="button" className="icon-button" aria-label="Buscar" onClick={onSearch}>
+         <SearchIcon aria-hidden="true" />
+       </button>
+-      <button type="button" className="icon-button" aria-label={`Notificaciones, ${unread} sin leer`} onClick={onNotifications}>
++      <button type="button" className="icon-button" onClick={onNotifications}>
+         <BellIcon aria-hidden="true" />
+       </button>
+     </nav>

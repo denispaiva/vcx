@@ -1,0 +1,23 @@
+diff --git a/src/LeagueHeader.tsx b/src/LeagueHeader.tsx
+index ec8c38a..a8ef16e 100644
+--- a/src/LeagueHeader.tsx
++++ b/src/LeagueHeader.tsx
+@@ -5,14 +5,16 @@ type Props = {
+   avatarUrl: string;
+   onShare: () => void;
+   onOpenMenu: () => void;
++  onFavorite: () => void;
+ };
+ 
+-export function LeagueHeader({ name, avatarUrl, onShare, onOpenMenu }: Props) {
++export function LeagueHeader({ name, avatarUrl, onShare, onOpenMenu, onFavorite }: Props) {
+   return (
+     <header className="league-header">
+       <img src={avatarUrl} className="league-avatar" />
+       <h1 className="league-title">{name}</h1>
+-      <button type="button" className="icon-button" aria-label="Compartir liga" onClick={onShare}>
++      <div className="favorite" onClick={onFavorite}>★</div>
++      <button type="button" className="icon-button" onClick={onShare}>
+         <ShareIcon aria-hidden="true" />
+       </button>
+       <button type="button" className="icon-button" aria-label="Abrir menú" onClick={onOpenMenu}>
