@@ -107,6 +107,13 @@
       "title": "Cargar las fotos de etiquetas sin curar por Salmanazar (central_labels) o descartar la carga",
       "paths": [],
       "reviewAt": "2027-01-24"
+    },
+    {
+      "id": "independent-review-pilot",
+      "decision": "VCX-D080",
+      "title": "Cerrar el piloto de revisión independiente de Teyst: adoptar, extender o retirar",
+      "paths": [],
+      "reviewAt": "2026-12-08"
     }
   ]
 }
