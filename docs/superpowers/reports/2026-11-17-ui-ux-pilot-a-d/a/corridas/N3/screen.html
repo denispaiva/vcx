@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=390, initial-scale=1">
+<title>Toolshed — Home</title>
+<style>
+:root{--bg:#F3EDE0;--surface:#FFFBF2;--ink:#1D2A23;--muted:#56604F;--green:#1E4D3A;--green-dk:#143828;--orange:#B93C0A;--line:#D9CFBC;--ok:#1E6B3F;--okbg:#DDEFD9;--soon:#7A4A00;--soonbg:#FBE7BE;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--serif:"Iowan Old Style",Georgia,"Times New Roman",serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#cfc7b6;font-family:var(--sans);color:var(--ink)}
+.phone{position:relative;width:390px;height:844px;margin:0 auto;background:var(--bg);overflow:hidden}
+.scroll{height:844px;overflow:hidden;padding:0 20px 150px}
+.status{height:44px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 6px 6px;font-size:14px;font-weight:600}
+header{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.hi{font-size:14px;color:var(--muted)}
+h1{font-family:var(--serif);font-size:30px;line-height:36px;font-weight:700;color:var(--green)}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center}
+.search{margin-top:16px;height:52px;border:2px solid var(--green);background:var(--surface);border-radius:14px;display:flex;align-items:center;gap:10px;padding:0 14px;color:var(--muted);font-size:16px}
+.cats{display:flex;gap:8px;margin:16px -20px 0;padding:0 20px;overflow:hidden}
+.cat{flex:none;height:44px;padding:0 16px;border-radius:22px;border:1.5px solid var(--line);background:var(--surface);display:flex;align-items:center;gap:6px;font-size:15px;font-weight:600}
+.cat.on{background:var(--green);border-color:var(--green);color:#fff}
+.sec{display:flex;justify-content:space-between;align-items:baseline;margin:22px 0 12px}
+h2{font-family:var(--serif);font-size:22px;line-height:28px}
+.sec a{font-size:15px;font-weight:600;color:var(--green);display:inline-flex;min-height:44px;align-items:center;margin:-10px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.ph{height:84px;position:relative;display:flex;align-items:center;justify-content:center;background-image:radial-gradient(rgba(0,0,0,.13) 1.5px,transparent 1.6px);background-size:12px 12px}
+.ph svg{width:48px;height:48px}
+.c1{background-color:#E6C98F}.c2{background-color:#B9D2C1}.c3{background-color:#E9B8A0}.c4{background-color:#C7D3E0}
+.body{padding:10px 12px 12px}
+.name{font-weight:700;font-size:16px;line-height:20px}
+.meta{font-size:13px;color:var(--muted);margin-top:2px}
+.tag{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:700;padding:3px 8px;border-radius:6px}
+.ok{background:var(--okbg);color:var(--ok)}.soon{background:var(--soonbg);color:var(--soon)}
+.fab{position:absolute;right:20px;bottom:100px;height:56px;padding:0 22px 0 18px;border-radius:28px;background:var(--orange);color:#fff;font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;box-shadow:0 6px 16px rgba(60,20,0,.35)}
+nav{position:absolute;left:0;right:0;bottom:0;height:84px;background:var(--surface);border-top:1px solid var(--line);display:flex;padding:6px 8px 26px}
+nav div{flex:1;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:12px;font-weight:600;color:var(--muted)}
+nav .on{color:var(--green)}nav .on span{background:#DCE9DF;border-radius:14px}
+nav span{width:56px;height:28px;display:flex;align-items:center;justify-content:center}
+nav svg{width:22px;height:22px}
+</style></head><body>
+<main class="phone">
+<div class="scroll">
+<div class="status"><span>9:41</span><span>5G ▮▮▮</span></div>
+<header><div><p class="hi">Good morning</p><h1>Hi, Maya</h1></div><div class="avatar" aria-label="Your profile">M</div></header>
+<div class="search" role="search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4D3A" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Search drills, ladders, saws…</div>
+<div class="cats" role="list"><div class="cat on" role="listitem">All</div><div class="cat" role="listitem">Power</div><div class="cat" role="listitem">Hand</div><div class="cat" role="listitem">Garden</div><div class="cat" role="listitem">Ladders</div></div>
+<div class="sec"><h2>Available near you</h2><a>See all</a></div>
+<div class="grid">
+<article class="card"><div class="ph c1"><svg viewBox="0 0 48 48" fill="none" stroke="#1D2A23" stroke-width="3" stroke-linejoin="round"><path d="M6 16h26v10H20l-3 12H9l3-12H6zM32 19h10"/></svg></div><div class="body"><p class="name">Cordless drill</p><p class="meta">Ana · 0.3 km</p><span class="tag ok">Available now</span></div></article>
+<article class="card"><div class="ph c2"><svg viewBox="0 0 48 48" fill="none" stroke="#1D2A23" stroke-width="3" stroke-linecap="round"><path d="M14 6l-4 38M34 6l4 38M12 14h24M11 26h26M10 38h28"/></svg></div><div class="body"><p class="name">Step ladder</p><p class="meta">Tomás · 0.5 km</p><span class="tag soon">From Nov 20</span></div></article>
+<article class="card"><div class="ph c3"><svg viewBox="0 0 48 48" fill="none" stroke="#1D2A23" stroke-width="3" stroke-linejoin="round"><path d="M4 14h40l-4 10H4zM4 24v10M10 24v6M16 24v10M22 24v6M28 24v10M34 24v6"/></svg></div><div class="body"><p class="name">Hand saw</p><p class="meta">Priya · 0.8 km</p><span class="tag ok">Available now</span></div></article>
+<article class="card"><div class="ph c4"><svg viewBox="0 0 48 48" fill="none" stroke="#1D2A23" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 42L30 12M30 12l-8-4 4-4 14 6-4 8z"/></svg></div><div class="body"><p class="name">Garden shears</p><p class="meta">Joel · 1.1 km</p><span class="tag soon">From Nov 18</span></div></article>
+</div>
+</div>
+<a class="fab"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>Lend a tool</a>
+<nav aria-label="Main">
+<div class="on"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 11l9-8 9 8v10h-6v-6H9v6H3z"/></svg></span>Home</div>
+<div><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span>Browse</div>
+<div><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M3 7h18v13H3zM8 7V3h8v4"/></svg></span>My tools</div>
+<div><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></svg></span>Profile</div>
+</nav>
+</main></body></html>

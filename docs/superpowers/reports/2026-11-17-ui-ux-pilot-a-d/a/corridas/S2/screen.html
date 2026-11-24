@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=390, initial-scale=1">
+<title>Toolshed Home</title>
+<style>
+:root{--paper:#F6F1E7;--card:#FFFFFF;--ink:#1B2A22;--muted:#586056;--pine:#1F4D3A;--pine-soft:#E1ECE4;--orange:#B93C0A;--on-orange:#FFFFFF;--line:#D9D2C1;--ok:#1B5E3C;--ok-bg:#DDEFE2;--soon:#7A4208;--soon-bg:#FBE6C6;
+--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--r-sm:8px;--r-md:14px;--r-lg:20px;--r-pill:999px;
+--font:ui-rounded,"SF Pro Rounded",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{width:390px;height:844px;overflow:hidden;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.4;position:relative}
+svg{display:block}
+a,button{font:inherit;color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.scroll{height:844px;overflow-y:auto;padding:var(--s5) var(--s4) 100px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.hi{font-size:14px;color:var(--muted);font-weight:600}
+h1{font-size:28px;line-height:1.15;font-weight:800;letter-spacing:-.4px;color:var(--pine)}
+.avatar{width:48px;height:48px;border-radius:50%;background:var(--pine);color:#fff;display:grid;place-items:center;font-weight:800;font-size:18px}
+.search{margin-top:var(--s4);display:flex;align-items:center;gap:var(--s3);height:52px;padding:0 var(--s4);background:var(--card);border:2px solid var(--pine);border-radius:var(--r-pill);color:var(--muted);font-size:16px}
+.cats{display:flex;gap:var(--s2);margin:var(--s4) -16px 0;padding:0 16px;overflow:hidden}
+.cat{flex:none;min-height:44px;display:flex;align-items:center;gap:6px;padding:0 14px;border-radius:var(--r-pill);background:var(--pine-soft);color:var(--pine);font-weight:700;font-size:14px;border:0}
+.cat.on{background:var(--pine);color:#fff}
+.lend{margin-top:var(--s5);display:flex;align-items:center;gap:var(--s4);padding:var(--s4);background:var(--pine);color:#fff;border-radius:var(--r-lg)}
+.lend p{flex:1;font-size:14px;line-height:1.35;color:#E4EFE8}
+.lend strong{display:block;font-size:18px;color:#fff;margin-bottom:2px}
+.btn{flex:none;min-height:48px;padding:0 var(--s4);display:flex;align-items:center;gap:6px;background:var(--orange);color:var(--on-orange);border:0;border-radius:var(--r-pill);font-weight:800;font-size:16px}
+.sec{display:flex;justify-content:space-between;align-items:baseline;margin:var(--s5) 0 var(--s3)}
+h2{font-size:20px;font-weight:800;letter-spacing:-.2px}
+.see{min-height:44px;display:flex;align-items:center;color:var(--pine);font-weight:700;font-size:14px;text-decoration:underline}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;display:block}
+.ph{height:104px;position:relative;display:grid;place-items:center}
+.ph svg{width:56px;height:56px}
+.body{padding:var(--s3)}
+.name{font-weight:800;font-size:16px;line-height:1.2}
+.meta{margin-top:2px;font-size:14px;color:var(--muted)}
+.tag{display:inline-block;margin-top:var(--s2);padding:3px 10px;border-radius:var(--r-pill);font-size:12px;font-weight:700}
+.ok{background:var(--ok-bg);color:var(--ok)}.soon{background:var(--soon-bg);color:var(--soon)}
+nav{position:absolute;left:0;right:0;bottom:0;height:84px;padding:6px 8px 20px;background:var(--card);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr)}
+nav a{min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:12px;font-weight:700;color:var(--muted)}
+nav a.on{color:var(--pine)}
+nav a.on span.pill{background:var(--pine-soft)}
+.pill{width:56px;height:30px;border-radius:var(--r-pill);display:grid;place-items:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head>
+<body>
+<main class="scroll">
+  <header class="top">
+    <div><p class="hi">Saturday, Nov 21</p><h1>Hi, Maya</h1></div>
+    <a class="avatar" href="#" aria-label="Your profile">M</a>
+  </header>
+
+  <a class="search" href="#" role="search" aria-label="Search tools">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F4D3A" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    Search drills, ladders, saws…
+  </a>
+
+  <div class="cats" role="list" aria-label="Categories">
+    <a class="cat on" href="#" role="listitem">All</a>
+    <a class="cat" href="#" role="listitem">Power tools</a>
+    <a class="cat" href="#" role="listitem">Garden</a>
+    <a class="cat" href="#" role="listitem">Ladders</a>
+    <a class="cat" href="#" role="listitem">Hand tools</a>
+  </div>
+
+  <section class="lend" aria-label="Lend a tool">
+    <p><strong>Got a tool sitting idle?</strong>Lend it to a neighbor.</p>
+    <a class="btn" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Lend a tool</a>
+  </section>
+
+  <div class="sec"><h2>Available near you</h2><a class="see" href="#">See all</a></div>
+
+  <div class="grid">
+    <a class="tool" href="#"><div class="ph" style="background:#F2C94C" role="img" aria-label="Photo placeholder: cordless drill">
+      <svg viewBox="0 0 64 64" fill="#1B2A22" aria-hidden="true"><rect x="8" y="14" width="40" height="16" rx="5"/><rect x="40" y="18" width="16" height="8" rx="2"/><path d="M18 30h14l-3 24H17z"/></svg></div>
+      <div class="body"><p class="name">Cordless drill</p><p class="meta">Priya · 0.3 mi</p><span class="tag ok">Available now</span></div></a>
+    <a class="tool" href="#"><div class="ph" style="background:#9CC5A8" role="img" aria-label="Photo placeholder: extension ladder">
+      <svg viewBox="0 0 64 64" fill="none" stroke="#1B2A22" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path d="M20 6v52M44 6v52M20 18h24M20 32h24M20 46h24"/></svg></div>
+      <div class="body"><p class="name">6 ft ladder</p><p class="meta">Tom · 0.5 mi</p><span class="tag soon">From Nov 24</span></div></a>
+    <a class="tool" href="#"><div class="ph" style="background:#F0A98B" role="img" aria-label="Photo placeholder: circular saw">
+      <svg viewBox="0 0 64 64" fill="#1B2A22" aria-hidden="true"><circle cx="30" cy="34" r="20"/><circle cx="30" cy="34" r="6" fill="#F0A98B"/><rect x="44" y="12" width="14" height="10" rx="3"/></svg></div>
+      <div class="body"><p class="name">Circular saw</p><p class="meta">Luis · 0.8 mi</p><span class="tag ok">Available now</span></div></a>
+    <a class="tool" href="#"><div class="ph" style="background:#B9C8E8" role="img" aria-label="Photo placeholder: garden shovel and rake">
+      <svg viewBox="0 0 64 64" fill="#1B2A22" aria-hidden="true"><rect x="29" y="4" width="6" height="34" rx="3"/><path d="M20 36h24l-4 20H24z"/></svg></div>
+      <div class="body"><p class="name">Garden spade</p><p class="meta">Anna · 1.1 mi</p><span class="tag soon">From Nov 26</span></div></a>
+  </div>
+</main>
+
+<nav aria-label="Main">
+  <a class="on" href="#" aria-current="page"><span class="pill"><svg width="24" height="24" viewBox="0 0 24 24" fill="#1F4D3A" aria-hidden="true"><path d="M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3z"/></svg></span>Home</a>
+  <a href="#"><span class="pill"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span>Browse</a>
+  <a href="#"><span class="pill"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16v12H4zM9 7V4h6v3"/></svg></span>My loans</a>
+  <a href="#"><span class="pill"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></svg></span>Profile</a>
+</nav>
+</body></html>
