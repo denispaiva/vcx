@@ -65,6 +65,16 @@ Ninguna pieza es autoridad: Blends propone y verifica, Brix calcula y asesora, C
 
 «Feature» no se usa en la documentación: es ambiguo entre una capacidad que existe y una unidad de trabajo del roadmap. Se dice **capacidad** para lo primero y **épica** o **tarea** para lo segundo.
 
+### Nombres visibles de capacidades
+
+Una capacidad puede tener un nombre visible además de su clave. El nombre no cambia su identidad: rige la ficha de la [matriz de tooling](architecture/tooling-matrix.md#dónde-vive-cada-elemento).
+
+| Término | Qué es | Qué no es | Estado y fuente |
+|---|---|---|---|
+| **Vendimia** | Nombre visible de `backlog-and-sprint-planning`, ejercida por el rol Sprint Planner: recomienda qué tarea tomar y qué comprometer en el sprint | Quien elige el modelo ni quien decide cómo validar; tampoco autoriza: decide el PO | Vigente (VCX-D071 y su ampliación) |
+| **Barenboim** | Nombre visible de `model-resolution`, ejercida por el rol AI Model Optimizer: al tomar una tarea recomienda modelo y nivel de razonamiento, y califica esa elección en la entrega | Quien elige la tarea ni quien define su validación; no es un producto ni un servicio | Vigente (VCX-D072, VCX-D073 y VCX-D076; [regla de sesión](../finops-policy.md#regla-de-sesión-de-barenboim)) |
+| **Poda** | Nombre visible del optimizador de CI: determina cómo validar una revisión concreta | Una capacidad registrada con ficha completa: hoy solo tiene nombre | Vigente como nombre (VCX-D074) |
+
 ## Trabajo y seguimiento
 
 | Término | Qué es | Qué no es | Estado y fuente |
