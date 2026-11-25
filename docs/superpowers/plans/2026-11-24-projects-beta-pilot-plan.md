@@ -136,6 +136,15 @@ Hay cinco retomas reales con Projects y retomas comparables con el flujo actual 
 - **Antes de arrancar** se anota qué debería recuperar el agente: el último estado confirmado, el próximo paso y la restricción vigente.
 - **Al terminar** se completa la misma fila con los aciertos sobre esos tres puntos, los minutos hasta poder avanzar y las correcciones que tuvo que hacer el usuario.
 
+**Toma de datos (desde el 2026-11-25).** R1 y R2 quedaron sin medir porque los datos no llegaron después de cerrar el hilo. Para que no dependa de anotar de memoria:
+
+1. **Al abrir el hilo**, el usuario anota la hora de inicio.
+2. **Antes de cerrarlo**, le pide: «Resumí en cinco líneas: qué tarea, estado, próximo paso, restricciones y qué comandos corriste». También anota la hora de fin.
+3. **Al volver a la sesión del plan**, pega ese resumen con las dos horas y el número de correcciones que hizo, o «ninguna».
+4. **El agente de la sesión del plan** califica los aciertos comparando el resumen con la ficha. Anota en la misma fila los minutos, las correcciones y si el hilo corrió `resume.mjs` por su cuenta.
+
+Sin el resumen pegado, la retoma se registra sin medir. Un dato no se reconstruye de memoria, porque contamina la comparación de A1. El resumen lo redacta el propio hilo, así que la calificación puede estar sesgada a su favor: se anota cuando el resumen contradice lo que el usuario vio.
+
 Registrar una retoma no debe llevar más de cinco minutos; si lleva más, se simplifica la ficha. Una corrección menor cuenta como retoma fallida y la prueba sigue. Una pérdida de contexto que obliga a rehacer trabajo activa el corte anticipado.
 
 **Qué mide A1 en modo local:** un hilo local recibe las instrucciones del proyecto, pero arranca sin cargar sus archivos de memoria ([documentación](https://code.claude.com/docs/en/claude-projects.md#run-a-thread-on-your-own-computer)). A1 mide entonces la continuidad que el usuario experimenta al trabajar desde Projects sobre el repositorio local, no la memoria del proyecto por sí sola.
