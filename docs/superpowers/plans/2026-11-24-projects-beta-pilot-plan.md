@@ -154,6 +154,7 @@ Datos de la [documentación de hilos locales](https://code.claude.com/docs/en/cl
 2. **Usage credits apagados.** Así no puede haber gasto adicional (A4).
 3. **Instrucción en el proyecto:** solo hilos locales, nunca en la nube.
 4. **Worktree activado** en las opciones de la carpeta. Hay otras sesiones trabajando en Teyst (por ejemplo, la que tomó #297), y dos hilos en la misma carpeta pueden pisarse los cambios.
+5. **Claude GitHub App sin instalar.** Los hilos locales no la necesitan, porque usan Git y `gh` de la Mac. El 2026-11-24 el usuario la había instalado en la cuenta personal con acceso a todos los repositorios y escritura en actions, workflows, code y pull requests. Ese mismo día la desinstaló, ante la recomendación de suspenderla o desinstalarla. No se pudo verificar por la API, porque el token de `gh` no puede listar instalaciones; vale lo que el usuario vio en github.com/settings/installations. Si Projects vuelve a pedir la app para trabajar en local, no se instala: se anota como discrepancia con la documentación y se revisa el plan. Se reinstala solo al reabrir D-nube, con **Only select repositories**.
 
 **Qué compara A1, en concreto.** El `AGENTS.md` de Teyst indica correr `resume.mjs` al retomar, así que un hilo local también lo va a usar. La comparación es entre una sesión suelta con `resume.mjs` y Projects con `resume.mjs`. La diferencia que se mide es lo que aportan la conversación del proyecto y sus instrucciones.
 
