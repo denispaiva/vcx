@@ -1,6 +1,6 @@
 # Piloto de Projects (beta) en Teyst
 
-Fecha: 2026-11-24. Estado: PB-1 y PB-2 hechos. Siguiente paso: PB-3. El piloto todavía no empezó. El 2026-11-24, en el chat con Claude, el usuario respondió «Sí, aprobar y commitear» a «¿Apruebo PB-2 así y commiteo el plan en una rama?». Con eso aprobó el piloto **solo en local**, con D-nube pospuesta y A5 sin evaluar. Al cerrarse, la decisión se registra en el [registro](../../decisions/README.md). Revisión 2: integra la crítica de Codex del 2026-11-24.
+Fecha: 2026-11-24. Estado: PB-1 y PB-2 hechos. PB-3 en curso desde el 2026-11-24: la preparación y las primeras dos filas de la ficha están listas, y faltan los pasos de interfaz del usuario. El piloto todavía no empezó. El 2026-11-24, en el chat con Claude, el usuario respondió «Sí, aprobar y commitear» a «¿Apruebo PB-2 así y commiteo el plan en una rama?». Con eso aprobó el piloto **solo en local**, con D-nube pospuesta y A5 sin evaluar. Al cerrarse, la decisión se registra en el [registro](../../decisions/README.md). Revisión 2: integra la crítica de Codex del 2026-11-24.
 
 ## Objetivo y preguntas
 
@@ -140,6 +140,45 @@ Registrar una retoma no debe llevar más de cinco minutos; si lleva más, se sim
 
 **Qué mide A1 en modo local:** un hilo local recibe las instrucciones del proyecto, pero arranca sin cargar sus archivos de memoria ([documentación](https://code.claude.com/docs/en/claude-projects.md#run-a-thread-on-your-own-computer)). A1 mide entonces la continuidad que el usuario experimenta al trabajar desde Projects sobre el repositorio local, no la memoria del proyecto por sí sola.
 
+## Preparación de PB-3
+
+Datos de la [documentación de hilos locales](https://code.claude.com/docs/en/claude-projects.md#run-a-thread-on-your-own-computer), leída el 2026-11-24:
+
+- Un hilo local es una sesión de Claude Code en la Mac, conectada por Remote Control.
+- Usa la configuración local, incluidos los hooks y los permisos, y corre en auto mode.
+- Al crear un proyecto solo el nombre es obligatorio. Se puede crear sin repositorios.
+
+**Controles del modo local.** Los dos primeros son aplicados, no instrucciones:
+
+1. **Proyecto sin repositorio adjunto.** El proxy solo sirve los repositorios adjuntos, así que un hilo en la nube que se iniciara por error no podría acceder a `solera-teyst` (respondería 403).
+2. **Usage credits apagados.** Así no puede haber gasto adicional (A4).
+3. **Instrucción en el proyecto:** solo hilos locales, nunca en la nube.
+4. **Worktree activado** en las opciones de la carpeta. Hay otras sesiones trabajando en Teyst (por ejemplo, la que tomó #297), y dos hilos en la misma carpeta pueden pisarse los cambios.
+5. **Claude GitHub App sin instalar.** Los hilos locales no la necesitan, porque usan Git y `gh` de la Mac. El 2026-11-24 el usuario la había instalado en la cuenta personal con acceso a todos los repositorios y escritura en actions, workflows, code y pull requests. Ese mismo día la desinstaló, ante la recomendación de suspenderla o desinstalarla. No se pudo verificar por la API, porque el token de `gh` no puede listar instalaciones; vale lo que el usuario vio en github.com/settings/installations. Si Projects vuelve a pedir la app para trabajar en local, no se instala: se anota como discrepancia con la documentación y se revisa el plan. Se reinstala solo al reabrir D-nube, con **Only select repositories**.
+
+**Qué compara A1, en concreto.** El `AGENTS.md` de Teyst indica correr `resume.mjs` al retomar, así que un hilo local también lo va a usar. La comparación es entre una sesión suelta con `resume.mjs` y Projects con `resume.mjs`. La diferencia que se mide es lo que aportan la conversación del proyecto y sus instrucciones.
+
+**Pasos de interfaz (los hace el usuario):**
+
+1. En claude.ai, confirmar que los usage credits están apagados.
+2. En la app de escritorio, ir a **Settings > Claude Code** (o **Settings > Code**). Activar **Use this computer from your phone and claude.ai** y agregar la carpeta `vcx/solera/teyst`.
+3. En **Projects**, elegir **New project** y ponerle de nombre «Teyst». No agregar repositorios.
+4. En **Project settings > Memory > Project instructions**, pegar las instrucciones de abajo.
+5. Para cada retoma con Projects, elegir **Work locally** desde el **+**, elegir la carpeta, activar **Worktree** y hacer clic en **Allow once**. Comprobar que aparece el ícono de la laptop.
+
+**Instrucciones del proyecto:**
+
+```text
+Proyecto Teyst. Piloto de Projects del 2026-11-25 al 2026-12-09; plan en vcx/docs/superpowers/plans/2026-11-24-projects-beta-pilot-plan.md.
+- Trabajar solo en hilos locales (Work locally) sobre /Users/denis/VibeCoding/vcx/solera/teyst con Worktree activado. No iniciar hilos en la nube.
+- Al retomar, correr la entrada «Retomar Teyst» del AGENTS.md (resume.mjs) antes de confiar en la memoria.
+- No mergear, no desplegar, no disparar workflow_dispatch y no empujar a main. Cada tarea termina en una rama o un PR.
+- Toda decisión se registra en su fuente canónica: issue de Teyst, .roadmap.json, ADR o registro de VCX. Este proyecto no es fuente de nada.
+- Las tareas de los gates de W49 quedan fuera del piloto.
+- Español para la comunicación; inglés para el código.
+- Al cerrar cada retoma, recordarle al usuario que complete su fila en la ficha del plan.
+```
+
 ## Criterios de aceptación
 
 | ID | Decisión | Criterio | Umbral |
@@ -168,5 +207,9 @@ Registrar una retoma no debe llevar más de cinco minutos; si lleva más, se sim
 
 | Fecha | Tarea | Eligió | Flujo (Projects o `resume.mjs`) | Esperado: estado / próximo paso / restricción | Aciertos (de 3) | Minutos | Correcciones | Incidentes |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-24 | #294 cápsula de agenda | `resume.mjs`, 2026-11-24 | Projects (R1) | **Estado:** PR #295 (`feat/home-agenda-capsule`) con el commit `c714ac3` (hora en 24 h), en espera de ci-admit por el crédito del día. **Próximo paso:** con día nuevo o reserva devuelta, relanzar `ci-admit launch --purpose pr --pr 295` con ese SHA y seguir hasta que `teyst-ci-pilot` termine en `success`. **Restricción:** no relanzar sin crédito; sin merge ni deploy | Sin medir | Sin medir | Sin medir | Sin medir |
+| Pendiente | #268 bienvenida por grano | `resume.mjs`, 2026-11-24 | `resume.mjs` (B1) | **Estado:** implementado en #232 (`0bf4fef`), viaja en el tren #270. **Próximo paso:** verificar iOS, Android, el lector de pantalla y el movimiento reducido en el navegador. **Restricción:** está fuera del sprint; antes de tomarla, confirmar en el issue que es un pedido «Implementá esto» | | | | |
 
-Sin datos todavía.
+Las dos filas de arriba se completaron antes de arrancar, con `resume.mjs` y los issues del 2026-11-24. Las retomas siguientes se agregan con la misma ficha a medida que el Sprint Planner elige las tareas, alternando entre Projects y `resume.mjs` mientras las tareas sean comparables.
+
+**R1 sin medir (2026-11-24).** La retoma se hizo con Projects, pero no se tomaron los datos de la ficha (aciertos, minutos, correcciones, ícono de la laptop, carga de `resume.mjs` e incidentes). Por decisión del usuario se registra sin medir, en lugar de reconstruir los datos, y no cuenta para A1. La reemplaza la próxima retoma con Projects que elija el Sprint Planner, con los datos anotados antes de cerrar el hilo.
