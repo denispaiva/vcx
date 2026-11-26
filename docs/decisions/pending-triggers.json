@@ -114,6 +114,13 @@
       "title": "Cerrar el piloto de revisión independiente de Teyst: adoptar, extender o retirar",
       "paths": [],
       "reviewAt": "2026-12-08"
+    },
+    {
+      "id": "teyst-root-advisories",
+      "decision": "VCX-D081",
+      "title": "Resolver los avisos altos de grpc-js y decode-uri-component en Teyst (solera-teyst#366)",
+      "paths": [],
+      "reviewAt": "2026-12-10"
     }
   ]
 }
