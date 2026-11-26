@@ -114,6 +114,13 @@
       "title": "Cerrar el piloto de revisión independiente de Teyst: adoptar, extender o retirar",
       "paths": [],
       "reviewAt": "2026-12-08"
+    },
+    {
+      "id": "teyst-grpc-js-firebase-release",
+      "decision": "VCX-D081",
+      "title": "Subir firebase en Teyst cuando publique el grpc-js corregido, o descartar las alertas 56 y 55",
+      "paths": [],
+      "reviewAt": "2026-12-10"
     }
   ]
 }
